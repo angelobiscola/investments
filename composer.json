@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "lucadegasperi/oauth2-server-laravel": "5.1.*",
-        "kennedytedesco/validation": "~3.0"
+        "kennedytedesco/validation": "~3.0",
+        "jansenfelipe/cnpj-gratis": "2.0.*@dev"
 
     },
     "require-dev": {
@@ -50,8 +51,9 @@
             "php artisan optimize"
         ]
     },
-    "minimum-stability": "dev",
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
