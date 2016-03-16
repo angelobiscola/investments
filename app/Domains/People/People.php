@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Domains\People;
+<?php namespace App\Domains\People;
 
 use App\Domains\Bank\Bank;
 use App\Domains\Location\Location;

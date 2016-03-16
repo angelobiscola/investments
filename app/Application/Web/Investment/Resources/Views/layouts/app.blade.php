@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>collaborator Modules</title>
+    <title>Investments</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -39,17 +39,18 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Project
+            <a class="navbar-brand" href="{{ url('/investment') }}">
+                InvesTT
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/collaborator') }}">Home</a></li>
                 @if (!Auth::guard('collaborator')->guest())
-
+                    <li><a href="{{ url('/collaborator') }}">Pessoas</a></li>
+                    <li><a href="{{ url('/collaborator') }}">Empresas</a></li>
+                    <li><a href="{{ url('/collaborator') }}">Investimentos</a></li>
                 @endif
             </ul>
 

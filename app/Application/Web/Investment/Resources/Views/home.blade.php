@@ -8,7 +8,7 @@
                     <div class="panel-heading">Welcome INVESTMENT System</div>
 
                     <div class="panel-body">
-                        Your Application's Landing collaborator.
+
                     </div>
                 </div>
             </div>

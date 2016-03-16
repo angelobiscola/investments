@@ -6,11 +6,9 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 
 class InvestmentServiceProvider extends ServiceProvider
 {
-
     protected $namespace = 'App\Application\Web\Investment\Http\Controllers';
     protected $path      = 'Application/Web/Investment/Http/Routes/';
     protected $prefix    = 'investment';
-
 
     public function boot(Router $router)
     {
@@ -18,12 +16,18 @@ class InvestmentServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', $this->prefix);
     }
 
-
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['web'] ], function ($router) {
-
+        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['auth:collaborator'] ], function ($router)
+        {
             require app_path($this->path.'routes.php');
+
+            $router->group(['namespace'=> 'Person', 'prefix' => 'person', 'as' => 'person.'], function($router)
+            {
+
+                require app_path($this->path.'people.php');
+
+            });
 
         });
     }
