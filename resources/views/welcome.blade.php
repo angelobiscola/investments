@@ -38,10 +38,10 @@
             <p><a class="btn btn-default" href="/user" role="button"> <i class="glyphicon glyphicon-user"></i>Login</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <h2>Api</h2>
+            <h2>Collaborator</h2>
             <p></p>
-            <p><a class="btn btn-default" href="/api" role="button"><i class="glyphicon glyphicon-sort"></i>Login</a></p>
-        </div><!-- /.col-lg-4 -->
+            <p><a class="btn btn-default" href="/collaborator" role="button"><i class="glyphicon glyphicon-user"></i> Login</a></p>
+        </div>
         <div class="col-lg-4">
             <h2>Admin</h2>
             <p></p>
