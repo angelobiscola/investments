@@ -3,12 +3,18 @@
         <label class="col-md-4 control-label">zip_code</label>
 
         <div class="col-md-6">
-            <input type="text" id="zip_code" class="form-control" name="location[zip_code]" value="{{ old('zip_code') }}"><div id="result"></div>
+            <div class="input-group">
+                <input type="text" id="zip_code" class="form-control" name="location[zip_code]" value="{{ old('zip_code') }}" placeholder="Cep...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="get_code"  type="button">Consulta!</button>
+                  </span>
+            </div><!-- /input-group -->
 
             @if ($errors->has('zip_code'))
                 <span class="help-block"><strong>{{ $errors->first('zip_code') }}</strong></span>
             @endif
         </div>
+
     </div>
 
 <div id="control">
@@ -83,11 +89,14 @@
        <script>
             $(document).ready(function() {
 
-                $( "#zip_code" ).change(function()
+                $( "#get_code" ).click(function()
                 {
-                    $('#result').html('Pesquisando..');
+                    var btn = $(this);
+                    var old = 'Consulta!';
+                    var zip_code = $("input#zip_code").val();
+                    btn.html('Aguarde! Consultando..');
 
-                    $.getJSON("https://viacep.com.br/ws/"+$(this).val()+"/json/", function( json )
+                    $.getJSON("https://viacep.com.br/ws/"+zip_code+"/json/", function( json )
                     {
                         console.log(json);
                     })
@@ -97,7 +106,7 @@
                         $('#district').val(json.bairro);
                         $('#city').val(json.localidade);
                         $('#state_abbr').val(json.uf);
-                        $('#result').html('');
+                        btn.html(old);
 
                     })
                     .fail(function()
@@ -105,8 +114,9 @@
                         $('#address').val('');
                         $('#district').val('');
                         $('#city').val('');
-                        $('#state').val('');
+                        $('#state_abbr').val('');
                         $('#result').html('Cep não encontrado');
+                        btn.html(':( Nova Consulta');
                     })
 
                 });
