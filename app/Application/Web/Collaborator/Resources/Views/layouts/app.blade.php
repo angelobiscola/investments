@@ -48,6 +48,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/collaborator') }}">Home</a></li>
+                <li><a href="{{ url('/investment') }}">Investimentos</a></li>
+
                 @if (!Auth::guard('collaborator')->guest())
 
                 @endif
