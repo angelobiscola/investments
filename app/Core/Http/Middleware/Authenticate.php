@@ -30,6 +30,9 @@ class Authenticate
                     default:
                         $path = 'user/auth';
                         break;
+                    default:
+                        $path = 'collaborator/auth';
+                        break;
                 }
                 return redirect()->guest($path);
             }

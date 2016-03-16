@@ -163,6 +163,8 @@ return [
         App\Application\Api\Providers\ApiServiceProvider::class,
         App\Application\Web\Admin\Providers\AdminServiceProvider::class,
         App\Application\Web\User\Providers\UserServiceProvider::class,
+        App\Application\Web\Collaborator\Providers\CollaboratorServiceProvider::class,
+
 
 
         /*

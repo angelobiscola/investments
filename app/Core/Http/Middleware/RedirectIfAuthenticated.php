@@ -27,6 +27,9 @@ class RedirectIfAuthenticated
                 default:
                     $path = 'user';
                     break;
+                default:
+                    $path = 'collaborator';
+                    break;
             }
             return redirect($path);
         }

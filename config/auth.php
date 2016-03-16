@@ -48,12 +48,12 @@ return [
             'provider' => 'admins',
         ],
 
-        /*
-        'business' => [
+
+        'collaborator' => [
             'driver' => 'session',
-            'provider' => 'businesses',
+            'provider' => 'collaborators',
         ],
-        */
+
 
         'api' => [
             'driver' => 'token',
@@ -89,6 +89,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Domains\Admin\Admin::class,
         ],
+
+        'collaborators' => [
+            'driver' => 'eloquent',
+            'model' => App\Domains\Collaborator\Collaborator::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -127,6 +133,13 @@ return [
         'admin' => [
             'provider' => 'admins',
             'email' => 'admin::auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'collaborator' => [
+            'provider' => 'collaborators',
+            'email' => 'collaborator::auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
