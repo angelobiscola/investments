@@ -18,11 +18,11 @@ class InvestmentServiceProvider extends ServiceProvider
 
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['auth:collaborator'] ], function ($router)
+        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['web']], function ($router)
         {
             require app_path($this->path.'routes.php');
 
-            $router->group(['namespace'=> 'Person', 'prefix' => 'person', 'as' => 'person.'], function($router)
+            $router->group(['namespace'=> 'Person', 'prefix' => 'person', 'as' => 'person.','middleware' => ['auth:collaborator']], function($router)
             {
 
                 require app_path($this->path.'people.php');
