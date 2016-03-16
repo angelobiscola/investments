@@ -20,11 +20,11 @@ class CreatePeopleTable extends Migration
             $table->string('marital_status');
             $table->string('birth_date');
             $table->string('profession');
-            $table->integer('age');
             $table->string('identity');
-            $table->string('organ issuer');
+            $table->string('organ_issuer');
             $table->string('cpf');
             $table->string('phone');
+            $table->string('cell_phone');
             $table->string('email')->unique();
             $table->timestamps();
             $table->softDeletes();

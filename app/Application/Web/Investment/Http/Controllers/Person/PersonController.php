@@ -26,9 +26,13 @@ class PersonController extends BaseController
 
     public function store(Request $request)
     {
+        $location = $request->input('location');
+        $person   = $this->people->create($request->input('person'));
 
-        dd($request->all());
-
+        if($location)
+        {
+            $person->Location()->create($location);
+        }
     }
 
     public function show($id)

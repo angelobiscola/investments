@@ -9,7 +9,7 @@ class People extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['*'];
+    protected $fillable = ['name','representation','nationality', 'marital_status', 'birth_data', 'profession', 'identity','organ_issuer','cpf','phone','cell_phone','email'];
     protected $dates    = ['deleted_at'];
 
     public function Location()

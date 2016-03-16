@@ -1,17 +1,7 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.person.store')) }}">
 
-    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        <label class="col-md-4 control-label">Name</label>
-
-        <div class="col-md-6">
-            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-
-            @if ($errors->has('name'))
-                <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
-            @endif
-        </div>
-    </div>
-
+    tab Person
+    @include('investment::people._inputs',['pj' => false])
 
     tab Location
     @include('investment::locations._inputs')
