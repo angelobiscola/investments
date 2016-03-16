@@ -21,11 +21,13 @@ class PersonController extends BaseController
 
     public function create()
     {
-        //return view
+        return view('investment::people.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+
+        dd($request->all());
 
     }
 
