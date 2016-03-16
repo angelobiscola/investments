@@ -21,13 +21,24 @@
                         <table class="table table-hover">
                             <thead>
                                 <th>Name</th>
-                                <th>Client Id</th>
-                                <th>Secret Id</th>
+                                <th>Cpf</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>#</th>
                             </thead>
-
+                            <tbody>
+                            @foreach($people  as $person)
+                                <tr>
+                                    <td>{!! $person->name   !!}</td>
+                                    <td>{!! $person->cpf    !!}</td>
+                                    <td>{!! $person->created_at !!}</td>
+                                    <td>{!! $person->updated_at !!}</td>
+                                    <td>
+                                        <a href="" ><i class="glyphicon glyphicon-refresh"></i></a>
+                                        <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
+                                    </td>
+                                </tr>
+                             @endforeach
                             </tbody>
                         </table>
                     </div>
