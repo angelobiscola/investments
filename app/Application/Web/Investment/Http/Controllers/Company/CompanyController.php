@@ -3,6 +3,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Company;
+use App\Domains\People\People;
 use Illuminate\Http\Request;
 
 class CompanyController extends BaseController
@@ -24,9 +25,14 @@ class CompanyController extends BaseController
         return view('investment::companies.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request,People $people)
     {
+        $company = $people->create($request->input('person'))->Company()->create($request->input('company'));
 
+        if($request->input('location'))
+        {
+            $company->Location()->create($request->input('location'));
+        }
     }
 
     public function show($id)

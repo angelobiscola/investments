@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.person.store')) }}">
+<form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.company.store')) }}">
 
     tab Company
     @include('investment::companies._inputs')

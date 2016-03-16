@@ -1,6 +1,7 @@
 <?php namespace App\Domains\People;
 
 use App\Domains\Bank\Bank;
+use App\Domains\Company\Company;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,4 +23,8 @@ class People extends Model
         return $this->morphOne(Bank::class, 'bankable');
     }
 
+    public function Company()
+    {
+        return $this->hasMany(Company::class);
+    }
 }
