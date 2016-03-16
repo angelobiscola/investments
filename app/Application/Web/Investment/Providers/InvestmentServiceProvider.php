@@ -36,6 +36,14 @@ class InvestmentServiceProvider extends ServiceProvider
 
             });
 
+            $router->group(['namespace'=> 'Api', 'prefix' => 'apis', 'as' => 'api.','middleware' => ['auth:collaborator']], function($router)
+            {
+
+                require app_path($this->path.'apis.php');
+
+            });
+
+
 
         });
     }
