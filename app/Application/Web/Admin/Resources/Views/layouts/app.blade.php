@@ -50,6 +50,7 @@
                 <li><a href="{{ url('/admin') }}">Home</a></li>
                 @if (!Auth::guard('admin')->guest())
                 <li><a href="{{ route('admin.client.index') }}">Clients</a></li>
+                <li><a href="{{ route('collaborator.auth.register.index') }}">Colaborador</a></li>
                 @endif
             </ul>
 
@@ -58,8 +59,9 @@
                 <!-- Authentication Links -->
                 @if (Auth::guard('admin')->guest())
                     <li><a href="{{ route('admin.auth.index') }}">Login</a></li>
-                    <li><a href="{{ route('admin.auth.register.index')  }}">Register</a></li>
                 @else
+
+                    <li><a href="{{ route('admin.auth.register.index')  }}">Register Admin</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
