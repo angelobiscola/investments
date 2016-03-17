@@ -1,10 +1,9 @@
-
     <div class="form-group{{ $errors->has('zip_code') ? ' has-error' : '' }}">
         <label class="col-md-4 control-label">zip_code</label>
 
         <div class="col-md-6">
             <div class="input-group">
-                <input type="text" id="zip_code" class="form-control" name="location[zip_code]" value="{{ old('zip_code') }}" placeholder="Cep...">
+                <input type="text" id="zip_code" class="form-control" name="location[zip_code]" value="@if($l){{$l->zip_code}}@endif" placeholder="Cep...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" id="get_code"  type="button">Consulta!</button>
                   </span>
@@ -22,7 +21,7 @@
         <label class="col-md-4 control-label">Address</label>
 
         <div class="col-md-6">
-            <input type="text" id="address" class="form-control" name="location[address]" value="{{ old('address') }}">
+            <input type="text" id="address" class="form-control" name="location[address]" value="@if($l){{$l->address}}@endif">
 
             @if ($errors->has('address'))
                 <span class="help-block"><strong>{{ $errors->first('address') }}</strong></span>
@@ -36,7 +35,7 @@
         <label class="col-md-4 control-label">number</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" id="number" name="location[number]" value="{{ old('number') }}">
+            <input type="text" class="form-control" id="number" name="location[number]" value="@if($l){{$l->number}}@endif">
 
             @if ($errors->has('number'))
                 <span class="help-block"><strong>{{ $errors->first('number') }}</strong></span>
@@ -48,7 +47,7 @@
         <label class="col-md-4 control-label">city</label>
 
         <div class="col-md-6">
-            <input type="text" id="city" class="form-control" name="location[city]" value="{{ old('city') }}">
+            <input type="text" id="city" class="form-control" name="location[city]" value="@if($l){{$l->city}}@endif">
 
             @if ($errors->has('city'))
                 <span class="help-block"><strong>{{ $errors->first('city') }}</strong></span>
@@ -61,7 +60,7 @@
         <label class="col-md-4 control-label">district</label>
 
         <div class="col-md-6">
-            <input type="text" id="district" class="form-control" name="location[district]" value="{{ old('district') }}">
+            <input type="text" id="district" class="form-control" name="location[district]" value="@if($l){{$l->district}}@endif">
 
             @if ($errors->has('district'))
                 <span class="help-block"><strong>{{ $errors->first('district') }}</strong></span>
@@ -74,7 +73,7 @@
         <label class="col-md-4 control-label">state_abbr</label>
 
         <div class="col-md-6">
-            <input type="text" id="state_abbr" class="form-control" name="location[state_abbr]" value="{{ old('state_abbr') }}">
+            <input type="text" id="state_abbr" class="form-control" name="location[state_abbr]" value="@if($l){{$l->state_abbr}}@endif">
 
             @if ($errors->has('state_abbr'))
                 <span class="help-block"><strong>{{ $errors->first('state') }}</strong></span>

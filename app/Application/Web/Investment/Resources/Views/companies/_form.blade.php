@@ -7,7 +7,7 @@
     @include('investment::people._inputs',['pj' => true])
 
     tab Location
-    @include('investment::locations._inputs')
+    @include('investment::locations._inputs',['l' =>''])
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">

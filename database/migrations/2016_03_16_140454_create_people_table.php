@@ -14,7 +14,7 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();;
             $table->string('representation')->default(' ');
             $table->string('nationality')->default('Brasil');
             $table->string('marital_status');
@@ -22,7 +22,7 @@ class CreatePeopleTable extends Migration
             $table->string('profession');
             $table->string('identity');
             $table->string('organ_issuer');
-            $table->string('cpf');
+            $table->string('cpf')->unique();;
             $table->string('phone');
             $table->string('cell_phone');
             $table->string('email')->unique();

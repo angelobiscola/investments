@@ -13,12 +13,13 @@ class CreateInformationTable extends Migration
     public function up()
     {
         Schema::create('information', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('razao_social');
-            $table->string('cnpj');
+            $table->integer('id')->unique();
+            $table->string('name')->unique();;
+            $table->string('company_name')->unique();
+            $table->string('cnpj')->unique();
             $table->string('cnae_principal');
-            $table->string('telefone');
-            $table->string('email');
+            $table->string('phone');
+            $table->string('email')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
