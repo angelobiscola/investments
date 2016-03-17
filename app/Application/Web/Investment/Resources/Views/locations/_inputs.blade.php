@@ -8,7 +8,7 @@
                   <span class="input-group-btn">
                     <button class="btn btn-default" id="get_code"  type="button">Consulta!</button>
                   </span>
-            </div><!-- /input-group -->
+            </div>
 
             @if ($errors->has('zip_code'))
                 <span class="help-block"><strong>{{ $errors->first('zip_code') }}</strong></span>
@@ -36,7 +36,7 @@
         <label class="col-md-4 control-label">number</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" name="location[number]" value="{{ old('number') }}">
+            <input type="text" class="form-control" id="number" name="location[number]" value="{{ old('number') }}">
 
             @if ($errors->has('number'))
                 <span class="help-block"><strong>{{ $errors->first('number') }}</strong></span>

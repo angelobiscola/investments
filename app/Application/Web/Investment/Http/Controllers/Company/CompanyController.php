@@ -5,6 +5,7 @@ use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Company;
 use App\Domains\People\People;
 use Illuminate\Http\Request;
+use JansenFelipe\CnpjGratis\CnpjGratis;
 
 class CompanyController extends BaseController
 {
@@ -20,9 +21,10 @@ class CompanyController extends BaseController
         return view('investment::companies.index')->with('companies',$this->company->all());
     }
 
-    public function create()
+    public function create(CnpjGratis $cnpj)
     {
-        return view('investment::companies.create');
+        $params = $cnpj->getParams();
+        return view('investment::companies.create')->with('captcha',$params['captchaBase64'])->with('cookie',$params['cookie']);
     }
 
     public function store(Request $request,People $people)

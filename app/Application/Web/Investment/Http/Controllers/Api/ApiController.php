@@ -13,12 +13,38 @@ class ApiController extends BaseController
 
     public function getCnpj(Request $request)
     {
-        $cnpj = $request->get('q');
-        $return = CnpjGratis::consulta($cnpj,'7','7');
-        $return['cep'] = Utils::mask($return['cep'], Mask::CEP);
-        $return['code'] = 0;
-        //return response()->json(["data" => $return]);
+        $cnpj       = $request->get('cnpj');
+        $captcha    = $request->get('captcha');
+        $cookie     = $request->get('cookie');
 
+        try {
+            $return = CnpjGratis::consulta($cnpj, $captcha, $cookie);
+            $return['cep'] = Utils::mask($return['cep'], Mask::CEP);
+            $return['code'] = 0;
+            return response()->json($return);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json('erro no captcha ou CNPJ invalido');
+        }
+    }
+
+    public function getCpf(Request $request)
+    {
+        $cnpj       = $request->get('cnpj');
+        $captcha    = $request->get('captcha');
+        $cookie     = $request->get('cookie');
+
+        try {
+            $return = CnpjGratis::consulta($cnpj, $captcha, $cookie);
+            $return['cep'] = Utils::mask($return['cep'], Mask::CEP);
+            $return['code'] = 0;
+            return response()->json($return);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json('erro no captcha ou CNPJ invalido');
+        }
     }
 }
 
