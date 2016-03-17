@@ -12,7 +12,7 @@ class Company extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['nome','razao_social','cnpj','cnae_principal', 'telefone', 'email' ];
+    protected $fillable = ['name','company_name','cnpj','cnae_principal', 'phone', 'email','people_id','master'];
     protected $dates    = ['deleted_at'];
 
     public function Location()

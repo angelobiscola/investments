@@ -21,6 +21,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <th>Name</th>
+                                <th>Company Name</th>
                                 <th>Cpf</th>
                                 <th>Created</th>
                                 <th>Updated</th>
@@ -30,6 +31,7 @@
                             @foreach($companies  as $company)
                                 <tr>
                                     <td>{!! $company->name   !!}</td>
+                                    <td>{!! $company->company_name !!}</td>
                                     <td>{!! $company->cnpj    !!}</td>
                                     <td>{!! $company->created_at !!}</td>
                                     <td>{!! $company->updated_at !!}</td>

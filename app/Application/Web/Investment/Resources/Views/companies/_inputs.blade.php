@@ -38,27 +38,27 @@
 
 </div>
 
-<div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">nome</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='nome' name="company[nome]" value="{{ old('nome') }}">
+        <input type="text" class="form-control" id='name' name="company[name]" value="{{ old('name') }}">
 
-        @if ($errors->has('nome'))
-            <span class="help-block"><strong>{{ $errors->first('nome') }}</strong></span>
+        @if ($errors->has('name'))
+            <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('razao_social') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">razao_social</label>
+<div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">company_name</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='razao_social' name="company[razao_social]" value="{{ old('razao_social') }}">
+        <input type="text" class="form-control" id='company_name' name="company[company_name]" value="{{ old('company_name') }}">
 
-        @if ($errors->has('razao_social'))
-            <span class="help-block"><strong>{{ $errors->first('razao_social') }}</strong></span>
+        @if ($errors->has('company_name'))
+            <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
         @endif
     </div>
 </div>
@@ -76,14 +76,14 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">telefone</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='telefone' name="company[telefone]" value="{{ old('telefone') }}">
+        <input type="text" class="form-control" id='phone' name="company[phone]" value="{{ old('phone') }}">
 
-        @if ($errors->has('telefone'))
-            <span class="help-block"><strong>{{ $errors->first('telefone') }}</strong></span>
+        @if ($errors->has('phone'))
+            <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
         @endif
     </div>
 </div>
@@ -121,10 +121,10 @@
 
                         if (json.code === 0) {
 
-                            $('#nome').val(json.nome_fantasia);
-                            $('#razao_social').val(json.razao_social);
+                            $('#name').val(json.nome_fantasia);
+                            $('#company_name').val(json.razao_social);
                             $('#cnae_principal').val(json.cnae_principal);
-                            $('#telefone').val(json.telefone);
+                            $('#phone').val(json.telefone);
                             $('#email').val(json.email);
 
                             //location
