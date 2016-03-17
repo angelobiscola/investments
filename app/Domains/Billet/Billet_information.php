@@ -3,6 +3,7 @@
 namespace App\Domains\Billet;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Billet_information extends Model
 {
