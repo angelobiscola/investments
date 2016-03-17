@@ -4,7 +4,6 @@ namespace App\Application\Web\Investment\Http\Controllers\Person;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\People\People;
 use Illuminate\Http\Request;
-use JansenFelipe\CpfGratis\CpfGratis as Cpf;
 
 class PersonController extends BaseController
 {
@@ -20,10 +19,9 @@ class PersonController extends BaseController
         return view('investment::people.index')->with('people',$this->people->all());
     }
 
-    public function create(Cpf $cpf)
+    public function create()
     {
-        $params = $cpf->getParams();
-        return view('investment::people.create')->with('captcha',$params['captchaBase64'])->with('cookie',$params['cookie']);
+        return view('investment::people.create');
     }
 
     public function store(Request $request)
@@ -56,6 +54,12 @@ class PersonController extends BaseController
     public function destroy($id)
     {
         dd($this->people->find($id)->delete());
+    }
+
+    public function investments($id)
+    {
+        $investments = $this->people->find($id)->Investments;
+        return view('investment::people.investments.index',compact('investments','id'));
     }
 }
 

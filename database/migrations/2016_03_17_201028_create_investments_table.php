@@ -17,6 +17,7 @@ class CreateInvestmentsTable extends Migration
             $table->double('value');
             $table->integer('quota');
             $table->dateTime('date_payment');
+            $table->boolean('status');
             $table->integer('mode');
             $table->integer('people_id');
             $table->timestamps();

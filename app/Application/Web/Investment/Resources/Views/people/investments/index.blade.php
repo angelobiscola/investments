@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: People  <a href="{!! route('investment.person.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading">IvesT: Investments  <a href="{!! route('investment.person.investment.create',$id) !!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -16,32 +16,39 @@
                         </div>
                     @endif
 
-                    <div class="panel-body">
+                    @if($investments->count())
+                    <div class="panel-body">clar
 
                         <table class="table table-hover">
                             <thead>
-                                <th>Name</th>
-                                <th>Cpf</th>
+                                <th>Company|Person</th>
+                                <th>Value</th>
+                                <th>Date Payment</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>#</th>
                             </thead>
                             <tbody>
-                            @foreach($people  as $person)
+                            @foreach($investments  as $investment)
                                 <tr>
-                                    <td>{!! $person->name   !!}</td>
-                                    <td>{!! $person->cpf    !!}</td>
-                                    <td>{!! $person->created_at !!}</td>
-                                    <td>{!! $person->updated_at !!}</td>
+                                    <td></td>
+                                    <td>{!! $investment->value   !!}</td>
+                                    <td>{!! $investment->date_payment    !!}</td>
+                                    <td>{!! $investment->created_at !!}</td>
+                                    <td>{!! $investment->updated_at !!}</td>
                                     <td>
-                                        <a href="{!! route('investment.person.show',$person) !!}" target="_blank" ><i class="glyphicon glyphicon-record"></i></a>
-                                        <a href="{!! route('investment.person.investments',$person) !!}"><i class="glyphicon glyphicon-console"></i></a>
                                         <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
-                             @endforeach
+                            @endforeach
+
                             </tbody>
                         </table>
+                        @else
+                        <div class="panel-body text-center">
+                            Não á registros.
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
