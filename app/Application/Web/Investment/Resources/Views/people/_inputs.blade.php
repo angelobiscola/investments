@@ -1,8 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="captchaCPF" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Captcha</h4>
+            </div>
+            <div class="modal-body">
+                <img id="cpfImgCaptcha"src=""/><br /><br />
+                <input type="text" class="form-control" id="cpfCaptcha" placeholder="Informe os caracteres da imagem acima" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="consultarCPF">Consultar</button>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="cpfCookie" value="">
+</div>
+
+<div class="form-group{{ $errors->has('birth_date') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">birth_date</label>
+
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="birth_date" name="person[birth_date]" value="{{ old('birth_date') }}"  placeholder="Nascimento (DDMMYYYY)">
+
+        @if ($errors->has('birth_date'))
+            <span class="help-block"><strong>{{ $errors->first('birth_date') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">cpf</label>
+
+    <div class="col-md-6">
+        <div class="input-group">
+            <input type="text" id="cpf" class="form-control" name="company[cpf]" value="{{ old('cpf') }}" placeholder="cpf...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCPF">Consulta!</button>
+                  </span>
+        </div>
+
+        @if ($errors->has('cpnj'))
+            <span class="help-block"><strong>{{ $errors->first('cpnj') }}</strong></span>
+        @endif
+    </div>
+
+</div>
+
+
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">Name</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="person[name]" value="{{ old('name') }}">
+        <input type="text" class="form-control" id="name" name="person[name]" value="{{ old('name') }}">
 
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
@@ -48,20 +100,6 @@
     </div>
 </div>
 
-
-<div class="form-group{{ $errors->has('birth_date') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">birth_date</label>
-
-    <div class="col-md-6">
-        <input type="text" class="form-control" name="person[birth_date]" value="{{ old('birth_date') }}">
-
-        @if ($errors->has('birth_date'))
-            <span class="help-block"><strong>{{ $errors->first('birth_date') }}</strong></span>
-        @endif
-    </div>
-</div>
-
-
 <div class="form-group{{ $errors->has('profession') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">profession</label>
 
@@ -97,19 +135,6 @@
         @endif
     </div>
 </div>
-
-<div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">cpf</label>
-
-    <div class="col-md-6">
-        <input type="text" class="form-control" name="person[cpf]" value="{{ old('cpf') }}">
-
-        @if ($errors->has('cpf'))
-            <span class="help-block"><strong>{{ $errors->first('cpf') }}</strong></span>
-        @endif
-    </div>
-</div>
-
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">phone</label>
@@ -148,6 +173,62 @@
         @endif
     </div>
 </div>
+
+@section('scripts')
+    @parent
+    <script>
+        $(function() {
+            $("#consultarCPF").click(function() {
+                var btn = $(this);
+                var old = btn.html();
+                var param = {
+                    cpf: $("#cpf").val(),
+                    date: $("#birth_date").val(),
+                    captcha: $("#cpfCaptcha").val(),
+                    cookie: $("#cpfCookie").val(),
+                };
+
+                console.log(param);
+
+                btn.html('Aguarde! Consultando..');
+
+                $.get("/investment/apis/cpf/", param, function(json)
+                {
+
+                })
+                .done(function(json)
+                {
+                    $('#name').val(json.nome);
+                    $("#birth_date").val(json.nascimento);
+                    btn.html(old);
+                    $('#captchaCPF').modal('hide');
+
+                })
+                .fail(function(json)
+                {
+                    alert(json);
+                    btn.html(old);
+                    $('#captchaCPF').modal('hide');
+                })
+
+            });
+
+            $('#captchaCPF').on('shown.bs.modal', function ()
+            {
+                $("#cpfCaptcha").val('');
+                $("#cpfImgCaptcha").attr('src', "http://www.expresscouriercars.co.uk/img/load.gif");
+
+                $.get("/investment/apis/captchacpf/", function(json)
+                {
+                    $("#cpfImgCaptcha").attr('src', json.captcha);
+                    $("#cpfCookie").val(json.cookie);
+                });
+            });
+
+
+        });
+    </script>
+@stop
 
 
 
