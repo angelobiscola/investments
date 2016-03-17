@@ -16,6 +16,7 @@ class CreateBilletInformationsTable extends Migration
 
             $table->increments('id');
             $table->integer('agencia');
+            $table->integer('agencia_dv');
             $table->integer('conta');
             $table->integer('conta_dv');
             $table->integer('carteira');

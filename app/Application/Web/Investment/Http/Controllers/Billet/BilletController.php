@@ -16,16 +16,19 @@ class BilletController extends BaseController
 
     public function index()
     {
-
+        $billets = $this->billet->all();
+        return view('investment::billets.index',compact('billets'));
     }
 
     public function create()
     {
-
+        return view('investment::billets.create');
     }
+
     public function store(Request $request)
     {
-
+        $billet = $this->billet->create($request->input('billet'));
+        return redirect(route('investment.billet.info.create',$billet->id));
     }
 
     public function show($id)

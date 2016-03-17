@@ -9,7 +9,7 @@ class Billet extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = [''];
+    protected $fillable = ['name','template'];
     protected $dates    = ['deleted_at'];
 
 

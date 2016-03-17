@@ -19,12 +19,17 @@ class infoController extends BaseController
 
     }
 
-    public function create()
+    public function create($id)
     {
-
+        return view('investment::billets.info.create',compact('id'));
     }
-    public function store(Request $request)
+    public function store($id,Request $request)
     {
+        $request = $request->input('info');
+        $request['billet_id'] = $id;
+
+        $this->billet->create($request);
+        return redirect(route('investment.billet.index'));
 
     }
 
