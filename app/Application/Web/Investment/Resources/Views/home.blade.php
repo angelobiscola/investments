@@ -30,7 +30,7 @@
                                 Não tem Informações
                             @endif
                         </div>
-                        <div class="panel-footer"><a href="{!! route('investment.company.create')!!}"> Adicionar Boleto </a></div>
+                        <div class="panel-footer"><a href="{!! route('investment.billet.create')!!}"> Adicionar Boleto </a></div>
                     </div>
                 </div>
             </div>
