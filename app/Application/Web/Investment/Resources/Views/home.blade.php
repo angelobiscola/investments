@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome INVESTMENT System</div>
+                    <div class="panel-heading">Welcome INVESTMENT System  <a href="#" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
                         <div class="panel-body">
                             @if($information == '')
                                 <table class="table table-hover">
@@ -30,7 +30,7 @@
                                 Não tem Informações
                             @endif
                         </div>
-                        <div class="panel-footer"><a href="#"> Adicionar Boleto </a></div>
+                        <div class="panel-footer"><a href="{!! route('investment.company.create')!!}"> Adicionar Boleto </a></div>
                     </div>
                 </div>
             </div>
