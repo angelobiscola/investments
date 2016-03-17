@@ -34,7 +34,7 @@
                                     <td>{!! $person->created_at !!}</td>
                                     <td>{!! $person->updated_at !!}</td>
                                     <td>
-                                        <a href="" ><i class="glyphicon glyphicon-refresh"></i></a>
+                                        <a href="{!! route('investment.person.show',$person) !!}" target="_blank" ><i class="glyphicon glyphicon-record"></i></a>
                                         <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>

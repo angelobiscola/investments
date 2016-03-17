@@ -31,8 +31,8 @@
                                 <tr>
                                     <td>{!! $company->name   !!}</td>
                                     <td>{!! $company->cnpj    !!}</td>
-                                    <td>{!! $person->created_at !!}</td>
-                                    <td>{!! $person->updated_at !!}</td>
+                                    <td>{!! $company->created_at !!}</td>
+                                    <td>{!! $company->updated_at !!}</td>
                                     <td>
                                         <a href="" ><i class="glyphicon glyphicon-refresh"></i></a>
                                         <a href="" ><i class="glyphicon glyphicon-trash"></i></a>

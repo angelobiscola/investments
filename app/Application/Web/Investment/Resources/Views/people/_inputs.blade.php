@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="myModalLabel">Captcha</h4>
             </div>
             <div class="modal-body">
-                <img id="cpfImgCaptcha"src=""/><br /><br />
+                <img id="cpfImgCaptcha" src=" "/><br /><br />
                 <input type="text" class="form-control" id="cpfCaptcha" placeholder="Informe os caracteres da imagem acima" />
             </div>
             <div class="modal-footer">
@@ -36,14 +36,14 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            <input type="text" id="cpf" class="form-control" name="company[cpf]" value="{{ old('cpf') }}" placeholder="cpf...">
+            <input type="text" id="cpf" class="form-control" name="person[cpf]" value="{{ old('cpf') }}" placeholder="cpf...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCPF">Consulta!</button>
                   </span>
         </div>
 
-        @if ($errors->has('cpnj'))
-            <span class="help-block"><strong>{{ $errors->first('cpnj') }}</strong></span>
+        @if ($errors->has('cpf'))
+            <span class="help-block"><strong>{{ $errors->first('cpf') }}</strong></span>
         @endif
     </div>
 

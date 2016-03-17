@@ -39,7 +39,8 @@ class PersonController extends BaseController
 
     public function show($id)
     {
-        dd($this->people->find($id));
+        $person = $this->people->find($id);
+        return view('investment::people.report',compact('person'));
     }
 
     public function edit($id)
