@@ -9,7 +9,7 @@ class Billet_information extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['agencia','agencia_dv','conta','conta_dv','carteira','contrato', 'contrato','billet_id'];
+    protected $fillable = ['agency','agency_dv','account','account_dv','wallet','contract','identification','billet_id'];
     protected $dates    = ['deleted_at'];
 
     public function Billet()

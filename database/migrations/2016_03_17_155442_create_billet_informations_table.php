@@ -15,13 +15,13 @@ class CreateBilletInformationsTable extends Migration
         Schema::create('billet_informations', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('agencia');
-            $table->integer('agencia_dv');
-            $table->integer('conta');
-            $table->integer('conta_dv');
-            $table->integer('carteira');
-            $table->string('identificacao');
-            $table->integer('contrato');
+            $table->integer('agency');
+            $table->integer('agency_dv');
+            $table->integer('account');
+            $table->integer('account_dv');
+            $table->integer('wallet');
+            $table->string('identification');
+            $table->integer('contract');
             $table->integer('billet_id');
             $table->timestamps();
             $table->softDeletes();

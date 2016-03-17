@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c69ab18a65cf96e403913a4f2591b86f",
-    "content-hash": "3a6072962ea523f39ad51d42f8a1e2ca",
+    "hash": "f4ec4f6b8585b4476a4543457c82ef86",
+    "content-hash": "4008466d58718214511066760d9bf7c4",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -723,6 +723,47 @@
                 "validation"
             ],
             "time": "2015-12-22 14:36:02"
+        },
+        {
+            "name": "kriansa/openboleto",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriansa/openboleto.git",
+                "reference": "3c5f3d2cf5aff13962581ed15e7611acb1ae11b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriansa/openboleto/zipball/3c5f3d2cf5aff13962581ed15e7611acb1ae11b6",
+                "reference": "3c5f3d2cf5aff13962581ed15e7611acb1ae11b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "OpenBoleto\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Garajau",
+                    "email": "kriansa@facebook.com"
+                }
+            ],
+            "description": "Biblioteca para geração de boletos bancários.",
+            "homepage": "http://github.com/kriansa/openboleto",
+            "keywords": [
+                "boleto",
+                "boleto bancario"
+            ],
+            "time": "2016-03-14 13:31:03"
         },
         {
             "name": "laravel/framework",
@@ -3771,7 +3812,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jansenfelipe/cnpj-gratis": 20
+        "jansenfelipe/cnpj-gratis": 20,
+        "kriansa/openboleto": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

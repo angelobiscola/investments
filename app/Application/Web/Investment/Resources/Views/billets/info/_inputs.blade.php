@@ -1,75 +1,75 @@
-<div class="form-group{{ $errors->has('agencia') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('agency') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">agencia</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="agencia" name="info[agencia]" value="{{ old('agencia') }}">Num da agencia, sem digito
+        <input type="text" class="form-control" id="agency" name="info[agency]" value="{{ old('agency') }}">Num da agencia, sem digito
 
-        @if ($errors->has('agencia'))
-            <span class="help-block"><strong>{{ $errors->first('agencia') }}</strong></span>
+        @if ($errors->has('agency'))
+            <span class="help-block"><strong>{{ $errors->first('agency') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('agencia_dv') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">agencia_dv</label>
+<div class="form-group{{ $errors->has('agency_dv') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">agency_dv</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[agencia_dv]" value="{{ old('agencia_dv') }}">Digito do Num da agencia
+        <input type="text" class="form-control" name="info[agency_dv]" value="{{ old('agency_dv') }}">Digito do Num da agencia
 
-        @if ($errors->has('agencia_dv'))
-            <span class="help-block"><strong>{{ $errors->first('agencia_dv') }}</strong></span>
+        @if ($errors->has('agency_dv'))
+            <span class="help-block"><strong>{{ $errors->first('agency_dv') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('conta') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">conta</label>
+<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">account</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[conta]" value="{{ old('conta') }}">Num da conta, sem digito
+        <input type="text" class="form-control" name="info[account]" value="{{ old('account') }}">Num da conta, sem digito
 
-        @if ($errors->has('conta'))
-            <span class="help-block"><strong>{{ $errors->first('conta') }}</strong></span>
-        @endif
-    </div>
-</div>
-
-
-<div class="form-group{{ $errors->has('conta_dv') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">conta_dv</label>
-
-    <div class="col-md-6">
-        <input type="text" class="form-control" name="info[conta_dv]" value="{{ old('conta_dv') }}">Digito conta
-
-        @if ($errors->has('conta_dv'))
-            <span class="help-block"><strong>{{ $errors->first('conta_dv') }}</strong></span>
+        @if ($errors->has('account'))
+            <span class="help-block"><strong>{{ $errors->first('account') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('carteira') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">carteira</label>
+<div class="form-group{{ $errors->has('account_dv') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">account_dv</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[conta_dv]" value="{{ old('carteira') }}">Código da Carteira: pode ser 06 ou 03
+        <input type="text" class="form-control" name="info[account_dv]" value="{{ old('account_dv') }}">Digito conta
 
-        @if ($errors->has('carteira'))
-            <span class="help-block"><strong>{{ $errors->first('carteira') }}</strong></span>
+        @if ($errors->has('account_dv'))
+            <span class="help-block"><strong>{{ $errors->first('account_dv') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('contrato') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">contrato</label>
+<div class="form-group{{ $errors->has('wallet') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">wallet</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[contrato]" value="{{ old('contrato') }}">
+        <input type="text" class="form-control" name="info[wallet]" value="{{ old('wallet') }}">Código da Carteira: pode ser 06 ou 03
 
-        @if ($errors->has('contrato'))
-            <span class="help-block"><strong>{{ $errors->first('contrato') }}</strong></span>
+        @if ($errors->has('wallet'))
+            <span class="help-block"><strong>{{ $errors->first('wallet') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+
+<div class="form-group{{ $errors->has('contract') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">contract</label>
+
+    <div class="col-md-6">
+        <input type="text" class="form-control" name="info[contract]" value="{{ old('contract') }}">
+
+        @if ($errors->has('contract'))
+            <span class="help-block"><strong>{{ $errors->first('contract') }}</strong></span>
         @endif
     </div>
 </div>

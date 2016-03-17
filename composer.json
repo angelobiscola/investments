@@ -11,7 +11,8 @@
         "lucadegasperi/oauth2-server-laravel": "5.1.*",
         "kennedytedesco/validation": "~3.0",
         "jansenfelipe/cnpj-gratis": "2.0.*@dev",
-        "jansenfelipe/cpf-gratis": "^2.0"
+        "jansenfelipe/cpf-gratis": "^2.0",
+        "kriansa/openboleto": "dev-master"
 
     },
     "require-dev": {
