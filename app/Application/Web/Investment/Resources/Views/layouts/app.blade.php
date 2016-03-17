@@ -48,7 +48,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 @if (!Auth::guard('collaborator')->guest())
-                    <li><a href="{{ url('/user') }}">Pessoas</a></li>
+                    <li><a href="{{ url('/investment/person') }}">Pessoas</a></li>
                     <li><a href="{{ url('investment/company') }}">Empresas</a></li>
                 @endif
             </ul>
