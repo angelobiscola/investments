@@ -27,4 +27,9 @@ class People extends Model
     {
         return $this->hasMany(Company::class);
     }
+
+    public function Investments()
+    {
+        return $this->hasMany(Investment::class);
+    }
 }
