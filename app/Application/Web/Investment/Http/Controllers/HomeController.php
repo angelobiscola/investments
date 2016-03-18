@@ -1,21 +1,21 @@
 <?php
 namespace App\Application\Web\Investment\Http\Controllers;
 
-use App\Domains\Admin\Information;
+use App\Domains\Company\Company;
 
 class HomeController extends BaseController
 {
-    protected $information;
+    protected $company;
 
-    public function __construct(Information $information)
+    public function __construct(Company $company)
     {
-        $this->information = $information;
+        $this->company = $company;
     }
 
     public function index()
     {
-        $information = $this->information->all()->first();
-        return view('investment::home', compact('information'));
+        $company = $this->company->all()->first();
+        return view('investment::home', compact('company'));
     }
 
 }

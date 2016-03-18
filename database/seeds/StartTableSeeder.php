@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Domains\Admin\Admin;
 use App\Domains\Collaborator\Collaborator;
-use App\Domains\Admin\Information;
+use App\Domains\Company\Company;
 
 class StartTableSeeder extends Seeder
 {
@@ -16,9 +16,9 @@ class StartTableSeeder extends Seeder
     {
         Admin::truncate();
         Collaborator::truncate();
-        Information::truncate();
+        Company::truncate();
 
-        Information::create(['id' => 1, 'name' => 'New name', 'company_name' => 'New company name']);
+        Company::create(['id' => 1, 'name' => 'New name', 'company_name' => 'New company name']);
         Admin::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => '$2y$10$r9q9YCj9rBkVjI093fKVueh8IZd8L8nWXGwyBS63BflWeDQ0nmjIe']);
         Collaborator::create(['name' => 'Funcionario', 'email' => 'fund@afun.com', 'password' => '$2y$10$mfCZ3wwYpTuTUiU3jKonjeU.wj/eJhAu1ll08RBN6UQJLUGAnu9wq']);
 

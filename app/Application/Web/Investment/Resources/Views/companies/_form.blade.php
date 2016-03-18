@@ -1,13 +1,10 @@
-<form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.company.store')) }}">
+<form class="form-horizontal" role="form" method="POST" action="{!!$action!!}">
+    {{ method_field('PUT') }}
 
-    tab Company
     @include('investment::companies._inputs')
 
-    tab Person
-    @include('investment::people._inputs',['pj' => true])
-
     tab Location
-    @include('investment::locations._inputs',['l' =>''])
+    @include('investment::locations._inputs',['l' =>$company->location ])
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">

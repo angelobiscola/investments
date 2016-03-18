@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">InvesT: Information</div>
+                <div class="panel-heading">InvesT: Company</div>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @include('investment::informations._form', ['action' => route('investment.info.update',$information->id),'information' => $information])
+                    @include('investment::companies._form', ['action' => route('investment.company.update',$company->id),'company' => $company])
 
                 </div>
             </div>

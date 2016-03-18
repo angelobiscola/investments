@@ -15,44 +15,31 @@ class CompanyController extends BaseController
         $this->company = $company;
     }
 
-    public function index()
-    {
-        return view('investment::companies.index')->with('companies',$this->company->all());
-    }
-
-    public function create()
-    {
-        return view('investment::companies.create');
-    }
-    public function store(Request $request,People $people)
-    {
-        $company = $people->create($request->input('person'))->Company()->create($request->input('company'));
-
-        if($request->input('location'))
-        {
-            $company->Location()->create($request->input('location'));
-        }
-    }
-
-    public function show($id)
-    {
-        dd($this->company->find($id));
-    }
-
     public function edit($id)
     {
-        dd($this->company->find($id));
+        $company = $this->company->find($id);
+        return view('investment::companies.edit',compact('company'));
     }
 
     public function update($id, Request $request)
     {
+        $company = $this->company->find($id);
+        $company->update($request->input('company'));
+
+
+        if($company->Location)
+        {
+            $company->Location()->update($request->input('location'));
+        }
+        else
+        {
+            $company->Location()->create($request->input('location'));
+        }
+
+        return back();
 
     }
 
-    public function destroy($id)
-    {
-        dd($this->company->find($id)->delete());
-    }
 }
 
 

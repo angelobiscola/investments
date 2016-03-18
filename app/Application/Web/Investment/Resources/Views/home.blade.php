@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome INVESTMENT System  <a href="{!! route('investment.info.edit',$information->id)!!}" ><i class="pull-right glyphicon glyphicon-edit"></i></a> </div>
+                    <div class="panel-heading">Welcome INVESTMENT System  <a href="{!! route('investment.company.edit',$company->id)!!}" ><i class="pull-right glyphicon glyphicon-edit"></i></a> </div>
                         <div class="panel-body">
-                            @if($information )
+                            @if($company )
                                 <table class="table table-hover">
                                     <thead>
                                     <th>Name</th>
@@ -17,10 +17,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{!! $information->name !!} </td>
-                                            <td>{!! $information->company_name !!} </td>
-                                            <td>{!! $information->cnpj !!} </td>
-                                            <td>{!! $information->phone !!} </td>
+                                            <td>{!! $company->name !!} </td>
+                                            <td>{!! $company->company_name !!} </td>
+                                            <td>{!! $company->cnpj !!} </td>
+                                            <td>{!! $company->phone !!} </td>
                                         </tr>
                                     </tbody>
                                 </table>

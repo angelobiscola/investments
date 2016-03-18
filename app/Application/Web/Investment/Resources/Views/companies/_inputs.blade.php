@@ -25,7 +25,7 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            <input type="text" id="cnpj" class="form-control" name="company[cnpj]" value="{{ old('cnpj') }}" placeholder="Cnpj...">
+            <input type="text" id="cnpj" class="form-control" name="company[cnpj]" value="{{ $company->cnpj }}" placeholder="Cnpj...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
                   </span>
@@ -42,7 +42,7 @@
     <label class="col-md-4 control-label">nome</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='name' name="company[name]" value="{{ old('name') }}">
+        <input type="text" class="form-control" id='name' name="company[name]" value="{{ $company->name  }}">
 
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
@@ -55,7 +55,7 @@
     <label class="col-md-4 control-label">company_name</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='company_name' name="company[company_name]" value="{{ old('company_name') }}">
+        <input type="text" class="form-control" id='company_name' name="company[company_name]" value="{{ $company->company_name }}">
 
         @if ($errors->has('company_name'))
             <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
@@ -68,7 +68,7 @@
     <label class="col-md-4 control-label">cnae_principal</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="cnae_principal" name="company[cnae_principal]" value="{{ old('cnae_principal') }}" placeholder="Brasil">
+        <input type="text" class="form-control" id="cnae_principal" name="company[cnae_principal]" value="{{ $company->cnae_principal }}">
 
         @if ($errors->has('cnae_principal'))
             <span class="help-block"><strong>{{ $errors->first('cnae_principal') }}</strong></span>
@@ -77,10 +77,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">telefone</label>
+    <label class="col-md-4 control-label">phone</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='phone' name="company[phone]" value="{{ old('phone') }}">
+        <input type="text" class="form-control" id='phone' name="company[phone]" value="{{ $company->phone }}">
 
         @if ($errors->has('phone'))
             <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
@@ -92,7 +92,7 @@
     <label class="col-md-4 control-label">email</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='email' name="company[email]" value="{{ old('email') }}">
+        <input type="text" class="form-control" id='email' name="company[email]" value="{{ $company->email }}">
 
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>

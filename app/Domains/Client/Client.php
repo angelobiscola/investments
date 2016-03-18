@@ -1,6 +1,7 @@
 <?php
 namespace App\Domains\Client;
 
+use App\Domains\Bank\Bank;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +16,11 @@ class Client extends Model
     public function Location()
     {
         return $this->morphOne(Location::class, 'locationable');
+    }
+
+    public function Bank()
+    {
+        return $this->morphOne(Bank::class, 'bankable');
     }
 
     public function Legal()

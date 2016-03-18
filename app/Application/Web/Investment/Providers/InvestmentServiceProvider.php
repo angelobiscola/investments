@@ -50,10 +50,6 @@ class InvestmentServiceProvider extends ServiceProvider
 
             });
 
-            $router->group(['namespace'=> 'Information', 'prefix' => 'infos', 'as' => 'info.','middleware' => ['auth:collaborator']], function($router)
-            {
-                require app_path($this->path.'informations.php');
-            });
         });
     }
 }

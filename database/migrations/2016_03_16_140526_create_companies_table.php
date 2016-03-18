@@ -20,8 +20,6 @@ class CreateCompaniesTable extends Migration
             $table->string('cnae_principal');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->integer('people_id');
-            $table->boolean('master');
             $table->timestamps();
             $table->softDeletes();
         });
