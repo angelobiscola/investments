@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInvestmentsTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,12 @@ class CreateInvestmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('investments', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('value');
-            $table->integer('quota');
-            $table->dateTime('date_payment');
-            $table->boolean('status');
-            $table->integer('mode');
-            $table->integer('client_id');
+            $table->string('name');;
+            $table->string('phone');
+            $table->char('type');
+            $table->string('email')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +30,6 @@ class CreateInvestmentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('investments');
+        Schema::drop('clients');
     }
 }
