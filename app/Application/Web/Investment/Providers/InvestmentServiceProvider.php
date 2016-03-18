@@ -22,13 +22,6 @@ class InvestmentServiceProvider extends ServiceProvider
         {
             require app_path($this->path.'routes.php');
 
-            $router->group(['namespace'=> 'Person', 'prefix' => 'person', 'as' => 'person.','middleware' => ['auth:collaborator']], function($router)
-            {
-
-                require app_path($this->path.'people.php');
-
-            });
-
             $router->group(['namespace'=> 'Client', 'prefix' => 'client', 'as' => 'client.','middleware' => ['auth:collaborator']], function($router)
             {
 

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @include('investment::people.investments._form')
+                    @include('investment::clients.investments._form')
 
                 </div>
             </div>

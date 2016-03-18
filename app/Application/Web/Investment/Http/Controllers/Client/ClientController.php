@@ -68,14 +68,9 @@ class ClientController extends BaseController
     public function investments($id)
     {
         $investments = $this->client->find($id)->Investments;
-        return view('investment::client.investments.index',compact('investments','id'));
+        return view('investment::clients.investments.index',compact('investments','id'));
     }
 
-    private function client_legal(Client $client, array $data)
-    {
-
-
-    }
 }
 
 

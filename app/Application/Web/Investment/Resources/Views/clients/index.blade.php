@@ -50,8 +50,8 @@
                                     <td>{!! $client->created_at !!}</td>
                                     <td>{!! $client->updated_at !!}</td>
                                     <td>
-                                        <a href="{!! route('investment.person.show',$client) !!}" target="_blank" ><i class="glyphicon glyphicon-record"></i></a>
-                                        <a href="{!! route('investment.person.investments',$client) !!}"><i class="glyphicon glyphicon-console"></i></a>
+                                        <a href="{!! route('investment.client.show',$client) !!}" target="_blank" ><i class="glyphicon glyphicon-record"></i></a>
+                                        <a href="{!! route('investment.client.investments',$client) !!}"><i class="glyphicon glyphicon-console"></i></a>
                                         <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
