@@ -2,6 +2,8 @@
 namespace App\Domains\Client;
 
 use App\Domains\Bank\Bank;
+use App\Domains\Cpr\Cpr;
+use App\Domains\Cpr\Invoice;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -45,6 +47,16 @@ class Client extends Model
     public function Investments()
     {
         return $this->hasMany(Investment::class);
+    }
+
+    public function Invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
+
+    public function PayableReceper()
+    {
+        return $this->hasMany(Cpr::class);
     }
 
 }
