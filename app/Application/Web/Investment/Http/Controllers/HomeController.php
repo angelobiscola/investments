@@ -1,20 +1,17 @@
 <?php
 namespace App\Application\Web\Investment\Http\Controllers;
 
-use App\Domains\Company\Company;
 
 class HomeController extends BaseController
 {
-    protected $company;
-
-    public function __construct(Company $company)
+    public function __construct()
     {
-        $this->company = $company;
+        parent::__construct();
     }
 
     public function index()
     {
-        $company = $this->company->all()->first();
+        $company = $this->getCompany();
         return view('investment::home', compact('company'));
     }
 

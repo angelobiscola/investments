@@ -11,12 +11,13 @@ class BilletController extends BaseController
 
     public function __construct(Billet $billet)
     {
+        parent::__construct();
         $this->billet = $billet;
     }
 
     public function index()
     {
-        $billets = $this->billet->all();
+        $billets = $this->billet->whereCompanyId($this->getCompany()->id)->get();
         return view('investment::billets.index',compact('billets'));
     }
 
@@ -27,7 +28,7 @@ class BilletController extends BaseController
 
     public function store(Request $request)
     {
-        $billet = $this->billet->create($request->input('billet'));
+        $billet = $this->company->Billets()->create($request->input('billet'));
         return redirect(route('investment.billet.info.create',$billet->id));
     }
 

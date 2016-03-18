@@ -2,6 +2,7 @@
 
 namespace App\Domains\Company;
 
+use App\Domains\Billet\Billet;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,5 +23,10 @@ class Company extends Model
     {
         $this->Location()->forceDelete();
         parent::delete();
+    }
+
+    public function Billets()
+    {
+        return $this->hasMany(Billet::class);
     }
 }

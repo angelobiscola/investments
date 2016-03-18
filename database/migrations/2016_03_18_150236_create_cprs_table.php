@@ -25,6 +25,7 @@ class CreateCprsTable extends Migration
             $table->integer('investment_id');
             $table->integer('invoice_id')->unsigned();
             $table->integer('cpr_id');
+            $table->interger('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
