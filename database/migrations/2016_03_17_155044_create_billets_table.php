@@ -17,7 +17,7 @@ class CreateBilletsTable extends Migration
             $table->string('name');
             $table->string('template');
             $table->integer('company_id')->unsigned();
-            $table->interger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
