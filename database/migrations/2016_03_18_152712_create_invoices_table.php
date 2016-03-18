@@ -22,7 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('client_id');
             $table->integer('company_id');
             $table->integer('investment_id');
-            $table->interger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

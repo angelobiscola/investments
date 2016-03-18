@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('phone');
             $table->char('type');
             $table->string('email')->unique();
-            $table->interger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

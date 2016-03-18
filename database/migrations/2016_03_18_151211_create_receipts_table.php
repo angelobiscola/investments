@@ -23,7 +23,7 @@ class CreateReceiptsTable extends Migration
                 ->onDelete('cascade');
 
             $table->timestamps();
-            $table->interger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->softDeletes();
         });
     }
