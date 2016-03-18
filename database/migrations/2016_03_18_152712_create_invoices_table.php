@@ -14,7 +14,7 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('value');
+            $table->double('value',10,8);
             $table->dateTime('date_maturity');
             $table->dateTime('date_payment');
             $table->string('bank');
@@ -22,6 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('client_id');
             $table->integer('company_id');
             $table->integer('investment_id');
+            $table->integer('cpr_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

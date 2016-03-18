@@ -145,7 +145,7 @@
                 $('#captchaCNPJ').on('shown.bs.modal', function ()
                 {
                     $('#consultarCNPJ').html('Consultar')
-                    $("#cnpjCaptcha").val('');
+                    $("#cnpjCaptcha").val('').focus();
                     $("#cnpjImgCaptcha").attr('src', "http://www.expresscouriercars.co.uk/img/load.gif");
 
                     $.get("/investment/apis/captchacnpj/", function(json)

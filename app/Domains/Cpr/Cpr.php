@@ -11,7 +11,7 @@ class Cpr extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['type','status','value','date_maturity', 'date_payment', 'description', 'client_id', 'company_id', 'investment_id','invoice_id', 'cpr_id'];
+    protected $fillable = ['type','status','value','date_maturity', 'date_payment', 'description', 'client_id', 'company_id', 'investment_id','invoice_id', 'cpr_id', 'user_id'];
     protected $dates    = ['deleted_at'];
 
 

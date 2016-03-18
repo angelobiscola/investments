@@ -2,7 +2,7 @@
     <label class="col-md-4 control-label">value</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="value" name="investment[name]" value="{{ old('value') }}" disabled>
+        <input type="text" class="form-control" id="value" name="investment[value]" value="{{ old('value') }}" readonly>
 
         @if ($errors->has('value'))
             <span class="help-block"><strong>{{ $errors->first('value') }}</strong></span>
@@ -36,6 +36,37 @@
 </div>
 
 Data Invoice
+
+<div class="form-group{{ $errors->has('bank') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">bank</label>
+
+    <div class="col-md-6">
+          <select class="form-control" name="data[bank]">
+
+              <option>Select..</option>
+             @foreach($billets as $b)
+                <option value="{!! $b->template !!}">{!! $b->name !!}</option>
+             @endforeach
+
+        </select>
+        @if ($errors->has('bank'))
+            <span class="help-block"><strong>{{ $errors->first('bank') }}</strong></span>
+        @endif
+
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('deadline') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">Deadline</label>
+
+    <div class="col-md-6">
+        <input type="text" class="form-control" name="data[deadline]" value="{{ old('deadline') }}">
+
+        @if ($errors->has('deadline'))
+            <span class="help-block"><strong>{{ $errors->first('deadline')}}</strong></span>
+        @endif
+    </div>
+</div>
 
 
 
