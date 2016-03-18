@@ -14,7 +14,7 @@ class Investment extends Model
 
     protected $dates    = ['deleted_at'];
 
-    public function People()
+    public function Client()
     {
         return $this->belongsTo(People::class);
     }

@@ -23,6 +23,11 @@ class CreatePhysicalsTable extends Migration
             $table->string('cpf')->unique();;
             $table->string('cell_phone');
             $table->integer('client_id');
+
+            $table->foreign('client_id')
+                ->references('id')->on('clients')
+                ->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -23,6 +23,12 @@ class CreateBilletInformationsTable extends Migration
             $table->string('identification');
             $table->integer('contract');
             $table->integer('billet_id');
+
+            $table->foreign('billet_id')
+                ->references('id')->on('billets')
+                ->onDelete('cascade');
+
+
             $table->timestamps();
             $table->softDeletes();
         });

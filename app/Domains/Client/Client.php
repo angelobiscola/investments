@@ -23,6 +23,15 @@ class Client extends Model
         return $this->morphOne(Bank::class, 'bankable');
     }
 
+    //delete Location/Banks Cascade
+    function delete()
+    {
+        $this->Location()->forceDelete();
+        $this->Bank()->forceDelete();
+        parent::delete();
+    }
+
+
     public function Legal()
     {
         return $this->hasOne(Legal::class);

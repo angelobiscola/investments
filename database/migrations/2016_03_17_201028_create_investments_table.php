@@ -20,6 +20,12 @@ class CreateInvestmentsTable extends Migration
             $table->boolean('status');
             $table->integer('mode');
             $table->integer('client_id');
+
+            $table->foreign('client_id')
+                ->references('id')->on('clients')
+                ->onDelete('cascade');
+
+
             $table->timestamps();
             $table->softDeletes();
         });

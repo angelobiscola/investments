@@ -17,4 +17,10 @@ class Company extends Model
     {
         return $this->morphOne(Location::class, 'locationable');
     }
+    //delete Location Cascade
+    function delete()
+    {
+        $this->Location()->forceDelete();
+        parent::delete();
+    }
 }
