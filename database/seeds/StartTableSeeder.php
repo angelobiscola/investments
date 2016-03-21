@@ -6,6 +6,7 @@ use App\Domains\Collaborator\Collaborator;
 use App\Domains\Company\Company;
 use App\Domains\Billet\Template;
 use App\Domains\Company\Prospect;
+use App\Domains\Company\Bond;
 use App\Domains\Client\Client;
 
 
@@ -23,7 +24,9 @@ class StartTableSeeder extends Seeder
         Company::truncate();
         Template::truncate();
         Prospect::truncate();
+        Bond::truncate();
         Client::truncate();
+
 
         Company::create(['id' => 1, 'name' => 'New name', 'company_name' => 'New company name']);
         Admin::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => '$2y$10$r9q9YCj9rBkVjI093fKVueh8IZd8L8nWXGwyBS63BflWeDQ0nmjIe']);
@@ -43,6 +46,19 @@ class StartTableSeeder extends Seeder
                      'user_id'   => 1
                  ]
             );
+
+        Prospect::create(['name' => 'Commercial Paper'])->Bonds()->create(
+            ['name'         => 'name',
+                'rate'         => 1.2,
+                'rate_mode'    =>  1,
+                'total'        =>  350000,
+                'quota'        =>  5,
+                'opportunity'  => \Carbon\Carbon::now()->addDay(30),
+                'company_id'   => 1,
+                'user_id'   => 1
+            ]
+        );
+
 
         factory(Client::class, 5)
             ->create()

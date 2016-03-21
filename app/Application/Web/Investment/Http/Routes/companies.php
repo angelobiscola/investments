@@ -4,4 +4,11 @@ Route::put('{id}/update',['as' =>'update'    , 'uses' => 'CompanyController@upda
 
 
 
+Route::group(['prefix' => 'bonds', 'as' => 'bond.'], function()
+{
+    Route::get('/',           ['as' =>'index'      , 'uses' => 'BondController@index']);
+    Route::get('/create',     ['as' =>'create'     , 'uses' => 'BondController@create']);
+
+});
+
 

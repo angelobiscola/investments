@@ -28,7 +28,10 @@
                                 Não tem Informações
                             @endif
                         </div>
-                        <div class="panel-footer"><a href="{!! route('investment.billet.index')!!}">Boletos Castrados</a></div>
+                        <div class="panel-footer">
+                            <a href="{!! route('investment.billet.index')!!}">Registred Billets</a>|
+                            <a href="{!! route('investment.company.bond.index')!!}">Registred Bonds</a>
+                        </div>
                     </div>
                 </div>
             </div>
