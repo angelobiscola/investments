@@ -16,7 +16,6 @@ class CreateBilletsTable extends Migration
 
             $table->increments('id');
             $table->string('name');
-            $table->string('template');
             $table->integer('agency');
             $table->integer('agency_dv');
             $table->integer('account');
@@ -24,6 +23,7 @@ class CreateBilletsTable extends Migration
             $table->integer('wallet');
             $table->string('identification');
             $table->integer('contract');
+            $table->integer('template_id')->unsigned();
             $table->integer('company_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();

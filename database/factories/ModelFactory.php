@@ -38,4 +38,3 @@ $factory->define(App\Domains\User\Profile::class, function (Faker\Generator $fak
 
 
 
-

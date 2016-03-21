@@ -2,7 +2,7 @@
 namespace App\Application\Web\Investment\Http\Controllers\Client;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
-use App\Core\Events\NewInvoiceEvent;
+use App\Application\Web\Investment\Events\NewInvoiceEvent;
 use Illuminate\Http\Request;
 use App\Domains\Client\Investment;
 

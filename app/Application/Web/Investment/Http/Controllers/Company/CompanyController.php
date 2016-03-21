@@ -3,7 +3,6 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Company;
-use App\Domains\People\People;
 use Illuminate\Http\Request;
 
 class CompanyController extends BaseController
