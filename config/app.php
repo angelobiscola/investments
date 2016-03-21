@@ -166,7 +166,7 @@ return [
         App\Application\Web\Collaborator\Providers\CollaboratorServiceProvider::class,
 
         App\Application\Web\Investment\Providers\InvestmentServiceProvider::class,
-        App\Application\Web\Investment\Providers\InvestmentEventServiceProvider::class,
+        //App\Application\Web\Investment\Providers\InvestmentEventServiceProvider::class,
 
 
         /*
@@ -176,6 +176,8 @@ return [
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
         KennedyTedesco\Validation\ValidationServiceProvider::class,
         Miqueiasdesouza\Boleto\Laravel\v5\BoletoServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
 
 
 
@@ -226,6 +228,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Authorizer'=> LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
         'Boleto'    => Miqueiasdesouza\Boleto\Laravel\v5\BoletoFacade::class,
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
 
     ],
 
