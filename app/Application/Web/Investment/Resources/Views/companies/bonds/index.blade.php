@@ -7,15 +7,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">IvesT: My Bonds  <a href="{!! route('investment.company.bond.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
 
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <div class="panel-body">
 
                         <table class="table table-hover">

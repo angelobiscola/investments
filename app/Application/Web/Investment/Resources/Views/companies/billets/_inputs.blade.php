@@ -1,6 +1,3 @@
-<input type="hidden"  value="1" name="billet[company_id]" id="billet[company_id]"/>
-
-
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">

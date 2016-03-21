@@ -15,7 +15,6 @@ class CreateInvestmentsTable extends Migration
         Schema::create('investments', function (Blueprint $table) {
             $table->increments('id');
             $table->double('value',10,8);
-            $table->integer('quota');
             $table->dateTime('date_payment');
             $table->boolean('status');
             $table->integer('mode');
@@ -27,6 +26,8 @@ class CreateInvestmentsTable extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->integer('company_id')->unsigned();
+            $table->integer('bond_id')->unsigned();
+
             $table->timestamps();
             $table->softDeletes();
         });

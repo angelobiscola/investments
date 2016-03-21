@@ -37,9 +37,10 @@ class BondController extends BaseController
        return redirect(route('investment.company.bond.index'))->with('status','saved');
     }
 
-    public function available()
+    public function available($id)
     {
-
+        $bonds = $this->bond->whereCompanyId($this->getCompany()->id)->get();
+        return view('investment::companies.bonds.available',compact('bonds', 'id'));
     }
 }
 

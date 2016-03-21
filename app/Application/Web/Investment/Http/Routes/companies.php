@@ -5,9 +5,10 @@ Route::put('{id}/update', ['as' =>'update'    , 'uses' => 'CompanyController@upd
 
 Route::group(['prefix' => 'bonds', 'as' => 'bond.'], function()
 {
-    Route::get('/',           ['as' =>'index'      , 'uses' => 'BondController@index']);
-    Route::get('/create',     ['as' =>'create'     , 'uses' => 'BondController@create']);
-    Route::post('/store',     ['as' =>'store'      , 'uses' => 'BondController@store']);
+    Route::get('/',             ['as' =>'index'      , 'uses' => 'BondController@index']);
+    Route::get('/create',       ['as' =>'create'     , 'uses' => 'BondController@create']);
+    Route::post('/store',       ['as' =>'store'      , 'uses' => 'BondController@store']);
+    Route::get('available/{id}',['as' =>'available'  , 'uses' => 'BondController@available']);
 
 });
 

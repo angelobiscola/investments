@@ -10,10 +10,7 @@ class Investment extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['value','quota','date_payment','mode','client_id','company_id', 'user_id'];
-
-    protected $hidden   = [];
-
+    protected $fillable = ['value','date_payment','mode','client_id','company_id', 'user_id', 'bond_id'];
     protected $dates    = ['deleted_at'];
 
     public function Client()
@@ -29,5 +26,10 @@ class Investment extends Model
     public function Cpr()
     {
         return $this->hasOne(Cpr::class);
+    }
+
+    public function Quotas()
+    {
+        return $this->hasMany(Quota::class);
     }
 }

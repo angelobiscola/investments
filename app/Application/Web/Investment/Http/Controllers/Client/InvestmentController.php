@@ -16,23 +16,29 @@ class InvestmentController extends BaseController
         $this->investment = $investment;
     }
 
-    public function create($id)
+    public function create(Request $request, $id)
     {
         $billets =  $this->getCompany()->Billets;
-        return view('investment::clients.investments.create',compact('id','billets'))->with('company',$this->getCompany());
+        $bond    =  $this->getCompany()->Bonds()->find($request->get('bond'));
+        return view('investment::clients.investments.create',compact('id','billets','bond'))->with('company',$this->getCompany());
     }
 
     public function store(Request $request)
     {
-        $data    = $request->input('data');
-        $request = $request->input('investment');
+        //$data    = $request->input('data');
+        //$request = $request->input('quota');
+
+        dd($request->input('quota'));
+
+
+
         $request['company_id'] = $this->getCompany()->id;
         $request['user_id']    = $this->getUser()->id;
 
-        $investment = $this->investment->create($request);
-        \Event::fire(new NewInvoiceEvent($investment,$data));
+        //$investment = $this->investment->create($request);
+        //\Event::fire(new NewInvoiceEvent($investment,$data));
 
-        return redirect(route('investment.client.investment.show',$investment->id));
+        //return redirect(route('investment.client.investment.show',$investment->id));
     }
 
     public function show($id)
