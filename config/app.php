@@ -166,7 +166,7 @@ return [
         App\Application\Web\Collaborator\Providers\CollaboratorServiceProvider::class,
 
         App\Application\Web\Investment\Providers\InvestmentServiceProvider::class,
-        //App\Application\Web\Investment\Providers\InvestmentEventServiceProvider::class,
+        App\Application\Web\Investment\Providers\InvestmentEventServiceProvider::class,
 
 
         /*
@@ -177,6 +177,9 @@ return [
         KennedyTedesco\Validation\ValidationServiceProvider::class,
         Miqueiasdesouza\Boleto\Laravel\v5\BoletoServiceProvider::class,
 
+        /*
+         * Collective
+         */
         Collective\Html\HtmlServiceProvider::class,
 
 

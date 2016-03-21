@@ -1,5 +1,12 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.client.investment.store',$id)) }}">
 
+    <ul class="list-group">
+        @foreach($company->Bonds as $b)
+        <a href="" ><li class="list-group-item"><span class="badge">14</span>{!! $b->name !!} | {!! $b->Prospect->name !!} </li></a>
+        @endforeach
+    </ul>
+
+
     <input type="hidden" name="investment[client_id]" value="{!! $id !!}">
     @include('investment::clients.investments._inputs')
 

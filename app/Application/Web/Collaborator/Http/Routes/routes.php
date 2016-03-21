@@ -20,5 +20,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth', 'as' => 'auth.'], funct
 
 });
 
-Route::get('/', ['middleware' => 'auth:collaborator','as' =>'home.index', 'uses' => 'HomeController@index']);
+Route::get('/',           ['middleware' => 'auth:collaborator','as' =>'home.index',   'uses' => 'HomeController@index']);
+Route::get('companies',   ['middleware' => 'auth:collaborator','as' =>'home.company', 'uses' => 'HomeController@companies']);
+Route::get('change/{id}', ['middleware' => 'auth:collaborator','as' =>'home.change',  'uses' => 'HomeController@changeSession']);
 

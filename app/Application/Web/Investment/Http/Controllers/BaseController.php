@@ -2,7 +2,6 @@
 namespace App\Application\Web\Investment\Http\Controllers;
 
 use App\Core\Http\Controllers\Controller;
-use App\Domains\Company\Company;
 
 class BaseController extends Controller
 {
@@ -12,17 +11,17 @@ class BaseController extends Controller
      public function __construct()
      {
          $this->user     = \Auth::guard('collaborator')->user();
-         $this->company  = Company::find(1);
+         $this->company  = (session('company'));
      }
 
      public function getUser()
      {
         return $this->user;
      }
+
      public function getCompany()
      {
         return $this->company;
      }
-
 }
 

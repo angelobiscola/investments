@@ -17,6 +17,23 @@
     </div>
 </div>
 
+<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+    <label class="col-md-4 control-label">Name</label>
+
+    <div class="col-md-6">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" name="bond[name]" value="{{ old('name') }}">
+            <div class="input-group-addon">.00</div>
+        </div>
+
+        @if ($errors->has('name'))
+            <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+
 
 <div class="form-group{{ $errors->has('total') ? ' has-error' : '' }}">
     <label class="col-md-4 control-label">Total</label>

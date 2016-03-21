@@ -36,6 +36,11 @@ class BondController extends BaseController
        $this->bond->create($request);
        return redirect(route('investment.company.bond.index'))->with('status','saved');
     }
+
+    public function available()
+    {
+
+    }
 }
 
 

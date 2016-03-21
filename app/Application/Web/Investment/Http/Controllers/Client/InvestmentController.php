@@ -19,7 +19,7 @@ class InvestmentController extends BaseController
     public function create($id)
     {
         $billets =  $this->getCompany()->Billets;
-        return view('investment::clients.investments.create',compact('id','billets'));
+        return view('investment::clients.investments.create',compact('id','billets'))->with('company',$this->getCompany());
     }
 
     public function store(Request $request)

@@ -18,7 +18,7 @@ class InvestmentServiceProvider extends ServiceProvider
 
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['web']], function ($router)
+        $router->group(['namespace' => $this->namespace, 'prefix' => $this->prefix,'as' => $this->prefix.'.', 'middleware' => ['web','notcompany']], function ($router)
         {
             require app_path($this->path.'routes.php');
 

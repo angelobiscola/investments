@@ -14,6 +14,12 @@ class CompanyController extends BaseController
         $this->company = $company;
     }
 
+    public function index()
+    {
+        $companies = $this->company->all();
+        return view('investment::companies.index',compact('companies'));
+    }
+
     public function edit($id)
     {
         $company = $this->company->find($id);

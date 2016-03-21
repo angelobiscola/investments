@@ -64,8 +64,10 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('collaborator.home.company') }}"><i class="glyphicon glyphicon glyphicon-sort"></i>Change Company</a></li>
                             <li><a href="{{ route('collaborator.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
+
                     </li>
                 @endif
             </ul>
