@@ -164,8 +164,9 @@ return [
         App\Application\Web\Admin\Providers\AdminServiceProvider::class,
         App\Application\Web\User\Providers\UserServiceProvider::class,
         App\Application\Web\Collaborator\Providers\CollaboratorServiceProvider::class,
-        App\Application\Web\Investment\Providers\InvestmentServiceProvider::class,
 
+        App\Application\Web\Investment\Providers\InvestmentServiceProvider::class,
+        App\Application\Web\Investment\Providers\InvestmentEventServiceProvider::class,
 
 
         /*
