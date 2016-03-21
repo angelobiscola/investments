@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" method="POST" action="{{ url(route('investment.billet.store')) }}">
+{!! Form::open(['route' => ['investment.billet.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 
     @include('investment::billets._inputs')
 
@@ -9,4 +9,6 @@
             </button>
         </div>
     </div>
-</form>
+
+{!! Form::close() !!}
+

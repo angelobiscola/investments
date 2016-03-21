@@ -1,8 +1,8 @@
 <div class="form-group{{ $errors->has('agency') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">agencia</label>
-
+    {!! Form::label('agencia', 'Agência', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        <input type="text" class="form-control" id="agency" name="info[agency]" value="{{ old('agency') }}">Num da agencia, sem digito
+        {!! Form::text ('info[agency]', old('agency'), ['class' => 'form-control', 'id' => 'agency']) !!}
+        Num da agencia, sem digito
 
         @if ($errors->has('agency'))
             <span class="help-block"><strong>{{ $errors->first('agency') }}</strong></span>
@@ -12,10 +12,11 @@
 
 
 <div class="form-group{{ $errors->has('agency_dv') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">agency_dv</label>
+    {!! Form::label('agency_dv', 'agency_dv', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[agency_dv]" value="{{ old('agency_dv') }}">Digito do Num da agencia
+        {!! Form::text ('info[agency_dv]', old('agency_dv'), ['class' => 'form-control']) !!}
+        Digito do Num da agencia
 
         @if ($errors->has('agency_dv'))
             <span class="help-block"><strong>{{ $errors->first('agency_dv') }}</strong></span>
@@ -23,11 +24,12 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">account</label>
-
+<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}"
+        >
+    {!! Form::label('account', 'account', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[account]" value="{{ old('account') }}">Num da conta, sem digito
+        {!! Form::text ('info[account]', old('account'), ['class' => 'form-control']) !!}
+        Num da conta, sem digito
 
         @if ($errors->has('account'))
             <span class="help-block"><strong>{{ $errors->first('account') }}</strong></span>
@@ -37,10 +39,10 @@
 
 
 <div class="form-group{{ $errors->has('account_dv') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">account_dv</label>
-
+    {!! Form::label('account_dv', 'account_dv', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[account_dv]" value="{{ old('account_dv') }}">Digito conta
+        {!! Form::text ('info[account_dv]', old('account_dv'), ['class' => 'form-control']) !!}
+        Digito conta
 
         @if ($errors->has('account_dv'))
             <span class="help-block"><strong>{{ $errors->first('account_dv') }}</strong></span>
@@ -50,10 +52,10 @@
 
 
 <div class="form-group{{ $errors->has('wallet') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">wallet</label>
-
+    {!! Form::label('wallet', 'wallet', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[wallet]" value="{{ old('wallet') }}">Código da Carteira: pode ser 06 ou 03
+        {!! Form::text ('info[wallet]', old('wallet'), ['class' => 'form-control']) !!}
+        Código da Carteira: pode ser 06 ou 03
 
         @if ($errors->has('wallet'))
             <span class="help-block"><strong>{{ $errors->first('wallet') }}</strong></span>
@@ -63,10 +65,10 @@
 
 
 <div class="form-group{{ $errors->has('contract') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">contract</label>
+    {!! Form::label('contract', 'contract', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="info[contract]" value="{{ old('contract') }}">
+        {!! Form::text ('info[contract]', old('contract'), ['class' => 'form-control']) !!}
 
         @if ($errors->has('contract'))
             <span class="help-block"><strong>{{ $errors->first('contract') }}</strong></span>

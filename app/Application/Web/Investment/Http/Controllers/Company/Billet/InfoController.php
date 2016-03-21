@@ -2,34 +2,35 @@
 namespace App\Application\Web\Investment\Http\Controllers\Billet;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
-use App\Domains\Billet\Billet;
+use App\Domains\Billet\Billet_information;
 use Illuminate\Http\Request;
 
-class BilletController extends BaseController
+class infoController extends BaseController
 {
     protected $billet;
 
-    public function __construct(Billet $billet)
+    public function __construct(Billet_information $billet)
     {
-        parent::__construct();
         $this->billet = $billet;
     }
 
     public function index()
     {
-        $billets = $this->billet->whereCompanyId($this->getCompany()->id)->get();
-        return view('investment::billets.index',compact('billets'));
+
     }
 
-    public function create()
+    public function create($id)
     {
-        return view('investment::billets.create');
+        return view('investment::billets.info.create',compact('id'));
     }
 
-    public function store(Request $request)
+    public function store($id,Request $request)
     {
-        $billet = $this->company->Billets()->create($request->input('billet'));
+        $request = $request->input('info');
+        $request['billet_id'] = $id;
+        $this->billet->create($request);
         return redirect(route('investment.billet.index'));
+
     }
 
     public function show($id)
