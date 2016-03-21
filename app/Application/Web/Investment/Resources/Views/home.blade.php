@@ -29,12 +29,18 @@
                             @endif
                         </div>
                         <div class="panel-footer">
-                            <a href="{!! route('investment.billet.index')!!}">Registred Billets</a>|
-                            <a href="{!! route('investment.company.bond.index')!!}">Registred Bonds</a>
                         </div>
                     </div>
                 </div>
             </div>
+
+        <ol class="breadcrumb">
+            <li><a href="{!! route('investment.billet.index')!!}">Billets</a></li>
+            <li><a href="{!! route('investment.company.bond.index')!!}">Bonds</a></li>
+            <li><a href="{!! route('investment.company.bond.index')!!}">Prospect</a></li>
+        </ol>
+
         </div>
+
     </div>
 @endsection
