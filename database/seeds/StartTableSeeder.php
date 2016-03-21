@@ -28,7 +28,10 @@ class StartTableSeeder extends Seeder
         Client::truncate();
 
 
-        Company::create(['id' => 1, 'name' => 'New name', 'company_name' => 'New company name']);
+        Company::create(['id' => 1, 'name' => 'Company 1','company_name' => 'Company 1', 'email' => 'Company1@', 'cnpj' => 01]);
+
+        Company::create(['id' => 2, 'name' => 'Company 2', 'company_name' => 'Company 2', 'email' => 'Company2@', 'cnpj' => 02]);
+
         Admin::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => '$2y$10$r9q9YCj9rBkVjI093fKVueh8IZd8L8nWXGwyBS63BflWeDQ0nmjIe']);
         Collaborator::create(['name' => 'Funcionario', 'email' => 'fun@fun.com', 'password' => '$2y$10$an.IIRbFy5so4/kWg4cm6eYZnBx7.suBpBqQfuJ99GvKbXm3aCtWK']);
 
