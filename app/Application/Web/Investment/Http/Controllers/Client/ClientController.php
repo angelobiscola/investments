@@ -46,8 +46,8 @@ class ClientController extends BaseController
 
     public function show($id)
     {
-        $person = $this->client->find($id);
-        return view('investment::client.report',compact('person'));
+        $client = $this->client->find($id);
+        return view('investment::reports.client',compact('client'));
     }
 
     public function edit($id)
@@ -67,10 +67,51 @@ class ClientController extends BaseController
 
     public function investments($id)
     {
-        $investments = $this->client->find($id)->Investments;
-        return view('investment::clients.investments.index',compact('investments','id'));
+        /*
+        //$investments = $this->client->find($id)->Investments;
+        //return view('investment::clients.investments.index',compact('investments','id'));
+        */
+
+        $principal = 100000.00;
+        $taxa = 0.015; // 3%
+        $meses = 12;
+        $anterior = 0.0;
+
+        for($i = 1; $i <= $meses; $i++){
+            $montante = $principal * pow((1 + $taxa), $i);
+            $juros = $montante - $principal - $anterior;
+
+            $anterior += $juros;
+
+            echo "Mês: " . $i . " - Montante: "
+                . $montante . " - Juros: " . $juros . "<br>";
+        }
+
+        echo $montante - $principal."<br>";
+        echo ($montante - $principal)/$meses."<br>";
+
+        return $this->jurosSimples(100000,1.5, 12);
+
+
+    }
+    function jurosSimples($valor, $taxa, $parcelas) {
+
+        $taxa = $taxa / 100;
+        $m = $valor * (1 + $taxa * $parcelas);
+        $total = $m-$valor;
+        $valParcela = number_format($total / $parcelas, 2, ",", ".");
+
+        return $valParcela;
+    }
+
+    function jurosComposto($valor, $taxa, $parcelas) {
+        $taxa = $taxa / 100;
+
+        $valParcela = $valor * pow((1 + $taxa), $parcelas);
+
+        $valParcela = number_format($valParcela / $parcelas, 2, ",", ".");
+
+        return $valParcela;
     }
 
 }
-
-

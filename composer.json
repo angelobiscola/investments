@@ -12,7 +12,8 @@
         "kennedytedesco/validation": "~3.0",
         "jansenfelipe/cnpj-gratis": "2.0.*@dev",
         "jansenfelipe/cpf-gratis": "^2.0",
-        "kriansa/openboleto": "dev-master"
+        "kriansa/openboleto": "dev-master",
+        "miqueiasdesouza/boleto": "dev-master"
 
     },
     "require-dev": {

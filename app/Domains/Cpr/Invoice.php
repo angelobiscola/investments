@@ -23,12 +23,12 @@ class Invoice extends Model
 
     public function Client()
     {
-        return $this->hasOne(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function Company()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function Investment()

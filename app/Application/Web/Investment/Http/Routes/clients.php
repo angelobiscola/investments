@@ -19,4 +19,5 @@ Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
     Route::get('{id}/edit',   ['as' =>'edit'      , 'uses' => 'InvestmentController@edit'  ]);
     Route::post('{id}/update',['as' =>'update'    , 'uses' => 'InvestmentController@update']);
     Route::get('{id}/delete', ['as' =>'delete'    , 'uses' => 'InvestmentController@delete']);
+    Route::get('boleto',      ['as' =>'boleto'    , 'uses' => 'InvestmentController@boleto']);
 });

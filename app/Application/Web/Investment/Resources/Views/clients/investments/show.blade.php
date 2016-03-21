@@ -38,12 +38,17 @@
                         </table>
 
                         Invoice
-                        <div class="row">
-                            <div class="col-xs-6 col-md-3">
-                                <a href="#" class="thumbnail">
-                                    <img src="http://fundoparana.com.br/wp-content/uploads/img.boleto-atrasado.png" alt="..." width="100" height="100">
-                                </a>
-                            </div>
+
+                        @foreach($investment->Invoices as $i )
+
+
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                        <a href="{!! route('investment.cpr.invoice.print',$i) !!}" target="_blank">
+                                        <img src="http://fundoparana.com.br/wp-content/uploads/img.boleto-atrasado.png" alt="..." width="100" height="100">
+                                    </a>
+                                </div>
+                         @endforeach
 
                     </div>
                 </div>

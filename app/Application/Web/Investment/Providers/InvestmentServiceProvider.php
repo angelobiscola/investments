@@ -50,6 +50,12 @@ class InvestmentServiceProvider extends ServiceProvider
 
             });
 
+            $router->group(['namespace'=> 'Cpr', 'prefix' => 'cpr', 'as' => 'cpr.','middleware' => ['auth:collaborator']], function($router)
+            {
+                require app_path($this->path.'cprs.php');
+
+            });
+
         });
     }
 }

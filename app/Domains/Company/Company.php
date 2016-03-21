@@ -18,6 +18,7 @@ class Company extends Model
     {
         return $this->morphOne(Location::class, 'locationable');
     }
+
     //delete Location Cascade
     function delete()
     {
@@ -28,5 +29,10 @@ class Company extends Model
     public function Billets()
     {
         return $this->hasMany(Billet::class);
+    }
+
+    public function Bonds()
+    {
+        return $this->hasMany(Bond::class);
     }
 }

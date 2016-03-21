@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4ec4f6b8585b4476a4543457c82ef86",
-    "content-hash": "4008466d58718214511066760d9bf7c4",
+    "hash": "1210ecdcc0062240c358a0dd9b982e98",
+    "content-hash": "2342fe8a7c73adc2396eba0d117587a6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1158,6 +1158,39 @@
             "time": "2016-01-29 13:11:59"
         },
         {
+            "name": "miqueiasdesouza/boleto",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/miqueiasdesouza/boleto.git",
+                "reference": "3c9a4d57baebf391cd5de94adaacc59e7ac557c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/miqueiasdesouza/boleto/get/3c9a4d57baebf391cd5de94adaacc59e7ac557c2.zip",
+                "reference": "3c9a4d57baebf391cd5de94adaacc59e7ac557c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Miqueiasdesouza\\Boleto\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Miquéias de Souza",
+                    "email": "miqueiasdesouza@live.com"
+                }
+            ],
+            "description": "Pacote para a geração de boletos e integração com Laravel 4.2 e 5.1. Esse pacote visa disponibilizar um conjunto de classes que trabalha com o BoletoPHP (http://boletophp.com.br) para ser utilizado com ou sem a necessidade de framework. Utilizei os arquivos do BoletoPHP (http://boletophp.com.br) porém fiz algumas modificações para conseguir a re-utilização do código em classes já que o projeto original é feito em PHP Estruturado. Estou disponibilizando o código para comunidade como uma forma de agradecimento pelas informações já adquiridas. Estou utilizando também as classes HTML2PDF para geração dos boleto em PDF.",
+            "time": "2016-02-25 16:04:33"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.18.1",
             "source": {
@@ -1379,16 +1412,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a93889dfb1c0ae465b62236ede8d00d3ea260952",
+                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1456,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-18 17:16:04"
         },
         {
             "name": "psr/log",
@@ -3813,7 +3846,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jansenfelipe/cnpj-gratis": 20,
-        "kriansa/openboleto": 20
+        "kriansa/openboleto": 20,
+        "miqueiasdesouza/boleto": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

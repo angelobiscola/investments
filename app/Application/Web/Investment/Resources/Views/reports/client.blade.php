@@ -158,7 +158,7 @@
         <div class="field">
             <div class="size col-50">
                 <div class="fild-title"> CPF do Cliente </div>
-                <div class="fild-body"> {!! $person->cpf !!} </div>
+                <div class="fild-body"> {!! $client->cpf !!} </div>
             </div>
         </div>
     </div>
@@ -168,8 +168,8 @@
     <div class="content">
         <div class="field">
             <div class="size col-100">
-                <div class="fild-title"> Nome do Cliente (Completo - sem abreviação)</div>
-                <div class="fild-body"> 683.411.794.66 </div>
+                <div class="fild-title"> {!! $client->name !!}</div>
+                <div class="fild-body">{!! $client->cpf !!} </div>
             </div>
         </div>
     </div>
@@ -353,10 +353,14 @@
     </div>
 
 </div>
-
-
 </body>
 
+
+<script>
+
+    window.print();
+
+</script>
 
 
 </html>

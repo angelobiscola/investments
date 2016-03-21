@@ -173,7 +173,8 @@ return [
          */
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
-        KennedyTedesco\Validation\ValidationServiceProvider::class
+        KennedyTedesco\Validation\ValidationServiceProvider::class,
+        Miqueiasdesouza\Boleto\Laravel\v5\BoletoServiceProvider::class,
 
 
 
@@ -223,6 +224,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Authorizer'=> LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        'Boleto'    => Miqueiasdesouza\Boleto\Laravel\v5\BoletoFacade::class,
 
     ],
 
