@@ -8,7 +8,7 @@ class Prospect extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name','description'];
+    protected $fillable = ['name','description','company_id', 'user_id'];
     protected $dates    = ['deleted_at'];
 
 
