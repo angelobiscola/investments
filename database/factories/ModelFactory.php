@@ -31,8 +31,34 @@ $factory->define(App\Domains\User\Profile::class, function (Faker\Generator $fak
     ];
 });
 
+$factory->define(App\Domains\Client\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name'=> $faker->firstName,
+        'email'     => $faker->email,
+        'phone'      => $faker->phoneNumber,
+        'type'       => 'j'
+    ];
+});
 
+$factory->define(App\Domains\Client\Legal::class, function (Faker\Generator $faker) {
+    return [
+        'cnpj'=> $faker->randomNumber(2),
+        'company_name'     => $faker->company,
+        'email'     => $faker->email,
+    ];
+});
 
+$factory->define(App\Domains\Location\Location::class, function (Faker\Generator $faker) {
+    return[
+        'address'   => $faker->streetName,
+        'number'    => $faker->buildingNumber,
+        'city'      => $faker->city,
+        'zip_code'  => $faker->postcode,
+        'district'  => $faker->country,
+        'state'     => $faker->state,
+        'state_abbr'=> $faker->stateAbbr,
+    ];
+});
 
 
 
