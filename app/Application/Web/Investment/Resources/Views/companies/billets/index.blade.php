@@ -30,7 +30,7 @@
                             @foreach($billets  as $billet)
                                 <tr>
                                     <td><a href="{!! route('investment.company.billet.show', $billet) !!}"> {!! $billet->name   !!} </a></td>
-                                    <td>{!! $billet->template    !!}</td>
+                                    <td>{!! $billet->template ? $billet->template->name : '' !!}</td>
                                     <td>{!! $billet->created_at !!}</td>
                                     <td>{!! $billet->updated_at !!}</td>
                                     <td>

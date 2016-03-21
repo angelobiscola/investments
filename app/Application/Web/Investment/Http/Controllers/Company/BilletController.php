@@ -23,21 +23,13 @@ class BilletController extends BaseController
 
     public function create()
     {
-        return view('investment::companies.billets.create');
+        return view('investment::companies.billets.create')->with('billet', $this->billet);
     }
 
     public function store(Request $request)
     {
-        dd($request->all());
-        try
-        {
-            $this->billet->billets()->create($request->input('name'));
-            return view('investment::companies.billets.info.create');
-        }
-        catch(\Exception $e)
-        {
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+        $this->billet->create($request->input('billet'));
+        return redirect(route('investment.company.billet.index'));
     }
 
     public function show($id)
@@ -55,20 +47,13 @@ class BilletController extends BaseController
     public function update($id, Request $request)
     {
         $this->billet->find($id)->update($request->input('billet'));
-        return redirect(route('investment.company.billet.index'))->with('success', 'Editado');
+        return redirect(route('investment.company.billet.index'));
     }
 
     public function destroy($id)
     {
-        try
-        {
-            $this->billet->delete($id);
-            return redirect()->back()->with('success', 'Excluido');
-        }
-        catch(\Exception $e)
-        {
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+        $this->billet->destroy($id);
+        return redirect(route('investment.company.billet.index'));
     }
 }
 
