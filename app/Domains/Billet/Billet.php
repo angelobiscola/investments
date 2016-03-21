@@ -12,9 +12,4 @@ class Billet extends Model
     protected $fillable = ['name','template','agency','agency_dv','account','account_dv','wallet','contract','identification'];
     protected $dates    = ['deleted_at'];
 
-
-    public function Info()
-    {
-        return $this->hasOne(Billet_information::class);
-    }
 }

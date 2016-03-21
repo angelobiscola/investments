@@ -29,7 +29,7 @@ class BilletController extends BaseController
     public function store(Request $request)
     {
         $billet = $this->company->Billets()->create($request->input('billet'));
-        return redirect(route('investment.billet.info.create',$billet->id));
+        return redirect(route('investment.billet.index'));
     }
 
     public function show($id)
