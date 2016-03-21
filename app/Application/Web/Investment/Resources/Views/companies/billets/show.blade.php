@@ -28,63 +28,51 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Nome</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">name</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->name !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Agência</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">agency</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->agency !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Agência_dv</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">agency_dv</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->agency_dv !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Conta</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">account</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->account !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Conta_dv</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">acoount_dv</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->account_dv !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Carteira</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">wallet</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->wallet !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Identificação</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">identification</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->identification !!}" disabled="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Contrato</label>
+                                    <label for="disabledInput" class="col-md-2 control-label">contract</label>
                                     <div class="col-md-10">
                                         <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->contract !!}" disabled="">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Compania</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->company_id !!}" disabled="">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="disabledInput" class="col-md-2 control-label">Usuário</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" id="disabledInput" type="text" placeholder="{!! $billet->user_id !!}" disabled="">
                                     </div>
                                 </div>
 

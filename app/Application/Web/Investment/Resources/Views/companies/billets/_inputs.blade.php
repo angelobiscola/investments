@@ -1,3 +1,6 @@
+<input type="hidden"  value="1" name="billet[company_id]" id="billet[company_id]"/>
+
+
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
@@ -104,7 +107,7 @@
     {!! Form::label('template_id', 'template_id', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('billet[template_id]', $billet['template_id'], ['class' => 'form-control']) !!}
+        @include('investment::elements._templates')
         Template
 
         @if ($errors->has('template_id'))
@@ -113,31 +116,8 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('contract') ? ' has-error' : '' }}">
-    {!! Form::label('company_id', 'company_id', ['class' => 'col-md-4 control-label']) !!}
 
-    <div class="col-md-6">
-        {!! Form::text ('billet[company_id]', $billet['company_id'], ['class' => 'form-control']) !!}
-        Compania.
 
-        @if ($errors->has('company_id'))
-            <span class="help-block"><strong>{{ $errors->first('company_id') }}</strong></span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('contract') ? ' has-error' : '' }}">
-    {!! Form::label('user_id', 'user_id', ['class' => 'col-md-4 control-label']) !!}
-
-    <div class="col-md-6">
-        {!! Form::text ('billet[user_id]', $billet['user_id'], ['class' => 'form-control']) !!}
-        Usuário
-
-        @if ($errors->has('user_id'))
-            <span class="help-block"><strong>{{ $errors->first('user_id') }}</strong></span>
-        @endif
-    </div>
-</div>
 
 
 
