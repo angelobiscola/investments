@@ -11,6 +11,14 @@ Route::group(['prefix' => 'bonds', 'as' => 'bond.'], function()
 
 });
 
+Route::group(['prefix' => 'prospects', 'as' => 'prospect.'], function()
+{
+    Route::get('/',           ['as' =>'index'      , 'uses' => 'ProspectController@index']);
+    Route::get('/create',     ['as' =>'create'     , 'uses' => 'ProspectController@create']);
+    Route::post('/store',     ['as' =>'store'      , 'uses' => 'ProspectController@store']);
+
+});
+
 Route::group(['prefix' => 'billets', 'as' => 'billet.'], function()
 {
     Route::get('/'                  ,     ['as' =>'index'     , 'uses' => 'BilletController@index'          ]);

@@ -37,7 +37,7 @@
         <ol class="breadcrumb">
             <li><a href="{!! route('investment.company.billet.index')!!}">Billets</a></li>
             <li><a href="{!! route('investment.company.bond.index')!!}">Bonds</a></li>
-            <li><a href="{!! route('investment.company.bond.index')!!}">Prospect</a></li>
+            <li><a href="{!! route('investment.company.prospect.index')!!}">Prospect</a></li>
         </ol>
 
         </div>

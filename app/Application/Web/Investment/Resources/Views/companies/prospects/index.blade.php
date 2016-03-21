@@ -5,27 +5,26 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        IvesT: Companies
-                    </div>
+                    <div class="panel-heading">IvesT: My Prospects  <a href="{!! route('investment.company.prospect.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
                                 <th>Name</th>
-                                <th>CNPJ</th>
+                                <th>Description</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>#</th>
                             </thead>
                             <tbody>
-                            @foreach($companies  as $company)
+                            @foreach($prospects  as $prospect)
                                 <tr>
-                                    <td>{!! $company->name   !!}</td>
-                                    <td>{!! $company->cnpj    !!}</td>
-                                    <td>{!! $company->created_at !!}</td>
-                                    <td>{!! $company->updated_at !!}</td>
+                                    <td>{!! $prospect->name   !!}</td>
+                                    <td>{!! $prospect->description    !!}</td>
+                                    <td>{!! $prospect->created_at !!}</td>
+                                    <td>{!! $prospect->updated_at !!}</td>
                                     <td>
-                                        <a href="{!! route('collaborator.home.change',$company) !!}" ><i class="glyphicon glyphicon glyphicon-sort"></i></a>
+                                        <a href="" ><i class="glyphicon glyphicon glyphicon-edit"></i></a>
+                                        <a href="" ><i class="glyphicon glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                              @endforeach

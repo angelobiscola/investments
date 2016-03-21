@@ -35,4 +35,9 @@ class Company extends Model
     {
         return $this->hasMany(Bond::class);
     }
+
+    public function Prospect()
+    {
+        return $this->hasMany(Prospect::class);
+    }
 }
