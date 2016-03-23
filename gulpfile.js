@@ -18,11 +18,7 @@ elixir(function(mix) {
     assets Global
     */
 
-    mix.scripts([
-         'resources/assets/restfull/app.js'
-        ],
-        "public/js/restfull/app.js"
-    );
+    mix.copy('resources/assets/restful/restful.js', 'public/js/restful.js');
 
 });
 

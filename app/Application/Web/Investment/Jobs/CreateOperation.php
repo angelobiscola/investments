@@ -27,11 +27,9 @@ class CreateOperation extends Job implements ShouldQueue
      */
     public function handle()
     {
-
         if($this->investment->mode ==0)
         {
             $s = jurosSimples($this->investment->value,$this->investment->Bond->rate,360,$this->investment->date_payment);
-
             $cpr = ['type'=>'p','status'=> 'a','description'=>'','value' => '','date_maturity' =>'', 'date_payment'  => '', 'client_id' => $this->investment->client_id,'company_id' => $this->investment->company_id];
 
             foreach($s['details'] as $d)
