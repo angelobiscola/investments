@@ -20,9 +20,9 @@ class CreatePhysicalsTable extends Migration
             $table->string('profession');
             $table->string('identity');
             $table->string('organ_issuer');
-            $table->string('cpf')->unique();;
+            $table->string('cpf')->unique()->index();
             $table->string('cell_phone');
-            $table->integer('client_id');
+            $table->integer('client_id')->unsigned();
 
             $table->foreign('client_id')
                 ->references('id')->on('clients')

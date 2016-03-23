@@ -14,11 +14,12 @@ class CreateLegalsTable extends Migration
     {
         Schema::create('legals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company_name')->unique();
+            $table->string('company_name')->unique()->index();
             $table->string('cnpj')->unique();
             $table->string('cnae_principal');
+            $table->string('cnae_secundary');
             $table->string('email')->unique();
-            $table->integer('client_id');
+            $table->integer('client_id')->unsigned();
 
             $table->foreign('client_id')
                 ->references('id')->on('clients')

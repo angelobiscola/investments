@@ -18,11 +18,10 @@ class CreateInvoicesTable extends Migration
             $table->date('date_maturity');
             $table->date('date_payment');
             $table->char('status');
-            $table->integer('billet_id');
-            $table->integer('client_id');
-            $table->integer('company_id');
-            $table->integer('investment_id');
-            $table->integer('cpr_id')->unsigned();
+            $table->integer('billet_id')->unsigned();
+            $table->integer('client_id')->unsigned();
+            $table->integer('company_id')->unsigned();
+            $table->integer('investment_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

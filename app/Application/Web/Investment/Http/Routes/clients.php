@@ -21,5 +21,6 @@ Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
     Route::get('{id}/delete',  ['as' =>'delete'    , 'uses' => 'InvestmentController@delete']);
     Route::get('process/{id}', ['as' =>'process'   , 'uses' => 'InvestmentController@process']);
     Route::post('confirm/{id}',['as' =>'confirm'   , 'uses' => 'InvestmentController@confirm']);
+    Route::get('docs/{id}',    ['as' =>'document'  , 'uses' => 'InvestmentController@document']);
 
 });

@@ -1,4 +1,5 @@
 @extends('investment::layouts.app')
+<style>.glyphicon {font-size: 30px;}</style>
 
 @section('content')
     <div class="container">
@@ -20,7 +21,7 @@
                                 <tr>
                                     <td></td>
                                     <td>{!! $investment->value   !!} | Quotas {!! $investment->Quotas->count() !!}</td>
-                                    <td>{!! $investment->date_payment    !!}</td>
+                                    <td>{!! $investment->date_payment  !!} [D+1]</td>
                                     <td>{!! $investment->created_at !!}</td>
                                     <td>{!! $investment->updated_at !!}</td>
                                 </tr>
@@ -30,21 +31,19 @@
 
                         @if($investment->status)
 
-                        Invoice
                         @foreach($investment->Invoices as $i )
-
 
                             <div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                        <a href="{!! route('investment.cpr.invoice.print',$i) !!}" target="_blank">
-                                        <img src="http://fundoparana.com.br/wp-content/uploads/img.boleto-atrasado.png" alt="..." width="100" height="100">
-                                    </a>
-                                </div>
+                                        <a href="{!! route('investment.cpr.invoice.print',$i) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
+                                 </div>
                          @endforeach
-
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="{!! route('investment.client.investment.document',$investment) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-print"></i></a>
+                                </div>
                          @else
 
-                    </div>
+                         </div>
                 </div>
             </div>
         </div>

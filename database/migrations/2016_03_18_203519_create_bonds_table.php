@@ -14,13 +14,13 @@ class CreateBondsTable extends Migration
     {
         Schema::create('bonds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->string('name')->nullable()->index();
             $table->string('description')->nullable();
             $table->double('rate');
             $table->string('rate_mode');
             $table->double('total');
             $table->integer('quota');
-            $table->dateTime('opportunity');
+            $table->date('opportunity');
 
             $table->integer('prospect_id')->unsigned();
             $table->integer('company_id')->unsigned();

@@ -6,14 +6,13 @@ if (! function_exists('jurosSimples')) {
     {
         $formatDate = explode('-',$date);
 
-        $date    = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2]);
-        $oldDate = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2]);
+        $date    = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2])->addDay(1);
+        $oldDate = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2])->addDay(1);
 
         $parcels     = $days/30;
         $rate        = $rate / 100;
 
         $daily_rate  = pow(1 + $rate, 1/30) - 1;
-
         //dd($daily_rate);
 
         //first date and firstParcel

@@ -15,7 +15,7 @@ class CreateQuotasTable extends Migration
         Schema::create('quotas', function (Blueprint $table) {
             $table->increments('id');
             $table->double('value');
-            $table->integer('investment_id');
+            $table->integer('investment_id')->unsigned();
 
             $table->foreign('investment_id')
                 ->references('id')->on('investments')

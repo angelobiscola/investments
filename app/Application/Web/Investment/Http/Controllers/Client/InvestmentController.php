@@ -81,6 +81,17 @@ class InvestmentController extends BaseController
         return back()->with('status','Confirmed');
     }
 
+    public function document($id)
+    {
+        $investment = $this->investment->find($id);
+
+        $pdf = \PDF::loadView('investment::clients.investments.documents');
+        return $pdf->download('invoice.pdf');
+
+        //$investment->update($request->input('investment'));
+        //return view('investment::clients.investments.documents',compact('investment'));
+    }
+
 }
 
 
