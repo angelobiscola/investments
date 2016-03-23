@@ -2,11 +2,15 @@
 namespace App\Application\Web\Investment\Http\Controllers\Cpr;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
+use App\Application\Web\Investment\Jobs\CreateOperation;
 use App\Domains\Cpr\Cpr;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class CprController extends BaseController
 {
+    use DispatchesJobs;
+
     protected $cpr;
 
     public function __construct(Cpr $cpr)
@@ -32,7 +36,8 @@ class CprController extends BaseController
     public function consolidate($id)
     {
         $cpr    = $this->cpr->find($id);
-        $cpr->update(['status' =>'c']);
+        //$cpr->update(['status' =>'c']);
+        dispatch(new CreateOperation($cpr->Investment));
         return back()->with('status','Consolidate OK, Processing....');
     }
 }
