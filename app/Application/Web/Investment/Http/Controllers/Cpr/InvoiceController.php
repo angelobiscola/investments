@@ -75,10 +75,7 @@ class InvoiceController extends BaseController
 
         //Retorna o Objeto do Boleto
         return $this->boleto->pdf();
-
     }
-
-
 }
 
 

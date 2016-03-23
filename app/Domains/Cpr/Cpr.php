@@ -1,9 +1,8 @@
 <?php
 namespace App\Domains\Cpr;
 
-use App\Domains\Admin\Client;
+use App\Domains\Client\Client;
 use App\Domains\Client\Investment;
-use App\Domains\Company\Company;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -27,17 +26,17 @@ class Cpr extends Model
 
     public function Client()
     {
-        return $this->hasOne(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function Company()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function Investment()
     {
-        return $this->hasOne(Investment::class);
+        return $this->belongsTo(Investment::class);
     }
 
     public function Invoice()
