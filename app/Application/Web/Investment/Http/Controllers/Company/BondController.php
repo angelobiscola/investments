@@ -64,7 +64,7 @@ class BondController extends BaseController
 
     public function investors($id)
     {
-        $investors = $this->bond->find($id)->Investments();
+        $investors = $this->bond->find($id)->Investments;
         return view('investment::companies.bonds.investors', compact('investors'));
     }
 }

@@ -26,9 +26,10 @@
                                         <td> {!! $investor->id !!} </td>
                                         <td> {!! $investor->value !!} </td>
                                         <td> {!! $investor->status !!} </td>
-                                        <td> {!! $investor->client_id !!} </td>
-                                        <td> {!! $investor->user_id !!} </td>
-                                        <td> {!! $investor->company_id !!} </td>
+                                        <td> {!! $investor->client_id ? $investor->Client->name : '' !!} </td>
+                                        <td> {!! $investor->user_id  !!} </td>
+                                        <td> {!! $investor->Company ? $investor->Company->name : '' !!} </td>
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

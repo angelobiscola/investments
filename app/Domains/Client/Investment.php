@@ -6,6 +6,7 @@ use App\Domains\Cpr\Cpr;
 use App\Domains\Cpr\Invoice;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Domains\Company\Company;
 
 class Investment extends Model
 {
@@ -24,7 +25,6 @@ class Investment extends Model
         return $this->belongsTo(Bond::class);
     }
 
-
     public function Invoices()
     {
         return $this->hasMany(Invoice::class);
@@ -38,5 +38,10 @@ class Investment extends Model
     public function Quotas()
     {
         return $this->hasMany(Quota::class);
+    }
+
+    public function Company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }
