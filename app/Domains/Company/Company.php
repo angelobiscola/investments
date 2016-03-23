@@ -3,6 +3,7 @@
 namespace App\Domains\Company;
 
 use App\Domains\Billet\Billet;
+use App\Domains\Cpr\Cpr;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -39,5 +40,10 @@ class Company extends Model
     public function Prospect()
     {
         return $this->hasMany(Prospect::class);
+    }
+
+    public function Cprs()
+    {
+        return $this->hasMany(Cpr::class);
     }
 }

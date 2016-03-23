@@ -13,8 +13,8 @@ class InvestmentEventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Application\Web\Investment\NewInvoiceEvent' => [
-            'App\Application\Web\Investment\NewInvoiceEventListener',
+        'App\Application\Web\Investment\Events\NewInvoiceEvent' => [
+            'App\Application\Web\Investment\Listeners\NewInvoiceEventListener',
         ],
     ];
 

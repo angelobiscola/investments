@@ -14,8 +14,8 @@ class CreateInvestmentsTable extends Migration
     {
         Schema::create('investments', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('value',10,8);
-            $table->dateTime('date_payment');
+            $table->double('value',10,2);
+            $table->date('date_payment')->nullable();
             $table->boolean('status');
             $table->integer('mode');
             $table->integer('client_id');

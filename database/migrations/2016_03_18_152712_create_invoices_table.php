@@ -14,11 +14,11 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('value',10,8);
-            $table->dateTime('date_maturity');
-            $table->dateTime('date_payment');
-            $table->string('bank');
+            $table->double('value',10,2);
+            $table->date('date_maturity');
+            $table->date('date_payment');
             $table->char('status');
+            $table->integer('billet_id');
             $table->integer('client_id');
             $table->integer('company_id');
             $table->integer('investment_id');

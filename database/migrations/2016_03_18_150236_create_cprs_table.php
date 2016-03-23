@@ -14,7 +14,7 @@ class CreateCprsTable extends Migration
     {
         Schema::create('cprs', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('value',10,8);
+            $table->double('value',10,2);
             $table->dateTime('date_maturity');
             $table->dateTime('date_payment');
             $table->char('type');

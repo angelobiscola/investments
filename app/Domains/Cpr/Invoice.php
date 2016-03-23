@@ -2,6 +2,8 @@
 
 namespace App\Domains\Cpr;
 
+use App\Domains\Bank\Bank;
+use App\Domains\Billet\Billet;
 use App\Domains\Client\Client;
 use App\Domains\Client\Investment;
 use App\Domains\Company\Company;
@@ -12,7 +14,7 @@ class Invoice extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['bank','status','value','date_maturity', 'date_payment', 'client_id', 'company_id', 'investment_id', 'user_id', 'cpr_id'];
+    protected $fillable = ['bank','status','value','date_maturity', 'date_payment', 'bank_id', 'client_id', 'company_id', 'investment_id', 'user_id', 'cpr_id'];
     protected $dates    = ['deleted_at'];
 
 
@@ -24,6 +26,11 @@ class Invoice extends Model
     public function Client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function Billet()
+    {
+        return $this->belongsTo(Billet::class);
     }
 
     public function Company()

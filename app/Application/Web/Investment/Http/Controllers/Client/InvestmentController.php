@@ -18,33 +18,33 @@ class InvestmentController extends BaseController
 
     public function create(Request $request, $id)
     {
-        $billets =  $this->getCompany()->Billets;
         $bond    =  $this->getCompany()->Bonds()->find($request->get('bond'));
         return view('investment::clients.investments.create',compact('id','billets','bond'))->with('company',$this->getCompany());
     }
 
     public function store(Request $request)
     {
-        //$data    = $request->input('data');
-        //$request = $request->input('quota');
+        $quotas    = $request->input('quota');
 
-        dd($request->input('quota'));
+        $investment                = $request->input('investment');
+        $investment['user_id']     = $this->getUser()->id;
+        $investment['company_id']  = $this->getCompany()->id;
 
+        $investment = $this->investment->create($investment);
+        $this->addQuota($investment,$quotas);
 
-
-        $request['company_id'] = $this->getCompany()->id;
-        $request['user_id']    = $this->getUser()->id;
-
-        //$investment = $this->investment->create($request);
-        //\Event::fire(new NewInvoiceEvent($investment,$data));
-
-        //return redirect(route('investment.client.investment.show',$investment->id));
+        return redirect(route('investment.client.investment.show',$investment->id));
     }
 
     public function show($id)
     {
         $investment = $this->investment->find($id);
-        return view('investment::clients.investments.show',compact('investment'));
+        $billets     =  $billets =  $this->getCompany()->Billets;
+
+        $s = jurosSimples($investment->value,$investment->Bond->rate,360,$investment->date_payment);
+        $c = jurosComposto($investment->value,$investment->Bond->rate,12);
+
+        return view('investment::clients.investments.show',compact('investment','billets','s', 'c'));
     }
 
     public function edit($id)
@@ -56,6 +56,31 @@ class InvestmentController extends BaseController
     {
 
     }
+
+    private function addQuota($investment, array $quotas)
+    {
+        $total = 0;
+
+        foreach($quotas as $q)
+        {
+            $investment->Quotas()->create(['value' => $q]);
+            $total += $q;
+        }
+        return $investment->update(['value' =>$total]);
+    }
+
+    public function confirm($id,Request $request)
+    {
+        $bank= $request->input('bank');
+
+        $investment = $this->investment->find($id);
+        $investment->update($request->input('investment'));
+
+        \Event::fire(new NewInvoiceEvent($investment,$bank));
+
+        return back()->with('status','Confirmed');
+    }
+
 }
 
 

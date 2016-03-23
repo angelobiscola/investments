@@ -2,6 +2,7 @@
 
 namespace App\Domains\Company;
 
+use App\Domains\Client\Investment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,5 +17,10 @@ class Bond extends Model
     public function Prospect()
     {
         return $this->belongsTo(Prospect::class);
+    }
+
+    public function Investments()
+    {
+        return $this->hasMany(Investment::class);
     }
 }

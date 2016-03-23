@@ -1,6 +1,7 @@
 <?php
 namespace App\Domains\Client;
 
+use App\Domains\Company\Bond;
 use App\Domains\Cpr\Cpr;
 use App\Domains\Cpr\Invoice;
 use Illuminate\Database\Eloquent\Model;
@@ -10,13 +11,19 @@ class Investment extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['value','date_payment','mode','client_id','company_id', 'user_id', 'bond_id'];
+    protected $fillable = ['value','status','date_payment','mode','client_id','company_id', 'user_id', 'bond_id'];
     protected $dates    = ['deleted_at'];
 
     public function Client()
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function Bond()
+    {
+        return $this->belongsTo(Bond::class);
+    }
+
 
     public function Invoices()
     {

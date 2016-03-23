@@ -40,4 +40,9 @@ class Cpr extends Model
         return $this->hasOne(Investment::class);
     }
 
+    public function Invoice()
+    {
+        return $this->belongsTo(Invoice::class);
+    }
+
 }

@@ -21,7 +21,17 @@
             </tbody>
         </table>
 
-    @include('investment::clients.investments._inputs')
+
+        <div class="form-group{{ $errors->has('date_payment') ? ' has-error' : '' }}">
+            <label class="col-md-4 control-label">Dead line</label>
+
+            <div class="col-md-6">
+                {!! Form::date('investment[date_payment]', \Carbon\Carbon::now()->addDay(1), ['class' => 'form-control']) !!}
+                @if ($errors->has('date_payment'))
+                    <span class="help-block"><strong>{{ $errors->first('date_payment')}}</strong></span>
+                @endif
+            </div>
+        </div>
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">

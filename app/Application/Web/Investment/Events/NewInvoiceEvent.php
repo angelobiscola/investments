@@ -10,16 +10,16 @@ class NewInvoiceEvent extends Event
     use SerializesModels;
 
     protected $investment;
-    protected $data;
+    protected $bank;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Investment $investment,$data)
+    public function __construct(Investment $investment,$bank)
     {
-        $this->investment = $investment;
-        $this->data       = $data;
+        $this->investment  = $investment;
+        $this->bank       = $bank;
     }
 
     /**
@@ -37,8 +37,8 @@ class NewInvoiceEvent extends Event
         return $this->investment;
     }
 
-    public function getData()
+    public function getBank()
     {
-        return (object)$this->data;
+        return $this->bank;
     }
 }

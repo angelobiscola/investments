@@ -37,9 +37,8 @@
                                     <td>{!! $investment->created_at !!}</td>
                                     <td>{!! $investment->updated_at !!}</td>
                                     <td>
+                                        <a href="{!! route('investment.client.investment.show',$investment) !!}" ><i class="glyphicon glyphicon-eye-open"></i></a>
                                         <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
-                                        <a href="{!! route('investment.client.investment.show',$investment) !!}" ><i class="glyphicon glyphicon-shopping-cart"></i></a>
-
                                     </td>
                                 </tr>
                             @endforeach
