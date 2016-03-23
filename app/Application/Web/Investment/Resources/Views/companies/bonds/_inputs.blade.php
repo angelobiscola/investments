@@ -1,12 +1,20 @@
 <div class="form-group{{ $errors->has('prospect_id') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Prospect</label>
+    {!! Form::label('Prospect', 'Prospect', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" name="bond[prospect_id]">
 
             <option>Select..</option>
             @foreach($prospects as $p)
-                <option value="{!! $p->id !!}">{!! $p->name !!}</option>
+
+                @if($bond != '')
+                    @if($bond->prospect_id == $p->id)
+                        <option name="{!! $p->name !!}" value="{!! $p->id !!}" selected> {!! $p->name !!} </option>
+                    @endif
+                @else
+                    <option name="{!! $p->name !!}" value="{!! $p->id !!}"> {!! $p->name !!} </option>
+                @endif
+
             @endforeach
 
         </select>
@@ -18,26 +26,24 @@
 </div>
 
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Name</label>
+    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-            <input type="text" class="form-control" name="bond[name]" value="{{ old('name') }}">
+        {!! Form::text ('bond[name]', $bond['name'], ['class' => 'form-control']) !!}
 
-        @if ($errors->has('name'))
-            <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
+        @if ($errors->has('quota'))
+            <span class="help-block"><strong>{{ $errors->first('quota') }}</strong></span>
         @endif
     </div>
 </div>
 
-
-
 <div class="form-group{{ $errors->has('total') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Total</label>
+    {!! Form::label('Total', 'Total', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
             <div class="input-group-addon">$</div>
-            <input type="text" class="form-control" name="bond[total]" value="{{ old('total') }}">
+            {!! Form::text ('bond[total]', $bond['total'], ['class' => 'form-control']) !!}
             <div class="input-group-addon">.00</div>
         </div>
 
@@ -49,10 +55,10 @@
 
 
 <div class="form-group{{ $errors->has('quota') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Quota</label>
+    {!! Form::label('Quota', 'Quota', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="bond[quota]" value="{{ old('quota') }}">
+        {!! Form::text ('bond[quota]', $bond['quota'], ['class' => 'form-control']) !!}
 
         @if ($errors->has('quota'))
             <span class="help-block"><strong>{{ $errors->first('quota') }}</strong></span>
@@ -61,10 +67,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('rate') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Rate</label>
+    {!! Form::label('Rate', 'Rate', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="bond[rate]" value="{{ old('rate') }}">
+        {!! Form::text ('bond[rate]', $bond['rate'], ['class' => 'form-control']) !!}
 
         @if ($errors->has('rate'))
             <span class="help-block"><strong>{{ $errors->first('rate') }}</strong></span>
@@ -73,12 +79,24 @@
 </div>
 
 <div class="form-group{{ $errors->has('mode_rate') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Mode Rate</label>
+    {!! Form::label('Mode Rate', 'Mode Rate', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <select class="form-control" name="bond[mode_rate]">
-            <option value="1">Month</option>
-            <option value="2">Years</option>
+        <select class="form-control" name="bond[rate_mode]" id="bond[rate_mode]">
+
+            @if($bond != '')
+                @if($bond->rate_mode == 1)
+                    <option name="Month" value="1" selected> Month </option>
+                    <option value="2">Years</option>
+                @else
+                    <option value="1">Month</option>
+                    <option name="Years" value="2" selected> Years </option>
+                @endif
+            @else
+                <option value="1">Month</option>
+                <option value="2">Years</option>
+            @endif
+
         </select>
 
         @if ($errors->has('mode_rate'))
@@ -89,11 +107,11 @@
 
 
 <div class="form-group{{ $errors->has('opportunity') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Opportunity Expire</label>
+    {!! Form::label('Opportunity Expire', 'Opportunity Expire', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
 
-       {!! Form::date('bond[opportunity]', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+       {!! Form::date('bond[opportunity]', \Carbon\Carbon::now(), ['class' => 'control']) !!}
 
         @if ($errors->has('opportunity'))
             <span class="help-block"><strong>{{ $errors->first('opportunity') }}</strong></span>

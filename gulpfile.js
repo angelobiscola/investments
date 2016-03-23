@@ -13,4 +13,16 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+
+   /*
+    assets Global
+    */
+
+    mix.scripts([
+         'resources/assets/restfull/app.js'
+        ],
+        "public/js/restfull/app.js"
+    );
+
 });
+

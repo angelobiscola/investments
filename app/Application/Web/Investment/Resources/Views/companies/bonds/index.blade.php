@@ -12,6 +12,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <th>Prospect</th>
+                                <th>Nome</th>
                                 <th>Total</th>
                                 <th>Quota</th>
                                 <th>Rate</th>
@@ -22,13 +23,19 @@
                             @foreach($bonds  as $bond)
                                 <tr>
                                     <td>{!! $bond->Prospect->name   !!}</td>
+                                    <td>{!! $bond->name !!}</td>
                                     <td>{!! $bond->total    !!}</td>
                                     <td>{!! $bond->quota !!} = {!! $bond->total/$bond->quota !!}</td>
                                     <td>{!! $bond->rate !!} | am</td>
                                     <td>{!! \Carbon\Carbon::parse($bond->opportunity)->diffInDays() !!} Days</td>
                                     <td>
-                                        <a href="" ><i class="glyphicon glyphicon glyphicon-cog"></i></a>
-                                        <a href="" ><i class="glyphicon glyphicon glyphicon-piggy-bank"></i></a>
+                                        @if(!$bond->Investments->count())
+                                            <a href="{!! route('investment.company.bond.edit', $bond) !!}" ><i class="glyphicon glyphicon glyphicon-cog"></i></a>
+                                        @endif
+                                        <a href="{!! route('investment.company.bond.investors', $bond) !!}" ><i class="glyphicon glyphicon glyphicon-piggy-bank"></i></a>
+                                        @if(!$bond->Investments->count())
+                                            <a href="{!! route('investment.company.bond.delete', $bond) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
+                                        @endif
                                     </td>
                                 </tr>
                              @endforeach

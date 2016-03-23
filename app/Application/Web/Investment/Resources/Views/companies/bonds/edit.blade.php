@@ -14,9 +14,9 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['route' => ['investment.company.bond.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {!! Form::model($bond, ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 
-                        @include('investment::companies.bonds._form')
+                            @include('investment::companies.bonds._form')
 
                         {!! Form::close() !!}
                     </div>
