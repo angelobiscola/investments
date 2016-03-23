@@ -18,13 +18,12 @@ class InvoiceController extends BaseController
         $this->boleto = $boleto;
     }
 
-
     public function getPrint($id)
     {
-        return $this->genarate($this->invoice->find($id));
+        return $this->generate($this->invoice->find($id));
     }
 
-    private function genarate($invoice)
+    private function generate($invoice)
     {
 
         $sacado   = $invoice->Client;
