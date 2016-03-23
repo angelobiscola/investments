@@ -4,6 +4,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Billet\Billet;
 use Illuminate\Http\Request;
+use App\Domains\Billet\Template;
 
 class BilletController extends BaseController
 {
@@ -21,9 +22,9 @@ class BilletController extends BaseController
         return view('investment::companies.billets.index',compact('billets'));
     }
 
-    public function create()
+    public function create(Template $template)
     {
-        return view('investment::companies.billets.create')->with('billet', $this->billet);
+        return view('investment::companies.billets.create')->with('billet', $this->billet)->with('templates', $template->all());
     }
 
     public function store(Request $request)
@@ -40,10 +41,10 @@ class BilletController extends BaseController
         return view('investment::companies.billets.show', compact('billet'));
     }
 
-    public function edit($id)
+    public function edit($id, Template $template)
     {
         $billet = $this->billet->find($id);
-        return view('investment::companies.billets.edit', compact('billet'));
+        return view('investment::companies.billets.edit', compact('billet', 'templates'))->with('templates', $template->all());
     }
 
     public function update($id, Request $request)

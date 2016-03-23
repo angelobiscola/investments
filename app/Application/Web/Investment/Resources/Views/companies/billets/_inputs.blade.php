@@ -100,16 +100,29 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('contract') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('prospect_id') ? ' has-error' : '' }}">
     {!! Form::label('template_id', 'template_id', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        @include('investment::elements._templates')
-        Template
+        <select class="form-control" name="billet[template_id]" name="billet[template_id]">
 
-        @if ($errors->has('template_id'))
-            <span class="help-block"><strong>{{ $errors->first('template_id') }}</strong></span>
+            <option>Select..</option>
+
+            @foreach($templates as $p)
+
+                @if($billet != '')
+                    <option name="{!! $p->name !!}" value="{!! $p->id !!}" @if($billet->template_id == $p->id ) selected @endif> {!! $p->name !!} </option>
+                @else
+                     <option name="{!! $p->name !!}" value="{!! $p->id !!}"> {!! $p->name !!} </option>
+                @endif
+
+            @endforeach
+
+        </select>
+        @if ($errors->has('prospect_id'))
+            <span class="help-block"><strong>{{ $errors->first('prospect_id') }}</strong></span>
         @endif
+
     </div>
 </div>
 
