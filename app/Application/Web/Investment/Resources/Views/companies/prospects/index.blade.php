@@ -23,8 +23,8 @@
                                     <td>{!! $prospect->created_at !!}</td>
                                     <td>{!! $prospect->updated_at !!}</td>
                                     <td>
-                                        <a href="" ><i class="glyphicon glyphicon glyphicon-edit"></i></a>
-                                        <a href="" ><i class="glyphicon glyphicon glyphicon-trash"></i></a>
+                                        <a href="{!! route('investment.company.prospect.edit', $prospect) !!}" ><i class="glyphicon glyphicon glyphicon-edit"></i></a>
+                                        <a href="{!! route('investment.company.prospect.delete', $prospect) !!}" data-method="delete"><i class="glyphicon glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                              @endforeach

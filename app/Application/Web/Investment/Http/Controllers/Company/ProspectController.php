@@ -23,7 +23,7 @@ class ProspectController extends BaseController
 
     public function create()
     {
-        return view('investment::companies.prospects.create');
+        return view('investment::companies.prospects.create')->with('prospect');
     }
 
     public function store(Request $request)
@@ -32,6 +32,24 @@ class ProspectController extends BaseController
        $request['user_id']    = $this->getUser()->id;
        $this->getCompany()->Prospect()->create($request);
        return redirect(route('investment.company.prospect.index'))->with('status','saved');
+    }
+
+    public function edit($id)
+    {
+        $prospect = $this->prospect->find($id);
+        return view('investment::companies.prospects.edit', compact('prospect'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->prospect->find($id)->update($request->input('prospect'));
+        return redirect(route('investment.company.prospect.index'));
+    }
+
+    public function destroy($id)
+    {
+        $this->prospect->destroy($id);
+        return redirect(route('investment.company.prospect.index'));
     }
 }
 

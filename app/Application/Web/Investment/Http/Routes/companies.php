@@ -21,6 +21,9 @@ Route::group(['prefix' => 'prospects', 'as' => 'prospect.'], function()
     Route::get('/'                          ,   ['as' =>'index'                 , 'uses' => 'ProspectController@index'         ]);
     Route::get('/create'                    ,   ['as' =>'create'                , 'uses' => 'ProspectController@create'        ]);
     Route::post('/store'                    ,   ['as' =>'store'                 , 'uses' => 'ProspectController@store'         ]);
+    Route::get('{id}/edit'                  ,   ['as' =>'edit'                  , 'uses' => 'ProspectController@edit'          ]);
+    Route::post('{id}/update'               ,   ['as' =>'update'                , 'uses' => 'ProspectController@update'        ]);
+    Route::delete('{id}/destroy'            ,   ['as' =>'delete'                , 'uses' => 'ProspectController@destroy'       ]);
 
 });
 

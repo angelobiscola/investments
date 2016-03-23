@@ -1,6 +1,6 @@
 @extends('investment::layouts.app')
 
-<!-- Main Content -->
+        <!-- Main Content -->
 @section('content')
 
     <div class="container">
@@ -15,9 +15,9 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['route' => ['investment.company.prospect.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {!! Form::model($prospect, ['route' => ['investment.company.prospect.update', $prospect['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 
-                            @include('investment::companies.prospects._form')
+                        @include('investment::companies.prospects._form')
 
                         {!! Form::close() !!}
                     </div>

@@ -1,9 +1,9 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Name</label>
+    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
+        {!! Form::text ('prospect[name]', $prospect['name'], ['class' => 'form-control']) !!}
 
-        <input type="text" class="form-control" name="prospect[name]" value="{{ old('name') }}">
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
         @endif
@@ -12,11 +12,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Description</label>
+    {!! Form::label('Description', 'Description', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-
-        <input type="text" class="form-control" name="prospect[description]" value="{{ old('description') }}">
+        {!! Form::text ('prospect[description]', $prospect['description'], ['class' => 'form-control']) !!}
 
         @if ($errors->has('description'))
             <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
