@@ -95,7 +95,7 @@
                     <label class="col-md-4 control-label">Dead line</label>
 
                     <div class="col-md-6">
-                        {!! Form::date('investment[date_payment]', \Carbon\Carbon::now()->addDay(1), ['class' => 'form-control']) !!}
+                        {!! Form::date('investment[date_payment]', $investment->date_payment, ['class' => 'form-control']) !!}
                         @if ($errors->has('date_payment'))
                             <span class="help-block"><strong>{{ $errors->first('date_payment')}}</strong></span>
                         @endif

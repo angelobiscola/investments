@@ -49,6 +49,7 @@
             <ul class="nav navbar-nav">
                 @if (!Auth::guard('collaborator')->guest())
                     <li><a href="{{ url('/investment/client') }}">Clients</a></li>
+                    <li><a href="{{ url('/investment/cpr') }}">CPR</a></li>
                 @endif
             </ul>
 

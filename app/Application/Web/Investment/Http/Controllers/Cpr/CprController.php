@@ -17,11 +17,24 @@ class CprController extends BaseController
 
     public function index()
     {
-        $cprs = $this->getCompany()->Cprs;
+        $cprs = $this->cpr->whereCompanyId($this->getCompany()->id)->get();
         return view('investment::cprs.index',compact('cprs'));
     }
 
+    public function filter(Request $request)
+    {
+        $type   = $request->get('t');
+        $status = $request->get('s');
+        $cprs = $this->cpr->whereCompanyId($this->getCompany()->id)->whereType($type)->whereStatus($status)->get();
+        return view('investment::cprs.index',compact('cprs'));
+    }
 
+    public function consolidate($id)
+    {
+        $cpr    = $this->cpr->find($id);
+        $cpr->update(['status' =>'c']);
+        return back()->with('status','Consolidate OK, Processing....');
+    }
 }
 
 
