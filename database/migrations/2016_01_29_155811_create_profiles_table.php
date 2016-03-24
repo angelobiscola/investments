@@ -20,11 +20,6 @@ class CreateProfilesTable extends Migration
             $table->string('about_you');
             $table->string('genre');
             $table->integer('user_id')->unique();
-
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
-
             $table->timestamps();
             $table->softDeletes();
         });
