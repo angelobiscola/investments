@@ -39,7 +39,7 @@ class InvestmentController extends BaseController
     public function show($id)
     {
         $investment = $this->investment->find($id);
-        $billets     =  $billets =  $this->getCompany()->Billets;
+        $billets    =$this->getCompany()->Billets;
 
         $s = jurosSimples($investment->value,$investment->Bond->rate,360,$investment->date_payment);
         $c = jurosComposto($investment->value,$investment->Bond->rate,12);
