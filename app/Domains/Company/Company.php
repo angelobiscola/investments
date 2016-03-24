@@ -37,7 +37,7 @@ class Company extends Model
         return $this->hasMany(Bond::class);
     }
 
-    public function Prospect()
+    public function Prospects()
     {
         return $this->hasMany(Prospect::class);
     }
