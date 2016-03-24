@@ -1,7 +1,9 @@
+@inject('templates', 'App\Domains\Billet\Template' )
+
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[name]', $billet['name'], ['class' => 'form-control', 'id' => 'name']) !!}
+        {!! Form::text ('billet[name]', null , ['class' => 'form-control', 'id' => 'name']) !!}
         Nome Boleto.
 
         @if ($errors->has('name'))
@@ -13,7 +15,7 @@
 <div class="form-group{{ $errors->has('agency') ? ' has-error' : '' }}">
     {!! Form::label('agencia', 'agency', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[agency]', $billet['agency'], ['class' => 'form-control', 'id' => 'agency']) !!}
+        {!! Form::text ('billet[agency]', null , ['class' => 'form-control', 'id' => 'agency']) !!}
         Num da agencia, sem digito
 
         @if ($errors->has('agency'))
@@ -22,12 +24,11 @@
     </div>
 </div>
 
-
 <div class="form-group{{ $errors->has('agency_dv') ? ' has-error' : '' }}">
     {!! Form::label('agency_dv', 'agency_dv', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('billet[agency_dv]', $billet['agency_dv'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[agency_dv]', null , ['class' => 'form-control']) !!}
         Digito do Num da agencia
 
         @if ($errors->has('agency_dv'))
@@ -40,7 +41,7 @@
         >
     {!! Form::label('account', 'account', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[account]', $billet['account'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[account]', null , ['class' => 'form-control']) !!}
         Num da conta, sem digito
 
         @if ($errors->has('account'))
@@ -49,11 +50,10 @@
     </div>
 </div>
 
-
 <div class="form-group{{ $errors->has('account_dv') ? ' has-error' : '' }}">
     {!! Form::label('account_dv', 'account_dv', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[account_dv]', $billet['account_dv'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[account_dv]', null , ['class' => 'form-control']) !!}
         Digito conta
 
         @if ($errors->has('account_dv'))
@@ -62,11 +62,10 @@
     </div>
 </div>
 
-
 <div class="form-group{{ $errors->has('wallet') ? ' has-error' : '' }}">
     {!! Form::label('wallet', 'wallet', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[wallet]', $billet['wallet'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[wallet]', null , ['class' => 'form-control']) !!}
         Código da Carteira: pode ser 06 ou 03
 
         @if ($errors->has('wallet'))
@@ -78,7 +77,7 @@
 <div class="form-group{{ $errors->has('wallet') ? ' has-error' : '' }}">
     {!! Form::label('idetification', 'identification', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text ('billet[identification]', $billet['identification'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[identification]', null , ['class' => 'form-control']) !!}
         Identificação
 
         @if ($errors->has('identification'))
@@ -91,7 +90,7 @@
     {!! Form::label('contract', 'contract', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('billet[contract]', $billet['contract'], ['class' => 'form-control']) !!}
+        {!! Form::text ('billet[contract]', null , ['class' => 'form-control']) !!}
         Contrato
 
         @if ($errors->has('contract'))
@@ -108,7 +107,7 @@
 
             <option>Select..</option>
 
-            @foreach($templates as $p)
+            @foreach($templates->All() as $p)
 
                 @if($billet != '')
                     <option name="{!! $p->name !!}" value="{!! $p->id !!}" @if($billet->template_id == $p->id ) selected @endif> {!! $p->name !!} </option>

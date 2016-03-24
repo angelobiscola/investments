@@ -14,9 +14,17 @@
                             </div>
                         @endif
 
-                        {!! Form::model($billet, ['route' => ['investment.company.billet.update', $billet['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {!! Form::model(['billet' => $billet] , ['route' => ['investment.company.billet.update', $billet], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 
-                            @include('investment::companies.billets._form', [ 'billet' => $billet ])
+                            @include('investment::companies.billets._inputs')
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-btn fa-check"></i>Edit
+                                    </button>
+                                </div>
+                            </div>
 
                         {!! Form::close() !!}
 
