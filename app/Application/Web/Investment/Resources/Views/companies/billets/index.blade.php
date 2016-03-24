@@ -29,10 +29,10 @@
                             <tbody>
                             @foreach($billets  as $billet)
                                 <tr>
-                                    <td><a href="{!! route('investment.company.billet.show', $billet) !!}"> {!! $billet->name   !!} </a></td>
-                                    <td>{!! $billet->template ? $billet->template->name : '' !!}</td>
-                                    <td>{!! $billet->created_at !!}</td>
-                                    <td>{!! $billet->updated_at !!}</td>
+                                    <td><a href="{!! route('investment.company.billet.show', $billet) !!}"> {!! $billet->name!!} </a></td>
+                                    <td>{!! $billet->present()->relationship('template','name')!!}</td>
+                                    <td>{!! $billet->present()->createdAt !!}</td>
+                                    <td>{!! $billet->present()->updatedAt !!}</td>
                                     <td>
                                         <a href="{!! route('investment.company.billet.edit', $billet) !!}" ><i class="fa fa-edit"></i></a>
                                         <a href="{!! route('investment.company.billet.delete', $billet) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>

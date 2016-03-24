@@ -10,10 +10,9 @@ if (! function_exists('jurosSimples')) {
         $oldDate = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2])->addDay(1);
 
         $parcels     = $days/30;
-        $rate        = $rate / 100;
+        $daily_rate  = ($rate/30)/100;
 
-        $daily_rate  = pow(1 + $rate, 1/30) - 1;
-        //dd($daily_rate);
+        $rate        = $rate / 100;
 
         //first date and firstParcel
         $firstDate       = $date->addDay(1)->addMonth(1)->firstOfMonth();
@@ -46,7 +45,7 @@ if (! function_exists('jurosSimples')) {
         $total    = ($total - ($valueParcels*2)) + ($firstParcel+$lastParcel);
         $interest = $total - $value;
 
-        return ['total' => $total, 'value_parcels' => $valueParcels, 'interest' =>$interest,'rate'=> $rate*100, 'parcels' =>$parcels, 'details' => $details];
+        return ['total' => $total, 'value_parcels' => $valueParcels, 'interest' =>$interest,'rate'=> $rate*100, 'parcels' =>$parcels, 'details' => $details, 'percent' => ''];
     }
 }
 
@@ -58,11 +57,15 @@ if (! function_exists('jurosComposto')) {
 
         $rate = $rate / 100;
         $total = $value * pow((1 + $rate), $parcels);
+
         $interest  = $total - $value;
 
-        return ['total' => $total, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>\Carbon\Carbon::now()->addDay(360)];
+        return ['total' => $total,'value'=> $value, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>\Carbon\Carbon::now()->addDay(360)];
     }
 }
+
+
+
 
 
 

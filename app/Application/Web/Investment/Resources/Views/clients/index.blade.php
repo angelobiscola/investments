@@ -46,9 +46,11 @@
                             @foreach($clients  as $client)
                                 <tr>
                                     <td>{!! $client->name   !!}</td>
-                                    <td>{!! $client->cpf    !!}</td>
-                                    <td>{!! $client->created_at !!}</td>
-                                    <td>{!! $client->updated_at !!}</td>
+
+                                    <td>{!! $client->present()->legalOrPhysical !!}</td>
+
+                                    <td>{!! $client->present()->createdAt !!}</td>
+                                    <td>{!! $client->present()->updatedAt !!}</td>
                                     <td>
                                         <a href="{!! route('investment.client.show',$client) !!}" target="_blank" ><i class="glyphicon glyphicon-print"></i></a>
                                         <a href="{!! route('investment.client.investments',$client) !!}"><i class="glyphicon glyphicon-usd"></i></a>

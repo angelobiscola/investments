@@ -7,13 +7,15 @@ use App\Domains\Cpr\Invoice;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laracasts\Presenter\PresentableTrait;
 
 class Client extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['name','phone','type','email'];
-    protected $dates    = ['deleted_at'];
+    protected $fillable    = ['name','phone','type','email'];
+    protected $dates       = ['deleted_at'];
+    protected $presenter   = ClientPresenter::class;
 
     public function Location()
     {
