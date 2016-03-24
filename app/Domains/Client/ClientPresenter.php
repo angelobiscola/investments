@@ -2,13 +2,18 @@
 namespace App\Domains\Client;
 use App\Support\Presenters\AbstractPresenter;
 
-
 class ClientPresenter extends AbstractPresenter
 {
-
-    public function legalOrPhysical()
+    public function legalOrPhysical($n = false)
     {
-        return $this->type == 'f' ? \Utils::mask($this->Physical->cpf,\Mask::CPF)  : \Utils::mask($this->Legal->cnpj,\Mask::CNPJ);
-    }
+        if($this->type == 'f')
+        {
+            return $n ?  $this->name : \Utils::mask($this->Physical->cpf,\Mask::CPF);
+        }
+        else
+        {
+            return  $n ? $this->Legal->company_name : \Utils::mask($this->Legal->cnpj,\Mask::CNPJ);
+        }
 
+    }
 }

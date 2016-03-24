@@ -36,16 +36,16 @@
 
                         <table class="table table-hover">
                             <thead>
-                                <th>Name</th>
-                                <th>Cpf</th>
-                                <th>Created</th>
-                                <th>Updated</th>
-                                <th>#</th>
+                            <th>Name</th>
+                            <th>Cpf</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>#</th>
                             </thead>
                             <tbody>
                             @foreach($clients  as $client)
                                 <tr>
-                                    <td>{!! $client->name   !!}</td>
+                                    <td>{!! $client->present()->legalOrPhysical(true) !!}</td>
                                     <td>{!! $client->present()->legalOrPhysical !!}</td>
                                     <td>{!! $client->present()->createdAt !!}</td>
                                     <td>{!! $client->present()->updatedAt !!}</td>
@@ -57,7 +57,7 @@
                                         <a href="{!! route('investment.client.delete', $client) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
-                             @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
