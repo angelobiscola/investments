@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBondsTable extends Migration
+class CreateProspectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,31 +12,27 @@ class CreateBondsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bonds', function (Blueprint $table) {
+        Schema::create('prospects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable()->index();
+            $table->string('name');
             $table->string('description')->nullable();
-            $table->double('rate');
-            $table->string('rate_mode');
-            $table->double('total');
-            $table->integer('quota');
-            $table->date('opportunity');
 
-            $table->integer('prospect_id')->unsigned();
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
      * @return void
      */
+
     public function down()
     {
-        Schema::drop('bonds');
+        Schema::drop('prospects');
     }
 }

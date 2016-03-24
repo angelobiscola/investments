@@ -22,11 +22,9 @@ class CreatePhysicalsTable extends Migration
             $table->string('organ_issuer');
             $table->string('cpf')->unique()->index();
             $table->string('cell_phone');
-            $table->integer('client_id')->unsigned();
 
-            $table->foreign('client_id')
-                ->references('id')->on('clients')
-                ->onDelete('cascade');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

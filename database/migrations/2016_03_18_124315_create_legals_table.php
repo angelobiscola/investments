@@ -19,11 +19,9 @@ class CreateLegalsTable extends Migration
             $table->string('cnae_principal');
             $table->string('cnae_secundary');
             $table->string('email')->unique();
-            $table->integer('client_id')->unsigned();
 
-            $table->foreign('client_id')
-                ->references('id')->on('clients')
-                ->onDelete('cascade');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

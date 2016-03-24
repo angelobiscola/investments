@@ -38,29 +38,7 @@ class StartTableSeeder extends Seeder
         Template::create(['name' => 'santander'])->Billets()->create(['name' => 'Santander','agency' => 8080,'agency_dv' => 1,'account' => 1010,'account_dv' => 1, 'wallet' => 03, 'contract' => 1234,'identification' => 0, 'company_id' => 1, 'user_id' => 1]);
         Template::create(['name' => 'bradesco'])->Billets()->create(['name' => 'Bradesco','agency' => 9090,'agency_dv' => 1,'account' => 2020,'account_dv' => 1, 'wallet' => 06, 'contract' => 4321,'identification' => 0, 'company_id' => 1, 'user_id' => 1]);
 
-        Prospect::create(['name' => 'Commercial Paper','company_id' => 1, 'user_id' => 1])->create(['name' => 'Stoque|Equety'])->Bonds()->create(
-                 ['name'         => 'name',
-                  'rate'         => 1.5,
-                  'rate_mode'    =>  1,
-                  'total'        =>  500000,
-                  'quota'        =>  5,
-                  'opportunity'  => \Carbon\Carbon::now()->addDay(60),
-                  'company_id'   => 1,
-                     'user_id'   => 1
-                 ]
-            );
 
-        Prospect::create(['name' => 'Commercial Paper','company_id' => 1, 'user_id' => 1])->Bonds()->create(
-            ['name'         => 'name',
-                'rate'         => 1.2,
-                'rate_mode'    =>  1,
-                'total'        =>  350000,
-                'quota'        =>  5,
-                'opportunity'  => \Carbon\Carbon::now()->addDay(30),
-                'company_id'   => 1,
-                'user_id'   => 1
-            ]
-        );
 
 
         factory(Client::class, 5)

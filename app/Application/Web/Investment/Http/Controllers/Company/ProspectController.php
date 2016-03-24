@@ -48,7 +48,7 @@ class ProspectController extends BaseController
 
     public function destroy($id)
     {
-        $this->prospect->destroy($id);
+        $this->prospect->find($id)->forceDelete();
         return redirect(route('investment.company.prospect.index'));
     }
 }

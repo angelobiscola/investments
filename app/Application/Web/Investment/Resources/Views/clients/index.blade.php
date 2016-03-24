@@ -36,6 +36,7 @@
 
                         <table class="table table-hover">
                             <thead>
+                            <th>Code</th>
                             <th>Name</th>
                             <th>Cpf</th>
                             <th>Created</th>
@@ -45,6 +46,7 @@
                             <tbody>
                             @foreach($clients  as $client)
                                 <tr>
+                                    <td>{!! $client->id !!}</td>
                                     <td>{!! $client->present()->legalOrPhysical(true) !!}</td>
                                     <td>{!! $client->present()->legalOrPhysical !!}</td>
                                     <td>{!! $client->present()->createdAt !!}</td>

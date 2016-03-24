@@ -54,7 +54,7 @@ class BilletController extends BaseController
 
     public function destroy($id)
     {
-        $this->billet->destroy($id);
+        $this->billet->find($id)->forceDelete();
         return redirect(route('investment.company.billet.index'));
     }
 }

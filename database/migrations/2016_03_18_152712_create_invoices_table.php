@@ -19,9 +19,14 @@ class CreateInvoicesTable extends Migration
             $table->date('date_payment');
             $table->char('status');
             $table->integer('billet_id')->unsigned();
+
             $table->integer('client_id')->unsigned();
-            $table->integer('company_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+
             $table->integer('investment_id')->unsigned();
+            $table->foreign('investment_id')->references('id')->on('investments')->onDelete('cascade');
+
+            $table->integer('company_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

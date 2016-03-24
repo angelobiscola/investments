@@ -24,7 +24,10 @@ class CreateBilletsTable extends Migration
             $table->string('identification');
             $table->integer('contract');
             $table->integer('template_id')->unsigned();
+
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

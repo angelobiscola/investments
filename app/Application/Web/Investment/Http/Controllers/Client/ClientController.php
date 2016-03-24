@@ -75,7 +75,7 @@ class ClientController extends BaseController
 
     public function destroy($id)
     {
-        $this->client->destroy($id);
+        $this->client->find($id)->forceDelete();
         return redirect(route('investment.client.index'));
     }
 

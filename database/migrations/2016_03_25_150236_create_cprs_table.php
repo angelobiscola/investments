@@ -20,9 +20,16 @@ class CreateCprsTable extends Migration
             $table->char('type');
             $table->char('status');
             $table->string('description');
+
             $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+
             $table->integer('investment_id')->unsigned();
+            $table->foreign('investment_id')->references('id')->on('investments')->onDelete('cascade');
+
             $table->integer('invoice_id')->unsigned();
             $table->integer('cpr_id')->unsigned();
             $table->integer('user_id')->unsigned();
