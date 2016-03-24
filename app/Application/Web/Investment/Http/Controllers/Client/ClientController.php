@@ -41,7 +41,7 @@ class ClientController extends BaseController
         {
             $client->Location()->create($request->input('location'));
         }
-        return back();
+        return redirect(route('investment.client.index'));
     }
 
     public function show($id)
@@ -52,17 +52,31 @@ class ClientController extends BaseController
 
     public function edit($id)
     {
-        dd($this->client->find($id));
+        $client   = $this->client->find($id);
+        return view('investment::clients.edit', compact('client'));
     }
 
     public function update($id, Request $request)
     {
+        $client = $this->client->find($id);
+        $client->update($request->input('client'));
+        $client->Location->update($request->input('location'));
+        if($client->type == 'f')
+        {
+            $client->Physical->update($request->input('physical'));
+        }
+        else
+        {
+            $client->Legal->update($request->input('legal'));
+        }
 
+        return back();
     }
 
     public function destroy($id)
     {
-        dd($this->client->find($id)->delete());
+        $this->client->destroy($id);
+        return redirect(route('investment.client.index'));
     }
 
     public function investments($id)

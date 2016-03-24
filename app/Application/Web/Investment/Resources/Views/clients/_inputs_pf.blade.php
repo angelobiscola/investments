@@ -20,10 +20,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('birth_date') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">birth_date</label>
+    {!! Form::label('birth_date', 'Birth_date', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="birth_date" name="physical[birth_date]" value="{{ old('birth_date') }}"  placeholder="Nascimento (DDMMYYYY)">
+        {!! Form::text ('physical[birth_date]', null , ['class' => 'form-control', 'id' => 'birth_date', 'placeholder' => 'Nascimento (DDMMYYYY)']) !!}
 
         @if ($errors->has('birth_date'))
             <span class="help-block"><strong>{{ $errors->first('birth_date') }}</strong></span>
@@ -32,11 +32,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">cpf</label>
+    {!! Form::label('cpf', 'CPF', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
-            <input type="text" id="cpf" class="form-control" name="physical[cpf]" value="{{ old('cpf') }}" placeholder="cpf...">
+            {!! Form::text ('physical[cpf]', null , ['class' => 'form-control', 'id'=>'cpf', 'placeholder' => 'cpf...']) !!}
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCPF">Consulta!</button>
                   </span>
@@ -49,12 +49,11 @@
 
 </div>
 
-
 <div class="form-group{{ $errors->has('nationality') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">nationality</label>
+    {!! Form::label('nationality', 'Nationality', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[nationality]" value="{{ old('nationality') }}" placeholder="Brasil">
+            {!! Form::text ('physical[nationality]', null , ['class' => 'form-control', 'placeholder' => 'Brasil']) !!}
 
         @if ($errors->has('nationality'))
             <span class="help-block"><strong>{{ $errors->first('nationality') }}</strong></span>
@@ -63,22 +62,22 @@
 </div>
 
 <div class="form-group{{ $errors->has('marital_state') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">marital_state</label>
+    {!! Form::label('marital_status', 'Marital_status', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[marital_state]" value="{{ old('marital_state') }}">
+        {!! Form::text ('physical[marital_status]',null , ['class' => 'form-control', 'id' => 'marital_status']) !!}
 
-        @if ($errors->has('marital_state'))
+        @if ($errors->has('marital_status'))
             <span class="help-block"><strong>{{ $errors->first('nationality') }}</strong></span>
         @endif
     </div>
 </div>
 
 <div class="form-group{{ $errors->has('profession') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">profession</label>
+    {!! Form::label('profession', 'Profession', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[profession]" value="{{ old('profession') }}">
+        {!! Form::text ('physical[profession]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('profession'))
             <span class="help-block"><strong>{{ $errors->first('birth_date') }}</strong></span>
@@ -87,10 +86,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('identity') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">identity</label>
+    {!! Form::label('identity', 'Identity', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[identity]" value="{{ old('identity') }}">
+        {!! Form::text ('physical[identity]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('identity'))
             <span class="help-block"><strong>{{ $errors->first('identity') }}</strong></span>
@@ -99,10 +98,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('organ_issuer') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">organ_issuer</label>
+    {!! Form::label('organ_issuer', 'Organ_issuer', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[organ_issuer]" value="{{ old('organ_issuer') }}">
+        {!! Form::text ('physical[organ_issuer]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('organ_issuer'))
             <span class="help-block"><strong>{{ $errors->first('organ_issuer') }}</strong></span>
@@ -111,10 +110,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('cell_phone') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">cell_phone</label>
+    {!! Form::label('cell_phone', 'Cell_phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="physical[cell_phone]" value="{{ old('cell_phone') }}">
+        {!! Form::text ('physical[cell_phone]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('cell_phone'))
             <span class="help-block"><strong>{{ $errors->first('cell_phone') }}</strong></span>

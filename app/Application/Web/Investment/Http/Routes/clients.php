@@ -1,26 +1,26 @@
 <?php
 
 
-Route::get('/',           ['as' =>'index'      , 'uses' => 'ClientController@index']);
-Route::get('/create',     ['as' =>'create'     , 'uses' => 'ClientController@create']);
-Route::post('/store',     ['as' =>'store'      , 'uses' => 'ClientController@store' ]);
-Route::get('/show/{id}',  ['as' =>'show'       , 'uses' => 'ClientController@show'  ]);
-Route::get('{id}/edit',   ['as' =>'edit'       , 'uses' => 'ClientController@edit'  ]);
-Route::post('{id}/update',['as' =>'update'     , 'uses' => 'ClientController@update']);
-Route::get('{id}/delete', ['as' =>'delete'     , 'uses' => 'ClientController@delete']);
-Route::get('{id}/investments', ['as' =>'investments', 'uses' => 'ClientController@investments']);
+Route::get('/'                      ,   ['as' =>'index'                 , 'uses' => 'ClientController@index'                ]);
+Route::get('/create'                ,   ['as' =>'create'                , 'uses' => 'ClientController@create'               ]);
+Route::post('/store'                ,   ['as' =>'store'                 , 'uses' => 'ClientController@store'                ]);
+Route::get('/show/{id}'             ,   ['as' =>'show'                  , 'uses' => 'ClientController@show'                 ]);
+Route::get('{id}/edit'              ,   ['as' =>'edit'                  , 'uses' => 'ClientController@edit'                 ]);
+Route::put('{id}/update'           ,   ['as' =>'update'                , 'uses' => 'ClientController@update'               ]);
+Route::delete('{id}/destroy'        ,   ['as' =>'delete'                , 'uses' => 'ClientController@destroy'              ]);
+Route::get('{id}/investments'       ,   ['as' =>'investments'           , 'uses' => 'ClientController@investments'          ]);
 
 
 Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
 {
-    Route::get('{id}/create',  ['as' =>'create'    , 'uses' => 'InvestmentController@create']);
-    Route::post('{id}/store',  ['as' =>'store'     , 'uses' => 'InvestmentController@store' ]);
-    Route::get('/show/{id}',   ['as' =>'show'      , 'uses' => 'InvestmentController@show'  ]);
-    Route::get('{id}/edit',    ['as' =>'edit'      , 'uses' => 'InvestmentController@edit'  ]);
-    Route::post('{id}/update', ['as' =>'update'    , 'uses' => 'InvestmentController@update']);
-    Route::get('{id}/delete',  ['as' =>'delete'    , 'uses' => 'InvestmentController@delete']);
-    Route::get('process/{id}', ['as' =>'process'   , 'uses' => 'InvestmentController@process']);
-    Route::post('confirm/{id}',['as' =>'confirm'   , 'uses' => 'InvestmentController@confirm']);
-    Route::get('docs/{id}',    ['as' =>'document'  , 'uses' => 'InvestmentController@document']);
+    Route::get('{id}/create'        ,   ['as' =>'create'                , 'uses' => 'InvestmentController@create'           ]);
+    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'InvestmentController@store'            ]);
+    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'InvestmentController@show'             ]);
+    Route::get('{id}/edit'          ,   ['as' =>'edit'                  , 'uses' => 'InvestmentController@edit'             ]);
+    Route::post('{id}/update'       ,   ['as' =>'update'                , 'uses' => 'InvestmentController@update'           ]);
+    Route::get('{id}/delete'        ,   ['as' =>'delete'                , 'uses' => 'InvestmentController@delete'           ]);
+    Route::get('process/{id}'       ,   ['as' =>'process'               , 'uses' => 'InvestmentController@process'          ]);
+    Route::post('confirm/{id}'      ,   ['as' =>'confirm'               , 'uses' => 'InvestmentController@confirm'          ]);
+    Route::get('docs/{id}'          ,   ['as' =>'document'              , 'uses' => 'InvestmentController@document'         ]);
 
 });

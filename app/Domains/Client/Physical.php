@@ -9,7 +9,7 @@ class Physical extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['nationality', 'marital_status', 'birth_data', 'profession', 'identity','organ_issuer','cpf','cell_phone'];
+    protected $fillable = ['nationality', 'marital_status', 'birth_date', 'profession', 'identity','organ_issuer','cpf','cell_phone'];
     protected $dates    = ['deleted_at'];
 
     public function Client()

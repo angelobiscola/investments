@@ -14,15 +14,15 @@
                             </div>
                         @endif
 
-                        {!! Form::model(['client' => '', 'physical' => '', 'location' => ''], ['route' => ['investment.client.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
-
-                            @include('investment::clients._inputs',['type' => $type])
+                        {!! Form::model(['client'=> $client, 'physical' => $client->physical, 'location' => $client->location], ['route' => ['investment.client.update', $client->id], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                            {{ method_field('PUT') }}
+                            @include('investment::clients._inputs',['type' => $client->type ])
                             @include('investment::locations._inputs')
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-check"></i>Save
+                                        <i class="fa fa-btn fa-check"></i>Edit
                                     </button>
                                 </div>
                             </div>

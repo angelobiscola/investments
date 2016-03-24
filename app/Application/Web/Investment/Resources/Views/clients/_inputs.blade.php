@@ -1,8 +1,10 @@
+<input type="hidden" name="client[type]" value="{!! $type !!}">
+
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">Name</label>
+    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="name" name="client[name]" value="{{ old('name') }}">
+        {!! Form::text ('client[name]', null  , ['class' => 'form-control', 'id'=>'name']) !!}
 
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
@@ -11,10 +13,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">phone</label>
+    {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="client[phone]" value="{{ old('phone') }}">
+        {!! Form::text ('client[phone]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('phone'))
             <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
@@ -23,10 +25,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">email</label>
+    {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="client[email]" value="{{ old('email') }}">
+        {!! Form::text ('client[email]',null , ['class' => 'form-control', 'id' => 'email']) !!}
 
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
