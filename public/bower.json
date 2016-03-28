@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/angelobiscola/investments",
+  "authors": [
+    "AngeLo Biscola <angelo-tec@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "https://github.com/CreativeDream/jquery.filer",
+    "jquery.filer": "^1.0.5"
+  }
+}

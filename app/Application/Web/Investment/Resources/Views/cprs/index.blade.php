@@ -43,6 +43,7 @@
                                     <td>{!! $cpr->updated_at !!}</td>
                                     <td>
                                         <a href="{!! route('investment.cpr.consolidate',$cpr) !!}" ><i class="glyphicon glyphicon glyphicon-save"></i></a>
+                                        <a href="{!! route('investment.cpr.receipt.create',$cpr) !!}" ><i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
                                 </tr>
                              @endforeach
