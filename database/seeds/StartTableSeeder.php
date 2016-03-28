@@ -50,8 +50,8 @@ class StartTableSeeder extends Seeder
             ]);
 
 
-        Company::create([ 'name' => 'Company 2', 'company_name' => 'Company 2', 'email' => 'Company2@', 'cnpj' => 02])
-            ->Location()->save(factory(\App\Domains\Location\Location::class)->make());;
+        $c2 = Company::create([ 'name' => 'Company 2', 'company_name' => 'Company 2', 'email' => 'Company2@', 'cnpj' => 02])
+                         ->Location()->save(factory(\App\Domains\Location\Location::class)->make());;
 
 
         factory(Client::class, 5)
