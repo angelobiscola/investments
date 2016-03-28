@@ -16,9 +16,11 @@ class CreateReceiptsTable extends Migration
             $table->increments('id');
             $table->string('file_name');
             $table->string('src');
+            $table->integer('cpr_id');
 
-            $table->integer('cpr_id')->unsigned();
-            $table->foreign('cpr_id')->references('id')->on('cprs')->onDelete('cascade');
+            //$table->foreign('cpr_id')
+            //    ->references('id')->on('cprs')
+            //    ->onDelete('cascade');
 
             $table->timestamps();
             $table->integer('user_id')->unsigned();

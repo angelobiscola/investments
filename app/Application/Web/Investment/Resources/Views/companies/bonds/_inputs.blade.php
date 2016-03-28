@@ -29,7 +29,7 @@
     {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('bond[name]', $bond['name'], ['class' => 'form-control']) !!}
+        {!! Form::text ('bond[name]', null, ['class' => 'form-control']) !!}
 
         @if ($errors->has('quota'))
             <span class="help-block"><strong>{{ $errors->first('quota') }}</strong></span>
@@ -43,7 +43,7 @@
     <div class="col-md-6">
         <div class="input-group">
             <div class="input-group-addon">$</div>
-            {!! Form::text ('bond[total]', $bond['total'], ['class' => 'form-control']) !!}
+            {!! Form::text ('bond[total]', null, ['class' => 'form-control']) !!}
             <div class="input-group-addon">.00</div>
         </div>
 
@@ -58,7 +58,7 @@
     {!! Form::label('Quota', 'Quota', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('bond[quota]', $bond['quota'], ['class' => 'form-control']) !!}
+        {!! Form::text ('bond[quota]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('quota'))
             <span class="help-block"><strong>{{ $errors->first('quota') }}</strong></span>
@@ -70,7 +70,7 @@
     {!! Form::label('Rate', 'Rate', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('bond[rate]', $bond['rate'], ['class' => 'form-control']) !!}
+        {!! Form::text ('bond[rate]', null , ['class' => 'form-control']) !!}
 
         @if ($errors->has('rate'))
             <span class="help-block"><strong>{{ $errors->first('rate') }}</strong></span>

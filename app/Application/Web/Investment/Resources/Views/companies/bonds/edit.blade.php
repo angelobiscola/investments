@@ -14,9 +14,17 @@
                             </div>
                         @endif
 
-                        {!! Form::model($bond, ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {!! Form::model(['bond' => $bond ] , ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                            {{ method_field('PUT') }}
+                            @include('investment::companies.bonds._inputs')
 
-                            @include('investment::companies.bonds._form')
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-btn fa-check"></i>Edit
+                                    </button>
+                                </div>
+                            </div>
 
                         {!! Form::close() !!}
                     </div>

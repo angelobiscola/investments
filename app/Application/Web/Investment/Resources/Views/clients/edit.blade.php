@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        {!! Form::model(['client'=> $client, 'physical' => $client->physical, 'location' => $client->location], ['route' => ['investment.client.update', $client->id], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {!! Form::model(['client'=> $client, 'physical' => $client->physical, 'legal' => $client->legal , 'location' => $client->location], ['route' => ['investment.client.update', $client->id], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}
                             @include('investment::clients._inputs',['type' => $client->type ])
                             @include('investment::locations._inputs')

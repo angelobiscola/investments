@@ -15,7 +15,7 @@
                         @endif
 
                         {!! Form::model(['billet' => $billet] , ['route' => ['investment.company.billet.update', $billet], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
-
+                            {{ method_field('PUT') }}
                             @include('investment::companies.billets._inputs')
 
                             <div class="form-group">
