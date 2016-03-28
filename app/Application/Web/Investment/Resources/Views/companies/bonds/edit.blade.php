@@ -15,7 +15,7 @@
                         @endif
 
                         {!! Form::model(['bond' => $bond ] , ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
-s
+                            {{ method_field('PUT') }}
                             @include('investment::companies.bonds._inputs')
 
                             <div class="form-group">

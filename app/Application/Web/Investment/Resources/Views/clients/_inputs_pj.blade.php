@@ -19,30 +19,29 @@
     <input type="hidden" id="cnpjCookie" value="">
 </div>
 
-
 <div class="form-group{{ $errors->has('cnpj') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">CNPJ</label>
+    {!! Form::label('CNPJ', 'CNPJ', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
-            <input type="text" id="cnpj" class="form-control" name="legal[cnpj]" value="{{ old('cnpj') }}" placeholder="Cnpj...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
-                  </span>
+            {!! Form::text ('legal[cnpj]', null , ['class' => 'form-control', 'id' => 'cnpj', 'placeholder' => 'Cnpj...']) !!}
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
+            </span>
         </div>
 
         @if ($errors->has('cpnj'))
             <span class="help-block"><strong>{{ $errors->first('cpnj') }}</strong></span>
         @endif
     </div>
-
 </div>
 
 <div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">legal_name</label>
+    {!! Form::label('legal_name', 'Legal_Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='company_name' name="legal[company_name]" value="{{ old('company_name') }}">
+        {!! Form::text ('legal[company_name]', null , ['class' => 'form-control', 'id' => 'company_name']) !!}
 
         @if ($errors->has('company_name'))
             <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
@@ -50,12 +49,11 @@
     </div>
 </div>
 
-
 <div class="form-group{{ $errors->has('cnae_principal') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">cnae_principal</label>
+    {!! Form::label('cnae_principal', 'CNAE_Principal', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="cnae_principal" name="legal[cnae_principal]" value="{{ old('cnae_principal') }}" placeholder="Brasil">
+        {!! Form::text ('legal[cnae_principal]', null , ['class' => 'form-control', 'id' => 'cnae_principal', 'placeholder' => 'Brasil']) !!}
 
         @if ($errors->has('cnae_principal'))
             <span class="help-block"><strong>{{ $errors->first('cnae_principal') }}</strong></span>
@@ -63,23 +61,11 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">telefone</label>
-
-    <div class="col-md-6">
-        <input type="text" class="form-control" id='phone' name="legal[phone]" value="{{ old('phone') }}">
-
-        @if ($errors->has('phone'))
-            <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
-        @endif
-    </div>
-</div>
-
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">email</label>
+    {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='email' name="legal[email]" value="{{ old('email') }}">
+        {!! Form::text ('legal[email]', null , ['class' => 'form-control', 'id' => 'email']) !!}
 
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
