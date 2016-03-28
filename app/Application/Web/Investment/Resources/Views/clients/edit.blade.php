@@ -8,11 +8,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: New Client</div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
                         {!! Form::model(['client'=> $client, 'physical' => $client->physical, 'legal' => $client->legal , 'location' => $client->location], ['route' => ['investment.client.update', $client->id], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}
