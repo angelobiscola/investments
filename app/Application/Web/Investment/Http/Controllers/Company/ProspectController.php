@@ -28,28 +28,56 @@ class ProspectController extends BaseController
 
     public function store(Request $request)
     {
-       $request = $request->input('prospect');
-       $request['user_id']    = $this->getUser()->id;
-       $this->getCompany()->Prospects()->create($request);
-       return redirect(route('investment.company.prospect.index'))->with('status','saved');
+       try
+       {
+           $request = $request->input('prospect');
+           $request['user_id']    = $this->getUser()->id;
+           $this->getCompany()->Prospects()->create($request);
+           return redirect(route('investment.company.prospect.index'))->with('status','saved')->with('status', 'Create');
+       }
+       catch(\Exception $e)
+       {
+           return redirect()->back()->withInput()->with('error', $e->getMessage());
+       }
     }
 
     public function edit($id)
     {
-        $prospect = $this->prospect->find($id);
-        return view('investment::companies.prospects.edit', compact('prospect'));
+        try
+        {
+            $prospect = $this->prospect->find($id);
+            return view('investment::companies.prospects.edit', compact('prospect'));
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function update($id, Request $request)
     {
-        $this->prospect->find($id)->update($request->input('prospect'));
-        return redirect(route('investment.company.prospect.index'));
+        try
+        {
+            $this->prospect->find($id)->update($request->input('prospect'));
+            return redirect(route('investment.company.prospect.index'))->with('status', 'Edit');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy($id)
     {
-        $this->prospect->find($id)->forceDelete();
-        return redirect(route('investment.company.prospect.index'));
+        try
+        {
+            $this->prospect->find($id)->forceDelete();
+            return redirect(route('investment.company.prospect.index'))->with('status', 'Delete');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
     }
 }
 

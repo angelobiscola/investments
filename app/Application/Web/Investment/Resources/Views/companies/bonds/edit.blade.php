@@ -8,13 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: New Bond</div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {!! Form::model(['bond' => $bond ] , ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                       {!! Form::model(['bond' => $bond ] , ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}
                             @include('investment::companies.bonds._inputs')
 

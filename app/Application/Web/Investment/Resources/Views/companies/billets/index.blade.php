@@ -6,18 +6,7 @@
             <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">IvesT: Boleto(s)  <a href="{!! route('investment.company.billet.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
-
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <div class="panel-body">
-
                         <table class="table table-hover">
                             <thead>
                                 <th>Name</th>
@@ -36,7 +25,6 @@
                                     <td>
                                         <a href="{!! route('investment.company.billet.edit', $billet) !!}" ><i class="fa fa-edit"></i></a>
                                         <a href="{!! route('investment.company.billet.delete', $billet) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
-
                                         <!-- a href="" ><i class="glyphicon glyphicon-refresh"></i></a -->
                                     </td>
                                 </tr>

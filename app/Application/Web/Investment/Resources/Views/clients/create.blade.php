@@ -8,11 +8,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: New Client</div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
                         {!! Form::model(['client' => '', 'physical' => '', 'location' => ''], ['route' => ['investment.client.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 
