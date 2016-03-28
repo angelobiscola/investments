@@ -18,15 +18,16 @@ class CreateInvestmentsTable extends Migration
             $table->date('date_payment')->nullable();
             $table->boolean('status');
             $table->integer('mode');
+            $table->integer('client_id');
 
-            $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');
+            //$table->foreign('client_id')
+            //    ->references('id')->on('clients')
+            //    ->onDelete('cascade');
 
-            $table->integer('bond_id')->unsigned();
-            $table->foreign('bond_id')->references('id')->on('bonds')->onDelete('cascade');
-
-            $table->integer('company_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('company_id')->unsigned();
+            $table->integer('bond_id')->unsigned();
+
             $table->timestamps();
             $table->softDeletes();
         });
