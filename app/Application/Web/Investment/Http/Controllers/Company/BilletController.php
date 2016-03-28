@@ -28,34 +28,69 @@ class BilletController extends BaseController
 
     public function store(Request $request)
     {
-        $request = $request->input('billet');
-        $request['user_id'] = $this->getUser()->id;
-        $this->getCompany()->Billets()->create($request);
-        return redirect(route('investment.company.billet.index'));
+        try
+        {
+            $request = $request->input('billet');
+            $request['user_id'] = $this->getUser()->id;
+            $this->getCompany()->Billets()->create($request);
+            return redirect(route('investment.company.billet.index'))->with('status', 'Create');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $billet = $this->billet->find($id);
-        return view('investment::companies.billets.show', compact('billet'));
+        try
+        {
+            $billet = $this->billet->find($id);
+            return view('investment::companies.billets.show', compact('billet'));
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function edit($id)
     {
-        $billet = $this->billet->find($id);
-        return view('investment::companies.billets.edit', compact('billet', 'templates'));
+        try
+        {
+            $billet = $this->billet->find($id);
+            return view('investment::companies.billets.edit', compact('billet', 'templates'));
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function update($id, Request $request)
     {
-        $this->billet->find($id)->update($request->input('billet'));
-        return redirect(route('investment.company.billet.index'));
+        try
+        {
+            $this->billet->find($id)->update($request->input('billet'));
+            return redirect(route('investment.company.billet.index'))->with('status', 'Edit');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy($id)
     {
-        $this->billet->find($id)->forceDelete();
-        return redirect(route('investment.company.billet.index'));
+        try
+        {
+            $this->billet->find($id)->forceDelete();
+            return redirect(route('investment.company.billet.index'))->with('status', 'Delete');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }
 

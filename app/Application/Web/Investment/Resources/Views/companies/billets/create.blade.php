@@ -8,11 +8,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: New Information for Billet </div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
                         {!! Form::open(['route' => ['investment.company.billet.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 

@@ -8,11 +8,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: Edit </div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
                         {!! Form::model(['billet' => $billet] , ['route' => ['investment.company.billet.update', $billet], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}
