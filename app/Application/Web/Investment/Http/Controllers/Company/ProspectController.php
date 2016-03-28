@@ -23,14 +23,14 @@ class ProspectController extends BaseController
 
     public function create()
     {
-        return view('investment::companies.prospects.create')->with('prospect');
+        return view('investment::companies.prospects.create');
     }
 
     public function store(Request $request)
     {
        $request = $request->input('prospect');
        $request['user_id']    = $this->getUser()->id;
-       $this->getCompany()->Prospect()->create($request);
+       $this->getCompany()->Prospects()->create($request);
        return redirect(route('investment.company.prospect.index'))->with('status','saved');
     }
 

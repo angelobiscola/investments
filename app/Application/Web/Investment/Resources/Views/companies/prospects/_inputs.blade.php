@@ -2,7 +2,7 @@
     {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('prospect[name]', $prospect['name'], ['class' => 'form-control']) !!}
+        {!! Form::text ('prospect[name]',null, ['class' => 'form-control']) !!}
 
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
@@ -15,7 +15,7 @@
     {!! Form::label('Description', 'Description', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('prospect[description]', $prospect['description'], ['class' => 'form-control']) !!}
+        {!! Form::text ('prospect[description]', null, ['class' => 'form-control']) !!}
 
         @if ($errors->has('description'))
             <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>

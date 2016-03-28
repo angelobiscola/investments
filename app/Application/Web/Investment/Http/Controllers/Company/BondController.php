@@ -25,7 +25,7 @@ class BondController extends BaseController
 
     public function create(Prospect $prospect)
     {
-        return view('investment::companies.bonds.create')->with('prospects',$prospect->all())->with('bond');
+        return view('investment::companies.bonds.create')->with('prospects',$prospect->all());
     }
 
     public function store(Request $request)
