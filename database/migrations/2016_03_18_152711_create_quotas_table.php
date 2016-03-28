@@ -17,9 +17,7 @@ class CreateQuotasTable extends Migration
             $table->double('value');
             $table->integer('investment_id')->unsigned();
 
-            //$table->foreign('investment_id')
-            //    ->references('id')->on('investments')
-            //    ->onDelete('cascade');
+            $table->foreign('investment_id')->references('id')->on('investments')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

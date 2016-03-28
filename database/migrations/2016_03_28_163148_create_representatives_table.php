@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLegalsTable extends Migration
+class CreateRepresentativesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,14 @@ class CreateLegalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('legals', function (Blueprint $table) {
+        Schema::create('representatives', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company_name')->unique()->index();
-            $table->string('cnpj')->unique();
-            $table->string('cnae_principal');
-            $table->string('cnae_secundary');
-            $table->string('email')->unique();
 
             $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+
+            $table->integer('legal_id')->unsigned();
+            $table->foreign('legal_id')->references('id')->on('legals')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
@@ -35,6 +33,6 @@ class CreateLegalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('legals');
+        Schema::drop('representatives');
     }
 }
