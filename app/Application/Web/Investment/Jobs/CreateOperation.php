@@ -42,6 +42,17 @@ class CreateOperation extends Job implements ShouldQueue
             $cpr['value'] = $this->investment->value;
             $this->investment->Cpr()->create($cpr);
         }
+        else
+        {
+            $c = jurosComposto($this->investment->value,$this->investment->Bond->rate,12);
+
+            $total    = ['type'=>'p','status'=> 'a','description'=>'','value' => $c['value'],'date_maturity' =>$c['date'], 'date_payment'  => '', 'client_id' => $this->investment->client_id,'company_id' => $this->investment->company_id];
+            $interest = ['type'=>'p','status'=> 'a','description'=>'','value' => $c['interest'],'date_maturity' =>$c['date'], 'date_payment'  => '', 'client_id' => $this->investment->client_id,'company_id' => $this->investment->company_id];
+
+            $this->investment->Cpr()->create($total);
+            $this->investment->Cpr()->create($interest);
+
+        }
     }
 
 
