@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "jquery": "https://github.com/CreativeDream/jquery.filer",
-    "jquery.filer": "^1.0.5"
+    "jquery.filer": "^1.0.5",
+    "select2": "^4.0.2"
   }
 }

@@ -6,10 +6,9 @@ Route::get('/create'                ,   ['as' =>'create'                , 'uses'
 Route::post('/store'                ,   ['as' =>'store'                 , 'uses' => 'ClientController@store'                ]);
 Route::get('/show/{id}'             ,   ['as' =>'show'                  , 'uses' => 'ClientController@show'                 ]);
 Route::get('{id}/edit'              ,   ['as' =>'edit'                  , 'uses' => 'ClientController@edit'                 ]);
-Route::put('{id}/update'           ,   ['as' =>'update'                , 'uses' => 'ClientController@update'               ]);
+Route::put('{id}/update'            ,   ['as' =>'update'                , 'uses' => 'ClientController@update'               ]);
 Route::delete('{id}/destroy'        ,   ['as' =>'delete'                , 'uses' => 'ClientController@destroy'              ]);
 Route::get('{id}/investments'       ,   ['as' =>'investments'           , 'uses' => 'ClientController@investments'          ]);
-
 
 Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
 {
@@ -23,4 +22,13 @@ Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
     Route::post('confirm/{id}'      ,   ['as' =>'confirm'               , 'uses' => 'InvestmentController@confirm'          ]);
     Route::get('docs/{id}'          ,   ['as' =>'document'              , 'uses' => 'InvestmentController@document'         ]);
 
+});
+
+
+Route::group(['prefix' => 'representatives', 'as' => 'representative.'], function()
+{
+    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'RepresentativeController@show'             ]);
+    Route::get('{id}/create'        ,   ['as' =>'create'                , 'uses' => 'RepresentativeController@create'           ]);
+    Route::post('/store'            ,   ['as' =>'store'                 , 'uses' => 'RepresentativeController@store'            ]);
+    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'RepresentativeController@destroy'          ]);
 });

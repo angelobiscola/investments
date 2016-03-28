@@ -19,6 +19,10 @@
     <input type="hidden" id="cnpjCookie" value="">
 </div>
 
+@if(isset($legal))
+    <a href="{!! route('investment.client.representative.show',$legal->id)!!}">Add Representative
+@endif
+
 <div class="form-group{{ $errors->has('cnpj') ? ' has-error' : '' }}">
     {!! Form::label('CNPJ', 'CNPJ', ['class' => 'col-md-4 control-label']) !!}
 

@@ -116,4 +116,8 @@ class ClientController extends BaseController
         }
     }
 
+    public function apiSearchCpf()
+    {
+
+    }
 }
