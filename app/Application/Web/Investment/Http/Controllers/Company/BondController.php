@@ -30,12 +30,18 @@ class BondController extends BaseController
 
     public function store(Request $request)
     {
-       $request = $request->input('bond');
-       $request['user_id']    = $this->getUser()->id;
-       $request['company_id'] = $this->getCompany()->id;
-
-       $this->bond->create($request);
-       return redirect(route('investment.company.bond.index'))->with('status','saved');
+       try
+       {
+           $request = $request->input('bond');
+           $request['user_id']    = $this->getUser()->id;
+           $request['company_id'] = $this->getCompany()->id;
+           $this->bond->create($request);
+           return redirect(route('investment.company.bond.index'))->with('status','Create');
+       }
+       catch(\Exception $e)
+       {
+           return redirect()->back()->withInput()->with('error', $e->getMessage());
+       }
     }
 
     public function available($id)
@@ -46,20 +52,41 @@ class BondController extends BaseController
 
     public function edit($id, Prospect $prospect)
     {
-        $bond = $this->bond->find($id);
-        return view('investment::companies.bonds.edit', compact('bond'))->with('prospects',$prospect->all());
+        try
+        {
+            $bond = $this->bond->find($id);
+            return view('investment::companies.bonds.edit', compact('bond'))->with('prospects',$prospect->all());
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function update($id, Request $request)
     {
-        $this->bond->find($id)->update($request->input('bond'));
-        return redirect(route('investment.company.bond.index'));
+        try
+        {
+            $this->bond->find($id)->update($request->input('bond'));
+            return redirect(route('investment.company.bond.index'))->with('status', 'Edit');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy($id)
     {
-        $this->bond->destroy($id);
-        return redirect(route('investment.company.bond.index'));
+        try
+        {
+            $this->bond->destroy($id);
+            return redirect(route('investment.company.bond.index'))->with('status', 'Delete');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function investors($id)
