@@ -54,6 +54,11 @@ class ReceiptController extends BaseController
                 $fileName = $file->getFilename().'.'.$file->getClientOriginalExtension();
                 $file->move($this->path,$fileName);
                 $receipt = $this->store(['file_name' => $fileName,'src' =>$this->path, 'cpr_id' => $id]);
+
+                if($receipt->Cpr->type ==  'p')
+                {
+                    $receipt->Cpr()->update(['status' => 'c' ,'date_payment' => \Carbon\Carbon::now()]);
+                }
             }
             else
             {

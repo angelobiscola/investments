@@ -62,6 +62,6 @@ class CreateOperation extends Job implements ShouldQueue
             $this->investment->Cpr()->create($interest);
         }
 
-        $this->cpr->update(['status' =>'c']);
+        $this->cpr->update(['status' =>'c','date_payment' => \Carbon\Carbon::now()]);
     }
 }

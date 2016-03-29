@@ -17,13 +17,13 @@
                                 <th>Id</th>
                                 <th>Value</th>
                                 <th>Date Maturity</th>
+                                <th>Date Payment</th>
                                 <th>Type</th>
                                 <th>Status</th>
                                 <th>Client</th>
                                 <th>Investment</th>
                                 <th>invoice</th>
                                 <th>Created</th>
-                                <th>updated</th>
                                 <th>#</th>
                             </thead>
                             <tbody>
@@ -32,6 +32,7 @@
                                     <td>{!! $cpr->id !!}</td>
                                     <td>{!! number_format($cpr->value,2,".",",") !!}</td>
                                     <td>{!! $cpr->date_maturity !!}</td>
+                                    <td>{!! $cpr->date_payment !!}</td>
                                     <td>{!! $cpr->type !!}</td>
                                     <td>{!! $cpr->status !!}</td>
                                     <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->name !!} </a> </td>
@@ -40,7 +41,6 @@
                                         <a href="{!! route('investment.cpr.invoice.print',$cpr->invoice_id) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-barcode"></i></a>
                                     </td>
                                     <td>{!! $cpr->created_at !!}</td>
-                                    <td>{!! $cpr->updated_at !!}</td>
                                     <td>
                                         <a href="{!! route('investment.cpr.consolidate',$cpr) !!}" ><i class="glyphicon glyphicon glyphicon-save"></i></a>
                                         <a href="{!! route('investment.cpr.receipt.create',$cpr) !!}" ><i class="glyphicon glyphicon-ok"></i></a>
