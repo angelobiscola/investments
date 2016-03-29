@@ -3,6 +3,7 @@
 @section('css')
     @parent
     <link href="{{ asset('/bower_components/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" rel="stylesheet">
 @stop
 
 @section('content')
@@ -81,7 +82,14 @@
 @section('scripts')
     @parent
         <script src="{{asset("/bower_components/datatables/media/js/jquery.dataTables.min.js")}}"></script>
+
         <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+
         <script>
 
             $(document).ready(function() {
@@ -108,7 +116,11 @@
                     },
                     select: {
                         style: 'multi'
-                    }
+                    },
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'excel', 'pdf'
+                    ]
                 } );
             } );
         </script>
