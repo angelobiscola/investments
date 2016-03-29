@@ -43,7 +43,7 @@ class NewInvoiceEventListener
 
         $investment->Cpr()->create(['type'          => 'r',
                                          'status'        => 'a',
-                                         'description'   => 'New Investment',
+                                         'description'   => 'New Investment: '.$investment->Bond->name,
                                          'value'         => $investment->value,
                                          'date_maturity' => $investment->date_payment,
                                          'date_payment'  => '',

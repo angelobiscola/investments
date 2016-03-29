@@ -20,7 +20,7 @@ class CreateInvoicesTable extends Migration
             $table->char('status');
 
             $table->integer('billet_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('billet_id')->references('id')->on('billets');
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

@@ -15,7 +15,7 @@ class CreateBilletsTable extends Migration
         Schema::create('billets', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('name')->unique()->index();
+            $table->string('name')->index();
             $table->integer('agency');
             $table->integer('agency_dv');
             $table->integer('account');

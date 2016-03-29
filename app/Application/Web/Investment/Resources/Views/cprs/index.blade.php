@@ -16,6 +16,7 @@
                             <thead>
                                 <th>Id</th>
                                 <th>Value</th>
+                                <th>Description</th>
                                 <th>Date Maturity</th>
                                 <th>Date Payment</th>
                                 <th>Type</th>
@@ -31,6 +32,7 @@
                                 <tr>
                                     <td>{!! $cpr->id !!}</td>
                                     <td>{!! number_format($cpr->value,2,".",",") !!}</td>
+                                    <td>{!! $cpr->description   !!}</td>
                                     <td>{!! $cpr->date_maturity !!}</td>
                                     <td>{!! $cpr->date_payment !!}</td>
                                     <td>{!! $cpr->type !!}</td>
