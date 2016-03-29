@@ -18,7 +18,7 @@
                         IvesT: Cprs
                     </div>
                     <div class="panel-body">
-                        <table class="table table-hover dataTable"  cellspacing="0" width="100%">
+                        <table class="table table-hover dataTable"  cellspacing="0" width="100%" data-order="3">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -83,19 +83,23 @@
     @parent
         <script src="{{asset("/bower_components/datatables/media/js/jquery.dataTables.min.js")}}"></script>
 
-        <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+        <!-- extensions DataTables -->
+        <script src="{{asset("/js/datatables_ext/dataTables.select.min.js")}}"></script>
+        <script src="{{asset("/js/datatables_ext/dataTables.buttons.min.js")}}"></script>
+        <script src="{{asset("/js/datatables_ext/jszip.min.js")}}"></script>
+        <script src="{{asset("/js/datatables_ext/pdfmake.min.js")}}"></script>
+        <script src="{{asset("/js/datatables_ext/vfs_fonts.js")}}"></script>
+        <script src="{{asset("/js/datatables_ext/buttons.html5.min.js")}}"></script>
 
         <script>
 
             $(document).ready(function() {
+
+                var $table = $('.dataTable');
+
                 $('.dataTable').DataTable( {
 
-                    "aaSorting": [[ 3, "desc" ]],
+                    "order": [[ 3, "asc" ]],
 
                     "language": {
                         "sProcessing":   "Processando...",
