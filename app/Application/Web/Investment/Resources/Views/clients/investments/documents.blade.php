@@ -4,7 +4,7 @@
     }
 </style>
 
-    @include('investment::reports.prospecto')
+    @include('investment::reports.prospecto',['investment' => $investment])
 
 <div class="page-break"></div>
 
@@ -12,7 +12,7 @@
 
 <div class="page-break"></div>
 
-    @include('investment::reports.promissoria')
+    @include('investment::reports.promissoria',['investment' => $investment])
 
 
 

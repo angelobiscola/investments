@@ -5,14 +5,15 @@ namespace App\Domains\Company;
 use App\Domains\Client\Investment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Laracasts\Presenter\PresentableTrait;
 
 class Bond extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['name','description','rate','rate_mode', 'total', 'quota','opportunity','prospect_id','company_id', 'user_id'];
-    protected $dates    = ['deleted_at'];
+    protected $fillable  = ['name','description','rate','rate_mode', 'total', 'quota','opportunity','prospect_id','company_id', 'user_id'];
+    protected $dates     = ['deleted_at'];
+    protected $presenter = BondPresenter::class;
 
     public function Prospect()
     {

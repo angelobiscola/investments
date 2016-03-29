@@ -166,11 +166,11 @@
 						<div id="logo"><strong> Logo </strong></div>
 						<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 						<div id="top-tree-collun">
-							<div class="title-top"><strong> Proposta : </strong>  227 </div>
+							<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
 							<div class="body-top"><strong> Única </strong></div>
 						</div>
 						<div id="top-for-collun">
-							<div class="title-top"><strong> Valor R$ : </strong>  227 </div>
+							<div class="title-top"><strong> Valor R$ : </strong>  {!! number_format($investment->value,2,'.',',') !!}  </div>
 							<div class="body-top"><strong> Ultimo Venc : </strong> 10/10/2016 </div>
 						</div>
 					</div>
@@ -208,7 +208,7 @@
 							<div class="footer-collun"> Prod. <br> 1</div>
 							<div class="footer-collun"> Descrição. <br> Casas Diversos</div>
 							<div class="footer-collun"> n°. <br> 145</div>
-							<div class="footer-collun"> Identificador. <br> Q601L517</div>
+							<div class="footer-collun"> Boleto. <br> {!! $investment->Invoices()->first()->id !!}</div>
 						</div>
 					</div>
 				</div>

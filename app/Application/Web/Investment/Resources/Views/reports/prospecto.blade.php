@@ -114,14 +114,14 @@
 			<div id="logop"> logo </div>
 			<div id="topp">
 				<div id="topp-title"> Prospecto de Emissão </div>
-				<div class="underline"><strong><em>Commercial Paper - Nota Promissória Comercial </em></strong></div>
+				<div class="underline"><strong><em>{!! $investment->Bond->name !!} {!! $investment->Bond->Prospect->name !!} - Nota Promissória Comercial </em></strong></div>
 				<div>exposição em esforço <strong class="underline"><em>particular</em></strong> de captação</div>
-				<div class="mp-top mp-bottom">prazo de exposição de oportunidade: 60 dias.</div>
+				<div class="mp-top mp-bottom">prazo de exposição de oportunidade: {!! $investment->Bond->present()->expire !!} dias.</div>
 				<div>Valor total de captação</div>
-				<div id="valuep">R$ 10.000.000,00</div>
-				<div>(dez milhões de reais)</div>
-				<div>100 quotas</div>
-				<div class="mp-top">rentabilidade: 1,5% a.m.</div>
+				<div id="valuep">R$ {!! number_format($investment->value,2,'.',',') !!}</div>
+				<div>({!! valorPorExtenso($investment->value) !!})</div>
+				<div>{!! $investment->Quotas->count() !!} quota(s)</div>
+				<div class="mp-top">rentabilidade: {!! $investment->Bond->rate  !!} % {!! $investment->Bond->present()->rateMode !!}</div>
 				<div>renda fixa pré-fixada</div>
 				<div>prazo de vencimento: 360 dias.</div>
 			</div>
