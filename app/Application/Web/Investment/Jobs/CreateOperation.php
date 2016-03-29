@@ -2,6 +2,7 @@
 namespace App\Application\Web\Investment\Jobs;
 
 use App\Domains\Client\Investment;
+use App\Domains\Cpr\Cpr;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,11 +13,12 @@ class CreateOperation extends Job implements ShouldQueue
     use InteractsWithQueue, SerializesModels;
 
     protected $investment;
+    protected $cpr;
 
 
-    public function __construct(Investment $investment)
+    public function __construct(Cpr $cp)
     {
-        $this->investment = $investment;
+        $this->cpr = $cp;
     }
 
     /**
@@ -27,6 +29,13 @@ class CreateOperation extends Job implements ShouldQueue
      */
     public function handle()
     {
+        $this->investment = $this->cpr->Investment;
+
+        if($this->cpr->status == 'c')
+        {
+            throw new \Exception('is Consolidate');
+        }
+
         if($this->investment->mode ==0)
         {
             $s = jurosSimples($this->investment->value,$this->investment->Bond->rate,360,$this->investment->date_payment);
@@ -51,9 +60,8 @@ class CreateOperation extends Job implements ShouldQueue
 
             $this->investment->Cpr()->create($total);
             $this->investment->Cpr()->create($interest);
-
         }
+
+        $this->cpr->update(['status' =>'c']);
     }
-
-
 }

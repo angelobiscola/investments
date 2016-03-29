@@ -35,10 +35,15 @@ class CprController extends BaseController
 
     public function consolidate($id)
     {
-        $cpr    = $this->cpr->find($id);
-        //$cpr->update(['status' =>'c']);
-        dispatch(new CreateOperation($cpr->Investment));
-        return back()->with('status','Consolidate OK, Processing....');
+        try {
+            $cpr    = $this->cpr->findOrFail($id);
+            dispatch(new CreateOperation($cpr));
+            return back()->with('status', 'Consolidate OK, Processing....');
+        }
+        catch(\Exception $e)
+        {
+            return back()->with('status',$e->getMessage());
+        }
     }
 }
 

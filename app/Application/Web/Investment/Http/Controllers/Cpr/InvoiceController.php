@@ -25,37 +25,9 @@ class InvoiceController extends BaseController
 
     private function generate($invoice)
     {
+        $this->setSacado($invoice->Client);
+        $this->setCedente($invoice->Company);
 
-        $sacado   = $invoice->Client;
-        $cedente  = $invoice->Company;
-
-        //Definindo os dados do sacado
-        $this->boleto->sacado(array(
-                            'sacado'    => $sacado->name,
-                            'endereco1' => $sacado->Location->address.' '.$sacado->Location->number,
-                            'endereco2' => $sacado->Location->city.' - '.$sacado->Location->state_abbr.' - '.$sacado->Location->zip_code
-        ));
-
-
-        //Definindo os dados do Cedente
-        $this->boleto->cedente(array(
-            'agencia'           => "1100", // Num da agencia, sem digito
-            'agencia_dv'        => "0", // Digito do Num da agencia
-            'conta'             => "0102003", 	// Num da conta, sem digito
-            'conta_dv'          => "4",
-            'conta_cedente'     => "0102003", // ContaCedente do Cliente, sem digito (Somente Números)
-            'conta_cedente_dv'  => "4", // Digito da ContaCedente do Cliente
-            'carteira'          => "06",  // Código da Carteira: pode ser 06 ou 03
-
-
-            'cpf_cnpj'          => $cedente->cnpj,
-            'endereco'          => $cedente->Location->address.' '.$cedente->Location->number,
-            'cidade_uf'         => $cedente->Location->city.' - '.$cedente->Location->state_abbr.' - '.$cedente->Location->zip_code,
-            'cedente'           => $cedente->company_name
-        ));
-
-
-        //Definindo os dados do boleto. Banco, valores, vencimento, informações e etc...
         $this->boleto->banco($invoice->Billet->Template->name, array(
 
             'valor_boleto'          => $invoice->value, // Nosso numero sem o DV - REGRA: Máximo de 11 caracteres!
@@ -72,9 +44,45 @@ class InvoiceController extends BaseController
 
 
         ));
-
-        //Retorna o Objeto do Boleto
         return $this->boleto->pdf();
+    }
+
+    private function setSacado($client){
+
+        if(!$client)
+        {
+            throw new \Exception;
+        }
+
+        $this->boleto->sacado(array(
+                            'sacado'    => $client->name,
+                            'endereco1' => $client->Location->address.' '.$client->Location->number,
+                            'endereco2' => $client->Location->city.' - '.$client->Location->state_abbr.' - '.$client->Location->zip_code
+        ));
+    }
+
+    private function setCedente($cedente)
+    {
+        if(!$cedente)
+        {
+            throw new \Exception;
+        }
+
+        $this->boleto->cedente([
+            'agencia'           => "1100", // Num da agencia, sem digito
+            'agencia_dv'        => "0", // Digito do Num da agencia
+            'conta'             => "0102003", 	// Num da conta, sem digito
+            'conta_dv'          => "4",
+            'conta_cedente'     => "0102003", // ContaCedente do Cliente, sem digito (Somente Números)
+            'conta_cedente_dv'  => "4", // Digito da ContaCedente do Cliente
+            'carteira'          => "06",  // Código da Carteira: pode ser 06 ou 03
+
+
+            'cpf_cnpj'          => $cedente->cnpj,
+            'endereco'          => $cedente->Location->address.' '.$cedente->Location->number,
+            'cidade_uf'         => $cedente->Location->city.' - '.$cedente->Location->state_abbr.' - '.$cedente->Location->zip_code,
+            'cedente'           => $cedente->company_name
+            ]);
     }
 }
 

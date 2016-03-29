@@ -4,11 +4,14 @@ namespace App\Application\Web\Investment\Http\Controllers\Cpr;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Cpr\Receipt;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class ReceiptController extends BaseController
 {
+    use DispatchesJobs;
+
     protected $receipt;
-    protected $path = 'receipt';
+    protected $path     = 'receipt';
 
     public function __construct(Receipt $receipt)
     {
@@ -43,7 +46,6 @@ class ReceiptController extends BaseController
         }
         else
         {
-
             $file     = $request->file('file');
             $file     = $file[0];
 
@@ -51,7 +53,7 @@ class ReceiptController extends BaseController
             {
                 $fileName = $file->getFilename().'.'.$file->getClientOriginalExtension();
                 $file->move($this->path,$fileName);
-                $this->store(['file_name' => $fileName,'src' =>$this->path, 'cpr_id' => $id]);
+                $receipt = $this->store(['file_name' => $fileName,'src' =>$this->path, 'cpr_id' => $id]);
             }
             else
             {
