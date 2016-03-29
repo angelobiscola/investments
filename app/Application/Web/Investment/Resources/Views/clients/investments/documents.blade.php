@@ -1,19 +1,13 @@
-<html>
+@include('investment::reports.prospecto')
 
-<style>
-    .page-break {
-        page-break-after: always;
-    }
-</style>
+@include('investment::reports.adesao')
 
-<body>
-
-<div class="page-break"></div>
+@include('investment::reports.promissoria')
 
 
 
 
-</body>
-</html>
+
+
 
 

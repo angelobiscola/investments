@@ -139,14 +139,14 @@
 			}
 
 			#semvalor{
-				margin-top: 120px; 
+				margin-top: 120px;
 				position: absolute;
 				font-size: 180px;
 				-webkit-transform: rotate(325deg);
 				-moz-transform: rotate(325deg);
 				-o-transform: rotate(325deg);
 				writing-mode: lr-tb;
-				filter: alpha(opacity = 20); 
+				filter: alpha(opacity = 20);
 				opacity: 0.2;
 			}
 

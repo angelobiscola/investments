@@ -37,13 +37,13 @@
                                 <div class="col-xs-6 col-md-3">
                                         <a href="{!! route('investment.cpr.invoice.print',$i) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
                                  </div>
-                         @endforeach
+                        @endforeach
                                 <div class="col-xs-6 col-md-3">
                                     <a href="{!! route('investment.client.investment.document',$investment) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-print"></i></a>
                                 </div>
-                         @else
+                        @else
 
-                         </div>
+                            </div>
                 </div>
             </div>
         </div>

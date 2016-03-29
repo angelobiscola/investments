@@ -9,7 +9,7 @@
 				margin: 0px;
 			}
 
-			#body{
+			#bodyp{
 				padding: 2%;
 				margin-left: auto;
 				margin-right: auto;
@@ -20,7 +20,7 @@
 				border: 1px solid black;
 			}
 
-			#logo{
+			#logop{
 				width: 80%;
 				height: 80px;
 				margin-left: 10%;
@@ -28,7 +28,7 @@
 				line-height: 80px;
 			}
 
-			#top{
+			#topp{
 				width: 80%;
 				height: auto;
 				margin-bottom: 20px;
@@ -38,7 +38,7 @@
 				font-family: calibri;
 			}
 
-			#top-title{
+			#topp-title{
 				margin-bottom: 10px;
 				font-size: 20px;
 			}
@@ -47,19 +47,19 @@
 				text-decoration: underline;
 			}
 
-			.m-top{
+			.mp-top{
 				margin-top: 10px;
 			}
 
-			.m-bottom{
+			.mp-bottom{
 				margin-bottom: 10px;
 			}
 
-			#value{
+			#valuep{
 				font-size: 28px;
 			}
 
-			#fist-bloco{
+			#fistp-bloco{
 				width: 66%;
 				margin-left: 15%;
 				border: 1px solid black;
@@ -67,32 +67,32 @@
 				text-align: justify;
 			}
 
-			#paragrafo{
+			#paragrafop{
 				width: 80%;
 				margin-left: 10%;
 				text-align: justify;
 			}
 
-			#data{
+			#datap{
 				width: 80%;
 				margin-left: 10%;
 				text-align: right;
 				margin-top: 20px;
 			}
 
-			#footer{
+			#footerp{
 				width: 80%;
 				margin-left: 10%;
 				margin-top: 30px;
 			}
 
-			.footer-float{
+			.footerp-float{
 				width: 50%;
 				float: left;
 				text-align: center;
 			}
 
-			.footer-logo{
+			.footerp-logo{
 				width: 80%;
 				height: 100px;
 				line-height: 100px;
@@ -100,31 +100,31 @@
 				border: 1px solid black;
 				margin-top: 10px;
 			}
-			
+
 		</style>
 	</head>
 
 	<body>
-		<div id="body">
-			<div id="logo"> logo </div>
-			<div id="top">
-				<div id="top-title"> Prospecto de Emissão </div>
+		<div id="bodyp">
+			<div id="logop"> logo </div>
+			<div id="topp">
+				<div id="topp-title"> Prospecto de Emissão </div>
 				<div class="underline"><strong><em>Commercial Paper - Nota Promissória Comercial </em></strong></div>
 				<div>exposição em esforço <strong class="underline"><em>particular</em></strong> de captação</div>
-				<div class="m-top m-bottom">prazo de exposição de oportunidade: 60 dias.</div>
+				<div class="mp-top mp-bottom">prazo de exposição de oportunidade: 60 dias.</div>
 				<div>Valor total de captação</div>
-				<div id="value">R$ 10.000.000,00</div>
+				<div id="valuep">R$ 10.000.000,00</div>
 				<div>(dez milhões de reais)</div>
 				<div>100 quotas</div>
-				<div class="m-top">rentabilidade: 1,5% a.m.</div>
+				<div class="mp-top">rentabilidade: 1,5% a.m.</div>
 				<div>renda fixa pré-fixada</div>
 				<div>prazo de vencimento: 360 dias.</div>
 			</div>
-			<div id="fist-bloco">
+			<div id="fistp-bloco">
 				Emitente: <strong>ALAVANCA BRASIL INVESTIMENTOS</strong> , pessoa jurídica de direito privado, com sede à Rua Solimões nº 849, Bairro São Francisco, em Curitiba – PR, CEP: 80510-140, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº 18.097.471/0001-25;
 			</div>
 
-			<div id="paragrafo">
+			<div id="paragrafop">
 				<p>
 					A Alavanca Brasil Investimentos apresenta, através deste prospecto, informações vinculantes à respeito de oportunidade de inversão de recursos em prol da ampliação de capital de seu projeto de investimento, remunerando o montante através de renda fixa pré-fixada.
 				</p>
@@ -143,9 +143,9 @@
 			</div>
 		</div>
 
-		<div id="body">
-			<div id="logo"> logo </div>
-			<div id="paragrafo">
+		<div id="bodyp">
+			<div id="logop"> logo </div>
+			<div id="paragrafop">
 				<p>
 					As atividades desenvolvidas pela Alavanca Brasil Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez aplicados os recursos através de contratos de mútuo simples, conjugam-se atividades remuneradas de gestão, contabilidade e controle de tesouraria, permitindo, assim, a rápida retomada do crescimento do empreendimento investido, momento em que a Alavanca Brasil Investimentos pode converter seus créditos em participação societária, permitindo ganhos expressivos nos processos de venda dos negócios para os interessados estratégicos.
 				</p>
@@ -179,29 +179,27 @@
 			</div>
 		</div>
 		
-		<div id="body">
-			<div id="logo"> logo </div>
-			<div id="paragrafo">
+		<div id="bodyp">
+			<div id="logop"> logo </div>
+			<div id="paragrafop">
 				<p>
 					A mediação será estabelecida a partir da Solicitação de Mediação/Arbitragem apresentada perante a Secretaria da ARBITAC. No prazo de 7 (sete dias) dias, as partes e o mediador por elas escolhido envidarão seus melhores esforços para solucionar o conflito. Em caso de ausência de manifestação das partes no prazo referido, desinteresse em mediar, ou restando infrutífera a mediação por qualquer outro motivo, instaurar-se-á o procedimento arbitral imediatamente.
 				</p>
 			</div>
 
-			<div id="data"> Curitiba, 14  de Março de 2016 </div>
+			<div id="datap"> Curitiba, 14  de Março de 2016 </div>
 
-			<div id="footer">
-				<div class="footer-float"> 
+			<div id="footerp">
+				<div class="footerp-float">
 					<div> Supervisão Tecnica </div>
-					<div class="footer-logo"> logo 1 </div>
+					<div class="footerp-logo"> logo 1 </div>
 				</div>
-				<div class="footer-float">
+				<div class="footerp-float">
 					<div> Estruturação </div>
-					<div class="footer-logo"> logo 2 </div>
+					<div class="footerp-logo"> logo 2 </div>
 				</div>
 			</div>
 
 		</div>
-
-
 	</body>
 </html>

@@ -2,38 +2,38 @@
 <html>
 	<head>
 		<title>Termo de Adesão</title>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" />
 		<style type="text/css">
 
 			body{
 				margin: 0px;
 			}
 
-			#body{
+			#bodya{
 				padding: 2%;
 				margin-left: auto;
 				margin-right: auto;
 				margin-bottom: 50px;
 				width: 792px;
-				height: 1122px;
+				height: 1122px !important;
 				margin-top: 3%;
 				border: 1px solid black;
 			}
 
-			#top{
+			#topa{
 				width: 80%;
 				margin-left: 10%;
 				margin-top: 10px;
 				height: 120px;
 			}
 
-			#left-top{
+			#left-topa{
 				width: 70%;
 				float: left;
 				height: 120px;	
 			}
 
-			#title-top{
+			#title-topa{
 				width: 100%;
 				height: 20px;
 				font-size: 16px;
@@ -42,20 +42,20 @@
 				color: gray;
 			}
 
-			#text-top{
+			#text-topa{
 				width: 100%;
 				height: 100px;
 				padding-top: 5px;
 			}
 
-			.line{
+			.linea{
 				font-family: helvetica;
 				width: 100%;
 				color: gray;
 				font-size: 16px;
 			}
 
-			#logo-top{
+			#logo-topa{
 				width: 30%;
 				height: 120px;
 				float: right;
@@ -64,7 +64,7 @@
 				color: gray;
 			}
 
-			#content{
+			#contenta{
 				width: 80%;
 				margin-left: 10%;
 				margin-top: 20px;
@@ -72,30 +72,30 @@
 				height: auto;
 			}
 
-			#text-content{
+			#text-contenta{
 				font-family: calibri;
 				text-align: justify;
 			}
 
-			#footer{
+			#footera{
 				width: 80%;
 				margin-left: 10%;
 				height: 200px;
 			}
 
-			#data{
+			#dataa{
 				width: 100%;
 				text-align: center;
 				padding-top: 20px;
 			}
 
-			#assinatura{
+			#assinaturaa{
 				width: 100%;
 				height: 100px;
 				margin-top: 10px;
 			}
 
-			.assinatura{
+			.assinaturaa{
 				margin-top: 80px;
 				width: 50%;
 				height: 100px;
@@ -107,21 +107,21 @@
 	</head>
 
 	<body>
-		<div id="body">
-			<div id="top">
-				<div id="left-top">
-					<div id="title-top"><strong> Termo de Adesão </strong></div>
-					<div id="text-top">
-						<div class="line"> {!! $investment->Company->company_name !!}</div>
-						<div class="line"> RENDA FIXA - INVESTIMENTOS PRIVADOS </div>
-						<div class="line"> CNPJ N. 18.097.471/0001-25 </div>
+		<div id="bodya">
+			<div id="topa">
+				<div id="left-topa">
+					<div id="title-topa"><strong> Termo de Adesão </strong></div>
+					<div id="text-topa">
+						<div class="linea"> {!! $investment->Company->company_name !!}</div>
+						<div class="linea"> RENDA FIXA - INVESTIMENTOS PRIVADOS </div>
+						<div class="linea"> CNPJ N. 18.097.471/0001-25 </div>
 					</div>
 				</div>
-				<div id="logo-top"> logo </div>
+				<div id="logo-topa"> logo </div>
 			</div>
 
-			<div id="content">
-				<div id="text-content">
+			<div id="contenta">
+				<div id="text-contenta">
 					[IDENTIFICAÇÃO DO INVESTIDOR], inscrito(a) no CPF/CNPJ n.º [NUMERO DO CPF/CNPJ], pretendendo assumir a condição de Cotista da 1a. Emissão de Nota Promissória da investida acima indicada, vem, pelo presente instrumento, manifestar expressamente a adesão ao Prospecto da citada emissão, declarando nesta oportunidade que: 
 					<ol>
 						<li>
@@ -146,21 +146,21 @@
 				</div>
 			</div>
 
-			<div id="footer">
-				<div id="data"> [LOCAL E DATA]  </div>
-				<div id="assinatura">
-					<div class="assinatura">
-					<div class="line-footer">---------------------------------------</div>
-					<div class="id-footer">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
-					<div class="id-footer">[ NUMERO CPF/CNPJ ]</div>
-				</div>
-				<div id="assinatura">
-					<div class="assinatura">
-					<div class="line-footer">---------------------------------------</div>
-					<div class="id-footer">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
-					<div class="id-footer">[ NUMERO CPF/CNPJ ]</div>
+			<div id="footera">
+				<div id="dataa"> [LOCAL E DATA]  </div>
+				<div id="assinaturaa">
+					<div class="assinaturaa">
+						<div class="line-footera">---------------------------------------</div>
+						<div class="id-footera">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
+						<div class="id-footera">[ NUMERO CPF/CNPJ ]</div>
+					</div><div class="assinaturaa">
+						<div class="line-footera">---------------------------------------</div>
+						<div class="id-footera">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
+						<div class="id-footera">[ NUMERO CPF/CNPJ ]</div>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</body>
 </html>
