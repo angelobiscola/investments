@@ -81,6 +81,7 @@
 @section('scripts')
     @parent
         <script src="{{asset("/bower_components/datatables/media/js/jquery.dataTables.min.js")}}"></script>
+        <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
         <script>
 
             $(document).ready(function() {
@@ -104,6 +105,9 @@
                             "sNext":     "Seguinte",
                             "sLast":     "Último"
                         }
+                    },
+                    select: {
+                        style: 'multi'
                     }
                 } );
             } );
