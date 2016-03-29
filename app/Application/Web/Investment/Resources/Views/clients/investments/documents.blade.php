@@ -4,17 +4,15 @@
     }
 </style>
 
-@include('investment::reports.prospecto')
+    @include('investment::reports.prospecto')
 
 <div class="page-break"></div>
 
-@include('investment::reports.adesao')
+    @include('investment::reports.adesao')
 
 <div class="page-break"></div>
 
-@include('investment::reports.promissoria')
-
-
+    @include('investment::reports.promissoria')
 
 
 

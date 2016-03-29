@@ -101,10 +101,15 @@
 				margin-top: 10px;
 			}
 
+			.page-break {
+				page-break-after: always;
+			}
 		</style>
+
 	</head>
 
 	<body>
+
 		<div id="bodyp">
 			<div id="logop"> logo </div>
 			<div id="topp">
@@ -143,6 +148,8 @@
 			</div>
 		</div>
 
+		<div class="page-break"></div>
+
 		<div id="bodyp">
 			<div id="logop"> logo </div>
 			<div id="paragrafop">
@@ -178,7 +185,9 @@
 				</p>
 			</div>
 		</div>
-		
+
+		<div class="page-break"></div>
+
 		<div id="bodyp">
 			<div id="logop"> logo </div>
 			<div id="paragrafop">
