@@ -10,14 +10,13 @@
 			}
 
 			#body{
-				padding: 2%;
+				padding: 5%;
 				margin-left: auto;
 				margin-right: auto;
 				margin-bottom: 50px;
 				width: 792px;
 				height: 1122px;
 				margin-top: 3%;
-				border: 1px solid black;
 			}
 
 			#body-border{
@@ -139,9 +138,9 @@
 			}
 
 			#semvalor{
-				margin-top: 120px;
+				margin-top: 100px;
 				position: absolute;
-				font-size: 180px;
+				font-size: 150px;
 				-webkit-transform: rotate(325deg);
 				-moz-transform: rotate(325deg);
 				-o-transform: rotate(325deg);
