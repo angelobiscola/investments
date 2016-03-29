@@ -19,7 +19,10 @@ elixir(function(mix) {
     */
 
     mix.copy('resources/assets/restful/restful.js', 'public/js/restful.js');
-    mix.copy('resources/assets/datatables_ext/', 'public/js/datatables_ext');
+
+    mix.copy('resources/assets/datatables/js/extensions', 'public/js/datatables_ext');
+
+    mix.copy('resources/assets/datatables/css/buttons.dataTables.min.css', 'public/css/datatables/buttons/buttons.dataTables.min.css');
 
 });
 

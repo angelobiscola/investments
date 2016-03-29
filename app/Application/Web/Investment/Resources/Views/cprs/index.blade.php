@@ -3,7 +3,7 @@
 @section('css')
     @parent
     <link href="{{ asset('/bower_components/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('/css/datatables/buttons/buttons.dataTables.min.css') }}" rel="stylesheet">
 @stop
 
 @section('content')
