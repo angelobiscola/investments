@@ -12,7 +12,11 @@ class CprPresenter extends AbstractPresenter
 
     public function datePayment()
     {
-        return  is_null($this->date_payment) ? ' ' : date("d/m/Y", strtotime($this->date_payment));
+        return  is_null($this->date_payment) ?
+
+                    \Carbon\Carbon::parse($this->date_maturity)->diffInDays().' dias'
+
+                    : date("d/m/Y", strtotime($this->date_payment));
     }
 
     public function nameType()

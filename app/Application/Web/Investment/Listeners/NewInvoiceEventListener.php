@@ -30,10 +30,8 @@ class NewInvoiceEventListener
         $bank       = $event->getBank();
 
         $invoice = $investment->Invoices()->create(['billet_id'   => $bank,
-                                                    'status' => 'a',
                                                     'value' => $investment->value,
                                                     'date_maturity' => $investment->date_payment,
-                                                    'date_payment'  => '',
                                                     'client_id'     => $investment->client_id,
                                                     'company_id'    => $investment->company_id,
                                                     'user_id   '    => $investment->user_id,
@@ -46,7 +44,6 @@ class NewInvoiceEventListener
                                          'description'   => 'New Investment: '.$investment->Bond->name,
                                          'value'         => $investment->value,
                                          'date_maturity' => $investment->date_payment,
-                                         'date_payment'  => '',
                                          'investment_id' => $investment->id,
                                          'client_id'     => $investment->client_id,
                                          'company_id'    => $investment->company_id,

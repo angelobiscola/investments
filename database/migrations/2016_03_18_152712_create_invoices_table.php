@@ -16,8 +16,7 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->double('value',10,2);
             $table->date('date_maturity');
-            $table->date('date_payment');
-            $table->char('status');
+            $table->date('date_payment')->nullable();
 
             $table->integer('billet_id')->unsigned();
             $table->foreign('billet_id')->references('id')->on('billets');

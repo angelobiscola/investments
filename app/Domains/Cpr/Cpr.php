@@ -15,7 +15,6 @@ class Cpr extends Model
     protected $dates     = ['deleted_at'];
     protected $presenter = CprPresenter::class;
 
-
     public function Installments()
     {
         return $this->hasMany(Cpr::class);
