@@ -24,10 +24,10 @@
                                 <tr>
                                     <td>{!! $bond->Prospect->name   !!}</td>
                                     <td>{!! $bond->name !!}</td>
-                                    <td>{!! $bond->total    !!}</td>
-                                    <td>{!! $bond->quota !!} = {!! $bond->total/$bond->quota !!}</td>
-                                    <td>{!! $bond->rate !!} | am</td>
-                                    <td>{!! \Carbon\Carbon::parse($bond->opportunity)->diffInDays() !!} Days</td>
+                                    <td>{!! $bond->present()->maskTotal    !!}</td>
+                                    <td>{!! $bond->quota !!} = {!! $bond->present()->quotaValue !!}</td>
+                                    <td>{!! $bond->rate !!} % {!! $bond->present()->rateMode !!}</td>
+                                    <td>{!! $bond->present()->expire !!} Days</td>
                                     <td>
                                         @if(!$bond->Investments->count())
                                             <a href="{!! route('investment.company.bond.edit', $bond) !!}" ><i class="glyphicon glyphicon glyphicon-cog"></i></a>
