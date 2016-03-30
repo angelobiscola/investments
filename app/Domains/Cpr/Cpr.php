@@ -5,13 +5,15 @@ use App\Domains\Client\Client;
 use App\Domains\Client\Investment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laracasts\Presenter\PresentableTrait;
 
 class Cpr extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['type','status','value','date_maturity', 'date_payment', 'description', 'client_id', 'company_id', 'investment_id','invoice_id', 'cpr_id', 'user_id'];
-    protected $dates    = ['deleted_at'];
+    protected $fillable  = ['type','status','value','date_maturity', 'date_payment', 'description', 'client_id', 'company_id', 'investment_id','invoice_id', 'cpr_id', 'user_id'];
+    protected $dates     = ['deleted_at'];
+    protected $presenter = CprPresenter::class;
 
 
     public function Installments()

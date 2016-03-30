@@ -39,18 +39,18 @@
                             @foreach($cprs  as $cpr)
                                 <tr>
                                     <td>{!! $cpr->id !!}</td>
-                                    <td>{!! number_format($cpr->value,2,".",",") !!}</td>
+                                    <td>{!! $cpr->present()->maskValue !!}</td>
                                     <td>{!! $cpr->description   !!}</td>
-                                    <td>{!! $cpr->date_maturity !!}</td>
-                                    <td>{!! $cpr->date_payment !!}</td>
-                                    <td>{!! $cpr->type !!}</td>
-                                    <td>{!! $cpr->status !!}</td>
+                                    <td>{!! $cpr->present()->dateMaturity !!}</td>
+                                    <td>{!! $cpr->present()->datePayment  !!}</td>
+                                    <td>{!! $cpr->present()->nameType !!}</td>
+                                    <td>{!! $cpr->present()->nameStatus !!}</td>
                                     <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->name !!} </a> </td>
                                     <td><a href="{!! route('investment.client.investment.show',$cpr->investment_id) !!}">{!! $cpr->Investment->Bond->name !!} </a> </td>
                                     <td>
                                         <a href="{!! route('investment.cpr.invoice.print',$cpr->invoice_id) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-barcode"></i></a>
                                     </td>
-                                    <td>{!! $cpr->created_at !!}</td>
+                                    <td>{!! $cpr->present()->createdAt !!}</td>
                                     <td>
                                         <a href="{!! route('investment.cpr.consolidate',$cpr) !!}" ><i class="glyphicon glyphicon glyphicon-save"></i></a>
                                         <a href="{!! route('investment.cpr.receipt.create',$cpr) !!}" ><i class="glyphicon glyphicon-ok"></i></a>

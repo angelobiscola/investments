@@ -51,8 +51,8 @@ abstract class AbstractPresenter extends Presenter {
         return \Utils::mask($this->cpf, \Mask::CNPj);
     }
 
-    public function maskZepCode($n =2)
+    public function maskZipCode()
     {
-        return number_format($this->value, $n, ',', '.');
+        return \Utils::mask($this->zip_code, \Mask::CEP);
     }
 }

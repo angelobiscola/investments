@@ -238,7 +238,7 @@ return [
         'Image'     => Barryvdh\Snappy\Facades\SnappyImage::class,
 
         'Utils'     => JansenFelipe\Utils\Utils::class,
-        'Mask'      => App\Application\Web\Investment\Helper\Masks::class
+        'Mask'      => App\Support\Helper\Masks::class
     ],
 
 ];

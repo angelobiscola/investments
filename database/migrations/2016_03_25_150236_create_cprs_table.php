@@ -16,7 +16,7 @@ class CreateCprsTable extends Migration
             $table->increments('id');
             $table->double('value',10,2);
             $table->date('date_maturity');
-            $table->date('date_payment');
+            $table->date('date_payment')->nullable();
             $table->char('type');
             $table->char('status');
             $table->string('description');
