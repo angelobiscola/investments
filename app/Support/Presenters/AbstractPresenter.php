@@ -55,4 +55,9 @@ abstract class AbstractPresenter extends Presenter {
     {
         return \Utils::mask($this->zip_code, \Mask::CEP);
     }
+
+    public function maskDate($date)
+    {
+        return date("d/m/Y", strtotime($date));
+    }
 }

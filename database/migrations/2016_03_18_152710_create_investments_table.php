@@ -15,10 +15,10 @@ class CreateInvestmentsTable extends Migration
         Schema::create('investments', function (Blueprint $table) {
             $table->increments('id');
             $table->double('value',10,2);
-            $table->date('date_payment')->nullable();
+            $table->date('date_payment');
             $table->boolean('status');
-            $table->integer('mode');
-            $table->boolean('documents')->nullable();
+            $table->integer('mode'); // 0 : simples, 1 = composto
+            $table->boolean('documents')->default(false);
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');

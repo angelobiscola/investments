@@ -7,13 +7,15 @@ use App\Domains\Cpr\Invoice;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Domains\Company\Company;
+use Laracasts\Presenter\PresentableTrait;
 
 class Investment extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['value','status','date_payment','mode','client_id','company_id', 'user_id', 'bond_id'];
-    protected $dates    = ['deleted_at'];
+    protected $fillable  = ['value','status','date_payment','mode','client_id','company_id', 'user_id', 'bond_id'];
+    protected $dates     = ['deleted_at'];
+    protected $presenter = InvestmentPresenter::class;
 
     public function Client()
     {

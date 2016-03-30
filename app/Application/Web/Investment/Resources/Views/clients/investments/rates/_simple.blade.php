@@ -35,7 +35,7 @@
         <th>Value</th>
         <th>Date</th>
         <th>Number Parcel</th>
-        <th</th>
+        <th></th>
         </thead>
         <tbody>
             <tr>
@@ -57,7 +57,6 @@
         <th>Rate {!! $compound['rate'] !!}</th>
         <th>Interest {!! number_format($compound['interest'],2 ,'.',',') !!}</th>
     </table>
-
     @endif
 </div>
 
