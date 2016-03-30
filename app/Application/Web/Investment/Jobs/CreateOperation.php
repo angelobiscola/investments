@@ -1,7 +1,6 @@
 <?php
 namespace App\Application\Web\Investment\Jobs;
 
-use App\Domains\Client\Investment;
 use App\Domains\Cpr\Cpr;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Queue\SerializesModels;

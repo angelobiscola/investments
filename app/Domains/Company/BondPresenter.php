@@ -26,7 +26,7 @@ class BondPresenter extends AbstractPresenter
 
     public function expire()
     {
-        return \Carbon\Carbon::parse($this->opportunity)->diffInDays();
+        return $this->active ? \Carbon\Carbon::parse($this->opportunity)->addDay(1)->diffInDays() : 'Expirou' ;
     }
 
     public function quotaValue()

@@ -20,6 +20,7 @@ class CreateBondsTable extends Migration
             $table->string('rate_mode');
             $table->double('total');
             $table->integer('quota');
+            $table->boolean('active')->default(true);
             $table->date('opportunity');
 
             $table->integer('prospect_id')->unsigned();

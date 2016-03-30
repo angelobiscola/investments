@@ -2,13 +2,16 @@
 namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
+use App\Application\Web\Investment\Jobs\ExpireBondOperation;
 use App\Domains\Company\Bond;
 use App\Domains\Company\Prospect;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\DocBlock\Tag\ReturnTag;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class BondController extends BaseController
 {
+    use DispatchesJobs;
+
     protected $bond;
 
     public function __construct(Bond $bond)
@@ -35,7 +38,10 @@ class BondController extends BaseController
            $request = $request->input('bond');
            $request['user_id']    = $this->getUser()->id;
            $request['company_id'] = $this->getCompany()->id;
-           $this->bond->create($request);
+
+           $bond = $this->bond->create($request);
+           $this->expire($bond);
+
            return redirect(route('investment.company.bond.index'))->with('status','Create');
        }
        catch(\Exception $e)
@@ -93,6 +99,13 @@ class BondController extends BaseController
     {
         $investors = $this->bond->find($id)->Investments;
         return view('investment::companies.bonds.investors', compact('investors'));
+    }
+
+    protected function expire(Bond $bond)
+    {
+        $expire = \Carbon\Carbon::parse($bond->opportunity)->addDay(1)->diffInSeconds();
+        $job = (new ExpireBondOperation($bond))->delay($expire);
+        $this->dispatch($job);
     }
 }
 

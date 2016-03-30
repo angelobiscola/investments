@@ -37,7 +37,10 @@ class CprController extends BaseController
     {
         try {
             $cpr    = $this->cpr->findOrFail($id);
-            dispatch(new CreateOperation($cpr));
+
+            $job = (new CreateOperation($cpr))->delay(5);
+            $this->dispatch($job);
+
             return back()->with('status', 'Consolidate OK, Processing....');
         }
         catch(\Exception $e)
