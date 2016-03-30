@@ -229,7 +229,7 @@
 				</p>
 			</div>
 
-			<div id="datap"> Curitiba {!! date('d/m/Y') !!} </div>
+			<div id="datap"> Curitiba {!! dateLocate() !!}</div>
 
 			<div id="footerp">
 				<div class="footerp-float">

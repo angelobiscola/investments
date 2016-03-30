@@ -185,5 +185,23 @@ if (! function_exists('removerFormatacaoNumero')) {
 }
 
 
+if (! function_exists('dateLocate')) {
+
+    function dateLocate()
+    {
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+        return strftime('%d de %B de %Y', strtotime('today'));
+        //%A: dia da semana por extenso.
+        //%d: dia do mês representado com dois digitos.
+        //%B: mês por extenso.
+        //%Y: ano representado com quatro digitos.
+    }
+}
+
+
+
+
+
 
 
