@@ -18,6 +18,7 @@ class CreateInvestmentsTable extends Migration
             $table->date('date_payment')->nullable();
             $table->boolean('status');
             $table->integer('mode');
+            $table->boolean('documents')->nullable();
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');

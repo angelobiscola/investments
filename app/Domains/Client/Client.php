@@ -1,7 +1,6 @@
 <?php
 namespace App\Domains\Client;
 
-use App\Domains\Bank\Bank;
 use App\Domains\Cpr\Cpr;
 use App\Domains\Cpr\Invoice;
 use App\Domains\Location\Location;
@@ -22,19 +21,17 @@ class Client extends Model
         return $this->morphOne(Location::class, 'locationable');
     }
 
-    public function Bank()
-    {
-        return $this->morphOne(Bank::class, 'bankable');
-    }
-
-    //delete Location/Banks Cascade
+    //delete Location/Cascade
     function delete()
     {
         $this->Location()->forceDelete();
-        $this->Bank()->forceDelete();
         parent::delete();
     }
 
+    public function Bank()
+    {
+        return $this->hasMany(Bank::class);
+    }
 
     public function Legal()
     {
@@ -46,6 +43,7 @@ class Client extends Model
         return $this->hasOne(Physical::class);
     }
 
+
     public function Investments()
     {
         return $this->hasMany(Investment::class);
@@ -56,7 +54,7 @@ class Client extends Model
         return $this->hasMany(Invoice::class);
     }
 
-    public function PayableReceper()
+    public function PayableReceivable()
     {
         return $this->hasMany(Cpr::class);
     }

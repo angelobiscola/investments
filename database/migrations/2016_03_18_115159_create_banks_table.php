@@ -20,8 +20,10 @@ class CreateBanksTable extends Migration
             $table->string('current_account');
             $table->string('city');
             $table->string('state');
-            $table->integer('bankable_id');
-            $table->string('bankable_type');
+
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
