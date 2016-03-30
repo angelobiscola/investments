@@ -126,24 +126,38 @@
 				<div>prazo de vencimento: 360 dias.</div>
 			</div>
 			<div id="fistp-bloco">
-				Emitente: <strong>ALAVANCA BRASIL INVESTIMENTOS</strong> , pessoa jurídica de direito privado, com sede à Rua Solimões nº 849, Bairro São Francisco, em Curitiba – PR, CEP: 80510-140, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº 18.097.471/0001-25;
+				Emitente: <strong> {!! $investment->Company->name !!} </strong> , pessoa jurídica de direito privado, com sede à {!! $investment->Company->Location->present()->addressFull !!}
+				, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº {!! $investment->Company->cnpj !!};
 			</div>
 
 			<div id="paragrafop">
 				<p>
-					A Alavanca Brasil Investimentos apresenta, através deste prospecto, informações vinculantes à respeito de oportunidade de inversão de recursos em prol da ampliação de capital de seu projeto de investimento, remunerando o montante através de renda fixa pré-fixada.
+					A {!! $investment->company->name !!} Investimentos apresenta, através deste prospecto, informações vinculantes à respeito de oportunidade de inversão de recursos em
+					prol da ampliação de capital de seu projeto de investimento, remunerando o montante através de renda fixa pré-fixada.
 				</p>
 				<p>
-					Dentre os diversos veículos de investimento disponíveis no mercado de capitais, a Alavanca Brasil Investimentos elegeu, com fundamento no disposto na Convenção para Adoção de uma Lei Uniforme sobre Letras de Câmbio e Notas Promissórias, promulgada pelo Decreto no 57.663, de 24 de janeiro de 1966, o instrumento da Nota Promissória (Commercial Paper) para dar os devidos contornos jurídicos da captação.
+					Dentre os diversos veículos de investimento disponíveis no mercado de capitais, a {!! $investment->company->name !!} Investimentos elegeu, com fundamento no disposto
+					na Convenção para Adoção de uma Lei Uniforme sobre Letras de Câmbio e Notas Promissórias, promulgada pelo Decreto no 57.663, de 24 de janeiro de 1966, o
+					instrumento da Nota Promissória (Commercial Paper) para dar os devidos contornos jurídicos da captação.
 				</p>
 				<p>
-					O total da captação ora entabulada é de R$ 10.000.000,00 (dez milhões de reais), divididas em 100 (cem) quotas de investimento no valor de R$ 100.000,00 (cem mil reais). As Notas Promissórias serão numeradas, emitidas em sequência temporal, iniciando-se pela de número 1 (um) e finalizando-se com a de número 100 (cem). Será permitida a cumulação de valores em um único instrumento, agrupando-se, assim, o número e a sequência de quotas correspondentes.
+					O total da captação ora entabulada é de R$  {!! number_format($investment->Bond->total,2,'.',',') !!} ({!! valorPorExtenso($investment->Bond->total) !!}), divididas em
+					{!! $investment->Bond->quota !!} quotas de investimento no valor de R$ {!! $investment->Bond->present()->quotaValue !!}
+					({!! valorPorExtenso($investment->Bond->present()->quotaValue) !!}). As Notas Promissórias serão numeradas, emitidas em sequência temporal, iniciando-se pela de número 1 (um) e
+					finalizando-se com a de número {!! $investment->Quotas->count() !!} ({!! valorPorExtenso($investment->Quotas->count(), false) !!}). Será permitida a cumulação de valores em um único instrumento, agrupando-se, assim, o número e a sequência de quotas
+					correspondentes.
 				</p>
 				<p>
-					O prazo de exposição da oportunidade perante a classe privada de investidores será de, no máximo, 60 (sessenta) dias. Caso haja esgotamento das quotas, antecipa-se a finalização do prazo de exposição da oportunidade. Por ventura, expirado o prazo sem que se tenha obtida a totalidade do volume ofertado, será submetido ao Comitê de Captação o encerramento formal do prazo de exposição da oportunidade, que poderá, por sua deliberação, estendê-lo no máximo por igual período.
+					O prazo de exposição da oportunidade perante a classe privada de investidores será de, no máximo, 60 (sessenta) dias. Caso haja esgotamento das quotas, antecipa-se a
+					finalização do prazo de exposição da oportunidade. Por ventura, expirado o prazo sem que se tenha obtida a totalidade do volume ofertado, será submetido ao Comitê de
+					Captação o encerramento formal do prazo de exposição da oportunidade, que poderá, por sua deliberação, estendê-lo no máximo por igual período.
 				</p>
 				<p>
-					Por tratar-se de empreendimento sólido, constituído dentro dos termos da legislação societária e fiscal, a Alavanca Brasil Investimentos está apta a buscar, em esforço restrito privado, os investidores que estejam almejando ganhos fixos acima dos Fundos de Investimentos tradicionais. Pela ausência de esforço público de captação, tampouco de divulgação midiática, não há necessidade de autorização prévia dos órgãos de controle monetário ou da Comissão de Valores Mobiliários. Não obstante, em apreço ao compliance, a emitente informa que solicitou ao Conselho Regional de Administração a expedição da competente Anotação de Responsabilidade Técnica – ART – deste projeto.
+					Por tratar-se de empreendimento sólido, constituído dentro dos termos da legislação societária e fiscal, a {!! $investment->company->name !!} Investimentos está apta a
+					buscar, em esforço	restrito privado, os investidores que estejam almejando ganhos fixos acima dos Fundos de Investimentos tradicionais. Pela ausência de esforço
+					público de captação, tampouco de divulgação midiática, não há necessidade de autorização prévia dos órgãos de controle monetário ou da Comissão de Valores Mobiliários.
+					Não obstante, em apreço ao compliance, a emitente informa que solicitou ao Conselho Regional de Administração a expedição da competente Anotação de Responsabilidade
+					Técnica – ART – deste projeto.
 				</p>
 			</div>
 		</div>
@@ -154,34 +168,51 @@
 			<div id="logop"> logo </div>
 			<div id="paragrafop">
 				<p>
-					As atividades desenvolvidas pela Alavanca Brasil Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez aplicados os recursos através de contratos de mútuo simples, conjugam-se atividades remuneradas de gestão, contabilidade e controle de tesouraria, permitindo, assim, a rápida retomada do crescimento do empreendimento investido, momento em que a Alavanca Brasil Investimentos pode converter seus créditos em participação societária, permitindo ganhos expressivos nos processos de venda dos negócios para os interessados estratégicos.
+					As atividades desenvolvidas pela {!! $investment->company->name !!} Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez
+					aplicados os recursos através de contratos de mútuo simples, conjugam-se atividades remuneradas de gestão, contabilidade e controle de tesouraria, permitindo, assim,
+					a rápida retomada do crescimento do empreendimento investido, momento em que a {!! $investment->company->name !!} Investimentos pode converter seus créditos em
+					participação societária, permitindo ganhos expressivos nos processos de venda dos negócios para os interessados estratégicos.
 				</p>
 				<p>
-					As estratégias executivas são definidas através de um Comitê de Investimento, que busca compreender os cenários em perspectiva, propondo projeto de adequação das boas práticas de gestão e otimização de custos e despesas.
+					As estratégias executivas são definidas através de um Comitê de Investimento, que busca compreender os cenários em perspectiva, propondo projeto de adequação das boas
+					práticas de gestão e otimização de custos e despesas.
 				</p>
 				<p>
-					O prazo de vencimento do presente investimento será de 360 (trezentos e sessenta) dias. Em opção ao investidor, a rentabilidade mensal aferida poderá ser disponibilizada no primeiro dia útil de cada mês, dentro do período de vencimento da Nota Promissória, liquidando-se pro-rata tempori no primeiro e último mês; ou poderá se calcular o valor futuro do vencimento, somando-se ao montante a rentabilidade capitalizada no período.
+					O prazo de vencimento do presente investimento será de 360 (trezentos e sessenta) dias. Em opção ao investidor, a rentabilidade mensal aferida poderá ser
+					disponibilizada no primeiro dia útil de cada mês, dentro do período de vencimento da Nota Promissória, liquidando-se pro-rata tempori no primeiro e último mês; ou
+					poderá se calcular o valor futuro do vencimento, somando-se ao montante a rentabilidade capitalizada no período.
 				</p>
 				<p>
-					Em caso de deliberação pelo Comitê de Investimento, ou por qualquer outro órgão decisório com competência constituída dentro da Alavanca Brasil Investimentos, decidir-se o resgate antecipado das Notas Promissórias emitidas, este será realizado sempre considerando-se a integralidade da quota e em ordem de maior antiguidade.   
+					Em caso de deliberação pelo Comitê de Investimento, ou por qualquer outro órgão decisório com competência constituída dentro da {!! $investment->company->name !!}
+					Investimentos, decidir-se o resgate antecipado das Notas Promissórias emitidas, este será realizado sempre considerando-se a integralidade da quota e em ordem de
+					maior antiguidade.
 				</p>
 				<p>
-					Importante frisar que somente será permitida a transferência e cessão dos direitos provenientes da Nota Promissória se houver prévia comunicação à emitente (endosso em preto), que fará a exação formal de sua concordância. 
+					Importante frisar que somente será permitida a transferência e cessão dos direitos provenientes da Nota Promissória se houver prévia comunicação à emitente (endosso
+					em preto), que fará a exação formal de sua concordância.
 				</p>
 				<p>
-					Todas as comunicações formais deverão se dar através dos Correios, Carta com Aviso do Recebimento – AR, no endereço vigente da emitente perante à JUCEPAR, em se tratando de destinatário a Alavanca Brasil Investimentos.
+					Todas as comunicações formais deverão se dar através dos Correios, Carta com Aviso do Recebimento – AR, no endereço vigente da emitente perante à JUCEPAR, em se
+					tratando de destinatário a {!! $investment->company->name !!} Investimentos.
 				</p>
 				<p>
-					O aplicador assinará o Formulário de Cadastro e Investimento, onde apresentará os dados e informações necessárias sobre sua condição jurídica e financeira, sendo de sua integral responsabilidade manter a base de informações atualizadas.
+					O aplicador assinará o Formulário de Cadastro e Investimento, onde apresentará os dados e informações necessárias sobre sua condição jurídica e financeira, sendo
+					de sua integral responsabilidade manter a base de informações atualizadas.
 				</p>
 				<p>
-					Sobre o valor do rendimento, em estrito cumprimento à legislação fiscal, a Alavanca Brasil Investimentos realizará as devidas retenções fiscais de Imposto de Renda (IR), aplicando-se as alíquotas previstas dentro das faixas eleitas pelo regulamento da exação (Decreto 3.000/1999). Ao final de cada período, serão informadas à autoridade fiscal as devidas retenções (DIRF), bem como serão emitidos os Informes de Rendimento para subsidiar as declarações de praxe.
+					Sobre o valor do rendimento, em estrito cumprimento à legislação fiscal, a {!! $investment->company->name !!} Investimentos realizará as devidas retenções fiscais
+					de Imposto de Renda (IR), aplicando-se as alíquotas previstas dentro das faixas eleitas pelo regulamento da exação (Decreto 3.000/1999). Ao final de cada período,
+					serão informadas à autoridade fiscal as devidas retenções (DIRF), bem como serão emitidos os Informes de Rendimento para subsidiar as declarações de praxe.
 				</p>
 				<p>
-					Não haverá sobre a operação de investimento ora desenvolvida a incidência de Imposto sobre Operações Financeiras (IOF), tendo em vista a isenção prevista no regulatório correspondente ao tributo.
+					Não haverá sobre a operação de investimento ora desenvolvida a incidência de Imposto sobre Operações Financeiras (IOF), tendo em vista a isenção prevista no
+					regulatório correspondente ao tributo.
 				</p>
 				<p>
-					As partes desde já convencionam que toda e qualquer controvérsia resultante da e/ou relativa à interpretação ou execução do presente negócio jurídico e respectivos anexos, deve, obrigatória, exclusiva e definitivamente ser resolvida por meio de mediação (conforme procedimento definido no parágrafo abaixo) e, quando restar infrutífera, por meio de arbitragem, a ser instituída e processada nos termos do Regulamento da Câmara de Mediação e Arbitragem da Associação Comercial do Paraná - ARBITAC. 
+					As partes desde já convencionam que toda e qualquer controvérsia resultante da e/ou relativa à interpretação ou execução do presente negócio jurídico e
+					respectivos anexos, deve, obrigatória, exclusiva e definitivamente ser resolvida por meio de mediação (conforme procedimento definido no parágrafo abaixo) e,
+					quando restar infrutífera, por meio de arbitragem, a ser instituída e processada nos termos do Regulamento da Câmara de Mediação e Arbitragem da Associaçã
+					o Comercial do Paraná - ARBITAC.
 				</p>
 			</div>
 		</div>
@@ -192,11 +223,13 @@
 			<div id="logop"> logo </div>
 			<div id="paragrafop">
 				<p>
-					A mediação será estabelecida a partir da Solicitação de Mediação/Arbitragem apresentada perante a Secretaria da ARBITAC. No prazo de 7 (sete dias) dias, as partes e o mediador por elas escolhido envidarão seus melhores esforços para solucionar o conflito. Em caso de ausência de manifestação das partes no prazo referido, desinteresse em mediar, ou restando infrutífera a mediação por qualquer outro motivo, instaurar-se-á o procedimento arbitral imediatamente.
+					A mediação será estabelecida a partir da Solicitação de Mediação/Arbitragem apresentada perante a Secretaria da ARBITAC. No prazo de 7 (sete dias) dias,
+					as partes e o mediador por elas escolhido envidarão seus melhores esforços para solucionar o conflito. Em caso de ausência de manifestação das partes no
+					prazo referido, desinteresse em mediar, ou restando infrutífera a mediação por qualquer outro motivo, instaurar-se-á o procedimento arbitral imediatamente.
 				</p>
 			</div>
 
-			<div id="datap"> Curitiba, 14  de Março de 2016 </div>
+			<div id="datap"> Curitiba {!! date('d/m/Y') !!} </div>
 
 			<div id="footerp">
 				<div class="footerp-float">
@@ -208,7 +241,6 @@
 					<div class="footerp-logo"> logo 2 </div>
 				</div>
 			</div>
-
 		</div>
 	</body>
 </html>
