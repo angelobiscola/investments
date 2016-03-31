@@ -28,25 +28,15 @@
                                         <td>{!! $investment->present()->nameStatus  !!}</td>
                                         <td>{!! $investment->present()->createdAt !!}</td>
                                         <td>{!! $investment->present()->updatedAt !!}</td>
+                                        <td>
+                                            @if($investment->status)
+                                                <a href="{!! route('investment.cpr.invoice.print',$investment->Invoice) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
+                                                <a href="{!! route('investment.client.investment.document',$investment) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-print"></i></a>
+                                            @else
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
-
-
-                            @if($investment->status)
-
-                                <div class="row">
-                                        <div class="col-xs-6 col-md-3">
-                                                <a href="{!! route('investment.cpr.invoice.print',$investment->Invoice) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
-                                         </div>
-
-                                        <div class="col-xs-6 col-md-3">
-                                            <a href="{!! route('investment.client.investment.document',$investment) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-print"></i></a>
-                                        </div>
-                                </div>
-                                @else
-
-
                         </div>
 
                     @include('investment::clients.investments.rates._simple',['simple' => $s,'compound' =>$c ])
@@ -54,7 +44,6 @@
                     <form class="form-horizontal" role="form" method="POST" action="{!! route('investment.client.investment.confirm',$investment) !!}">
 
                             Data Invoice
-
                             <div class="form-group{{ $errors->has('mode') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Payment mode</label>
 

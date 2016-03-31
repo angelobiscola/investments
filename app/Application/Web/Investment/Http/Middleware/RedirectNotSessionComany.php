@@ -1,6 +1,7 @@
 <?php
 namespace App\Application\Web\Investment\Http\Middleware;
 
+use App\Domains\Company\Company;
 
 use Closure;
 
@@ -16,10 +17,13 @@ class RedirectNotSessionComany
      */
     public function handle($request, Closure $next, $guard = null)
     {
-
             if(is_null(session('company')))
             {
                 return redirect(route('collaborator.home.company'));
+            }
+            else
+            {
+                session(['company' => Company::find((session('company')->id))]);
             }
 
         return $next($request);

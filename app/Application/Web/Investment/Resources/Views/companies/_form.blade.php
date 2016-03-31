@@ -3,8 +3,8 @@
 
     @include('investment::companies._inputs')
 
-    tab Location
-    @include('investment::locations._inputs',['location' =>$company->Location ])
+    Location
+    @include('investment::locations._inputs',['location' => $company->Location ])
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
