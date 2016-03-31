@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-1">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">IvesT: My Bonds  <a href="{!! route('investment.company.bond.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
 
