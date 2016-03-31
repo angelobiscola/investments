@@ -127,7 +127,7 @@
 			</div>
 			<div id="fistp-bloco">
 				Emitente: <strong> {!! $investment->Company->name !!} </strong> , pessoa jurídica de direito privado, com sede à {!! $investment->Company->Location->present()->addressFull !!}
-				, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº {!! $investment->Company->cnpj !!};
+				, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº {!! $investment->Company->present()->cnpjCompany !!};
 			</div>
 
 			<div id="paragrafop">

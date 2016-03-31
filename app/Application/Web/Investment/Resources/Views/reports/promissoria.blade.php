@@ -208,7 +208,7 @@
 							<div class="footer-collun"> Prod. <br> 1</div>
 							<div class="footer-collun"> Descrição. <br> Casas Diversos</div>
 							<div class="footer-collun"> n°. <br> 145</div>
-							<div class="footer-collun"> Boleto. <br> {!! $investment->Invoices()->first()->id !!}</div>
+							<div class="footer-collun"> Boleto. <br> {{-- }{!! $investment->Invoice()->first()->id !!} --}}</div>
 						</div>
 					</div>
 				</div>

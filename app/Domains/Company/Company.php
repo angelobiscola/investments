@@ -7,13 +7,15 @@ use App\Domains\Cpr\Cpr;
 use App\Domains\Location\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laracasts\Presenter\PresentableTrait;
 
 class Company extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
     protected $fillable = ['name','company_name','cnpj','cnae_principal', 'phone', 'email'];
     protected $dates    = ['deleted_at'];
+    protected $presenter   = CompanyPresenter::class;
 
     public function Location()
     {
