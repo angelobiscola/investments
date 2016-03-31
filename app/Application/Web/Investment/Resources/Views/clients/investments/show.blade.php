@@ -36,18 +36,17 @@
                             @if($investment->status)
 
                                 <div class="row">
-                                @foreach($investment->Invoices as $i )
-
                                         <div class="col-xs-6 col-md-3">
-                                                <a href="{!! route('investment.cpr.invoice.print',$i) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
+                                                <a href="{!! route('investment.cpr.invoice.print',$investment->Invoice) !!}" target="_blank"><i class="glyphicon glyphicon-barcode"></i></a>
                                          </div>
-                                @endforeach
+
                                         <div class="col-xs-6 col-md-3">
                                             <a href="{!! route('investment.client.investment.document',$investment) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-print"></i></a>
                                         </div>
+                                </div>
                                 @else
 
-                                </div>
+
                         </div>
 
                     @include('investment::clients.investments.rates._simple',['simple' => $s,'compound' =>$c ])

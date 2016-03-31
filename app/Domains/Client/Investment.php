@@ -27,9 +27,9 @@ class Investment extends Model
         return $this->belongsTo(Bond::class);
     }
 
-    public function Invoices()
+    public function Invoice()
     {
-        return $this->hasMany(Invoice::class);
+        return $this->hasONe(Invoice::class);
     }
 
     public function Cpr()

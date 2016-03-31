@@ -30,11 +30,6 @@ class CreateOperation extends Job implements ShouldQueue
     {
         $this->investment = $this->cpr->Investment;
 
-        if($this->cpr->status == 'c')
-        {
-            throw new \Exception('is Consolidate');
-        }
-
         if($this->investment->mode ==0)
         {
             $s = jurosSimples($this->investment->value,$this->investment->Bond->rate,360,$this->investment->date_payment);
@@ -52,7 +47,7 @@ class CreateOperation extends Job implements ShouldQueue
         }
         else
         {
-            $c = jurosComposto($this->investment->value,$this->investment->Bond->rate,12);
+            $c = jurosComposto($this->investment->value,$this->investment->Bond->rate,360,$this->investment->date_payment);
 
             $total    = ['type'=>'p','status'=> 'a','description'=>'','value' => $c['value'],'date_maturity' =>$c['date'], 'client_id' => $this->investment->client_id,'company_id' => $this->investment->company_id];
             $interest = ['type'=>'p','status'=> 'a','description'=>'','value' => $c['interest'],'date_maturity' =>$c['date'], 'client_id' => $this->investment->client_id,'company_id' => $this->investment->company_id];
@@ -64,3 +59,5 @@ class CreateOperation extends Job implements ShouldQueue
         $this->cpr->update(['status' =>'c','date_payment' => \Carbon\Carbon::now()]);
     }
 }
+
+

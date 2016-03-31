@@ -4,10 +4,10 @@ if (! function_exists('jurosSimples')) {
 
     function jurosSimples($value, $rate, $days, $date)
     {
-        $formatDate = explode('-',$date);
+        $carbon = new \Carbon\Carbon();
 
-        $date    = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2])->addDay(1);
-        $oldDate = \Carbon\Carbon::create($formatDate[0],$formatDate[1],$formatDate[2])->addDay(1);
+        $date    = $carbon->parse($date)->addDay(1);
+        $oldDate = $carbon->parse($date)->addDay(1);
 
         $parcels     = $days/30;
         $daily_rate  = ($rate/30)/100;
@@ -15,32 +15,30 @@ if (! function_exists('jurosSimples')) {
         $rate        = $rate / 100;
 
         //first date and firstParcel
-        $firstDate       = $date->addDay(1)->addMonth(1)->firstOfMonth();
-        $diffFirstDate   = $oldDate->diffInDays($firstDate);
+        $firstDate       = $date->addMonth(1)->firstOfMonth();
+        $diffFirstDate   = $carbon->parse($oldDate)->diffInDays($firstDate);
+
 
         $firstParcel     = ($value * $daily_rate) * $diffFirstDate;
-
         //dd(($value * $daily_rate) * 360 / $parcels);
 
         $total        = $value * (1 + $rate * ($parcels));
         $interest     = $total - $value;
         $valueParcels = ($interest / $parcels);
 
-        $details[] = ['date' => $firstDate->toDateString(), 'value' =>$firstParcel,'diff' => $diffFirstDate];
+        $details[] = ['date' => $firstDate->toDateString(), 'value' =>$firstParcel,'diff' => $firstDate->diffInDays($oldDate), 'calc' => $diffFirstDate];
 
         for($i =0; $i < $parcels-2; $i++)
         {
-            $details[] = ['date' => $firstDate->addMonth()->toDateString(), 'value' =>$valueParcels, 'diff' => ' ' ];
+            $details[] = ['date' => $firstDate->addMonth()->toDateString(), 'value' =>$valueParcels, 'diff' => $firstDate->diffInDays($oldDate), 'calc' => ''];
         }
 
-        $lastDate      = $oldDate->addDays($days+$diffFirstDate);
-        $diffLastDate  = $firstDate->addMonth()->diffInDays($lastDate);
+        $lastDate      = $carbon->parse($oldDate)->addDay($days);
+        $diffLastDate  = $lastDate->diffInDays($firstDate);
         $lastParcel    = ($value * $daily_rate) * $diffLastDate;
 
-        //$teste = \Carbon\Carbon::now()->addMonth(1)->firstOfMonth();
-        //dd($teste->diffInDays($last));
 
-        $details[] = ['date' => $lastDate->toDateString(), 'value' =>$lastParcel, 'diff' => $diffLastDate];
+        $details[] = ['date' => $lastDate->toDateString(), 'value' =>$lastParcel, 'diff' => $lastDate->diffInDays($oldDate), 'calc' => $diffLastDate];
 
         $total    = ($total - ($valueParcels*2)) + ($firstParcel+$lastParcel);
         $interest = $total - $value;
@@ -53,14 +51,34 @@ if (! function_exists('jurosSimples')) {
 
 if (! function_exists('jurosComposto')) {
 
-    function jurosComposto($value, $rate, $parcels) {
+    function jurosComposto($value,$rate,$days,$date)
+    {
+        $carbon  = new \Carbon\Carbon();
+        $date    = $carbon->parse($date)->addDay(1);
+        $oldDate = $carbon->parse($date)->addDay(1);
 
-        $rate = $rate / 100;
-        $total = $value * pow((1 + $rate), $parcels);
+        $old = 0.0;
+        $rate     = $rate / 100;
+        $parcels  = $days/30;
+        $daily_rate  = ($rate/30)/100;
 
+        $total     = $value * pow((1 + $rate), $parcels);
         $interest  = $total - $value;
 
-        return ['total' => $total,'value'=> $value, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>\Carbon\Carbon::now()->addDay(360)];
+        for($i = 1; $i <= $parcels; $i++){
+
+            $total       = $value * pow((1 + $rate), $i);
+            $interestmes = $total - ($value + $old);
+            $old += $interestmes;
+            $details[] = ['date' => $date->addMonth()->toDateString(), 'value' =>$total,'diff' => $date->diffInDays($oldDate),  'juros' => $interestmes, 'calc' => ''];
+        }
+
+        $lastDate      = $carbon->parse($oldDate)->addDay($days);
+        $diffLastDate  = $lastDate->diffInDays($oldDate);
+        $lastParcel    = ($total * $daily_rate) * $diffLastDate;
+        //$details[] = ['date' => $lastDate->toDateString(), 'value' =>$lastParcel, 'diff' => $lastDate->diffInDays($oldDate),'juros' => 123, 'calc' => $diffLastDate];
+
+        return ['total' => $total,'value'=> $value, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>$carbon->parse($oldDate)->addDay($days)->toDateString(),'details' => $details];
     }
 }
 
