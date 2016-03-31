@@ -8,4 +8,9 @@ class CompanyPresenter extends AbstractPresenter
     {
         return \Utils::mask($this->cnpj, \Mask::CNPJ);
     }
+
+    public function phoneCompany()
+    {
+        return \Utils::mask($this->phone, \Mask::TELEFONE);
+    }
 }

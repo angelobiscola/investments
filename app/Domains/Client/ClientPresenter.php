@@ -16,4 +16,10 @@ class ClientPresenter extends AbstractPresenter
         }
 
     }
+
+    public function phoneClient()
+    {
+        return \Utils::mask($this->phone, \Mask::TELEFONE);
+    }
+
 }

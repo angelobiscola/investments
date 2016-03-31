@@ -158,7 +158,6 @@
 	</head>
 
 	<body>
-
 		<div id="body">
 			<div id="body-border">
 				<div id="promissoria">
@@ -171,30 +170,32 @@
 						</div>
 						<div id="top-for-collun">
 							<div class="title-top"><strong> Valor R$ : </strong>  {!! number_format($investment->value,2,'.',',') !!}  </div>
-							<div class="body-top"><strong> Ultimo Venc : </strong> 10/10/2016 </div>
+							<div class="body-top"><strong> Ultimo Venc : </strong> {!! $investment->present()->more361 !!} </div>
 						</div>
 					</div>
 					<div id="pro-body">
 						<div class="content">
-							<div class="line"><strong> Credor(a) : GLobalTec S/a. </strong> </div>
-							<div class="line"><strong> Endereço : </strong> AVENIDA PORTUGUAL , SETOR MARISTA 1, Aparecida de Goiania - GO,  Cep: 74150030</div>
-							<div class="line"><strong> CPNJ a sua ordem : </strong> 53.309.845/0002-00 </div>
-							<div class="line"><strong> Fone : </strong> (41) 3333-3333 </div>
+							<div class="line"><strong> Credor(a) : {!! $investment->Company->name !!} </strong> </div>
+							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
+							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
+							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Empreendimento : </strong> Obra A Derencia Uai </div>
+							<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->company_name !!} </div>
 						</div>
 						<div class="content">
-							<div class="line"><strong></strong> 
-							Ao(s) quinze dia(s) do mês de Fevereiro de Dois Mil e Nove Pagarei à GLOBALTEC S/A; CNPJ/MF n° 53.309.845/0002-00 por está unica via de nota promissoria a quantia de DEZESSEIS REAIS E CINQUENTA CENTAVOS, em moeda corrente deste pais, na praça de GOIANIA .
+							<div class="line"><strong></strong>
+								Ao(s) {!! $investment->present()->moreThreesixone !!} Pagarei à {!! $investment->Client->name !!}; {!! $investment->Client->type == 'j' ? 'CNPJ' : 'CPF' !!}
+								n° {!! $investment->Client->type == 'j' ? $investment->Client->Legal->present()->cnpjLegal : $investment->Client->Physical->present()->cpfPhysical !!}
+								por está unica via de nota promissoria a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste pais, na praça
+								do PARANÁ .
 							</div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Emitente : </strong></div>
-							<div class="line"><strong> Nome : </strong> Roney Carlos - Teste Proposta de Venda </div>
-							<div class="line"><strong> Endereço : </strong> Rua Jacarezinho n°000 </div>
-							<div class="line"><strong> Cidade : </strong> Curitiba </div>
-							<div class="line"><strong> Fone : </strong> (41) 3333-3333 </div> 
+							<div class="line"><strong> Emitente : </strong>  </div>
+							<div class="line"><strong> Nome : </strong> {!! $investment->Client->name !!} </div>
+							<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull !!} </div>
+							<div class="line"><strong> Fone : </strong> {!! $investment->Client->present()->phoneClient !!} </div>
 						</div>
 						<div id="content-finish">
 							<div class="content-collun"><strong> Esta nota promissoria è sujeita a reajustes o seu vencimento de acordo com o indice pactuado em contrato. </strong></div>
@@ -226,49 +227,51 @@
 						<div id="logo"><strong> Logo </strong></div>
 						<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 						<div id="top-tree-collun">
-							<div class="title-top"><strong> Proposta : </strong>  227 </div>
+							<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
 							<div class="body-top"><strong> Única </strong></div>
 						</div>
 						<div id="top-for-collun">
-							<div class="title-top"><strong> Valor R$ : </strong>  227 </div>
-							<div class="body-top"><strong> Ultimo Venc : </strong> 10/10/2016 </div>
+							<div class="title-top"><strong> Valor R$ : </strong>  {!! number_format($investment->value,2,'.',',') !!}  </div>
+							<div class="body-top"><strong> Ultimo Venc : </strong> {!! $investment->present()->more361 !!} </div>
 						</div>
 					</div>
 					<div id="pro-body">
 						<div class="content">
-							<div class="line"><strong> Credor(a) : GLobalTec S/a. </strong> </div>
-							<div class="line"><strong> Endereço : </strong> AVENIDA PORTUGUAL , SETOR MARISTA 1, Aparecida de Goiania - GO,  Cep: 74150030</div>
-							<div class="line"><strong> CPNJ a sua ordem : </strong> 53.309.845/0002-00 </div>
-							<div class="line"><strong> Fone : </strong> (41) 3333-3333 </div>
+							<div class="line"><strong> Credor(a) : {!! $investment->Company->name !!} </strong> </div>
+							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
+							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
+							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Empreendimento : </strong> Obra A Derencia Uai </div>
+							<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->company_name !!} </div>
 						</div>
 						<div class="content">
-							<div class="line"><strong></strong> 
-							Ao(s) quinze dia(s) do mês de Fevereiro de Dois Mil e Nove Pagarei à GLOBALTEC S/A; CNPJ/MF n° 53.309.845/0002-00 por está unica via de nota promissoria a quantia de DEZESSEIS REAIS E CINQUENTA CENTAVOS, em moeda corrente deste pais, na praça de GOIANIA .
+							<div class="line"><strong></strong>
+								Ao(s) {!! $investment->present()->moreThreesixone !!} Pagarei à {!! $investment->Client->name !!}; {!! $investment->Client->type == 'j' ? 'CNPJ' : 'CPF' !!}
+								n° {!! $investment->Client->type == 'j' ? $investment->Client->Legal->present()->cnpjLegal : $investment->Client->Physical->present()->cpfPhysical !!}
+								por está unica via de nota promissoria a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste pais, na praça
+								do PARANÁ .
 							</div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Emitente : </strong></div>
-							<div class="line"><strong> Nome : </strong> Roney Carlos - Teste Proposta de Venda </div>
-							<div class="line"><strong> Endereço : </strong> Rua Jacarezinho n°000 </div>
-							<div class="line"><strong> Cidade : </strong> Curitiba </div>
-							<div class="line"><strong> Fone : </strong> (41) 3333-3333 </div> 
+							<div class="line"><strong> Emitente : </strong>  </div>
+							<div class="line"><strong> Nome : </strong> {!! $investment->Client->name !!} </div>
+							<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull !!} </div>
+							<div class="line"><strong> Fone : </strong> {!! $investment->Client->present()->phoneClient !!} </div>
 						</div>
 						<div id="content-finish">
 							<div class="content-collun"><strong> Esta nota promissoria è sujeita a reajustes o seu vencimento de acordo com o indice pactuado em contrato. </strong></div>
 							<div class="content-collun-two"><strong> Assinatura : </strong></div>
 						</div>
 					</div>
-					
-					Produto : 
+
+					Produto :
 					<div id="footer">
 						<div class="line">
 							<div class="footer-collun"> Prod. <br> 1</div>
 							<div class="footer-collun"> Descrição. <br> Casas Diversos</div>
 							<div class="footer-collun"> n°. <br> 145</div>
-							<div class="footer-collun"> Identificador. <br> Q601L517</div>
+							<div class="footer-collun"> Boleto. <br> {{-- }{!! $investment->Invoice()->first()->id !!} --}}</div>
 						</div>
 					</div>
 				</div>
