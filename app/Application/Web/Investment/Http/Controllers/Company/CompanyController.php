@@ -53,7 +53,6 @@ class CompanyController extends BaseController
     {
         $company = $this->company->find($id);
         $company->Representative()->create($request->all());
-
         return redirect(route('investment.company.edit',$id))->with('status', 'Adicionado');
     }
 

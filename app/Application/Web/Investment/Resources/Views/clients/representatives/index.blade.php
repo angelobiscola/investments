@@ -1,11 +1,12 @@
 @extends('investment::layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Representatives  <a href="{!! route('investment.client.representative.create',$id)!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading">IvesT: Representatives <i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
@@ -25,7 +26,7 @@
                                     <td>{!! $representative->created_at !!}</td>
                                     <td>{!! $representative->updated_at !!}</td>
                                     <td>
-                                        <a href="{!! route('investment.client.representative.delete', $representative) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{!! route('investment.client.representative.delete', $id) !!}?r={!!$representative->id!!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -36,4 +37,7 @@
             </div>
         </div>
     </div>
+
+    @include('investment::clients.representatives.create',['id' =>$id])
+
 @endsection

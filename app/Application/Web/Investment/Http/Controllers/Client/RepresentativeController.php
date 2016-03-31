@@ -2,49 +2,67 @@
 namespace App\Application\Web\Investment\Http\Controllers\Client;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
-use App\Domains\Client\Representative;
+use App\Domains\Client\Client;
 use Illuminate\Http\Request;
 
 class RepresentativeController extends BaseController
 {
-    protected $representative;
+    protected $client;
 
-    public function __construct(Representative $representative)
+    public function __construct(Client $client)
     {
-        $this->representative = $representative;
+        $this->client = $client;
     }
 
-    public function create($id)
+    public function store($id,Request $request)
     {
-        return view('investment::clients.representatives.create',compact('id'));
-    }
-
-    public function store(Request $request)
-    {
-        $this->representative->create($request->all());
-        return back();
+        $client = $this->client->find($id);
+        try
+        {
+            $this->validClient($client)->Legal->Representatives()->create($request->all());
+            return back()->with('status', 'Adicionado');
+        }
+        catch(\Exception $e)
+        {
+            return back()->with('error',$e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $representatives = $this->representative->whereLegalId($id)->get();
-        return view('investment::clients.representatives.index',compact('representatives', 'id'));
+        $client = $this->client->find($id);
+        try
+        {
+            $representatives = $this->validClient($client)->Legal->Representatives;
+            return view('investment::clients.representatives.index',compact('representatives', 'id'));
+        }
+        catch(\Exception $e)
+        {
+            return back()->with('error',$e->getMessage());
+        }
     }
 
-    public function edit($id)
+    public function destroy($id,Request $request)
     {
+        $client = $this->client->find($id);
 
+        try {
+            $this->validClient($client)->Legal->Representatives()->find($request->get('r'))->forceDelete();
+            return back()->with('status', 'Removido');
+        }
+        catch(\Exception $e)
+        {
+            return back()->with('error',$e->getMessage());
+        }
     }
 
-    public function update($id, Request $request)
+    protected function validClient(Client $client)
     {
-
-    }
-
-    public function destroy($id)
-    {
-        $this->representative->find($id)->forceDelete();
-        return back();
+        if(!$client->Legal)
+        {
+            throw new \Exception('Cliente não é Juridico' );
+        }
+        return $client;
     }
 
 }
