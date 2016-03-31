@@ -24,6 +24,7 @@ Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
 });
 
 
+/*
 Route::group(['prefix' => 'representatives', 'as' => 'representative.'], function()
 {
     Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'RepresentativeController@show'             ]);
@@ -31,3 +32,5 @@ Route::group(['prefix' => 'representatives', 'as' => 'representative.'], functio
     Route::post('/store'            ,   ['as' =>'store'                 , 'uses' => 'RepresentativeController@store'            ]);
     Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'RepresentativeController@destroy'          ]);
 });
+
+*/

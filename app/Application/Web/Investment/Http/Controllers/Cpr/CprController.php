@@ -38,6 +38,11 @@ class CprController extends BaseController
         try {
             $cpr    = $this->cpr->findOrFail($id);
 
+            if($cpr->status == 'c')
+            {
+                throw new \Exception('is Consolidate');
+            }
+
             $job = (new CreateOperation($cpr))->delay(5);
             $this->dispatch($job);
 

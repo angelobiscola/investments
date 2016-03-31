@@ -36,5 +36,4 @@ class CprPresenter extends AbstractPresenter
                 break;
         }
     }
-
 }

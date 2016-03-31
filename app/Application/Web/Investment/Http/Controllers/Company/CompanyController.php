@@ -42,7 +42,26 @@ class CompanyController extends BaseController
         }
 
         return back();
+    }
 
+    public function representative($id)
+    {
+        return view('investment::companies.representatives.create',compact('id'));
+    }
+
+    public function addRepresentative($id, Request $request)
+    {
+        $company = $this->company->find($id);
+        $company->Representative()->create($request->all());
+
+        return redirect(route('investment.company.edit',$id))->with('status', 'Adicionado');
+    }
+
+    public function removeRepresentative($id,Request $request)
+    {
+        $company = $this->company->find($id);
+        $company->Representative()->find($request->get('r'))->forceDelete();
+        return back()->with('status', 'Removido');
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Domains\Company;
 use App\Domains\Billet\Billet;
 use App\Domains\Cpr\Cpr;
 use App\Domains\Location\Location;
+use App\Domains\Representative\Representative;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laracasts\Presenter\PresentableTrait;
@@ -22,10 +23,16 @@ class Company extends Model
         return $this->morphOne(Location::class, 'locationable');
     }
 
-    //delete Location Cascade
+    public function Representative()
+    {
+        return $this->morphOne(Representative::class, 'representativeable');
+    }
+
+    //delete Location and Representative Cascade
     function delete()
     {
         $this->Location()->forceDelete();
+        $this->Representative()->forceDelete();
         parent::delete();
     }
 
@@ -48,4 +55,6 @@ class Company extends Model
     {
         return $this->hasMany(Cpr::class);
     }
+
+
 }

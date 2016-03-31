@@ -1,6 +1,7 @@
 <?php
 namespace App\Domains\Client;
 
+use App\Domains\Representative\Representative;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laracasts\Presenter\PresentableTrait;
@@ -20,6 +21,7 @@ class Legal extends Model
 
     public function Representatives()
     {
-        return $this->hasMany(Representative::create());
+        return $this->morphMany(Representative::class, 'representativeable');
     }
+
 }

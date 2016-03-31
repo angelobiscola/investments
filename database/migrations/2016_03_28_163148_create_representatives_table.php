@@ -18,9 +18,8 @@ class CreateRepresentativesTable extends Migration
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
-            $table->integer('legal_id')->unsigned();
-            $table->foreign('legal_id')->references('id')->on('legals')->onDelete('cascade');
-
+            $table->integer('representativeable_id');
+            $table->string('representativeable_type');
             $table->timestamps();
             $table->softDeletes();
         });
