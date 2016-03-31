@@ -45,7 +45,7 @@
                                     <td>{!! $cpr->present()->datePayment  !!}</td>
                                     <td>{!! $cpr->present()->nameType !!}</td>
                                     <td>{!! $cpr->present()->nameStatus !!}</td>
-                                    <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->name !!} </a> </td>
+                                    <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->present()->legalOrPhysical(true)  !!} </a> </td>
                                     <td><a href="{!! route('investment.client.investment.show',$cpr->investment_id) !!}">{!! $cpr->Investment->Bond->name !!} </a> </td>
                                     <td>
                                         <a href="{!! route('investment.cpr.invoice.print',$cpr->invoice_id) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-barcode"></i></a>

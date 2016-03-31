@@ -2,6 +2,7 @@
 Route::get('/',                ['as' =>'index'       , 'uses' => 'CprController@index'       ]);
 Route::get('/filter',          ['as' =>'filter'      , 'uses' => 'CprController@filter'      ]);
 Route::get('/consolidate/{id}',['as' =>'consolidate' , 'uses' => 'CprController@consolidate' ]);
+Route::get('/search',          ['as' =>'search'      , 'uses' => 'CprController@search'      ]);
 
 
 Route::group(['prefix' => 'invoices', 'as' => 'invoice.'], function()

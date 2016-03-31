@@ -42,9 +42,9 @@
                                     <td>{!! $client->present()->updatedAt !!}</td>
                                     <td>
                                         <a href="{!! route('investment.client.edit', $client) !!}" ><i class="fa fa-edit"></i></a>
+                                        <a href="{!! route('investment.client.dashboard.show', $client) !!}" ><i class="glyphicon glyphicon-dashboard"></i></a>
                                         <a href="{!! route('investment.client.show',$client) !!}" target="_blank" ><i class="glyphicon glyphicon-print"></i></a>
                                         <a href="{!! route('investment.client.investments',$client) !!}"><i class="glyphicon glyphicon-usd"></i></a>
-                                        <a href="" ><i class="glyphicon glyphicon-dashboard"></i></a>
                                         <a href="{!! route('investment.client.delete', $client) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
