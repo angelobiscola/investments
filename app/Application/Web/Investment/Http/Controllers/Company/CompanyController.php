@@ -20,6 +20,25 @@ class CompanyController extends BaseController
         return view('investment::companies.index',compact('companies'));
     }
 
+    public function create()
+    {
+        return view('investment::companies.create');
+    }
+
+    public function store(Request $request)
+    {
+        try
+        {
+            $company = $this->company->create($request->input('company'));
+            $company->Location()->create($request->input('location'));
+            return redirect(route('investment.company.index'))->with('status', 'Create');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
+     }
+
     public function edit($id)
     {
         $company = $this->company->find($id);
@@ -28,20 +47,22 @@ class CompanyController extends BaseController
 
     public function update($id, Request $request)
     {
-        $company = $this->company->find($id);
-        $company->update($request->input('company'));
-
-
-        if($company->Location)
+        try
         {
-            $company->Location()->update($request->input('location'));
-        }
-        else
-        {
-            $company->Location()->create($request->input('location'));
-        }
+            $company = $this->company->find($id);
+            $company->update($request->input('company'));
 
-        return back();
+            if ($company->Location) {
+                $company->Location()->update($request->input('location'));
+            } else {
+                $company->Location()->create($request->input('location'));
+            }
+            return redirect()->back()->with('status', 'edit');
+        }
+        catch(\Exception $e)
+        {
+            return back()->withInput()->with('error', $e->getMessage());
+        }
     }
 
     public function representative($id)
@@ -63,6 +84,19 @@ class CompanyController extends BaseController
         return back()->with('status', 'Removido');
     }
 
+    public function destroy($id)
+    {
+        try
+        {
+            $this->company->find($id)->delete();
+            return back()->with('status','Delete');
+        }
+        catch(\Exception $e)
+        {
+            return back()->with('error', $e->getMessage());
+        }
+
+    }
 }
 
 

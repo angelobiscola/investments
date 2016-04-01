@@ -8,7 +8,22 @@
             <div class="panel panel-default">
                 <div class="panel-heading">InvesT: Company</div>
                 <div class="panel-body">
-                      @include('investment::companies._form', ['action' => route('investment.company.update',$company->id),'company' => $company])
+
+                    {!! Form::model(['company' => $company, 'location' => $company->Location ], ['route' => ['investment.company.update', $company], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
+                        {{ method_field('PUT') }}
+                        @include('investment::companies._inputs')
+                        @include('investment::locations._inputs')
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-check"></i>Edit
+                                </button>
+                            </div>
+                        </div>
+
+                    {!! Form::close() !!}
+
                 </div>
             </div>
 

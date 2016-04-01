@@ -21,14 +21,15 @@
 
 
 <div class="form-group{{ $errors->has('cnpj') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">CNPJ</label>
+    {!! Form::label('CNPJ', 'CNPJ', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
-            <input type="text" id="cnpj" class="form-control" name="company[cnpj]" value="{{ $company->cnpj }}" placeholder="Cnpj...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
-                  </span>
+            {!! Form::text ('company[cnpj]', null , ['class' => 'form-control', 'id' => 'cnpj', 'phaceholder' => 'Cnpj...']) !!}
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
+            </span>
         </div>
 
         @if ($errors->has('cpnj'))
@@ -39,10 +40,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">nome</label>
+    {!! Form::label('name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='name' name="company[name]" value="{{ $company->name  }}">
+        {!! Form::text ('company[name]', null , ['class' => 'form-control', 'id' => 'name']) !!}
 
         @if ($errors->has('name'))
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
@@ -52,10 +53,10 @@
 
 
 <div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">company_name</label>
+    {!! Form::label('company_name', 'Company_name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='company_name' name="company[company_name]" value="{{ $company->company_name }}">
+        {!! Form::text ('company[company_name]', null , ['class' => 'form-control', 'id' => 'company_name']) !!}
 
         @if ($errors->has('company_name'))
             <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
@@ -65,10 +66,10 @@
 
 
 <div class="form-group{{ $errors->has('cnae_principal') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">cnae_principal</label>
+    {!! Form::label('cnae_principal', 'cnae_principal', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="cnae_principal" name="company[cnae_principal]" value="{{ $company->cnae_principal }}">
+        {!! Form::text ('company[cnae_principal]', null , ['class' => 'form-control', 'id' => 'cnae_principal']) !!}
 
         @if ($errors->has('cnae_principal'))
             <span class="help-block"><strong>{{ $errors->first('cnae_principal') }}</strong></span>
@@ -77,10 +78,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">phone</label>
+    {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='phone' name="company[phone]" value="{{ $company->phone }}">
+        {!! Form::text ('company[phone]', null , ['class' => 'form-control', 'id' => 'phone']) !!}
 
         @if ($errors->has('phone'))
             <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
@@ -89,10 +90,10 @@
 </div>
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    <label class="col-md-4 control-label">email</label>
+    {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id='email' name="company[email]" value="{{ $company->email }}">
+        {!! Form::text ('company[email]', null , ['class' => 'form-control', 'id' => 'email']) !!}
 
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
