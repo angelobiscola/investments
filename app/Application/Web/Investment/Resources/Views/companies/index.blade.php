@@ -11,6 +11,7 @@
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
+                                <th></th>
                                 <th>Name</th>
                                 <th>CNPJ</th>
                                 <th>Created</th>
@@ -20,13 +21,15 @@
                             <tbody>
                             @foreach($companies  as $company)
                                 <tr>
+                                    <td>
+                                        <a href="{!! route('collaborator.home.change',$company) !!}" ><i class="glyphicon glyphicon glyphicon-sort"></i></a>
+                                    </td>
                                     <td>{!! $company->name   !!}</td>
                                     <td>{!! $company->cnpj    !!}</td>
                                     <td>{!! $company->created_at !!}</td>
                                     <td>{!! $company->updated_at !!}</td>
                                     <td>
                                         <a href="{!! route('investment.company.edit', $company) !!}"><i class="fa fa-edit"></i></a>
-                                        <a href="{!! route('collaborator.home.change',$company) !!}" ><i class="glyphicon glyphicon glyphicon-sort"></i></a>
                                         <a href="{!! route('investment.company.delete', $company) !!}" data-method="delete"><i class="glyphicon glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
