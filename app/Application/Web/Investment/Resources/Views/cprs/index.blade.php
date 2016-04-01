@@ -23,7 +23,7 @@
                     <tr>
                         <th style="width: 30px;">Id</th>
                         <th>Value</th>
-                        <th>Description</th>
+
                         <th>Date Maturity</th>
                         <th>Date Payment</th>
                         <th>Type</th>
@@ -37,7 +37,7 @@
                     <tr>
                         <th></th>
                         <th class="search">Value</th>
-                        <th class="search">Description</th>
+
                         <th class="search">Date Maturity</th>
                         <th class="search">Date Payment</th>
                         <th class="search">Type</th>
@@ -56,7 +56,7 @@
                         <tr>
                             <td>{!! $cpr->id !!}</td>
                             <td>{!! $cpr->present()->maskValue !!}</td>
-                            <td>{!! $cpr->description   !!}</td>
+
                             <td>{!! $cpr->present()->dateMaturity !!}</td>
                             <td>{!! $cpr->present()->datePayment  !!}</td>
                             <td>{!! $cpr->present()->nameType !!}</td>

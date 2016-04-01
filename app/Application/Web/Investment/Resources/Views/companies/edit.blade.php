@@ -43,7 +43,7 @@
                     <tr>
                         <td>{!! $company->representative->client->id !!}</td>
                         <td>{!! $company->representative->client->present()->legalOrPhysical(true) !!}</td>
-                        <td>{!! $company->representative->client->present()->legalOrPhysical !!}</td>
+                        <td>{!! $company->representative->client->present()->legalOrPhysical() !!}</td>
                         <td>{!! $company->representative->created_at !!}</td>
                         <td>{!! $company->representative->updated_at !!}</td>
                         <td>

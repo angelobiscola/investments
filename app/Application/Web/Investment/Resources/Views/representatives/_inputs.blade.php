@@ -37,7 +37,7 @@
                             results: $.map(data.items, function (item,i) {
                                 return {
                                     text: item.client.name+' : ' +item.cpf,
-                                    id: item.id,
+                                    id: item.client_id,
                                     process:item
                                 }
                             })
