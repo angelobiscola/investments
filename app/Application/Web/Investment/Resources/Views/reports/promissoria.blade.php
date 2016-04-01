@@ -193,8 +193,10 @@
 						</div>
 						<div class="content">
 							<div class="line"><strong> Emitente : </strong>  </div>
-							<div class="line"><strong> Nome : </strong> {!! $investment->Client->name !!} </div>
-							<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull !!} </div>
+							<div class="line"><strong> Nome : </strong> {!! $investment->Client->type == 'f' ? $investment->Client->name : $investment->Client->Legal->company_name !!} </div>
+							<div class="line"><strong> Endereço : </strong>
+								{!! $investment->Client->type == 'f' ? $investment->Client->Location->present()->addressFull : $investment->Client->Legal->Client->Location->present()->addressFull !!}
+							</div>
 							<div class="line"><strong> Fone : </strong> {!! $investment->Client->present()->phoneClient !!} </div>
 						</div>
 						<div id="content-finish">
