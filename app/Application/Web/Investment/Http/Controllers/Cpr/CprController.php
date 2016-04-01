@@ -53,6 +53,13 @@ class CprController extends BaseController
             return back()->with('status',$e->getMessage());
         }
     }
+
+    public function search(Request $request)
+    {
+        $client = $request->get('client');
+        $cprs   = $this->cpr->whereCompanyId($this->getCompany()->id)->whereClientId($client)->get();
+        return view('investment::cprs.index',compact('cprs'));
+    }
 }
 
 

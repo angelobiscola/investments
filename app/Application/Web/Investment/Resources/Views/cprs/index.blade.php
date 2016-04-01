@@ -12,69 +12,79 @@
         <li><a href="{!! route('investment.cpr.filter')!!}?t=p&s=a">Payable</a></li>
     </ol>
 
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        IvesT: Cprs
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover dataTable"  cellspacing="0" width="100%" data-order="3">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Value</th>
-                                <th>Description</th>
-                                <th>Date Maturity</th>
-                                <th>Date Payment</th>
-                                <th>Type</th>
-                                <th>Status</th>
-                                <th>Client</th>
-                                <th>Investment</th>
-                                <th>invoice</th>
-                                <th>Created</th>
-                                <th>#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($cprs  as $cpr)
-                                <tr>
-                                    <td>{!! $cpr->id !!}</td>
-                                    <td>{!! $cpr->present()->maskValue !!}</td>
-                                    <td>{!! $cpr->description   !!}</td>
-                                    <td>{!! $cpr->present()->dateMaturity !!}</td>
-                                    <td>{!! $cpr->present()->datePayment  !!}</td>
-                                    <td>{!! $cpr->present()->nameType !!}</td>
-                                    <td>{!! $cpr->present()->nameStatus !!}</td>
-                                    <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->name !!} </a> </td>
-                                    <td><a href="{!! route('investment.client.investment.show',$cpr->investment_id) !!}">{!! $cpr->Investment->Bond->name !!} </a> </td>
-                                    <td>
-                                        <a href="{!! route('investment.cpr.invoice.print',$cpr->invoice_id) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-barcode"></i></a>
-                                    </td>
-                                    <td>{!! $cpr->present()->createdAt !!}</td>
-                                    <td>
-                                        <a href="{!! route('investment.cpr.consolidate',$cpr) !!}" ><i class="glyphicon glyphicon glyphicon-save"></i></a>
-                                        <a href="{!! route('investment.cpr.receipt.create',$cpr) !!}" ><i class="glyphicon glyphicon-ok"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                IvesT: Cprs
             </div>
+            <div class="panel-body">
+                <table class="table table-hover dataTable"  cellspacing="0" width="100%" data-order="3">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">Id</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th>Date Maturity</th>
+                        <th>Date Payment</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Client</th>
+                        <th>Investment</th>
+                        <th>invoice</th>
+                        <th>#</th>
+                    </tr>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <th class="search">Value</th>
+                        <th class="search">Description</th>
+                        <th class="search">Date Maturity</th>
+                        <th class="search">Date Payment</th>
+                        <th class="search">Type</th>
+                        <th class="search">Status</th>
+                        <th class="search">Client</th>
+                        <th class="search">Investment</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
 
-
-
+                    </thead>
+                    <tbody>
+                    @foreach($cprs  as $cpr)
+                        <tr>
+                            <td>{!! $cpr->id !!}</td>
+                            <td>{!! $cpr->present()->maskValue !!}</td>
+                            <td>{!! $cpr->description   !!}</td>
+                            <td>{!! $cpr->present()->dateMaturity !!}</td>
+                            <td>{!! $cpr->present()->datePayment  !!}</td>
+                            <td>{!! $cpr->present()->nameType !!}</td>
+                            <td>{!! $cpr->present()->nameStatus !!}</td>
+                            <td><a href="{!! route('investment.client.show',$cpr->client_id) !!}">{!! $cpr->Client->present()->legalOrPhysical(true)  !!} </a> </td>
+                            <td><a href="{!! route('investment.client.investment.show',$cpr->investment_id) !!}">{!! $cpr->Investment->Bond->name !!} </a> </td>
+                            <td>
+                                <a href="{!! route('investment.cpr.invoice.print',$cpr->invoice_id) !!}" target="_blank"><i class="glyphicon glyphicon glyphicon-barcode"></i></a>
+                            </td>
+                            <td>
+                                <a href="{!! route('investment.cpr.consolidate',$cpr) !!}">   <i class="glyphicon glyphicon glyphicon-save"></i></a>
+                                <a href="{!! route('investment.cpr.receipt.create',$cpr) !!}"><i class="glyphicon glyphicon-ok"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     @if(isset($_GET['t']))
-    <ol class="breadcrumb">
-        <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=v">Overdue</a></li>
-        <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=a">Open</a></li>
-        <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=c">Consolidate</a></li>
-    </ol>
+        <ol class="breadcrumb">
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=v">Overdue</a></li>
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=a">Open</a></li>
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=c">Consolidate</a></li>
+        </ol>
     @endif
-
 
 @endsection
 
@@ -92,12 +102,18 @@
         <script src="{{asset("/js/datatables_ext/buttons.html5.min.js")}}"></script>
 
         <script>
-
             $(document).ready(function() {
+                // Setup - add a text input to each footer cell
+                $('.dataTable tfoot th').each( function () {
+                    var title = $(this).text();
 
-                var $table = $('.dataTable');
-
-                $('.dataTable').DataTable( {
+                    if($(this).hasClass('search'))
+                    {
+                        $(this).html( '<input type="text" placeholder="Search '+title+'" size="12"/>' );
+                    }
+                } );
+                // DataTable
+                var table = $('.dataTable').DataTable({
 
                     "order": [[ 3, "asc" ]],
 
@@ -123,8 +139,21 @@
                     },
                     dom: 'Bfrtip',
                     buttons: [
-                        'excel', 'pdf'
-                    ]
+                        'excel'
+                    ],
+
+                } );
+                // Apply the search
+                table.columns().every( function () {
+                    var that = this;
+
+                    $( 'input', this.footer() ).on( 'keyup change', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                    .search( this.value )
+                                    .draw();
+                        }
+                    } );
                 } );
             } );
         </script>
