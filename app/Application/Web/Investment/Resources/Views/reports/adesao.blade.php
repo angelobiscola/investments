@@ -83,6 +83,10 @@
 				height: 200px;
 			}
 
+			.line-footera{
+				margin-top: 40px;
+			}
+
 			#dataa{
 				width: 100%;
 				text-align: center;
@@ -96,7 +100,7 @@
 			}
 
 			.assinaturaa{
-				margin-top: 80px;
+				margin-top: 30px;
 				width: 50%;
 				height: 100px;
 				text-align: center;
@@ -128,9 +132,9 @@
 					expressamente a adesão ao Prospecto da citada emissão, declarando nesta oportunidade que:
 					<ol>
 						<li>
-							Está ciente de que a emissão é gerida através de mandato por GILBERTO SERPA GRIEBELER, administrador de empresas, inscrito perante o CRA/PR sob o n. 1356,
-							portador do CPF/MF sob n.º 112.297.649-68,. e juridicamente estruturada pela A. AUGUSTO GRELLERT ADVOGADOS ASSOCIADOS, inscrita no CNPJ sob n.º
-							06.912.751/0001-60;
+							Está ciente de que a emissão é gerida através de mandato por {!! $investment->Company->Representative->Client->name !!}, administrador de empresas,
+							inscrito perante o CRA/PR sob o n. 1356, portador do CPF/MF sob n.º {!! $investment->Company->Representative->Client->Physical->present()->cpfPhysical !!},
+							e juridicamente estruturada pela A. AUGUSTO GRELLERT ADVOGADOS ASSOCIADOS, inscrita no CNPJ sob n.º 06.912.751/0001-60;
 						</li>
 						<li>
 							Recebeu, antes de assinado o presente Termo de Adesão, uma cópia do Prospecto e da Ficha Cadastral, bem como da Nota Promissória, nos termos da legislação
@@ -165,12 +169,25 @@
 				<div id="assinaturaa">
 					<div class="assinaturaa">
 						<div class="line-footera">---------------------------------------</div>
-						<div class="id-footera">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
-						<div class="id-footera">[ NUMERO CPF/CNPJ ]</div>
-					</div><div class="assinaturaa">
-						<div class="line-footera">---------------------------------------</div>
-						<div class="id-footera">[ IDENTIFICAÇÃO DO INVESTIDOR ]</div>
-						<div class="id-footera">[ NUMERO CPF/CNPJ ]</div>
+						<div class="id-footera">
+							{!! $investment->Company->Representative->Client->name  !!}
+						</div>
+						<div class="id-footera">
+							CPF: {!! $investment->Company->Representative->Client->Physical->present()->cpfPhysical !!}
+						</div>
+					</div>
+					<div class="assinaturaa">
+						@if($investment->Client->type == 'f')
+							<div class="line-footera">---------------------------------------</div>
+							<div class="id-footera">{!! $investment->Client->name !!}</div>
+							<div class="id-footera">CPF: {!! $investment->Client->Physical->present()->cpfPhysical !!}</div>
+						@else
+							@foreach($investment->Client->Legal->Representatives as $representative)
+								<div class="line-footera">---------------------------------------</div>
+								<div class="id-footera"> {!! $representative->Client->name  !!} </div>
+								<div class="id-footera"> CPF: {!! $representative->Client->Physical->present()->cpfPhysical !!} </div>
+							@endforeach
+						@endif
 					</div>
 				</div>
 			</div>
