@@ -9,12 +9,11 @@
 
     @section('css')
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="{!! asset('bower_components/font-awesome/css/font-awesome.css') !!}">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{!! asset('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
     @show
 
     <style>
@@ -100,8 +99,9 @@
 
 @section('scripts')
         <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{!! asset('bower_components/jquery-2.1.4.min/index.js') !!}"></script>
+<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script -->
+<script src="{!! asset('bower_components/bootstrap/dist/js/bootstrap.js') !!}"></script>
 <script src="{!! asset('js/restful.js') !!}"></script>
 @show
 
