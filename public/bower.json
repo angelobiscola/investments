@@ -19,6 +19,9 @@
     "jquery": "https://github.com/CreativeDream/jquery.filer",
     "jquery.filer": "^1.0.5",
     "select2": "^4.0.2",
-    "datatables": "^1.10.11"
+    "datatables": "^1.10.11",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "Font-Awesome#4.4.0",
+    "jquery-2.1.4.min": "https://code.jquery.com/jquery-2.1.4.min.js"
   }
 }
