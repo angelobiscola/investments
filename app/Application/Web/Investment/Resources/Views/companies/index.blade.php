@@ -29,7 +29,7 @@
                                     <td>{!! $company->created_at !!}</td>
                                     <td>{!! $company->updated_at !!}</td>
                                     <td>
-                                        <a href="{!! route('investment.company.edit', $company) !!}"><i class="fa fa-edit"></i></a>
+                                        <a href="{!! route('investment.company.edit', $company) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                         <a href="{!! route('investment.company.delete', $company) !!}" data-method="delete"><i class="glyphicon glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>

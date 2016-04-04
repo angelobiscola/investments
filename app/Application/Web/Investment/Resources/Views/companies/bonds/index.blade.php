@@ -30,7 +30,7 @@
                                     <td>{!! $bond->present()->expire !!} Days</td>
                                     <td>
                                         @if(!$bond->Investments->count())
-                                            <a href="{!! route('investment.company.bond.edit', $bond) !!}" ><i class="glyphicon glyphicon glyphicon-cog"></i></a>
+                                            <a href="{!! route('investment.company.bond.edit', $bond) !!}" ><i class="glyphicon glyphicon-edit"></i></a>
                                         @endif
                                         <a href="{!! route('investment.company.bond.investors', $bond) !!}" ><i class="glyphicon glyphicon glyphicon-piggy-bank"></i></a>
                                         @if(!$bond->Investments->count())

@@ -23,7 +23,7 @@
                                     <td>{!! $billet->present()->createdAt !!}</td>
                                     <td>{!! $billet->present()->updatedAt !!}</td>
                                     <td>
-                                        <a href="{!! route('investment.company.billet.edit', $billet) !!}" ><i class="fa fa-edit"></i></a>
+                                        <a href="{!! route('investment.company.billet.edit', $billet) !!}" ><i class="glyphicon glyphicon-edit"></i></a>
                                         <a href="{!! route('investment.company.billet.delete', $billet) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
                                         <!-- a href="" ><i class="glyphicon glyphicon-refresh"></i></a -->
                                     </td>
