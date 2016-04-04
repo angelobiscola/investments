@@ -24,13 +24,13 @@ class BondRequest extends Request
     public function rules()
     {
         return [
-            'bond.name'             =>  'required|alpha'  ,
-            'bond.description'      =>  'required|alpha'  ,
-            //'bond.rate'             =>  'required| double',
-            'bond.rate_mode'        =>  'required|alpha'  ,
-            //'bond.total'            =>  'require| double',
-            'bond.quota'            =>  'required|integer',
-            'bond.opportunity'      =>  'required|date'   ,
+            'bond.name'             =>  'required|alpha'   ,
+            'bond.description'      =>  'required|alpha'   ,
+            'bond.rate'             =>  'required|floatVal',
+            'bond.rate_mode'        =>  'required|alpha'   ,
+            'bond.total'            =>  'require|floatVale',
+            'bond.quota'            =>  'required|integer' ,
+            'bond.opportunity'      =>  'required|date'    ,
         ];
     }
 }
