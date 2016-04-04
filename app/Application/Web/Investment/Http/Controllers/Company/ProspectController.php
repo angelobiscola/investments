@@ -3,7 +3,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Prospect;
-use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Company\ProspectRequest;
 
 class ProspectController extends BaseController
 {
@@ -26,7 +26,7 @@ class ProspectController extends BaseController
         return view('investment::companies.prospects.create');
     }
 
-    public function store(Request $request)
+    public function store(ProspectRequest $request)
     {
        try
        {
@@ -54,7 +54,7 @@ class ProspectController extends BaseController
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id, ProspectRequest $request)
     {
         try
         {

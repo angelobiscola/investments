@@ -3,7 +3,8 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Billet\Billet;
-use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Company\BilletRequest;
+
 
 class BilletController extends BaseController
 {
@@ -26,7 +27,7 @@ class BilletController extends BaseController
         return view('investment::companies.billets.create');
     }
 
-    public function store(Request $request)
+    public function store(BilletRequest $request)
     {
         try
         {
@@ -67,7 +68,7 @@ class BilletController extends BaseController
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id, BilletRequest $request)
     {
         try
         {
