@@ -21,11 +21,11 @@ class StartTableSeeder extends Seeder
     {
         Admin::truncate();
         Collaborator::truncate();
-        Company::truncate();
-        Template::truncate();
-        Prospect::truncate();
-        Bond::truncate();
-        Client::truncate();
+        //Company::truncate();
+        //Template::truncate();
+        //Prospect::truncate();
+        //Bond::truncate();
+        //Client::truncate();
 
 
         Admin::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => '$2y$10$r9q9YCj9rBkVjI093fKVueh8IZd8L8nWXGwyBS63BflWeDQ0nmjIe']);
