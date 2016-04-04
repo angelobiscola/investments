@@ -23,5 +23,6 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "Font-Awesome#4.4.0",
     "jquery-2.1.4.min": "https://code.jquery.com/jquery-2.1.4.min.js"
+
   }
 }
