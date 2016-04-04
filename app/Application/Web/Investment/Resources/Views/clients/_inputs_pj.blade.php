@@ -23,7 +23,7 @@
     <a href="{!! route('investment.client.representative.show',$legal->id)!!}">Add Representative</a>
 @endif
 
-<div class="form-group{{ $errors->has('cnpj') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('legal.cnpj') ? ' has-error' : '' }}">
     {!! Form::label('CNPJ', 'CNPJ', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
@@ -35,44 +35,44 @@
             </span>
         </div>
 
-        @if ($errors->has('cpnj'))
-            <span class="help-block"><strong>{{ $errors->first('cpnj') }}</strong></span>
+        @if ($errors->has('legal.cpnj'))
+            <span class="help-block"><strong>{{ $errors->first('legal.cpnj') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('legal.company_name') ? ' has-error' : '' }}">
     {!! Form::label('legal_name', 'Legal_Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('legal[company_name]', null , ['class' => 'form-control', 'id' => 'company_name']) !!}
 
-        @if ($errors->has('company_name'))
-            <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
+        @if ($errors->has('legal.company_name'))
+            <span class="help-block"><strong>{{ $errors->first('legal.company_name') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('cnae_principal') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('legal.cnae_principal') ? ' has-error' : '' }}">
     {!! Form::label('cnae_principal', 'CNAE_Principal', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('legal[cnae_principal]', null , ['class' => 'form-control', 'id' => 'cnae_principal', 'placeholder' => 'Brasil']) !!}
 
-        @if ($errors->has('cnae_principal'))
-            <span class="help-block"><strong>{{ $errors->first('cnae_principal') }}</strong></span>
+        @if ($errors->has('legal.cnae_principal'))
+            <span class="help-block"><strong>{{ $errors->first('legal.cnae_principal') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('legal.email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('legal[email]', null , ['class' => 'form-control', 'id' => 'email']) !!}
 
-        @if ($errors->has('email'))
-            <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+        @if ($errors->has('legal.email'))
+            <span class="help-block"><strong>{{ $errors->first('legal.email') }}</strong></span>
         @endif
     </div>
 </div>

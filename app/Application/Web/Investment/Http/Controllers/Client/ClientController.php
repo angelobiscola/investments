@@ -4,6 +4,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Client;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Client\Client;
 use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Client\ClientRequest;
 
 class ClientController extends BaseController
 {
@@ -24,7 +25,7 @@ class ClientController extends BaseController
         return view('investment::clients.create')->with('type',$request->input('type'));
     }
 
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
         try
         {
@@ -66,7 +67,7 @@ class ClientController extends BaseController
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id, ClientRequest $request)
     {
         try
         {

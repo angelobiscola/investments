@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="form-group{{ $errors->has('cnpj') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.cnpj') ? ' has-error' : '' }}">
     {!! Form::label('CNPJ', 'CNPJ', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
@@ -32,71 +32,71 @@
             </span>
         </div>
 
-        @if ($errors->has('cpnj'))
-            <span class="help-block"><strong>{{ $errors->first('cpnj') }}</strong></span>
+        @if ($errors->has('company.cnpj'))
+            <span class="help-block"><strong>{{ $errors->first('company.cnpj') }}</strong></span>
         @endif
     </div>
 
 </div>
 
-<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[name]', null , ['class' => 'form-control', 'id' => 'name']) !!}
 
-        @if ($errors->has('name'))
-            <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
+        @if ($errors->has('company.name'))
+            <span class="help-block"><strong>{{ $errors->first('company.name') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.company_name') ? ' has-error' : '' }}">
     {!! Form::label('company_name', 'Company_name', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[company_name]', null , ['class' => 'form-control', 'id' => 'company_name']) !!}
 
-        @if ($errors->has('company_name'))
-            <span class="help-block"><strong>{{ $errors->first('company_name') }}</strong></span>
+        @if ($errors->has('company.company_name'))
+            <span class="help-block"><strong>{{ $errors->first('company.company_name') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('cnae_principal') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.cnae_principal') ? ' has-error' : '' }}">
     {!! Form::label('cnae_principal', 'cnae_principal', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[cnae_principal]', null , ['class' => 'form-control', 'id' => 'cnae_principal']) !!}
 
-        @if ($errors->has('cnae_principal'))
-            <span class="help-block"><strong>{{ $errors->first('cnae_principal') }}</strong></span>
+        @if ($errors->has('company.cnae_principal'))
+            <span class="help-block"><strong>{{ $errors->first('company.cnae_principal') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[phone]', null , ['class' => 'form-control', 'id' => 'phone']) !!}
 
-        @if ($errors->has('phone'))
-            <span class="help-block"><strong>{{ $errors->first('phone') }}</strong></span>
+        @if ($errors->has('company.phone'))
+            <span class="help-block"><strong>{{ $errors->first('company.phone') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('company.email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[email]', null , ['class' => 'form-control', 'id' => 'email']) !!}
 
-        @if ($errors->has('email'))
-            <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+        @if ($errors->has('company.email'))
+            <span class="help-block"><strong>{{ $errors->first('company.email') }}</strong></span>
         @endif
     </div>
 </div>

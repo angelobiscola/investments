@@ -3,7 +3,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Company;
-use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Company\CompanyRequest;
 
 class CompanyController extends BaseController
 {
@@ -25,7 +25,7 @@ class CompanyController extends BaseController
         return view('investment::companies.create');
     }
 
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
         try
         {
@@ -45,7 +45,7 @@ class CompanyController extends BaseController
         return view('investment::companies.edit',compact('company'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, CompanyRequest $request)
     {
         try
         {
@@ -70,7 +70,7 @@ class CompanyController extends BaseController
         return view('investment::companies.representatives.create',compact('id'));
     }
 
-    public function addRepresentative($id, Request $request)
+    public function addRepresentative($id, CompanyRequest $request)
     {
         $company = $this->company->find($id);
         $company->Representative()->create($request->all());
