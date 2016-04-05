@@ -24,9 +24,10 @@ class BondRequest extends Request
     public function rules()
     {
         return [
+            'bond.prospect_id'      =>  'required',
             'bond.name'             =>  'required|alpha'   ,
             'bond.description'      =>  'required|alpha'   ,
-            'bond.rate'             =>  'required|floatVal',
+            'bond.rate'             =>  'required|alpha'   ,
             'bond.rate_mode'        =>  'required|alpha'   ,
             'bond.total'            =>  'require|floatVale',
             'bond.quota'            =>  'required|integer' ,
@@ -34,6 +35,5 @@ class BondRequest extends Request
         ];
     }
 }
-
 
 

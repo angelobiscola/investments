@@ -10,5 +10,6 @@ abstract class Masks{
     const CNPJ = '##.###.###/####-##';
     const CEP = '##.###-###';
     const MAC = '##:##:##:##:##:##';
+    const DATE = '##/##/####';
 
 }

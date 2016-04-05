@@ -5,7 +5,7 @@ use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Application\Web\Investment\Jobs\ExpireBondOperation;
 use App\Domains\Company\Bond;
 use App\Domains\Company\Prospect;
-use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Company\BondRequest;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class BondController extends BaseController
@@ -31,7 +31,7 @@ class BondController extends BaseController
         return view('investment::companies.bonds.create')->with('prospects',$prospect->all());
     }
 
-    public function store(Request $request)
+    public function store(BondRequest $request)
     {
        try
        {
@@ -69,7 +69,7 @@ class BondController extends BaseController
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id, BondRequest $request)
     {
         try
         {
