@@ -175,7 +175,7 @@
 					</div>
 					<div id="pro-body">
 						<div class="content">
-							<div class="line"><strong> Credor(a) : {!! $investment->Company->name !!} </strong> </div>
+							<div class="line"><strong> Credor(a) : {!! $investment->Company->company_name !!} </strong> </div>
 							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
 							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
 							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
@@ -239,7 +239,7 @@
 					</div>
 					<div id="pro-body">
 						<div class="content">
-							<div class="line"><strong> Credor(a) : {!! $investment->Company->name !!} </strong> </div>
+							<div class="line"><strong> Credor(a) : {!! $investment->Company->company_name !!} </strong> </div>
 							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
 							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
 							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
