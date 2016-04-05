@@ -4,6 +4,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Company;
 use App\Application\Web\Investment\Http\Requests\Company\CompanyRequest;
+use Illuminate\Http\Request as RequestHttp;
 
 class CompanyController extends BaseController
 {
@@ -45,7 +46,7 @@ class CompanyController extends BaseController
         return view('investment::companies.edit',compact('company'));
     }
 
-    public function update($id, CompanyRequest $request)
+    public function update($id, RequestHttp $request)
     {
         try
         {
@@ -70,7 +71,7 @@ class CompanyController extends BaseController
         return view('investment::companies.representatives.create',compact('id'));
     }
 
-    public function addRepresentative($id, CompanyRequest $request)
+    public function addRepresentative($id, Regue $request)
     {
         $company = $this->company->find($id);
         $company->Representative()->create($request->all());
