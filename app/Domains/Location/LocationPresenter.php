@@ -9,4 +9,9 @@ class LocationPresenter extends AbstractPresenter
     {
         return $this->address . ' n° ' . $this->number . ' Bairro ' . $this->district . ' em ' . $this->city . ' - ' . $this->state_abbr . ' , CEP: ' . $this->zip_code ;
     }
+
+    public function locationCep()
+    {
+        return \Utils::mask($this->zip_code, \Mask::CEP);
+    }
 }
