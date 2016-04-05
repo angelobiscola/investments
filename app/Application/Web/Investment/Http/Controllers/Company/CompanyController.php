@@ -71,14 +71,14 @@ class CompanyController extends BaseController
         return view('investment::companies.representatives.create',compact('id'));
     }
 
-    public function addRepresentative($id, Regue $request)
+    public function addRepresentative($id, RequestHttp $request)
     {
         $company = $this->company->find($id);
         $company->Representative()->create($request->all());
         return redirect(route('investment.company.edit',$id))->with('status', 'Adicionado');
     }
 
-    public function removeRepresentative($id,Request $request)
+    public function removeRepresentative($id,RequestHttp $request)
     {
         $company = $this->company->find($id);
         $company->Representative()->find($request->get('r'))->forceDelete();
