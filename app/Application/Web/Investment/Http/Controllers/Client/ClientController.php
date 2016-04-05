@@ -133,10 +133,10 @@ class ClientController extends BaseController
                     ];
 
         $legal =    [
-                    'legal.cnpj'                => 'required|string|cnpj'   ,
-                    'legal.company_name'        => 'required|string'        ,
-                    'legal.cnae_principal'      => 'required|string'        ,
-                    'legal.email'               => 'required|email'         ,
+                    'cnpj'                => 'required|string|cnpj'   ,
+                    'company_name'        => 'required|string'        ,
+                    'cnae_principal'      => 'required|string'        ,
+                    'email'               => 'required|email'         ,
                     ];
 
         if($client->type == 'f')
