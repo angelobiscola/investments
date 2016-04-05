@@ -46,7 +46,7 @@ class CompanyController extends BaseController
         return view('investment::companies.edit',compact('company'));
     }
 
-    public function update($id, RequestHttp $request)
+    public function update($id, CompanyRequest $request)
     {
         try
         {

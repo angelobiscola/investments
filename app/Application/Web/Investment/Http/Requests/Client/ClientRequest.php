@@ -28,20 +28,6 @@ class ClientRequest extends Request
             'client.phone'              => 'required|phone'         ,
             'client.email'              => 'required|email'         ,
 
-            'physical.birth_date'       => 'required|integer'       ,
-            'physical.cpf'              => 'required|string|cpf'    ,
-            'physical.nationality'      => 'required|string'        ,
-            'physical.marital_status'   => 'required|string'        ,
-            'physical.profession'       => 'required|string'        ,
-            'physical.identity'         => 'required|string'        ,
-            'physical.organ_issuer'     => 'required|string'        ,
-            'physical.cell_phone'       => 'required|phone'         ,
-
-            'legal.cnpj'                => 'required|string|cnpj'   ,
-            'legal.company_name'        => 'required|string'        ,
-            'legal.cnae_principal'      => 'required|string'        ,
-            'legal.email'               => 'required|email'         ,
-
             'location.address'          => 'required|string'        ,
             'location.number'           => 'required|integer'       ,
             'location.city'             => 'required|string'        ,

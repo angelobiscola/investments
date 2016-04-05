@@ -69,18 +69,20 @@ class ClientController extends BaseController
 
     public function update($id, ClientRequest $request)
     {
+
         try
         {
             $client = $this->client->find($id);
             $client->update($request->input('client'));
             $client->Location->update($request->input('location'));
+
             if($client->type == 'f')
             {
-                $client->Physical->update($request->input('physical'));
+                $this->valid($client,$request->input('physical'))->Physical->update($request->input('physical'));
             }
             else
             {
-                $client->Legal->update($request->input('legal'));
+                $this->valid($client,$request->input('legal'))->Legal->update($request->input('legal'));
             }
 
             return back()->with('status', 'edit')->with('status', 'edit');
@@ -115,5 +117,42 @@ class ClientController extends BaseController
         {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    protected function valid(Client $client, array $data)
+    {
+
+        $physical = ['birth_date'       => 'required|integer'       ,
+                     'cpf'              => 'required|string|cpf'    ,
+                     'nationality'      => 'required|string'        ,
+                     'marital_status'   => 'required|string'        ,
+                     'profession'       => 'required|string'        ,
+                     'identity'         => 'required|string'        ,
+                     'organ_issuer'     => 'required|string'        ,
+                     'cell_phone'       => 'required|phone'         ,
+                    ];
+
+        $legal =    [
+                    'legal.cnpj'                => 'required|string|cnpj'   ,
+                    'legal.company_name'        => 'required|string'        ,
+                    'legal.cnae_principal'      => 'required|string'        ,
+                    'legal.email'               => 'required|email'         ,
+                    ];
+
+        if($client->type == 'f')
+        {
+            $validator = \Validator::make($data,$physical);
+        }
+        else
+        {
+            $validator = \Validator::make($data,$legal);
+        }
+
+        if ($validator->fails())
+        {
+            throw new \Exception($validator->messages());
+        }
+
+        return $client;
     }
 }
