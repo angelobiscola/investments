@@ -23,17 +23,43 @@ class ClientRequest extends Request
      */
     public function rules()
     {
-        return [
-            'client.name'               => 'required|string'        ,
-            'client.phone'              => 'required|phone'         ,
-            'client.email'              => 'required|email'         ,
+        $rules =  [ 'client.name'               => 'required|string'        ,
+                    'client.phone'              => 'required|phone'         ,
+                    'client.email'              => 'required|email'         ,
 
-            'location.address'          => 'required|string'        ,
-            'location.number'           => 'required|integer'       ,
-            'location.city'             => 'required|string'        ,
-            'location.zip_code'         => 'required|string'        ,
-            'location.district'         => 'required|string'        ,
-            'location.state_abbr'       => 'required|alpha'         ,
-        ];
+                    'location.address'          => 'required|string'        ,
+                    'location.number'           => 'required|integer'       ,
+                    'location.city'             => 'required|string'        ,
+                    'location.zip_code'         => 'required|string'        ,
+                    'location.district'         => 'required|string'        ,
+                    'location.state_abbr'       => 'required|alpha'         ,
+                 ];
+
+        $physical = [   'physical.birth_date'       => 'required|integer'       ,
+                        'physical.cpf'              => 'required|string|cpf'    ,
+                        'physical.nationality'      => 'required|string'        ,
+                        'physical.marital_status'   => 'required|string'        ,
+                        'physical.profession'       => 'required|string'        ,
+                        'physical.identity'         => 'required|string'        ,
+                        'physical.organ_issuer'     => 'required|string'        ,
+                        'physical.cell_phone'       => 'required|phone'         ,
+                    ];
+
+        $legal = [   'legal.cnpj'                => 'required|string|cnpj'   ,
+                    'legal.company_name'        => 'required|string'        ,
+                    'legal.cnae_principal'      => 'required|string'        ,
+                    'legal.email'               => 'required|email'         ,
+                 ];
+
+        if(Request::input('client.type') == 'f')
+        {
+            $rules  = array_merge($rules,$physical);
+        }
+        else
+        {
+            $rules   = array_merge($rules,$legal);
+        }
+        return $rules;
+
     }
 }
