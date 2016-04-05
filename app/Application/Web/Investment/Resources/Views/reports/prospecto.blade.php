@@ -234,11 +234,11 @@
 			<div id="footerp">
 				<div class="footerp-float">
 					<div> Supervisão Tecnica </div>
-					<div class="footerp-logo"> logo 1 </div>
+					<div class="footerp-logo"> logo 1 ({!! $investment->Client->type == 'f' ? $investment->Client->Physical->name : $investment->Client->Legal->company_name !!}) </div>
 				</div>
 				<div class="footerp-float">
 					<div> Estruturação </div>
-					<div class="footerp-logo"> logo 2 </div>
+					<div class="footerp-logo"> logo 2 ({!! $investment->Company->name !!})</div>
 				</div>
 			</div>
 		</div>
