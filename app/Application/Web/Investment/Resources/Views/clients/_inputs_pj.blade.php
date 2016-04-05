@@ -20,7 +20,7 @@
 </div>
 
 @if(isset($legal))
-    <a href="{!! route('investment.client.representative.show',$legal->id)!!}">Add Representative</a>
+    <a href="{!! route('investment.client.representative.show',$client->id)!!}">Add Representative</a>
 @endif
 
 <div class="form-group{{ $errors->has('legal.cnpj') ? ' has-error' : '' }}">
