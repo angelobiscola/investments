@@ -238,7 +238,7 @@
 				</div>
 				<div class="footerp-float">
 					<div> Estruturação </div>
-					<div class="footerp-logo"> logo 2 ({!! $investment->Company->company_name !!})</div>
+					<div class="footerp-logo"> logo 2 ( AAG )</div>
 				</div>
 			</div>
 		</div>
