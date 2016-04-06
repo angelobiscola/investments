@@ -266,7 +266,7 @@
 							<div class="content-collun-two"><strong> Assinatura : </strong></div>
 						</div>
 					</div>
-
+					{!! $investment->date_payment !!}
 					Produto :
 					<div id="footer">
 						<div class="line">

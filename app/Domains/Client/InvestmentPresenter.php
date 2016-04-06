@@ -14,14 +14,16 @@ class InvestmentPresenter extends  AbstractPresenter
 
     public function more361()
     {
-        return  carbon:: now()->addDays(361)->formatLocalized('%d de %B de %Y') ;
+        $new_date = Carbon::parse($this->date_payment)->addDays(361);
+        return  $new_date->formatLocalized('%d de %B de %Y') ;
     }
 
     public function moreThreesixone()
     {
-        $day = valorPorExtenso(carbon:: now()->addDays(361)->formatLocalized('%d'), false);
-        $month = carbon:: now()->addDays(361)->formatLocalized('%B');
-        $year = valorPorExtenso(carbon:: now()->addDays(361)->formatLocalized('%Y'), false);
+        $date  = explode(' ', $this->more361());
+        $day   = valorPorExtenso($date[0], false);
+        $month = $date[2];
+        $year  = valorPorExtenso($date[4], false);
         return $day .' dia(s) do mês de '. $month . ' de ' . $year;
     }
 
