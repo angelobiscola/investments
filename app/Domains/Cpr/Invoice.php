@@ -2,20 +2,21 @@
 
 namespace App\Domains\Cpr;
 
-use App\Domains\Bank\Bank;
 use App\Domains\Billet\Billet;
 use App\Domains\Client\Client;
 use App\Domains\Client\Investment;
 use App\Domains\Company\Company;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laracasts\Presenter\PresentableTrait;
 
 class Invoice extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['value','date_maturity', 'date_payment', 'billet_id', 'client_id', 'company_id', 'investment_id', 'user_id'];
-    protected $dates    = ['deleted_at'];
+    protected $fillable  = ['value','date_maturity', 'date_payment', 'billet_id', 'client_id', 'company_id', 'investment_id', 'user_id'];
+    protected $dates     = ['deleted_at'];
+    protected $presenter = InvoicePresenter::class;
 
 
     public function Cpr()

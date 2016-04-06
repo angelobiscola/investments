@@ -30,14 +30,14 @@ class InvoiceController extends BaseController
 
         $this->boleto->banco($invoice->Billet->Template->name, array(
 
-            'valor_boleto'          => $invoice->value, // Nosso numero sem o DV - REGRA: Máximo de 11 caracteres!
+            'valor_boleto'          => $invoice->present()->maskValue, // Nosso numero sem o DV - REGRA: Máximo de 11 caracteres!
             'nosso_numero'          => $invoice->id, //Num do pedido ou do documento = Nosso numero
             'numero_documento'      => $invoice->investment_id, //// Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-            'data_vencimento'       =>  date('d/m/Y'), //Data de emissão do Boleto
+            'data_vencimento'       => \Carbon\Carbon::parse($invoice->date_maturity)->format('d/m/Y'), //Data de emissão do Boleto
             'data_documento'        =>  date('d/m/Y'), //Data de processamento do boleto (opcional)
             'data_processamento'    =>  date('d/m/Y'), //Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
             'quantidade'            =>  "001",
-            'valor_unitario'        =>  $invoice->value,
+            'valor_unitario'        =>  $invoice->present()->maskValue,
             'aceite'                =>  "",
             'especie'               =>  "R$",
             'especie_doc'           =>  "DS",
