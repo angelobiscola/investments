@@ -74,7 +74,7 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('billet.wallet') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('billet.identification') ? ' has-error' : '' }}">
     {!! Form::label('idetification', 'identification', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[identification]', null , ['class' => 'form-control']) !!}
@@ -99,13 +99,14 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('billet.prospect_id') ? ' has-error' : '' }}">
+<div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+
     {!! Form::label('template_id', 'template_id', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        <select class="form-control" name="billet[template_id]" name="billet[template_id]">
+        <select class="form-control" id="billet[template_id]" name="billet[template_id]">
 
-            <option>Select..</option>
+            <option name="" value="">Select..</option>
 
             @foreach($templates->All() as $p)
 
@@ -118,8 +119,8 @@
             @endforeach
 
         </select>
-        @if ($errors->has('billet.prospect_id'))
-            <span class="help-block"><strong>{{ $errors->first('billet.prospect_id') }}</strong></span>
+        @if ($errors->has('billet.template_id'))
+            <span class="help-block"><strong>{{ $errors->first('billet.template_id') }}</strong></span>
         @endif
 
     </div>

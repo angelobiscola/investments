@@ -24,14 +24,15 @@ class BilletRequest extends Request
     public function rules()
     {
         return [
-                'billet.name'             =>  'required|string'  ,
+                'billet.name'             =>  'required|string' ,
                 'billet.agency'           =>  'required|integer',
                 'billet.agency_dv'        =>  'required|integer',
                 'billet.account'          =>  'required|integer',
                 'billet.account_dv'       =>  'required|integer',
                 'billet.wallet'           =>  'required|integer',
-                'billet.identification'   =>  'required|string'  ,
+                'billet.identification'   =>  'required|string' ,
                 'billet.contract'         =>  'required|integer',
+                'billet.template_id'      =>  'required'        ,
                ];
     }
 }
