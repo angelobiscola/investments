@@ -28,7 +28,7 @@ class Client extends Model
         parent::delete();
     }
 
-    public function Bank()
+    public function Banks()
     {
         return $this->hasMany(Bank::class);
     }

@@ -23,9 +23,9 @@ class Company extends Model
         return $this->morphOne(Location::class, 'locationable');
     }
 
-    public function Representative()
+    public function Representatives()
     {
-        return $this->morphOne(Representative::class, 'representativeable');
+        return $this->morphMany(Representative::class, 'representativeable');
     }
 
     //delete Location and Representative Cascade
