@@ -99,7 +99,7 @@
     </div>
 </div>
 
-@if($billet['template_id'] != 1 and $billet['template_id'] != 2)
+@if($billet == null)
     <div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
 @else
     <div class="form-group {{ $errors->has('billet.template_id') ? ' has-error' : '' }}">
