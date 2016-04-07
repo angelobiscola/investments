@@ -41,7 +41,7 @@ class Invoice extends Model
 
     public function Investment()
     {
-        return $this->hasOne(Investment::class);
+        return $this->belongsTo(Investment::class);
     }
 
 

@@ -44,8 +44,7 @@ $factory->define(App\Domains\Client\Legal::class, function (Faker\Generator $fak
     return [
         'cnpj'=> $faker->randomNumber(2),
         'company_name'     => $faker->company,
-        'email'     => $faker->email,
-    ];
+      ];
 });
 
 $factory->define(App\Domains\Location\Location::class, function (Faker\Generator $faker) {
