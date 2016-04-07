@@ -7,7 +7,7 @@ class LocationPresenter extends AbstractPresenter
 {
     public function addressFull()
     {
-        return $this->address . ' n° ' . $this->number . ' Bairro ' . $this->district . ' em ' . $this->city . ' - ' . $this->state_abbr . ' , CEP: ' . $this->zip_code ;
+        return $this->address . ' n° ' . $this->number . ', Bairro ' . $this->district . ', em ' . $this->city . ' - ' . $this->state_abbr . ' CEP: ' . $this->zip_code ;
     }
 
     public function locationCep()

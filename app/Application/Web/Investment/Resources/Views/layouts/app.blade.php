@@ -103,6 +103,10 @@
 <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script -->
 <script src="{!! asset('bower_components/bootstrap/dist/js/bootstrap.js') !!}"></script>
 <script src="{!! asset('js/restful.js') !!}"></script>
+<!-- Masks -->
+<script src="{!! asset('bower_components/jquery-mask-plugin/dist/jquery.mask.min.js') !!}"></script>
+<script src="{!! asset('js/mask_custon.js') !!}"></script>
+
 @show
 
 </body>

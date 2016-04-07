@@ -22,7 +22,7 @@
     "datatables": "^1.10.11",
     "bootstrap": "^3.3.6",
     "font-awesome": "Font-Awesome#4.4.0",
-    "jquery-2.1.4.min": "https://code.jquery.com/jquery-2.1.4.min.js"
-
+    "jquery-2.1.4.min": "https://code.jquery.com/jquery-2.1.4.min.js",
+    "jquery-mask-plugin": "https://github.com/igorescobar/jQuery-Mask-Plugin.git#^1.14.0"
   }
 }

@@ -25,7 +25,7 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            {!! Form::text ('company[cnpj]', null , ['class' => 'form-control', 'id' => 'cnpj', 'phaceholder' => 'Cnpj...']) !!}
+            {!! Form::text ('company[cnpj]', null , ['class' => 'form-control cnpj', 'id' => 'cnpj', 'phaceholder' => 'Cnpj...']) !!}
 
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
@@ -64,7 +64,6 @@
     </div>
 </div>
 
-
 <div class="form-group{{ $errors->has('company.cnae_principal') ? ' has-error' : '' }}">
     {!! Form::label('cnae_principal', 'cnae_principal', ['class' => 'col-md-4 control-label']) !!}
 
@@ -81,7 +80,7 @@
     {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('company[phone]', null , ['class' => 'form-control', 'id' => 'phone']) !!}
+        {!! Form::text ('company[phone]', null , ['class' => 'form-control phone', 'id' => 'phone', 'placeholder' => '(41) 3333-3333']) !!}
 
         @if ($errors->has('company.phone'))
             <span class="help-block"><strong>{{ $errors->first('company.phone') }}</strong></span>
@@ -103,7 +102,8 @@
 
 @section('scripts')
     @parent
-        <script>
+
+    <script>
             $(function() {
                 $("#consultarCNPJ").click(function() {
                     var btn = $(this);
@@ -157,6 +157,7 @@
                 });
 
             });
+
         </script>
 @stop
 

@@ -3,7 +3,7 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            {!! Form::text ('location[zip_code]', null , ['class' => 'form-control', 'id'=>'zip_code', 'placeholder' => 'Cep...']) !!}
+            {!! Form::text ('location[zip_code]', null , ['class' => 'form-control cep', 'id'=>'zip_code']) !!}
 
               <span class="input-group-btn">
                 <button class="btn btn-default" id="get_code"  type="button">Consulta!</button>

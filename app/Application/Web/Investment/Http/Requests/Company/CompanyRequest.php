@@ -24,19 +24,19 @@ class CompanyRequest extends Request
     public function rules()
     {
         return [
-            'company.name'             =>  'required|string'  ,
-            'company.company_name'     =>  'required|string'  ,
-            'company.cnpj'             =>  'required|string'  ,
-            'company.cnae_principal'   =>  'required|string'  ,
-            'company.phone'            =>  'required|phone'   ,
-            'company.email'            =>  'required|email'   ,
+            'company.cnpj'              =>  'required|cnpj|unique:companies,cnpj,'.$this->id            ,
+            'company.name'              =>  'required|string|unique:companies,name,'.$this->id          ,
+            'company.company_name'      =>  'required|string|unique:companies,company_name,'.$this->id  ,
+            'company.cnae_principal'    =>  'required|string'                                           ,
+            'company.phone'             =>  'required|string'                                           ,
+            'company.email'             =>  'required|email|unique:companies,email,'.$this->id          ,
 
-            'location.address'          => 'required|string'    ,
-            'location.number'           => 'required|integer'   ,
-            'location.city'             => 'required|string'    ,
-            'location.zip_code'         => 'required|string'    ,
-            'location.district'         => 'required|string'    ,
-            'location.state_abbr'       => 'required|alpha'     ,
+            'location.address'          =>  'required|string'    ,
+            'location.number'           =>  'required|integer'   ,
+            'location.city'             =>  'required|string'    ,
+            'location.zip_code'         =>  'required|string'    ,
+            'location.district'         =>  'required|string'    ,
+            'location.state_abbr'       =>  'required|alpha'     ,
         ];
     }
 }
