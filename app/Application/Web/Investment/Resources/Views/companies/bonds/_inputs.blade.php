@@ -1,10 +1,15 @@
-<div class="form-group{{ $errors->has('bond.prospect_id') ? ' has-error' : '' }}">
-    {!! Form::label('Prospect', 'Prospect', ['class' => 'col-md-4 control-label']) !!}
+@if($bond == null)
+    <div class="form-group{{ $errors->has() ? ' has-error' : '' }}">
+@else
+    <div class="form-group{{ $errors->has('prospect_id') ? ' has-error' : '' }}">
+@endif
+
+            {!! Form::label('Prospect', 'Prospect', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" name="bond[prospect_id]">
 
-            <option>Select..</option>
+            <option name="" value="">Select..</option>
             @foreach($prospects as $p)
 
                 @if($bond != '')
