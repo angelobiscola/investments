@@ -15,13 +15,14 @@ class CreatePhysicalsTable extends Migration
         Schema::create('physicals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nationality')->default('Brasil');
+            $table->string('natural');
             $table->string('marital_status');
             $table->string('birth_date');
             $table->string('profession');
             $table->string('identity');
             $table->string('organ_issuer');
+            $table->string('genre');
             $table->string('cpf')->unique()->index();
-            $table->string('cell_phone');
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

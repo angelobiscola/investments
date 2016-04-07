@@ -14,12 +14,12 @@ class CreateBanksTable extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('number');
             $table->string('agency');
-            $table->string('current_account');
-            $table->string('city');
-            $table->string('state');
+            $table->string('account');
+            $table->string('type')->index();
+            $table->string('city')->nullable();
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
