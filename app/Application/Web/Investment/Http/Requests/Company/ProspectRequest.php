@@ -24,8 +24,8 @@ class ProspectRequest extends Request
     public function rules()
     {
         return [
-            'prospect.name'             =>  'required|alpha'  ,
-            'prospect.description'      =>  'required|alpha'  ,
+            'prospect.name'             =>  'required|string'  ,
+            'prospect.description'      =>  'required|string'  ,
         ];
     }
 }
