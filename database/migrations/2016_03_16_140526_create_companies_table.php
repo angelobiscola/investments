@@ -20,6 +20,7 @@ class CreateCompaniesTable extends Migration
             $table->string('cnae_principal');
             $table->string('cnae_secundary');
             $table->string('phone');
+            $table->string('site')->nullable();
             $table->string('email')->unique();
             $table->timestamps();
             $table->softDeletes();

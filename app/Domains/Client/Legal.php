@@ -10,7 +10,7 @@ class Legal extends Model
 {
     use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['company_name','cnpj','cnae_principal', 'email','client_id'];
+    protected $fillable = ['company_name','cnpj', 'site','cnae_principal','cnae_secundary','client_id'];
     protected $dates    = ['deleted_at'];
     protected $presenter   = LegalPresenter::class;
 

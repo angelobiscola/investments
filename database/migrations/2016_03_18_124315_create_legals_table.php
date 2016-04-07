@@ -18,7 +18,7 @@ class CreateLegalsTable extends Migration
             $table->string('cnpj')->unique();
             $table->string('cnae_principal');
             $table->string('cnae_secundary');
-            $table->string('site')->unique();
+            $table->string('site')->nullable();
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients') ->onDelete('cascade');
