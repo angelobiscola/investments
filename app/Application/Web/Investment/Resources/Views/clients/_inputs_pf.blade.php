@@ -23,7 +23,7 @@
     {!! Form::label('birth_date', 'Birth_date', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('physical[birth_date]', null , ['class' => 'form-control', 'id' => 'birth_date', 'placeholder' => 'Nascimento (DDMMYYYY)']) !!}
+        {!! Form::text ('physical[birth_date]', null , ['class' => 'form-control data', 'id' => 'birth_date', 'placeholder' => 'Nascimento (DDMMYYYY)']) !!}
 
         @if ($errors->has('physical.birth_date'))
             <span class="help-block"><strong>{{ $errors->first('physical.birth_date') }}</strong></span>
@@ -36,7 +36,7 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            {!! Form::text ('physical[cpf]', null , ['class' => 'form-control', 'id'=>'cpf', 'placeholder' => 'cpf...']) !!}
+            {!! Form::text ('physical[cpf]', null , ['class' => 'form-control cpf', 'id'=>'cpf', 'placeholder' => 'cpf...']) !!}
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCPF">Consulta!</button>
                   </span>
@@ -61,15 +61,26 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('physical.marital_status') ? ' has-error' : '' }}">
+<div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+
     {!! Form::label('marital_status', 'Marital_status', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('physical[marital_status]',null , ['class' => 'form-control', 'id' => 'marital_status']) !!}
+        <select class="form-control" id="physical[marital_status]" name="physical[marital_status]">
+
+            <option name="" value="">Estado Civil</option>
+            <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)">Solteiro(a)</option>
+            <option id="Casado(a)" name="Casado(a)" value="Casado(a)">Casado(a)</option>
+            <option id="Separado(a)" name="Separado(a)" value="Separado(a)">Separado(a)</option>
+            <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)">Divorciado(a)</option>
+            <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)">Viúvo(a)</option>
+
+        </select>
 
         @if ($errors->has('physical.marital_status'))
             <span class="help-block"><strong>{{ $errors->first('physical.marital_status') }}</strong></span>
         @endif
+
     </div>
 </div>
 
@@ -89,7 +100,7 @@
     {!! Form::label('identity', 'Identity', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('physical[identity]', null , ['class' => 'form-control']) !!}
+        {!! Form::text ('physical[identity]', null , ['class' => 'form-control rg']) !!}
 
         @if ($errors->has('physical.identity'))
             <span class="help-block"><strong>{{ $errors->first('physical.identity') }}</strong></span>
@@ -113,7 +124,7 @@
     {!! Form::label('cell_phone', 'Cell_phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('physical[cell_phone]', null , ['class' => 'form-control']) !!}
+        {!! Form::text ('physical[cell_phone]', null , ['class' => 'form-control phone']) !!}
 
         @if ($errors->has('physical.cell_phone'))
             <span class="help-block"><strong>{{ $errors->first('physical.cell_phone') }}</strong></span>

@@ -16,7 +16,7 @@
     {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('client[phone]', null , ['class' => 'form-control']) !!}
+        {!! Form::text ('client[phone]', null , ['class' => 'form-control phone']) !!}
 
         @if ($errors->has('client.phone'))
             <span class="help-block"><strong>{{ $errors->first('client.phone') }}</strong></span>
