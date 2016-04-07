@@ -99,7 +99,11 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+@if($billet['template_id'] != 1 and $billet['template_id'] != 2)
+    <div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+@else
+    <div class="form-group {{ $errors->has('billet.template_id') ? ' has-error' : '' }}">
+@endif
 
     {!! Form::label('template_id', 'template_id', ['class' => 'col-md-4 control-label']) !!}
 
