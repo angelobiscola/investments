@@ -74,14 +74,14 @@ class CompanyController extends BaseController
     public function addRepresentative($id, RequestHttp $request)
     {
         $company = $this->company->find($id);
-        $company->Representative()->create($request->all());
+        $company->Representatives()->create($request->all());
         return redirect(route('investment.company.edit',$id))->with('status', 'Adicionado');
     }
 
     public function removeRepresentative($id,RequestHttp $request)
     {
         $company = $this->company->find($id);
-        $company->Representative()->find($request->get('r'))->forceDelete();
+        $company->Representatives()->find($request->get('r'))->forceDelete();
         return back()->with('status', 'Removido');
     }
 

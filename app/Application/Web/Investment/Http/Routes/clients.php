@@ -30,6 +30,15 @@ Route::group(['prefix' => 'representatives', 'as' => 'representative.'], functio
     Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'RepresentativeController@destroy'     ]);
 });
 
+Route::group(['prefix' => 'banks', 'as' => 'bank.'], function()
+{
+    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'BankController@show'        ]);
+    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'BankController@store'       ]);
+    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'BankController@destroy'     ]);
+
+});
+
+
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function()
 {
     Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'DashboardController@show'             ]);

@@ -22,6 +22,7 @@ class CreatePhysicalsTable extends Migration
             $table->string('identity');
             $table->string('organ_issuer');
             $table->string('genre');
+            $table->string('cell_phone')->index();
             $table->string('cpf')->unique()->index();
 
             $table->integer('client_id')->unsigned();

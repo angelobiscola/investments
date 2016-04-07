@@ -26,7 +26,7 @@ class InvoiceController extends BaseController
     private function generate($invoice)
     {
         $this->setSacado($invoice->Client);
-        $this->setCedente($invoice->Company);
+        $this->setCedente($invoice->Company,$invoice->Billet);
 
         $this->boleto->banco($invoice->Billet->Template->name, array(
 
@@ -41,6 +41,13 @@ class InvoiceController extends BaseController
             'aceite'                =>  "",
             'especie'               =>  "R$",
             'especie_doc'           =>  "DS",
+
+            'demonstrativo1'        =>  "Referente ao Investimento: ".$invoice->Investment->Bond->name,", Codigo :".$invoice->investment_id,
+            'demonstrativo3'        =>  $invoice->Investment->Company->company_name ." - http://www.seusite.com.br",
+            'instrucoes1'           =>  "",
+            'instrucoes2'           =>  "Não receber após o vencimento",
+            'instrucoes3'           =>  "Em caso de dúvidas entre em contato conosco: ".$invoice->Investment->Company->email,
+
 
 
         ));
@@ -61,7 +68,7 @@ class InvoiceController extends BaseController
         ));
     }
 
-    private function setCedente($cedente)
+    private function setCedente($cedente,$billet)
     {
         if(!$cedente)
         {
@@ -69,13 +76,14 @@ class InvoiceController extends BaseController
         }
 
         $this->boleto->cedente([
-            'agencia'           => "1100", // Num da agencia, sem digito
-            'agencia_dv'        => "0", // Digito do Num da agencia
-            'conta'             => "0102003", 	// Num da conta, sem digito
-            'conta_dv'          => "4",
-            'conta_cedente'     => "0102003", // ContaCedente do Cliente, sem digito (Somente Números)
-            'conta_cedente_dv'  => "4", // Digito da ContaCedente do Cliente
-            'carteira'          => "06",  // Código da Carteira: pode ser 06 ou 03
+
+            'agencia'           => $billet->agency,     //Num da agencia, sem digito
+            'agencia_dv'        => $billet->agency_dv,  //Digito do Num da agencia
+            'conta'             => $billet->account,    //Num da conta, sem digito
+            'conta_dv'          => $billet->account_dv,
+            'conta_cedente'     => $billet->account,    //ContaCedente do Cliente, sem digito (Somente Números)
+            'conta_cedente_dv'  => $billet->account_dv, // Digito da ContaCedente do Cliente
+            'carteira'          => $billet->wallet,     // Código da Carteira: pode ser 06 ou 03
 
 
             'cpf_cnpj'          => $cedente->cnpj,

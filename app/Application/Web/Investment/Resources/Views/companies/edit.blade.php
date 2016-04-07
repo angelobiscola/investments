@@ -27,10 +27,11 @@
                 </div>
             </div>
 
-            @if($company->Representative)
+            @if($company->Representatives->count())
                 Representante
-
+                <a href="{!! route('investment.company.representative.create',$company)!!}">Add Representante</a>
                 <table class="table table-hover">
+
                     <thead>
                     <th>Code</th>
                     <th>Name</th>
@@ -40,23 +41,27 @@
                     <th>#</th>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>{!! $company->representative->client->id !!}</td>
-                        <td>{!! $company->representative->client->present()->legalOrPhysical(true) !!}</td>
-                        <td>{!! $company->representative->client->present()->legalOrPhysical() !!}</td>
-                        <td>{!! $company->representative->created_at !!}</td>
-                        <td>{!! $company->representative->updated_at !!}</td>
-                        <td>
-                            <a href="{!! route('investment.company.representative.delete',$company) !!}?r={!!$company->representative->id!!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
-                        </td>
-                    </tr>
+                    @foreach($company->Representatives  as $representative)
+                        <tr>
+                            <td>{!! $representative->client->id !!}</td>
+                            <td>{!! $representative->client->present()->legalOrPhysical(true) !!}</td>
+                            <td>{!! $representative->client->present()->legalOrPhysical !!}</td>
+                            <td>{!! $representative->created_at !!}</td>
+                            <td>{!! $representative->updated_at !!}</td>
+                            <td>
+                                <a href="{!! route('investment.company.representative.delete',$company) !!}?r={!!$representative->id!!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
+
             @else
 
-                <a href="{!! route('investment.company.representative.create',$company)!!}">Add Representante
+                <a href="{!! route('investment.company.representative.create',$company)!!}"> Add Representante </a>
 
             @endif
+
         </div>
      </div>
 </div>
