@@ -81,7 +81,7 @@
     {!! Form::label('site', 'Site', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
-        {!! Form::text ('legal[site]', null , ['class' => 'form-control', 'id' => 'site']) !!}
+        {!! Form::text ('legal[site]', null , ['class' => 'form-control', 'id' => 'site', 'placeholder' => 'www.site.com.br']) !!}
 
         @if ($errors->has('legal.site'))
             <span class="help-block"><strong>{{ $errors->first('legal.site') }}</strong></span>
