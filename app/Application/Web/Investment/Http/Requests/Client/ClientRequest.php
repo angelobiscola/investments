@@ -25,7 +25,7 @@ class ClientRequest extends Request
     {
         $rules    =  [ 'client.name'               => 'required|string'       ,
                        'client.phone'              => 'required|string'       ,
-                       'client.email'              => 'required|email'        ,
+                       'client.email'              => 'required|email|unique:clients,email,'.$this->id,
 
                        'location.address'          => 'required|string'       ,
                        'location.number'           => 'required|integer'      ,
@@ -43,11 +43,14 @@ class ClientRequest extends Request
                        'physical.identity'         => 'required|string'       ,
                        'physical.organ_issuer'     => 'required|string'       ,
                        'physical.cell_phone'       => 'required|phone'        ,
+                       'physical.natural'          => 'required|string'       ,
+                       'physical.genre'            => 'required|alpha'        ,
                     ];
 
-        $legal =    [ 'legal.cnpj'                 => 'required|string|cnpj'  ,
-                      'legal.company_name'         => 'required|string'       ,
+        $legal =    [ 'legal.cnpj'                 => 'required|string|cnpj|unique:legals,cnpj,'.$this->id   ,
+                      'legal.company_name'         => 'required|string|unique:legals,company_name,'.$this->id,
                       'legal.cnae_principal'       => 'required|string'       ,
+                      'legal.site'                 => 'required'              ,
                       'legal.email'                => 'required|email'        ,
                     ];
 

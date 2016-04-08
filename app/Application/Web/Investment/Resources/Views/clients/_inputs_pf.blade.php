@@ -61,20 +61,71 @@
     </div>
 </div>
 
+<div class="form-group{{ $errors->has('physical.natural') ? ' has-error' : '' }}">
+    {!! Form::label('natural', 'Natural', ['class' => 'col-md-4 control-label']) !!}
+
+    <div class="col-md-6">
+        {!! Form::text ('physical[natural]', null , ['class' => 'form-control', 'placeholder' => 'Curiitba']) !!}
+
+        @if ($errors->has('physical.natural'))
+            <span class="help-block"><strong>{{ $errors->first('physical.natural') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+@if(isset($client))
+<div class="form-group {{ $errors->has('physical.genre') ? ' has-error' : '' }}">
+@else
 <div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+@endif
+
+    {!! Form::label('genre', 'Genre', ['class' => 'col-md-4 control-label']) !!}
+
+    <div class="col-md-6">
+
+        <select class="form-control" id="physical[genre]" name="physical[genre]">
+            @if(isset($client))
+                <option name="" value="">Selecione...</option>
+                <option id="m" name="m" value="m" @if($client->Physical->genre == 'm') selected @endif>Masculino</option>
+                <option id="f" name="f" value="f" @if($client->Physical->genre == 'f') selected @endif>Feminino</option>
+            @else
+                <option name="" value="">Selecione...</option>
+                <option id="m" name="m" value="m">Masculino</option>
+                <option id="f" name="f" value="f">Feminino</option>
+            @endif
+        </select>
+
+        @if ($errors->has('physical.genre'))
+            <span class="help-block"><strong>{{ $errors->first('physical.genre') }}</strong></span>
+        @endif
+
+    </div>
+</div>
+
+@if(isset($client))
+<div class="form-group {{ $errors->has('marital_status') ? ' has-error' : '' }}">
+@else
+<div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
+@endif
 
     {!! Form::label('marital_status', 'Marital_status', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" id="physical[marital_status]" name="physical[marital_status]">
-
-            <option name="" value="">Estado Civil</option>
-            <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)">Solteiro(a)</option>
-            <option id="Casado(a)" name="Casado(a)" value="Casado(a)">Casado(a)</option>
-            <option id="Separado(a)" name="Separado(a)" value="Separado(a)">Separado(a)</option>
-            <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)">Divorciado(a)</option>
-            <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)">Viúvo(a)</option>
-
+              @if(isset($client))
+                <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)" @if($client->Physical->marital_status == 'Solteiro(a)') selected @endif>Solteiro(a)</option>
+                <option id="Casado(a)" name="Casado(a)" value="Casado(a)" @if($client->Physical->marital_status == 'Casado(a)') selected @endif>Casado(a)</option>
+                <option id="Separado(a)" name="Separado(a)" value="Separado(a)" @if($client->Physical->marital_status == 'Separado(a)') selected @endif>Separado(a)</option>
+                <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)" @if($client->Physical->marital_status == 'Divorciado(a)') selected @endif>Divorciado(a)</option>
+                <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)" @if($client->Physical->marital_status == 'Viúvo(a)') selected @endif>Viúvo(a)</option>
+            @else
+                <option name="" value="">Estado Civil</option>
+                <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)">Solteiro(a)</option>
+                <option id="Casado(a)" name="Casado(a)" value="Casado(a)">Casado(a)</option>
+                <option id="Separado(a)" name="Separado(a)" value="Separado(a)">Separado(a)</option>
+                <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)">Divorciado(a)</option>
+                <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)">Viúvo(a)</option>
+            @endif
         </select>
 
         @if ($errors->has('physical.marital_status'))
@@ -182,7 +233,6 @@
                     $("#cpfCookie").val(json.cookie);
                 });
             });
-
 
         });
     </script>

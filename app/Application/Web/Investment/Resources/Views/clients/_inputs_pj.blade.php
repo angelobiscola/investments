@@ -28,15 +28,15 @@
 
     <div class="col-md-6">
         <div class="input-group">
-            {!! Form::text ('legal[cnpj]', null , ['class' => 'form-control', 'id' => 'cnpj', 'placeholder' => 'Cnpj...']) !!}
+            {!! Form::text ('legal[cnpj]', null , ['class' => 'form-control cnpj', 'id' => 'cnpj', 'placeholder' => 'Cnpj...']) !!}
 
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" data-toggle="modal" data-target="#captchaCNPJ">Consulta!</button>
             </span>
         </div>
 
-        @if ($errors->has('legal.cpnj'))
-            <span class="help-block"><strong>{{ $errors->first('legal.cpnj') }}</strong></span>
+        @if ($errors->has('legal.cnpj'))
+            <span class="help-block"><strong>{{ $errors->first('legal.cnpj') }}</strong></span>
         @endif
     </div>
 </div>
@@ -73,6 +73,18 @@
 
         @if ($errors->has('legal.email'))
             <span class="help-block"><strong>{{ $errors->first('legal.email') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('legal.site') ? ' has-error' : '' }}">
+    {!! Form::label('site', 'Site', ['class' => 'col-md-4 control-label']) !!}
+
+    <div class="col-md-6">
+        {!! Form::text ('legal[site]', null , ['class' => 'form-control', 'id' => 'site']) !!}
+
+        @if ($errors->has('legal.site'))
+            <span class="help-block"><strong>{{ $errors->first('legal.site') }}</strong></span>
         @endif
     </div>
 </div>
