@@ -159,66 +159,72 @@
 
 	<body>
 		<div id="body">
-			<div id="body-border">
-				<div id="promissoria">
-					<div id="top">
-						<div id="logo"><strong> Logo </strong></div>
-						<div id="top-two-collun"><strong> Nota Promissória </strong></div>
-						<div id="top-tree-collun">
-							<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
-							<div class="body-top"><strong> Única </strong></div>
-						</div>
-						<div id="top-for-collun">
-							<div class="title-top"><strong> Valor R$ : </strong>  {!! number_format($investment->value,2,'.',',') !!}  </div>
-							<div class="body-top"><strong> Ultimo Venc : </strong> {!! $investment->present()->more361 !!} </div>
-						</div>
-					</div>
-					<div id="pro-body">
-						<div class="content">
-							<div class="line"><strong> Credor(a) : {!! $investment->Company->company_name !!} </strong> </div>
-							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
-							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
-							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
-						</div>
-						<div class="content">
-							<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->company_name !!} </div>
-						</div>
-						<div class="content">
-							<div class="line"><strong></strong>
-								Ao(s) {!! $investment->present()->moreThreesixone !!} Pagarei à {!! $investment->Client->name !!}; {!! $investment->Client->type == 'j' ? 'CNPJ' : 'CPF' !!}
-								n° {!! $investment->Client->type == 'j' ? $investment->Client->Legal->present()->cnpjLegal : $investment->Client->Physical->present()->cpfPhysical !!}
-								por está unica via de nota promissoria a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste pais, na praça
-								do PARANÁ .
+
+			@if(!$investment->status != true)
+
+				<div id="body-border">
+					<div id="promissoria">
+						<div id="top">
+							<div id="logo"><strong> Logo </strong></div>
+							<div id="top-two-collun"><strong> Nota Promissória </strong></div>
+							<div id="top-tree-collun">
+								<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
+								<div class="body-top"><strong> Única </strong></div>
+							</div>
+							<div id="top-for-collun">
+								<div class="title-top"><strong> Valor R$ : </strong>  {!! number_format($investment->value,2,'.',',') !!}  </div>
+								<div class="body-top"><strong> Ultimo Venc : </strong> {!! $investment->present()->more361 !!} </div>
 							</div>
 						</div>
-						<div class="content">
-							<div class="line"><strong> Emitente : </strong>  </div>
-							<div class="line"><strong> Nome : </strong> {!! $investment->Client->type == 'f' ? $investment->Client->name : $investment->Client->Legal->company_name !!} </div>
-							<div class="line"><strong> Endereço : </strong>
-								{!! $investment->Client->type == 'f' ? $investment->Client->Location->present()->addressFull : $investment->Client->Legal->Client->Location->present()->addressFull !!}
+						<div id="pro-body">
+							<div class="content">
+								<div class="line"><strong> Emitente   </strong> </div>
+								<div class="line"><strong> Nome :     </strong> {!! $investment->Client->type =='f' ? $investment->Client->name : $investment->Client->Legal->company_name !!} </div>
+								<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull  !!}</div>
+								<div class="line">
+									<strong> {!! $investment->Client->type == 'f' ? 'CPF' : 'CNPJ' !!} a sua ordem :  </strong>
+									{!! $investment->Client->type == 'f' ? $investment->Client->Physical->present()->cpfPhysical : $investment->Client->Legal->present()->cnpjLegal !!}
+								</div>
+								<div class="line"><strong> Fone : 			  </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
 							</div>
-							<div class="line"><strong> Fone : </strong> {!! $investment->Client->present()->phoneClient !!} </div>
+							<div class="content">
+								<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->name !!} </div>
+							</div>
+							<div class="content">
+								<div class="line"><strong></strong>
+									Ao(s) {!! $investment->present()->moreThreesixone !!} Pagarei à {!! $investment->Client->name !!}; {!! $investment->Client->type == 'j' ? 'CNPJ' : 'CPF' !!}
+									n° {!! $investment->Client->type == 'j' ? $investment->Client->Legal->present()->cnpjLegal : $investment->Client->Physical->present()->cpfPhysical !!}
+									por essa única via de nota promissória a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste país, na praça
+									do PARANÁ;
+								</div>
+							</div>
+							<div class="content">
+								<div class="line"><strong> Credor(a) : 			</strong> </div>
+								<div class="line"><strong> Nome : 	   			</strong> {!! $investment->Company->name !!} </div>
+								<div class="line"><strong> Endereço :  			</strong> {!! $investment->Company->Location->present()->addressFull !!}	</div>
+								<div class="line"><strong> CNPJ a sua ordem :   </strong> {!! $investment->Company->present()->cnpjCompany !!}	</div>
+								<div class="line"><strong> Fone :      			</strong> {!! $investment->Company->present()->phoneCompany !!} </div>
+							</div>
+							<div id="content-finish">
+								<div class="content-collun"><strong> Esta nota promissoria é vinculada ao Prospecto. </strong></div>
+								<div class="content-collun-two"><strong> Assinatura : </strong></div>
+							</div>
 						</div>
-						<div id="content-finish">
-							<div class="content-collun"><strong> Esta nota promissoria è sujeita a reajustes o seu vencimento de acordo com o indice pactuado em contrato. </strong></div>
-							<div class="content-collun-two"><strong> Assinatura : </strong></div>
-						</div>
-					</div>
-					
-					Produto : 
-					<div id="footer">
-						<div class="line">
-							<div class="footer-collun"> Prod. <br> 1</div>
-							<div class="footer-collun"> Descrição. <br> Casas Diversos</div>
-							<div class="footer-collun"> n°. <br> 145</div>
-							<div class="footer-collun"> Boleto. <br> {{-- }{!! $investment->Invoice()->first()->id !!} --}}</div>
+
+						Boleto Vinculado a Liquidação :
+						<div id="footer">
+							<div class="line">
+								<div class="footer-collun"> Boleto. <br> {!! $investment->Invoice->id !!} </div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="mmmm-botton">
-				X -------------------------------------------------------------------------------------------------------------------------------------------------
-			</div>
+				<div class="mmmm-botton">
+					X -------------------------------------------------------------------------------------------------------------------------------------------------
+				</div>
+
+			@endif
+
 			<div id="body-border">
 
 			<!-- div id="sem-img"> <img src="semvalor.png" /></div -->
@@ -239,44 +245,47 @@
 					</div>
 					<div id="pro-body">
 						<div class="content">
-							<div class="line"><strong> Credor(a) : {!! $investment->Company->company_name !!} </strong> </div>
-							<div class="line"><strong> Endereço : </strong> {!! $investment->Company->Location->present()->addressFull !!}</div>
-							<div class="line"><strong> CPNJ a sua ordem : </strong> {!! $investment->Company->present()->cnpjCompany !!} </div>
-							<div class="line"><strong> Fone : </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
+							<div class="line"><strong> Emitente  		  </strong> </div>
+							<div class="line"><strong> Nome :     		  </strong> {!! $investment->Client->name !!} </div>
+							<div class="line"><strong> Endereço : 		  </strong> {!! $investment->Client->Location->present()->addressFull !!}</div>
+							<div class="line">
+								<strong> {!! $investment->Client->type == 'f' ? 'CPF' : 'CNPJ' !!} a sua ordem :  </strong>
+								{!! $investment->Client->type == 'f' ? $investment->Client->Physical->present()->cpfPhysical : $investment->Client->Legal->present()->cnpjLegal !!}
+							</div>
+							<div class="line"><strong> Fone : 			  </strong> {!! $investment->Company->present()->phoneCompany !!} </div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->company_name !!} </div>
+							<div class="line"><strong> Empreendimento : </strong> {!! $investment->Company->name !!} </div>
 						</div>
 						<div class="content">
 							<div class="line"><strong></strong>
 								Ao(s) {!! $investment->present()->moreThreesixone !!} Pagarei à {!! $investment->Client->name !!}; {!! $investment->Client->type == 'j' ? 'CNPJ' : 'CPF' !!}
 								n° {!! $investment->Client->type == 'j' ? $investment->Client->Legal->present()->cnpjLegal : $investment->Client->Physical->present()->cpfPhysical !!}
-								por está unica via de nota promissoria a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste pais, na praça
-								do PARANÁ .
+								por essa única via de nota promissória a quantia de <strong>{!! valorPorExtenso($investment->value) !!}</strong>, em moeda corrente deste país, na praça
+								do PARANÁ;
 							</div>
 						</div>
 						<div class="content">
-							<div class="line"><strong> Emitente : </strong>  </div>
-							<div class="line"><strong> Nome : </strong> {!! $investment->Client->name !!} </div>
-							<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull !!} </div>
-							<div class="line"><strong> Fone : </strong> {!! $investment->Client->present()->phoneClient !!} </div>
+							<div class="line"><strong> Credor(a) : 			</strong> </div>
+							<div class="line"><strong> Nome : 	   			</strong> {!! $investment->Company->name !!} </div>
+							<div class="line"><strong> Endereço :  			</strong> {!! $investment->Company->Location->present()->addressFull !!}	</div>
+							<div class="line"><strong> CNPJ a sua ordem :   </strong> {!! $investment->Company->present()->cnpjCompany !!}	</div>
+							<div class="line"><strong> Fone :      			</strong> {!! $investment->Company->present()->phoneCompany !!} </div>
 						</div>
 						<div id="content-finish">
-							<div class="content-collun"><strong> Esta nota promissoria è sujeita a reajustes o seu vencimento de acordo com o indice pactuado em contrato. </strong></div>
+							<div class="content-collun"><strong> Esta nota promissoria é vinculada ao Prospecto. </strong></div>
 							<div class="content-collun-two"><strong> Assinatura : </strong></div>
 						</div>
 					</div>
-					{!! $investment->date_payment !!}
-					Produto :
+
+					Boleto Vinculado a Liquidação :
 					<div id="footer">
 						<div class="line">
-							<div class="footer-collun"> Prod. <br> 1</div>
-							<div class="footer-collun"> Descrição. <br> Casas Diversos</div>
-							<div class="footer-collun"> n°. <br> 145</div>
-							<div class="footer-collun"> Boleto. <br> {{-- }{!! $investment->Invoice()->first()->id !!} --}}</div>
+							<div class="footer-collun"> Boleto. <br> numero do billet </div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</body>

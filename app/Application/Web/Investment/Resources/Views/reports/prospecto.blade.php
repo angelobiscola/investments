@@ -126,17 +126,17 @@
 				<div>prazo de vencimento: 360 dias.</div>
 			</div>
 			<div id="fistp-bloco">
-				Emitente: <strong> {!! $investment->Company->company_name !!} </strong> , pessoa jurídica de direito privado, com sede à {!! $investment->Company->Location->present()->addressFull !!}
-				, registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881, inscrita no CNPJ nº {!! $investment->Company->present()->cnpjCompany !!};
+				Emitente: <strong> {!! $investment->Company->name !!} </strong> pessoa jurídica de direito privado, com sede à {!! $investment->Company->Location->present()->addressFull !!}
+				registrada na Junta Comercial do Estado do Paraná em 30/04/2013, sob o NIRE 416020054881 inscrita no CNPJ nº {!! $investment->Company->present()->cnpjCompany !!};
 			</div>
 
 			<div id="paragrafop">
 				<p>
-					A {!! $investment->Company->company_name !!} Investimentos apresenta, através deste prospecto, informações vinculantes à respeito de oportunidade de inversão de recursos em
+					A {!! $investment->Company->name !!} Investimentos apresenta, através deste prospecto, informações vinculantes à respeito de oportunidade de inversão de recursos em
 					prol da ampliação de capital de seu projeto de investimento, remunerando o montante através de renda fixa pré-fixada.
 				</p>
 				<p>
-					Dentre os diversos veículos de investimento disponíveis no mercado de capitais, a {!! $investment->Company->company_name !!} Investimentos elegeu, com fundamento no disposto
+					Dentre os diversos veículos de investimento disponíveis no mercado de capitais, a {!! $investment->Company->name !!} Investimentos elegeu, com fundamento no disposto
 					na Convenção para Adoção de uma Lei Uniforme sobre Letras de Câmbio e Notas Promissórias, promulgada pelo Decreto no 57.663, de 24 de janeiro de 1966, o
 					instrumento da Nota Promissória (Commercial Paper) para dar os devidos contornos jurídicos da captação.
 				</p>
@@ -153,7 +153,7 @@
 					Captação o encerramento formal do prazo de exposição da oportunidade, que poderá, por sua deliberação, estendê-lo no máximo por igual período.
 				</p>
 				<p>
-					Por tratar-se de empreendimento sólido, constituído dentro dos termos da legislação societária e fiscal, a {!! $investment->Company->company_name !!} Investimentos está apta a
+					Por tratar-se de empreendimento sólido, constituído dentro dos termos da legislação societária e fiscal, a {!! $investment->Company->name !!} Investimentos está apta a
 					buscar, em esforço	restrito privado, os investidores que estejam almejando ganhos fixos acima dos Fundos de Investimentos tradicionais. Pela ausência de esforço
 					público de captação, tampouco de divulgação midiática, não há necessidade de autorização prévia dos órgãos de controle monetário ou da Comissão de Valores Mobiliários.
 					Não obstante, em apreço ao compliance, a emitente informa que solicitou ao Conselho Regional de Administração a expedição da competente Anotação de Responsabilidade
@@ -168,9 +168,9 @@
 			<div id="logop"> logo </div>
 			<div id="paragrafop">
 				<p>
-					As atividades desenvolvidas pela {!! $investment->Company->company_name !!} Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez
+					As atividades desenvolvidas pela {!! $investment->Company->name !!} Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez
 					aplicados os recursos através de contratos de mútuo simples, conjugam-se atividades remuneradas de gestão, contabilidade e controle de tesouraria, permitindo, assim,
-					a rápida retomada do crescimento do empreendimento investido, momento em que a {!! $investment->Company->company_name !!} Investimentos pode converter seus créditos em
+					a rápida retomada do crescimento do empreendimento investido, momento em que a {!! $investment->Company->name !!} Investimentos pode converter seus créditos em
 					participação societária, permitindo ganhos expressivos nos processos de venda dos negócios para os interessados estratégicos.
 				</p>
 				<p>
@@ -183,7 +183,7 @@
 					poderá se calcular o valor futuro do vencimento, somando-se ao montante a rentabilidade capitalizada no período.
 				</p>
 				<p>
-					Em caso de deliberação pelo Comitê de Investimento, ou por qualquer outro órgão decisório com competência constituída dentro da {!! $investment->Company->company_name !!}
+					Em caso de deliberação pelo Comitê de Investimento, ou por qualquer outro órgão decisório com competência constituída dentro da {!! $investment->Company->name !!}
 					Investimentos, decidir-se o resgate antecipado das Notas Promissórias emitidas, este será realizado sempre considerando-se a integralidade da quota e em ordem de
 					maior antiguidade.
 				</p>
@@ -193,14 +193,14 @@
 				</p>
 				<p>
 					Todas as comunicações formais deverão se dar através dos Correios, Carta com Aviso do Recebimento – AR, no endereço vigente da emitente perante à JUCEPAR, em se
-					tratando de destinatário a {!! $investment->Company->company_name !!} Investimentos.
+					tratando de destinatário a {!! $investment->Company->name !!} Investimentos.
 				</p>
 				<p>
 					O aplicador assinará o Formulário de Cadastro e Investimento, onde apresentará os dados e informações necessárias sobre sua condição jurídica e financeira, sendo
 					de sua integral responsabilidade manter a base de informações atualizadas.
 				</p>
 				<p>
-					Sobre o valor do rendimento, em estrito cumprimento à legislação fiscal, a {!! $investment->Company->company_name !!} Investimentos realizará as devidas retenções fiscais
+					Sobre o valor do rendimento, em estrito cumprimento à legislação fiscal, a {!! $investment->Company->name !!} Investimentos realizará as devidas retenções fiscais
 					de Imposto de Renda (IR), aplicando-se as alíquotas previstas dentro das faixas eleitas pelo regulamento da exação (Decreto 3.000/1999). Ao final de cada período,
 					serão informadas à autoridade fiscal as devidas retenções (DIRF), bem como serão emitidos os Informes de Rendimento para subsidiar as declarações de praxe.
 				</p>
@@ -211,8 +211,8 @@
 				<p>
 					As partes desde já convencionam que toda e qualquer controvérsia resultante da e/ou relativa à interpretação ou execução do presente negócio jurídico e
 					respectivos anexos, deve, obrigatória, exclusiva e definitivamente ser resolvida por meio de mediação (conforme procedimento definido no parágrafo abaixo) e,
-					quando restar infrutífera, por meio de arbitragem, a ser instituída e processada nos termos do Regulamento da Câmara de Mediação e Arbitragem da Associaçã
-					o Comercial do Paraná - ARBITAC.
+					quando restar infrutífera, por meio de arbitragem, a ser instituída e processada nos termos do Regulamento da Câmara de Mediação e Arbitragem da Associacão
+					Comercial do Paraná - ARBITAC.
 				</p>
 			</div>
 		</div>
@@ -234,7 +234,7 @@
 			<div id="footerp">
 				<div class="footerp-float">
 					<div> Supervisão Tecnica </div>
-					<div class="footerp-logo"> logo 1 ({!! $investment->Client->type == 'f' ? $investment->Client->Physical->name : $investment->Client->Legal->company_name !!}) </div>
+					<div class="footerp-logo"> logo 1 ({!! $investment->Client->type == 'f' ? $investment->Client->Physical->name : $investment->Client->Legal->name !!}) </div>
 				</div>
 				<div class="footerp-float">
 					<div> Estruturação </div>

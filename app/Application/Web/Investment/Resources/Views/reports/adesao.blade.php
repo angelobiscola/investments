@@ -116,7 +116,7 @@
 				<div id="left-topa">
 					<div id="title-topa"><strong> Termo de Adesão </strong></div>
 					<div id="text-topa">
-						<div class="linea"> {!! $investment->Company->company_name !!}</div>
+						<div class="linea"> {!! $investment->Company->name !!}</div>
 						<div class="linea"> RENDA FIXA - INVESTIMENTOS PRIVADOS </div>
 						<div class="linea"> CNPJ N. {!! $investment->company->present()->cnpjCompany !!} </div>
 					</div>
@@ -131,11 +131,13 @@
 					pretendendo assumir a condição de Cotista da 1a. Emissão de Nota Promissória da investida acima indicada, vem, pelo presente instrumento, manifestar
 					expressamente a adesão ao Prospecto da citada emissão, declarando nesta oportunidade que:
 					<ol>
+						{{--
 						<li>
-							Está ciente de que a emissão é gerida através de mandato por {!! $investment->Company->Representative->Client->name !!}, administrador de empresas,
+							Está ciente de que a emissão é gerida através de mandato por {!! $investment->Company->Representative->Client->name !!} administrador de empresas,
 							inscrito perante o CRA/PR sob o n. 1356, portador do CPF/MF sob n.º {!! $investment->Company->Representative->Client->Physical->present()->cpfPhysical !!},
 							e juridicamente estruturada pela A. AUGUSTO GRELLERT ADVOGADOS ASSOCIADOS, inscrita no CNPJ sob n.º 06.912.751/0001-60;
 						</li>
+						--}}
 						<li>
 							Recebeu, antes de assinado o presente Termo de Adesão, uma cópia do Prospecto e da Ficha Cadastral, bem como da Nota Promissória, nos termos da legislação
 							vigente. Conhece e reconhece como válidas e obrigatórias as suas normas, aderindo formalmente, nesse ato, as suas disposições, que assumem a condição jurídica
@@ -168,14 +170,17 @@
 				<div id="dataa"> Curitiba {!! dateLocate() !!} </div>
 				<div id="assinaturaa">
 					<div class="assinaturaa">
-						<div class="line-footera">---------------------------------------</div>
-						<div class="id-footera">
-							{!! $investment->Company->Representative->Client->name  !!}
-						</div>
-						<div class="id-footera">
-							CPF: {!! $investment->Company->Representative->Client->Physical->present()->cpfPhysical !!}
-						</div>
+
+							<div class="line-footera">---------------------------------------</div>
+							<div class="id-footera">
+								{!! $investment->Company->name  !!}
+							</div>
+							<div class="id-footera">
+								CNPJ: {!! $investment->Company->present()->cnpjCompany !!}
+							</div>
+
 					</div>
+
 					<div class="assinaturaa">
 						@if($investment->Client->type == 'f')
 							<div class="line-footera">---------------------------------------</div>
