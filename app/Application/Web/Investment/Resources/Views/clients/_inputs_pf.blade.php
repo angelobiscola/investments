@@ -113,18 +113,18 @@
     <div class="col-md-6">
         <select class="form-control" id="physical[marital_status]" name="physical[marital_status]">
               @if(isset($client))
-                <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)" @if($client->Physical->marital_status == 'Solteiro(a)') selected @endif>Solteiro(a)</option>
-                <option id="Casado(a)" name="Casado(a)" value="Casado(a)" @if($client->Physical->marital_status == 'Casado(a)') selected @endif>Casado(a)</option>
-                <option id="Separado(a)" name="Separado(a)" value="Separado(a)" @if($client->Physical->marital_status == 'Separado(a)') selected @endif>Separado(a)</option>
-                <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)" @if($client->Physical->marital_status == 'Divorciado(a)') selected @endif>Divorciado(a)</option>
-                <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)" @if($client->Physical->marital_status == 'Viúvo(a)') selected @endif>Viúvo(a)</option>
+                <option id="solteiro"   name="solteiro(a)" value="solteiro"   @if($client->Physical->marital_status == 'solteiro')   selected @endif>Solteiro(a)</option>
+                <option id="casado"     name="casado"      value="casado"     @if($client->Physical->marital_status == 'casado')     selected @endif>Casado(a)</option>
+                <option id="separado"   name="separado"    value="separado"   @if($client->Physical->marital_status == 'separado')   selected @endif>Separado(a)</option>
+                <option id="divorciado" name="divorciado"  value="divorciado" @if($client->Physical->marital_status == 'divorciado') selected @endif>Divorciado(a)</option>
+                <option id="viúvo"      name="viúvo"       value="viúvo"      @if($client->Physical->marital_status == 'viúvo')      selected @endif>Viúvo(a)</option>
             @else
                 <option name="" value="">Estado Civil</option>
-                <option id="Solteiro(a)" name="Solteiro(a)" value="Solteiro(a)">Solteiro(a)</option>
-                <option id="Casado(a)" name="Casado(a)" value="Casado(a)">Casado(a)</option>
-                <option id="Separado(a)" name="Separado(a)" value="Separado(a)">Separado(a)</option>
-                <option id="Divorciado(a)" name="Divorciado(a)" value="Divorciado(a)">Divorciado(a)</option>
-                <option id="Viúvo(a)" name="Viúvo(a)" value="Viúvo(a)">Viúvo(a)</option>
+                <option id="solteiro"   name="solteiro"   value="solteiro">Solteiro(a)</option>
+                <option id="casado"     name="casado"     value="casado">Casado(a)</option>
+                <option id="separado"   name="separado"   value="separado">Separado(a)</option>
+                <option id="divorciado" name="divorciado" value="divorciado">Divorciado(a)</option>
+                <option id="viúvo"      name="viúvo"      value="viúvo">Viúvo(a)</option>
             @endif
         </select>
 

@@ -44,6 +44,18 @@
         </div>
     </div>
 
+    <div class="form-group{{ $errors->has('location.complement') ? ' has-error' : '' }}">
+        {!! Form::label('complement', 'Complement', ['class' => 'col-md-4 control-label']) !!}
+
+        <div class="col-md-6">
+            {!! Form::text ('location[complement]', null , ['class' => 'form-control', 'id'=>'complement']) !!}
+
+            @if ($errors->has('location.complement'))
+                <span class="help-block"><strong>{{ $errors->first('location.complement') }}</strong></span>
+            @endif
+        </div>
+    </div>
+
     <div class="form-group{{ $errors->has('location.city') ? ' has-error' : '' }}">
         {!! Form::label('city', 'City', ['class' => 'col-md-4 control-label']) !!}
 

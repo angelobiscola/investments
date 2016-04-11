@@ -180,7 +180,7 @@
 							<div class="content">
 								<div class="line"><strong> Emitente   </strong> </div>
 								<div class="line"><strong> Nome :     </strong> {!! $investment->Client->type =='f' ? $investment->Client->name : $investment->Client->Legal->company_name !!} </div>
-								<div class="line"><strong> Endereço : </strong> {!! $investment->Client->Location->present()->addressFull  !!}</div>
+								<div class="line"><strong> Endereço : </strong> {!! $investment->Client->type =='f' ? $investment->Client->Physical->Client->Location->present()->addressFull : $investment->Client->Legal->Client->Location->present()->addressFull  !!}</div>
 								<div class="line">
 									<strong> {!! $investment->Client->type == 'f' ? 'CPF' : 'CNPJ' !!} a sua ordem :  </strong>
 									{!! $investment->Client->type == 'f' ? $investment->Client->Physical->present()->cpfPhysical : $investment->Client->Legal->present()->cnpjLegal !!}

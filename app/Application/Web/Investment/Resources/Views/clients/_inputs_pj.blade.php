@@ -65,18 +65,6 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('legal.email') ? ' has-error' : '' }}">
-    {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
-
-    <div class="col-md-6">
-        {!! Form::text ('legal[email]', null , ['class' => 'form-control', 'id' => 'email']) !!}
-
-        @if ($errors->has('legal.email'))
-            <span class="help-block"><strong>{{ $errors->first('legal.email') }}</strong></span>
-        @endif
-    </div>
-</div>
-
 <div class="form-group{{ $errors->has('legal.site') ? ' has-error' : '' }}">
     {!! Form::label('site', 'Site', ['class' => 'col-md-4 control-label']) !!}
 

@@ -21,6 +21,7 @@ class CreateLocationsTable extends Migration
             $table->string('district')->index();
             $table->string('state')->nullable();
             $table->string('state_abbr');
+            $table->string('complement');
             $table->integer('locationable_id');
             $table->string('locationable_type');
             $table->timestamps();
