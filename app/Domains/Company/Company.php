@@ -56,5 +56,8 @@ class Company extends Model
         return $this->hasMany(Cpr::class);
     }
 
-
+    public function Logo()
+    {
+        return $this->hasOne(Logo::class);
+    }
 }

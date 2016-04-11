@@ -50,3 +50,15 @@ Route::group(['prefix' => 'representatives', 'as' => 'representative.'], functio
     Route::delete('{id}/delete'             ,   ['as' =>'delete'        ,   'uses' => 'CompanyController@removeRepresentative'  ]);
 });
 
+
+Route::group(['prefix' => 'logos', 'as' => 'logo.'], function()
+{
+    Route::get('{id}/create'                ,   ['as' =>'create'                , 'uses' => 'LogoController@create'  ]);
+    Route::post('{id}/upload'               ,   ['as' =>'upload'                , 'uses' => 'LogoController@upload'  ]);
+    Route::get('/download/{id}'             ,   ['as' =>'download'              , 'uses' => 'LogoController@download']);
+    Route::get('{id}/edit'                  ,   ['as' =>'edit'                  , 'uses' => 'LogoController@edit'    ]);
+    Route::put('{id}/update'                ,   ['as' =>'update'                , 'uses' => 'LogoController@update'  ]);
+    Route::delete('{id}/destroy'            ,   ['as' =>'delete'                , 'uses' => 'LogoController@destroy' ]);
+});
+
+

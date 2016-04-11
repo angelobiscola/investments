@@ -62,6 +62,16 @@
 
             @endif
 
+            @if($company->Logo)
+
+                
+                <img src="{!! asset($company->Logo->src.'/'.$company->Logo->file_name) !!}">
+
+
+            @else
+                <a href="{!! route('investment.company.logo.create',$company)!!}"> Add Logomarca </a>
+            @endif
+
         </div>
      </div>
 </div>
