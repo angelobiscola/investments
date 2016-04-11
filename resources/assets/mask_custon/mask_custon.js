@@ -6,6 +6,11 @@ $(document).ready(function(){
     $('.cep').mask('00000-000');
     $('.data').mask('00/00/0000');
 
+    if(!$('.phone').val())
+    {
+        $('.phone').val('+55')
+    }
+
     var SPMaskBehavior = function (val) {
             return val.replace(/\D/g, '').length === 13 ? '+00 - (00) 00000-0000' : '+00 - (00) 0000-00009';
         },
