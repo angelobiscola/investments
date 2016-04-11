@@ -228,8 +228,6 @@
 
             @include('investment::reports._representative_date', ['client' => $c->client, 'investment' => 'Representante'])
 
-            @include('investment::reports._bank', ['client' => $c->Client])
-
             @if($client->Legal->Representatives->count() == 2 and $k == 0)
                 <div class="page-break"></div>
             @endif

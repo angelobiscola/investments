@@ -165,7 +165,7 @@
 				<div id="body-border">
 					<div id="promissoria">
 						<div id="top">
-							<div id="logo"><strong> Logo </strong></div>
+							<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="70px"> </div>
 							<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 							<div id="top-tree-collun">
 								<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
@@ -232,7 +232,7 @@
 
 				<div id="promissoria">
 					<div id="top">
-						<div id="logo"><strong> Logo </strong></div>
+						<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="70px"> </div>
 						<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 						<div id="top-tree-collun">
 							<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
