@@ -19,6 +19,11 @@
     <input type="hidden" id="cpfCookie" value="">
 </div>
 
+@if(isset($client->physical))
+    <a href="{!! route('investment.client.bank.show',$client->id)!!}">Add Bank</a>
+@endif
+
+
 <div class="form-group{{ $errors->has('physical.birth_date') ? ' has-error' : '' }}">
     {!! Form::label('birth_date', 'Birth_date', ['class' => 'col-md-4 control-label']) !!}
 

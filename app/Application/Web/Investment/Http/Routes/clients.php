@@ -33,6 +33,7 @@ Route::group(['prefix' => 'representatives', 'as' => 'representative.'], functio
 Route::group(['prefix' => 'banks', 'as' => 'bank.'], function()
 {
     Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'BankController@show'        ]);
+    Route::get('{id}/create'        ,   ['as' =>'create'                , 'uses' => 'BankController@create'      ]);
     Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'BankController@store'       ]);
     Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'BankController@destroy'     ]);
 

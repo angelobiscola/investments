@@ -9,7 +9,7 @@ class Bank extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name','number','agency','current_account','city','state','client_id'];
+    protected $fillable = ['name','agency','account', 'type', 'city','state','client_id'];
     protected $dates    = ['deleted_at'];
 
     public function Client()
