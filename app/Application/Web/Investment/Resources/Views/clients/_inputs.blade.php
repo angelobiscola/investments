@@ -39,4 +39,3 @@
 <h4>Data Type <b>[{!! $type !!}]</b></h4>
 @include('investment::clients._inputs_p'.$type)
 
-
