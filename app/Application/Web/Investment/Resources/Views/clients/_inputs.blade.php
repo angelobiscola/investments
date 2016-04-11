@@ -36,6 +36,11 @@
     </div>
 </div>
 
+@if(isset($client))
+    <a href="{!! route('investment.client.bank.show',$client->id)!!}">Add Bank</a>
+@endif
+
+
 <h4>Data Type <b>[{!! $type !!}]</b></h4>
 @include('investment::clients._inputs_p'.$type)
 
