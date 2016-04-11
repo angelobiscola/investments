@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/bower_components
+/public/
 
 /storage/debugbar
 /storage/database.sqlite
