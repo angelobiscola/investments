@@ -11,17 +11,47 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">InvesT: Add Logo </div>
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
+                       @if(is_null($logo))
                        {!! Form::open(['route' => ['investment.company.logo.upload',$id], 'class' => 'form-horizontal', 'role' => 'form','id'=> 'jquery-filer', 'files' =>true ] ) !!}
 
                             <input type="file" name="file" id="filer_input">
 
                         {!! Form::close() !!}
+
+                        @else
+                        <div class="jFiler-items jFiler-row">
+                            <ul class="jFiler-items-list jFiler-items-grid">
+                                <li class="jFiler-item" data-jfiler-index="1">
+                                    <div class="jFiler-item-container">
+                                        <div class="jFiler-item-inner">
+                                            <div class="jFiler-item-thumb">
+                                                <div class="jFiler-item-status"></div>
+                                                    <div class="jFiler-item-info">
+                                                     <span class="jFiler-item-title"><b title="{!! $logo->file_name !!}">{!! $logo->file_name !!} </b></span>
+                                                    </div>
+                                                    <div class="jFiler-item-thumb-image">
+                                                        <img src="{!! asset($logo->src.'/'.$logo->file_name) !!}" draggable="false">
+                                                    </div>
+                                            </div>
+                                            <div class="jFiler-item-assets jFiler-row">
+                                                <ul class="list-inline pull-left">
+                                                    <li>
+                                                        <a href="{!! route('investment.company.logo.download', $logo) !!}" class="icon-jfi-file-image jfi-file-ext-png"></a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-inline pull-right">
+                                                    <li>
+                                                        <a href="{!! route('investment.company.logo.delete', $logo) !!}" data-method="delete" class="icon-jfi-trash jFiler-item-trash-action"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
+
 
                     </div>
                 </div>
@@ -42,10 +72,15 @@
             $form = $('#jquery-filer');
 
             $('#filer_input').filer({
+                changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>',
                 maxSize: 1,
                 extensions: ['png'],
-                changeInput: true,
+                disableImageResize: false,
+                imageMaxWidth: 548,
+                imageMaxHeight: 800,
+
                 showThumbs: true,
+                theme: "dragdropbox",
 
                 progressBar: '<div class="bar"></div>',
                 itemAppendToEnd: false,
@@ -55,6 +90,12 @@
                     item: '.jFiler-item',
                     progressBar: '.bar',
                     remove: '.jFiler-item-trash-action'
+                },
+
+                dragDrop: {
+                    dragEnter: null,
+                    dragLeave: null,
+                    drop: null,
                 },
 
                 uploadFile: {
@@ -70,7 +111,7 @@
                             $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success (seconds...)</div>").hide().appendTo(parent).fadeIn("slow");
                         });
 
-                        setTimeout(window.location.href =lastUrl, '1000')
+                        setTimeout(location.reload(), '1000')
                     },
                     error: function(el){
 

@@ -30,7 +30,8 @@ class LogoController extends BaseController
 
     public function create($id)
     {
-        return view('investment::companies.logos.create',compact('id'));
+        $logo = $this->logo->whereCompanyId($id)->first();
+        return view('investment::companies.logos.create',compact('id','logo'));
     }
 
     public function upload($id,Request $request)
@@ -75,7 +76,8 @@ class LogoController extends BaseController
 
     public function destroy($id)
     {
-       $this->receipt->find($id)->forceDelete();
+       $this->logo->find($id)->forceDelete();
+       return back()->with('status','Excluido');
     }
 }
 

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">InvesT: Company</div>
+                <div class="panel-heading">InvesT: Company    <a href="{!! route('investment.company.logo.create',$company)!!}"><i class="pull-right glyphicon glyphicon-picture"></i></a></div>
                 <div class="panel-body">
 
                     {!! Form::model(['company' => $company, 'location' => $company->Location ], ['route' => ['investment.company.update', $company], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
@@ -60,16 +60,6 @@
 
                 <a href="{!! route('investment.company.representative.create',$company)!!}"> Add Representante </a>
 
-            @endif
-
-            @if($company->Logo)
-
-                
-                <img src="{!! asset($company->Logo->src.'/'.$company->Logo->file_name) !!}">
-
-
-            @else
-                <a href="{!! route('investment.company.logo.create',$company)!!}"> Add Logomarca </a>
             @endif
 
         </div>
