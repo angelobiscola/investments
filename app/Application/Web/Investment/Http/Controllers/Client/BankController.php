@@ -4,15 +4,15 @@ namespace App\Application\Web\Investment\Http\Controllers\Client;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Client\Bank;
 use App\Domains\Client\Client;
-use Illuminate\Http\Request;
+use App\Application\Web\Investment\Http\Requests\Client\BankRequest;
 
 class BankController extends BaseController
 {
-    protected $client;
+    protected $bank;
 
-    public function __construct(Client $client)
+    public function __construct(Bank $bank)
     {
-        $this->client = $client;
+        $this->bank = $bank;
     }
 
     public function create($id)
@@ -20,12 +20,12 @@ class BankController extends BaseController
         return view('investment::clients.banks.create',compact('id'));
     }
 
-    public function store($id,Request $request)
+    public function store($id, BankRequest $request, Client $client)
     {
-        $client = $this->client->find($id);
-
         try
         {
+            $client = $client->findOrFail($id);
+
             $client->Banks()->create($request->input('bank'));
             return back()->with('status', 'Adicionado');
         }
@@ -35,9 +35,30 @@ class BankController extends BaseController
         }
     }
 
+    public function edit($id)
+    {
+
+        $bank = $this->bank->find($id);
+        return view('investment::clients.banks.edit', compact('bank'));
+    }
+
+    public function update($id, BankRequest $request)
+    {
+        try
+        {
+            $bank = $this->bank->find($id);
+            $bank->update($request->input('bank'));
+            return back()->with('status', 'Edit');
+        }
+        catch(\Exception $e)
+        {
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
+    }
+
     public function show($id)
     {
-        $banks = $this->client->find($id)->Banks;
+        $banks = $this->bank->all();
         try
         {
             return view('investment::clients.banks.index',compact('banks', 'id'));

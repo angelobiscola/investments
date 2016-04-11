@@ -67,14 +67,6 @@
             <div class="fild-title"> Orgão emissor </div>
             <div class="fild-body"> {!! $client->Physical->organ_issuer !!} </div>
         </div>
-        <div class="size">
-            <div class="fild-title"> UF </div>
-            <div class="fild-body"> RS  não tem </div>
-        </div>
-        <div class="size">
-            <div class="fild-title"> Data Emissão </div>
-            <div class="fild-body"> 01/10/2006 não tem </div>
-        </div>
     </div>
 </div>
 
@@ -90,7 +82,7 @@
 </div>
 
 <div class="content">
-    <div class="title"><strong> Endereço </strong></div>
+    <div class="title"> Endereço </div>
 
     <div class="field">
         <div class="size">

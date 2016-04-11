@@ -25,17 +25,19 @@ Route::group(['prefix' => 'investments', 'as' => 'investment.'], function()
 
 Route::group(['prefix' => 'representatives', 'as' => 'representative.'], function()
 {
-    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'RepresentativeController@show'        ]);
-    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'RepresentativeController@store'       ]);
-    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'RepresentativeController@destroy'     ]);
+    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'RepresentativeController@show'         ]);
+    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'RepresentativeController@store'        ]);
+    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'RepresentativeController@destroy'      ]);
 });
 
 Route::group(['prefix' => 'banks', 'as' => 'bank.'], function()
 {
-    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'BankController@show'        ]);
-    Route::get('{id}/create'        ,   ['as' =>'create'                , 'uses' => 'BankController@create'      ]);
-    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'BankController@store'       ]);
-    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'BankController@destroy'     ]);
+    Route::get('/show/{id}'         ,   ['as' =>'show'                  , 'uses' => 'BankController@show'                   ]);
+    Route::get('{id}/create'        ,   ['as' =>'create'                , 'uses' => 'BankController@create'                 ]);
+    Route::get('{id}/edit'          ,   ['as' =>'edit'                  , 'uses' => 'BankController@edit'                   ]);
+    Route::post('{id}/store'        ,   ['as' =>'store'                 , 'uses' => 'BankController@store'                  ]);
+    Route::delete('{id}/delete'     ,   ['as' =>'delete'                , 'uses' => 'BankController@destroy'                ]);
+    Route::put('{id}/update'       ,   ['as' =>'update'                , 'uses' => 'BankController@update'                 ]);
 
 });
 
