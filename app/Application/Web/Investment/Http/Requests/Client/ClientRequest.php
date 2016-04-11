@@ -24,7 +24,7 @@ class ClientRequest extends Request
     public function rules()
     {
         $rules    =  [ 'client.name'               => 'required|string'       ,
-                       'client.phone'              => 'required|string'       ,
+                       'client.phone'              => 'required|string|min:20|max:21'                 ,
                        'client.email'              => 'required|email|unique:clients,email,'.$this->id,
                        'location.address'          => 'required|string'       ,
                        'location.number'           => 'required|integer'      ,
@@ -42,7 +42,7 @@ class ClientRequest extends Request
                        'physical.profession'       => 'required|string'       ,
                        'physical.identity'         => 'required|string'       ,
                        'physical.organ_issuer'     => 'required|string'       ,
-                       'physical.cell_phone'       => 'required|string'       ,
+                       'physical.cell_phone'       => 'required|string|min:20|max:21',
                        'physical.natural'          => 'required|string'       ,
                        'physical.genre'            => 'required|alpha'        ,
                     ];
