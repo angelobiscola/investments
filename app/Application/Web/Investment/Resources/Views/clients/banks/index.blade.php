@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Banks <a href="{!! route('investment.client.bank.create',[$id]) !!}" <i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading">IvesT: Banks <a href="{!! route('investment.client.bank.create',[$id]) !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a></div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
@@ -28,7 +28,8 @@
                                     <td>{!! $bank->type    !!}</td>
                                     <td>{!! $bank->city    !!}</td>
                                     <td>
-                                       <a href="{!! route('investment.client.bank.delete', $bank) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{!! route('investment.client.bank.edit', $bank) !!}" ><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="{!! route('investment.client.bank.delete', $bank) !!}" data-method="delete"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

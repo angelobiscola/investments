@@ -138,6 +138,7 @@
     @if($client->type == 'f')
 
         @include('investment::reports._representative_date', ['client' => $client, 'investment' => 'Investidor'])
+        @include('investment::reports._bank', ['client' => $client])
 
     @else
 
@@ -175,7 +176,7 @@
         <br><br>
 
         <div class="content">
-            <div class="title"><strong> Endereço </strong></div>
+            <div class="title"> Endereço </div>
 
             <div class="field">
                 <div class="size">
@@ -193,7 +194,7 @@
                 </div>
                 <div class="size">
                     <div class="fild-title"> Complemento </div>
-                    <div class="fild-body"> casa nao tem </div>
+                    <div class="fild-body"> {!! $client->Location->complement !!} </div>
                 </div>
                 <div class="size">
                     <div class="fild-title"> Bairro </div>
@@ -221,9 +222,13 @@
 
         <br><br>
 
+        @include('investment::reports._bank', ['client' => $client])
+
         @foreach($client->Legal->Representatives as $k=>$c)
 
             @include('investment::reports._representative_date', ['client' => $c->client, 'investment' => 'Representante'])
+
+            @include('investment::reports._bank', ['client' => $c->Client])
 
             @if($client->Legal->Representatives->count() == 2 and $k == 0)
                 <div class="page-break"></div>
@@ -232,40 +237,6 @@
         @endforeach
 
     @endif
-
-    <div class="content">
-        <div class="title"><strong> Dados Da Conta </strong></div>
-
-        <div class="field">
-            <div class="size">
-                <div class="fild-title"> Cod Agência </div>
-                <div class="fild-body"> 123 </div>
-            </div>
-            <div class="size">
-                <div class="fild-title"> Nome Agência </div>
-                <div class="fild-body"> Agência </div>
-            </div>
-            <div class="size">
-                <div class="fild-title"> Conta Conjunta </div>
-                <div class="fild-body"> Sim / Nao  </div>
-            </div>
-            <div class="size">
-                <div class="fild-title"> Cod Op. </div>
-                <div class="fild-body"> 45 </div>
-            </div>
-            <div class="size">
-                <div class="fild-title"> N° Conta Corrente </div>
-                <div class="fild-body"> 98765 </div>
-            </div>
-            <div class="size">
-                <div class="fild-title"> N° DV </div>
-                <div class="fild-body"> 1 </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-    <br><br>
 
     <div id="dataa2"> Por ser verdade, assino e dou fé a presente Ficha. Curitiba {!! dateLocate() !!} </div>
     <div id="footera2">
@@ -300,7 +271,7 @@
 
 <script>
 
-   window.print();
+   //window.print();
 
 </script>
 
