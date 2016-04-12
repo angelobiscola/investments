@@ -4,7 +4,7 @@
     <div class="form-group{{ $errors->has('prospect_id') ? ' has-error' : '' }}">
 @endif
 
-            {!! Form::label('Prospect', 'Prospect', ['class' => 'col-md-4 control-label']) !!}
+            {!! Form::label('Prospect', 'Prospecto *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" name="bond[prospect_id]">
@@ -31,7 +31,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('bond.name') ? ' has-error' : '' }}">
-    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Name', 'Nome *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('bond[name]', null, ['class' => 'form-control']) !!}
@@ -43,7 +43,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('bond.total') ? ' has-error' : '' }}">
-    {!! Form::label('Total', 'Total', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Total', 'Total *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
@@ -60,7 +60,7 @@
 
 
 <div class="form-group{{ $errors->has('bond.quota') ? ' has-error' : '' }}">
-    {!! Form::label('Quota', 'Quota', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Quota', 'Quota *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('bond[quota]', null , ['class' => 'form-control']) !!}
@@ -72,7 +72,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('bond.rate') ? ' has-error' : '' }}">
-    {!! Form::label('Rate', 'Rate', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Rate', 'Taxa *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('bond[rate]', null , ['class' => 'form-control']) !!}
@@ -84,7 +84,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('bond.mode_rate') ? ' has-error' : '' }}">
-    {!! Form::label('Mode Rate', 'Mode Rate', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Mode Rate', 'Tipo Taxa *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" name="bond[rate_mode]" id="bond[rate_mode]">
@@ -112,7 +112,7 @@
 
 
 <div class="form-group{{ $errors->has('bond.opportunity') ? ' has-error' : '' }}">
-    {!! Form::label('Opportunity Expire', 'Opportunity Expire', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Opportunity Expire', 'Vencimento *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
 

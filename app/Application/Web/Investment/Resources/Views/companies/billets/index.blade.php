@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Boleto(s)  <a href="{!! route('investment.company.billet.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading">Boleto(s)  <a href="{!! route('investment.company.billet.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
-                                <th>Name</th>
-                                <th>Template</th>
-                                <th>Created</th>
-                                <th>Updated</th>
+                                <th>Nome</th>
+                                <th>Modelo</th>
+                                <th>Criado</th>
+                                <th>Modificado</th>
                                 <th>#</th>
                             </thead>
                             <tbody>

@@ -5,18 +5,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: My Bonds  <a href="{!! route('investment.company.bond.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading">Títulos  <a href="{!! route('investment.company.bond.create')!!}" ><i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
 
                     <div class="panel-body">
 
                         <table class="table table-hover">
                             <thead>
-                                <th>Prospect</th>
+                                <th>Prospecto</th>
                                 <th>Nome</th>
                                 <th>Total</th>
                                 <th>Quota</th>
-                                <th>Rate</th>
-                                <th>Expire</th>
+                                <th>Taxa</th>
+                                <th>Vencimento</th>
                                 <th>#</th>
                             </thead>
                             <tbody>

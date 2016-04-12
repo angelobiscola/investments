@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: My Investors </div>
+                    <div class="panel-heading"><a href="{!!route('investment.company.bond.index') !!}"> Título </a> | Investidores </div>
 
                     <div class="panel-body">
 
@@ -15,9 +15,9 @@
                                 <th>ID</th>
                                 <th>Valor</th>
                                 <th>Status</th>
-                                <th>Client</th>
-                                <th>User</th>
-                                <th>Company</th>
+                                <th>Cliente</th>
+                                <th>Usuário</th>
+                                <th>Compania</th>
                                 <th>#</th>
                                 </thead>
                                 <tbody>

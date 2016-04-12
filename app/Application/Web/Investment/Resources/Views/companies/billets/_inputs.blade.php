@@ -1,7 +1,7 @@
 @inject('templates', 'App\Domains\Billet\Template' )
 
 <div class="form-group{{ $errors->has('billet.name') ? ' has-error' : '' }}">
-    {!! Form::label('name', 'name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('name', 'Nome', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[name]', null , ['class' => 'form-control', 'id' => 'name']) !!}
         Nome Boleto.
@@ -13,7 +13,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.agency') ? ' has-error' : '' }}">
-    {!! Form::label('agencia', 'agency', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('agencia', 'Agência', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[agency]', null , ['class' => 'form-control', 'id' => 'agency']) !!}
         Num da agencia, sem digito
@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.agency_dv') ? ' has-error' : '' }}">
-    {!! Form::label('agency_dv', 'agency_dv', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('agency_dv', 'Agência_DV', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('billet[agency_dv]', null , ['class' => 'form-control']) !!}
@@ -39,7 +39,7 @@
 
 <div class="form-group{{ $errors->has('billet.account') ? ' has-error' : '' }}"
         >
-    {!! Form::label('account', 'account', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('account', 'Conta', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[account]', null , ['class' => 'form-control']) !!}
         Num da conta, sem digito
@@ -51,7 +51,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.account_dv') ? ' has-error' : '' }}">
-    {!! Form::label('account_dv', 'account_dv', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('account_dv', 'Conta_DV', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[account_dv]', null , ['class' => 'form-control']) !!}
         Digito conta
@@ -63,7 +63,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.wallet') ? ' has-error' : '' }}">
-    {!! Form::label('wallet', 'wallet', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('wallet', 'Carteira', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[wallet]', null , ['class' => 'form-control']) !!}
         Código da Carteira: pode ser 06 ou 03
@@ -75,7 +75,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.identification') ? ' has-error' : '' }}">
-    {!! Form::label('idetification', 'identification', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('idetification', 'Identificação', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('billet[identification]', null , ['class' => 'form-control']) !!}
         Identificação
@@ -87,7 +87,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('billet.contract') ? ' has-error' : '' }}">
-    {!! Form::label('contract', 'contract', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('contract', 'Contrato', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('billet[contract]', null , ['class' => 'form-control']) !!}
@@ -105,7 +105,7 @@
     <div class="form-group {{ $errors->has('billet.template_id') ? ' has-error' : '' }}">
 @endif
 
-    {!! Form::label('template_id', 'template_id', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('template_id', 'Modelo_ID', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" id="billet[template_id]" name="billet[template_id]">

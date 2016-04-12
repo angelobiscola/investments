@@ -1,5 +1,5 @@
 <div class="form-group{{ $errors->has('prospect.name') ? ' has-error' : '' }}">
-    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Name', 'Nome', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('prospect[name]',null, ['class' => 'form-control']) !!}
@@ -12,7 +12,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('prospect.description') ? ' has-error' : '' }}">
-    {!! Form::label('Description', 'Description', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Description', 'Descrição', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('prospect[description]', null, ['class' => 'form-control']) !!}
