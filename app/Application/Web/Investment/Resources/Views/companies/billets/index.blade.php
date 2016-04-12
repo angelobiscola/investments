@@ -18,7 +18,7 @@
                             <tbody>
                             @foreach($billets  as $billet)
                                 <tr>
-                                    <td><a href="{!! route('investment.company.billet.show', $billet) !!}"> {!! $billet->name!!} </a></td>
+                                    <td>{!! $billet->name!!} </td>
                                     <td>{!! $billet->present()->relationship('template','name')!!}</td>
                                     <td>{!! $billet->present()->createdAt !!}</td>
                                     <td>{!! $billet->present()->updatedAt !!}</td>

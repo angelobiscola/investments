@@ -5,7 +5,7 @@
 
 
 <div class="form-group col-lg-12">
-    {!! Form::label('Client', 'Client', array('class' => 'col-lg-2 control-label')) !!}
+    {!! Form::label('Client', 'Cliente *', array('class' => 'col-lg-2 control-label')) !!}
     <div class="col-lg-9">
         <select name='client_id' class="form-control js-example-basic-hide-search"></select>
     </div>

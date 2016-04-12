@@ -49,7 +49,6 @@
         <div class="input-group">
             <div class="input-group-addon">$</div>
             {!! Form::text ('bond[total]', null, ['class' => 'form-control']) !!}
-            <div class="input-group-addon">.00</div>
         </div>
 
         @if ($errors->has('bond.total'))
@@ -112,7 +111,7 @@
 
 
 <div class="form-group{{ $errors->has('bond.opportunity') ? ' has-error' : '' }}">
-    {!! Form::label('Opportunity Expire', 'Vencimento *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Opportunity Expire', 'Expira *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
 

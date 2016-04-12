@@ -41,4 +41,9 @@ class InvestmentPresenter extends  AbstractPresenter
                 break;
         }
     }
+
+    public function maskTotal($n =2)
+    {
+        return number_format($this->value, $n, ',', '.');
+    }
 }

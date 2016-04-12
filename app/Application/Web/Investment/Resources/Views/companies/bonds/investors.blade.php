@@ -16,7 +16,6 @@
                                 <th>Valor</th>
                                 <th>Status</th>
                                 <th>Cliente</th>
-                                <th>Usuário</th>
                                 <th>Compania</th>
                                 <th>#</th>
                                 </thead>
@@ -24,10 +23,9 @@
                                 @foreach($investors  as $investor)
                                     <tr>
                                         <td> {!! $investor->id !!} </td>
-                                        <td> {!! $investor->value !!} </td>
-                                        <td> {!! $investor->status !!} </td>
+                                        <td> {!! $investor->present()->maskTotal  !!} </td>
+                                        <td> {!! $investor->present()->nameStatus !!} </td>
                                         <td> {!! $investor->client_id ? $investor->Client->name : '' !!} </td>
-                                        <td> {!! $investor->user_id  !!} </td>
                                         <td> {!! $investor->Company ? $investor->Company->name : '' !!} </td>
                                         <td></td>
                                     </tr>

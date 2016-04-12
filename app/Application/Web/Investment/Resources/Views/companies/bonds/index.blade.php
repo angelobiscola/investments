@@ -16,7 +16,7 @@
                                 <th>Total</th>
                                 <th>Quota</th>
                                 <th>Taxa</th>
-                                <th>Vencimento</th>
+                                <th>Expira</th>
                                 <th>#</th>
                             </thead>
                             <tbody>
@@ -27,7 +27,7 @@
                                     <td>{!! $bond->present()->maskTotal    !!}</td>
                                     <td>{!! $bond->quota !!} = {!! $bond->present()->quotaValue !!}</td>
                                     <td>{!! $bond->rate !!} % {!! $bond->present()->rateMode !!}</td>
-                                    <td>{!! $bond->present()->expire !!} Days</td>
+                                    <td>{!! $bond->present()->expire  <= 0 ? $bond->present()->expire : $bond->present()->expire.' Dias' !!}  </td>
                                     <td>
                                         @if(!$bond->Investments->count())
                                             <a href="{!! route('investment.company.bond.edit', $bond) !!}" ><i class="glyphicon glyphicon-edit"></i></a>

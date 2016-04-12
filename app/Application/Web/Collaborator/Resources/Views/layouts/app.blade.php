@@ -46,7 +46,7 @@
                 <li><a href="{{ url('/collaborator') }}">Home</a></li>
 
                 @if (!Auth::guard('collaborator')->guest())
-                    <li><a href="{{ url('/investment') }}">Investimentos</a></li>
+                    <li><a href="{{ url('/investment') }}">InvesTT</a></li>
                 @endif
             </ul>
 
