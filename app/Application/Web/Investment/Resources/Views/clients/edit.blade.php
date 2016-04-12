@@ -6,7 +6,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.client.index') !!}"> Cliente </a> | Editar</div>
+                    <div class="panel-heading">
+                        <a href="{!! route('investment.client.index') !!}"> Clientes </a> | Editar
+                        @if($client->type == 'j')
+                        <a href="{!! route('investment.client.bank.show',$client->id)!!}"><i class="pull-right glyphicon glyphicon-piggy-bank"></i></a>
+                        <a href="{!! route('investment.client.representative.show',$client->id)!!}"><i class="pull-right glyphicon glyphicon-user"></i></a>
+                        @endif
+                    </div>
                     <div class="panel-body">
 
 
