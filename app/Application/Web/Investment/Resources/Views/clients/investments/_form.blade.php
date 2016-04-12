@@ -9,7 +9,7 @@
         <table class="table table-hover">
             <thead>
             <th>Quota</th>
-            <th>Value</th>
+            <th>Valor</th>
             </thead>
             <tbody>
             @for ($i = 0; $i < $bond->quota; $i++)
@@ -23,7 +23,7 @@
 
 
         <div class="form-group{{ $errors->has('date_payment') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Dead line</label>
+            <label class="col-md-4 control-label">Vencimento</label>
 
             <div class="col-md-6">
                 {!! Form::date('investment[date_payment]', \Carbon\Carbon::now()->addDay(1), ['class' => 'form-control']) !!}
@@ -36,7 +36,7 @@
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             <button type="submit" class="btn btn-primary">
-                <i class="fa fa-btn fa-check"></i>Save
+                <i class="fa fa-btn fa-check"></i>Salvar
             </button>
         </div>
     </div>

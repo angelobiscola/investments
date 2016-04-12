@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">InvesT: New Investment</div>
+                <div class="panel-heading"><a href="{!! \URL::previous() !!}"> Títulos Disponíveis </a> | Novo Investimento</div>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">

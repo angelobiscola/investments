@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Investments Details [ {!! $investment->Bond->name !!} ]</div>
+                    <div class="panel-heading"><a href="{!! route('investment.client.investments', [$investment->client_id]) !!}"> Investmentos </a> | Detalhes do Investimento {!! $investment->Bond->name !!} </div>
                         <div class="panel-body">
 
                             <table class="table table-hover">
