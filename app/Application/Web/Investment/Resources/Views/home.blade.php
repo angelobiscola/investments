@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome INVESTMENT System  <a href="{!! route('investment.company.edit',$company->id)!!}" ><i class="pull-right glyphicon glyphicon-edit"></i></a> </div>
+                    <div class="panel-heading">Bem Vindo ao Sistema de Investimento  <a href="{!! route('investment.company.edit',$company->id)!!}" ><i class="pull-right glyphicon glyphicon-edit"></i></a> </div>
                         <div class="panel-body">
                             @if($company )
                                 <table class="table table-hover">
@@ -35,9 +35,9 @@
             </div>
 
         <ol class="breadcrumb">
-            <li><a href="{!! route('investment.company.billet.index')!!}">Billets</a></li>
-            <li><a href="{!! route('investment.company.bond.index')!!}">Bonds</a></li>
-            <li><a href="{!! route('investment.company.prospect.index')!!}">Prospect</a></li>
+            <li><a href="{!! route('investment.company.billet.index')!!}">Boletos</a></li>
+            <li><a href="{!! route('investment.company.bond.index')!!}">Títulos</a></li>
+            <li><a href="{!! route('investment.company.prospect.index')!!}">Prospecto</a></li>
         </ol>
 
         </div>

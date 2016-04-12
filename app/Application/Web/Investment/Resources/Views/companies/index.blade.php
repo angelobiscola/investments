@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        IvesTT: Companias  <a href="{!! route('investment.company.create') !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a>
+                        Companias  <a href="{!! route('investment.company.create') !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-hover">

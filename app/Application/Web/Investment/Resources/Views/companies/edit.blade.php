@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">InvesT: Company    <a href="{!! route('investment.company.logo.create',$company)!!}"><i class="pull-right glyphicon glyphicon-picture"></i></a></div>
+                <div class="panel-heading">Editar - Compania    <a href="{!! route('investment.company.logo.create',$company)!!}"><i class="pull-right glyphicon glyphicon-picture"></i></a></div>
                 <div class="panel-body">
 
                     {!! Form::model(['company' => $company, 'location' => $company->Location ], ['route' => ['investment.company.update', $company], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-check"></i>Edit
+                                    <i class="fa fa-btn fa-check"></i>Editar
                                 </button>
                             </div>
                         </div>
@@ -28,16 +28,15 @@
             </div>
 
             @if($company->Representatives->count())
-                Representante
-                <a href="{!! route('investment.company.representative.create',$company)!!}">Add Representante</a>
+                <a href="{!! route('investment.company.representative.create',$company)!!}">Adicionar Representante</a>
                 <table class="table table-hover">
 
                     <thead>
-                    <th>Code</th>
-                    <th>Name</th>
+                    <th>Código</th>
+                    <th>Nome</th>
                     <th>Cpf</th>
-                    <th>Created</th>
-                    <th>Updated</th>
+                    <th>Criado</th>
+                    <th>Modificado</th>
                     <th>#</th>
                     </thead>
                     <tbody>

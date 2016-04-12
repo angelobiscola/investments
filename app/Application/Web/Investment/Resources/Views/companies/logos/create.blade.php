@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">InvesT: Add Logo </div>
+                    <div class="panel-heading"> Adicionar Logo </div>
                     <div class="panel-body">
                        @if(is_null($logo))
                        {!! Form::open(['route' => ['investment.company.logo.upload',$id], 'class' => 'form-horizontal', 'role' => 'form','id'=> 'jquery-filer', 'files' =>true ] ) !!}

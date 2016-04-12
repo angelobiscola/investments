@@ -14,7 +14,7 @@ class Company extends Model
 {
     use SoftDeletes,PresentableTrait;
 
-    protected $fillable = ['name','company_name','cnpj','cnae_principal', 'phone', 'email'];
+    protected $fillable = ['name','company_name','cnpj','cnae_principal', 'cnae_secondary', 'phone', 'email'];
     protected $dates    = ['deleted_at'];
     protected $presenter   = CompanyPresenter::class;
 

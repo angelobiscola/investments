@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('company_name')->unique();
             $table->string('cnpj')->unique();
             $table->string('cnae_principal');
-            $table->string('cnae_secundary');
+            $table->string('cnae_secondary');
             $table->string('phone');
             $table->string('site')->nullable();
             $table->string('email')->unique();

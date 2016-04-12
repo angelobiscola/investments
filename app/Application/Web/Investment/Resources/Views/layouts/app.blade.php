@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Investments</title>
+    <title>InvesTT</title>
 
     @section('css')
     <!-- Fonts -->
@@ -49,7 +49,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 @if (!Auth::guard('collaborator')->guest())
-                    <li><a href="{{ url('/investment/client') }}">Clients</a></li>
+                    <li><a href="{{ url('/investment/client') }}">Clientes</a></li>
                     <li><a href="{{ url('/investment/cpr') }}">CPR</a></li>
                 @endif
             </ul>
@@ -66,7 +66,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('collaborator.home.company') }}"><i class="glyphicon glyphicon glyphicon-sort"></i>Change Company</a></li>
+                            <li><a href="{{ route('collaborator.home.company') }}"><i class="glyphicon glyphicon glyphicon-sort"></i> Trocar Compania</a></li>
                             <li><a href="{{ route('collaborator.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
 
