@@ -61,7 +61,7 @@ return [
     'numeric'              => 'O campo :attribute deverá conter um valor numérico.',
     'present'              => 'O campo :attribute deverá estar presente.',
     'regex'                => 'O formato do valor para o campo :attribute é inválido.',
-    'required'             => 'O campo :attribute é obrigatório.',
+    'required'             => 'Campo obrigatório.',
     'required_if'          => 'O campo :attribute é obrigatório quando o valor do campo :other é igual a :value.',
     'required_unless'      => 'O campo :attribute é obrigatório a menos que :other esteja presente em :values.',
     'required_with'        => 'O campo :attribute é obrigatório quando :values está presente.',
@@ -79,6 +79,7 @@ return [
     'timezone'             => 'O campo :attribute deverá ter um fuso horário válido.',
     'unique'               => 'O valor indicado para o campo :attribute já se encontra utilizado.',
     'url'                  => 'O formato do URL indicado para o campo :attribute é inválido.',
+    'cnpj'                 => 'CNPJ invalido',
 
     /*
     |--------------------------------------------------------------------------
