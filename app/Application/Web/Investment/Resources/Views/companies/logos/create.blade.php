@@ -76,8 +76,8 @@
                 maxSize: 1,
                 extensions: ['png'],
                 disableImageResize: false,
-                imageMaxWidth: 548,
-                imageMaxHeight: 800,
+                imageMaxWidth: 150,
+                imageMaxHeight: 150,
 
                 showThumbs: true,
                 theme: "dragdropbox",

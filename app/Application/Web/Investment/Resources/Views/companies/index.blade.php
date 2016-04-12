@@ -6,13 +6,13 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        IvesT: Companies  <a href="{!! route('investment.company.create') !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a>
+                        IvesTT: Companias  <a href="{!! route('investment.company.create') !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
                                 <th></th>
-                                <th>Name</th>
+                                <th>Nome</th>
                                 <th>CNPJ</th>
                                 <th>Created</th>
                                 <th>Updated</th>
