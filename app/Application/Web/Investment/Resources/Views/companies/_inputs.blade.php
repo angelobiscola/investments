@@ -53,7 +53,7 @@
 
 
 <div class="form-group{{ $errors->has('company.company_name') ? ' has-error' : '' }}">
-    {!! Form::label('company_name', 'Nome da Compania *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('company_name', 'Rasao Social *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[company_name]', null , ['class' => 'form-control', 'id' => 'company_name']) !!}
@@ -65,7 +65,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('company.cnae_principal') ? ' has-error' : '' }}">
-    {!! Form::label('cnae_principal', 'cnae_principal *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('cnae_principal', 'CNAE Principal *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[cnae_principal]', null , ['class' => 'form-control', 'id' => 'cnae_principal']) !!}
@@ -77,7 +77,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('company.cnae_principal') ? ' has-error' : '' }}">
-    {!! Form::label('cnae_secondary', 'cnae_secondary *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('cnae_secondary', 'CNAE Secondario', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('company[cnae_secondary]', null , ['class' => 'form-control', 'id' => 'cnae_secondary']) !!}
