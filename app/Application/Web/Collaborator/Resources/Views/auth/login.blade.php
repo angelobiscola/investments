@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">collaborator: Login</div>
+                    <div class="panel-heading">Colaborador : Login</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('collaborator.auth.login') }}">
                             {!! csrf_field() !!}
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Password</label>
+                                <label class="col-md-4 control-label">Senha</label>
 
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name="password">
@@ -42,7 +42,7 @@
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember">Remember Me
+                                            <input type="checkbox" name="remember">Lembrar Senha
                                         </label>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                         <i class="fa fa-btn fa-sign-in"></i>Login
                                     </button>
 
-                                    <a class="btn btn-link" href="{{ route('collaborator.auth.password.reset') }}">Forgot Your Password?</a>
+                                    <a class="btn btn-link" href="{{ route('collaborator.auth.password.reset') }}">Esqueceu sua senha ?</a>
 
                                 </div>
                             </div>
