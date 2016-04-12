@@ -1,5 +1,5 @@
 <div class="form-group{{ $errors->has('location.zip_code') ? ' has-error' : '' }}">
-    {!! Form::label('zip_code', 'Zip_code', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('zip_code', 'Cep *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
