@@ -81,7 +81,8 @@
     @parent
     <script>
         $(function() {
-            $("#consultarCNPJ").click(function() {
+            $("#consultarCNPJ").click(function()
+            {
                 var btn = $(this);
                 var old = btn.html();
                 var param = {
@@ -94,29 +95,36 @@
 
                 btn.html('Aguarde! Consultando..');
 
-                $.get("/investment/apis/cnpj/", param, function(json) {
+                $.get("/investment/apis/cnpj/", param, function(json)
+                {
+                    console.log(json);
+                })
+                .done(function(json)
+                {
+                    $('#name').val(json.nome_fantasia);
+                    $('#company_name').val(json.razao_social);
+                    $('#cnae_principal').val(json.cnae_principal);
+                    $('#phone').val(json.telefone);
+                    $('#email').val(json.email);
 
-                    if (json.code === 0) {
+                    //location
+                    $('#zip_code').val(json.cep);
+                    $('#address').val(json.logradouro);
+                    $('#district').val(json.bairro);
+                    $('#city').val(json.cidade);
+                    $('#number').val(json.numero);
+                    $('#state_abbr').val(json.uf);
 
-                        $('#name').val(json.nome_fantasia);
-                        $('#company_name').val(json.razao_social);
-                        $('#cnae_principal').val(json.cnae_principal);
-                        $('#phone').val(json.telefone);
-                        $('#email').val(json.email);
-
-                        //location
-                        $('#zip_code').val(json.cep);
-                        $('#address').val(json.logradouro);
-                        $('#district').val(json.bairro);
-                        $('#city').val(json.cidade);
-                        $('#number').val(json.numero);
-                        $('#state_abbr').val(json.uf);
-
-                    } else
-                        alert(json);
                     btn.html(old);
                     $('#captchaCNPJ').modal('hide');
-                }, "json");
+
+                })
+                .fail(function(json)
+                {
+                    alert(json.responseText);
+                    btn.html(old);
+                    $('#captchaCNPJ').modal('hide');
+                });
             });
 
             $('#captchaCNPJ').on('shown.bs.modal', function ()

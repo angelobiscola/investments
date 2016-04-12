@@ -215,7 +215,7 @@
                 })
                 .fail(function(json)
                 {
-                    alert(json);
+                    alert(json.responseText);
                     btn.html(old);
                     $('#captchaCPF').modal('hide');
                 })
