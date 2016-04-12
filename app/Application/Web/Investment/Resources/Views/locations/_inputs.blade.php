@@ -19,7 +19,7 @@
 
 <div id="control">
     <div class="form-group{{ $errors->has('location.address') ? ' has-error' : '' }}">
-        {!! Form::label('Address', 'Address', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('Address', 'Endereço *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[address]', null , ['class' => 'form-control', 'id'=>'address']) !!}
@@ -33,7 +33,7 @@
 
 
     <div class="form-group{{ $errors->has('location.number') ? ' has-error' : '' }}">
-        {!! Form::label('number', 'Number', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('number', 'Número *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[number]', null , ['class' => 'form-control', 'id'=>'number']) !!}
@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('location.complement') ? ' has-error' : '' }}">
-        {!! Form::label('complement', 'Complement', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('complement', 'Complemento *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[complement]', null , ['class' => 'form-control', 'id'=>'complement']) !!}
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('location.city') ? ' has-error' : '' }}">
-        {!! Form::label('city', 'City', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('city', 'Cidade *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[city]', null , ['class' => 'form-control', 'id'=>'city']) !!}
@@ -70,7 +70,7 @@
 
 
     <div class="form-group{{ $errors->has('location.district') ? ' has-error' : '' }}">
-        {!! Form::label('district', 'District', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('district', 'Bairro *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[district]', null , ['class' => 'form-control', 'id'=>'district']) !!}
@@ -83,7 +83,7 @@
 
 
     <div class="form-group{{ $errors->has('location.state_abbr') ? ' has-error' : '' }}">
-        {!! Form::label('state_abbr', 'State_abbr', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('state_abbr', 'UF *', ['class' => 'col-md-4 control-label']) !!}
 
         <div class="col-md-6">
             {!! Form::text ('location[state_abbr]', null , ['class' => 'form-control', 'id'=>'state_abbr']) !!}
