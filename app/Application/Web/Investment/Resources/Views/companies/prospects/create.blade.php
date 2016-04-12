@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.company.prospect.index') !!}"> Prospecto </a> | Criar</div>
+                    <div class="panel-heading"><a href="{!! route('investment.company.prospect.index') !!}"> Prospectos </a> | Criar</div>
                     <div class="panel-body">
                         {!! Form::open(['route' => ['investment.company.prospect.store'], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
 

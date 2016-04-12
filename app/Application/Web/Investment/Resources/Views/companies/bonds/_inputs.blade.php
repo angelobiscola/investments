@@ -83,18 +83,18 @@
 </div>
 
 <div class="form-group{{ $errors->has('bond.mode_rate') ? ' has-error' : '' }}">
-    {!! Form::label('Mode Rate', 'Tipo Taxa *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Mode Rate', 'Taxa ao *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" name="bond[rate_mode]" id="bond[rate_mode]">
 
             @if($bond != '')
                 @if($bond->rate_mode == 1)
-                    <option name="Month" value="1" selected> Month </option>
-                    <option value="2">Years</option>
+                    <option value="1" selected> Mês </option>
+                    <option value="2">Ano</option>
                 @else
-                    <option value="1">Month</option>
-                    <option name="Years" value="2" selected> Years </option>
+                    <option value="1">Mês</option>
+                    <option value="2" selected> Ano </option>
                 @endif
             @else
                 <option value="1">Month</option>

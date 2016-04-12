@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.company.bond.index') !!}"> Título </a> | Editar </div>
+                    <div class="panel-heading"><a href="{!! route('investment.company.bond.index') !!}"> Títulos </a> | Editar </div>
                     <div class="panel-body">
                        {!! Form::model(['bond' => $bond ] , ['route' => ['investment.company.bond.update', $bond['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}

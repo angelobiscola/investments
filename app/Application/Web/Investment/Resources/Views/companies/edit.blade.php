@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><a href="{!! route('investment.company.index') !!}"> Compania </a> | Editar    <a href="{!! route('investment.company.logo.create',$company)!!}"><i class="pull-right glyphicon glyphicon-picture"></i></a></div>
+                <div class="panel-heading"><a href="{!! route('investment.home.index') !!}"> Compania </a> | Editar    <a href="{!! route('investment.company.logo.create',$company)!!}"><i class="pull-right glyphicon glyphicon-picture"></i></a></div>
                 <div class="panel-body">
 
                     {!! Form::model(['company' => $company, 'location' => $company->Location ], ['route' => ['investment.company.update', $company], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}

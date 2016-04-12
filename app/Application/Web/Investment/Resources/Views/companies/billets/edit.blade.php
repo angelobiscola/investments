@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.company.billet.index') !!}"> Boleto </a>| Editar </div>
+                    <div class="panel-heading"><a href="{!! route('investment.company.billet.index') !!}"> Boletos </a>| Editar </div>
                     <div class="panel-body">
 
                         {!! Form::model(['billet' => $billet] , ['route' => ['investment.company.billet.update', $billet], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}

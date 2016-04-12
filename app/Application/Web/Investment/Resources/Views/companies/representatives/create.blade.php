@@ -7,7 +7,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{!! route('investment.company.edit', [$id]) !!}"> Editar </a> |
+                        <a href="{!! route('investment.company.edit', [$id]) !!}"> Compania </a> |
                         Adicionar Representante
                     <div class="panel-body">
 

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.company.prospect.index') !!}"> Prospect </a> | Editar</div>
+                    <div class="panel-heading"><a href="{!! route('investment.company.prospect.index') !!}"> Prospectos </a> | Editar</div>
                     <div class="panel-body">
                         {!! Form::model(['prospect' => $prospect ], ['route' => ['investment.company.prospect.update', $prospect['id']], 'class' => 'form-horizontal', 'role' => 'form'] ) !!}
                             {{ method_field('PUT') }}
