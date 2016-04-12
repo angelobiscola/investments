@@ -20,7 +20,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.birth_date') ? ' has-error' : '' }}">
-    {!! Form::label('birth_date', 'Birth_date', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('birth_date', 'Data Nascimento *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[birth_date]', null , ['class' => 'form-control data', 'id' => 'birth_date', 'placeholder' => 'Nascimento (DDMMYYYY)']) !!}
@@ -32,7 +32,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.cpf') ? ' has-error' : '' }}">
-    {!! Form::label('cpf', 'CPF', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('cpf', 'CPF *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <div class="input-group">
@@ -50,7 +50,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.nationality') ? ' has-error' : '' }}">
-    {!! Form::label('nationality', 'Nationality', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('nationality', 'Nacionalidade *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
             {!! Form::text ('physical[nationality]', null , ['class' => 'form-control', 'placeholder' => 'Brasil']) !!}
@@ -62,7 +62,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.natural') ? ' has-error' : '' }}">
-    {!! Form::label('natural', 'Natural', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('natural', 'Natural *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[natural]', null , ['class' => 'form-control', 'placeholder' => 'Curiitba']) !!}
@@ -79,7 +79,7 @@
 <div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
 @endif
 
-    {!! Form::label('genre', 'Genre', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('genre', 'Genero *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
 
@@ -108,7 +108,7 @@
 <div class="form-group {{ $errors->has() ? ' has-error' : '' }}">
 @endif
 
-    {!! Form::label('marital_status', 'Marital_status', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('marital_status', 'Estado Civil *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         <select class="form-control" id="physical[marital_status]" name="physical[marital_status]">
@@ -136,7 +136,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.profession') ? ' has-error' : '' }}">
-    {!! Form::label('profession', 'Profession', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('profession', 'Profissão *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[profession]', null , ['class' => 'form-control']) !!}
@@ -148,7 +148,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.identity') ? ' has-error' : '' }}">
-    {!! Form::label('identity', 'Identity', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('identity', 'Identidade *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[identity]', null , ['class' => 'form-control rg']) !!}
@@ -160,7 +160,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.organ_issuer') ? ' has-error' : '' }}">
-    {!! Form::label('organ_issuer', 'Organ_issuer', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('organ_issuer', 'Orgão Expedidor *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[organ_issuer]', null , ['class' => 'form-control']) !!}
@@ -172,7 +172,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('physical.cell_phone') ? ' has-error' : '' }}">
-    {!! Form::label('cell_phone', 'Cell_phone', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('cell_phone', 'Celular *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('physical[cell_phone]', null , ['class' => 'form-control phone']) !!}

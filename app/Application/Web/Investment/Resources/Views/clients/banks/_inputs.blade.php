@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('bank.agency') ? ' has-error' : '' }}">
-    {!! Form::label('agencia', 'Numero da agencia *', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('agencia', 'Numero da agência *', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text ('bank[agency]', null , ['class' => 'form-control', 'id' => 'agency']) !!}
         @if ($errors->has('bank.agency'))

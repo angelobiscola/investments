@@ -7,11 +7,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
 
-                        IvesT: Clients
+                        Clientes
 
                         <div class="pull-right">
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">New
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Novo
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu  dropdown-menu-right">
                                     <li><a href="{!! route('investment.client.create')!!}?type=f">PF</a></li>
@@ -25,11 +25,11 @@
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
-                            <th>Code</th>
+                            <th>Id</th>
                             <th>Name</th>
                             <th>Cpf</th>
-                            <th>Created</th>
-                            <th>Updated</th>
+                            <th>Criado</th>
+                            <th>Modificado</th>
                             <th>#</th>
                             </thead>
                             <tbody>

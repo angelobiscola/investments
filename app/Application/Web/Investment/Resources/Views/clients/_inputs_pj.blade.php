@@ -104,6 +104,7 @@
                     $('#name').val(json.nome_fantasia);
                     $('#company_name').val(json.razao_social);
                     $('#cnae_principal').val(json.cnae_principal);
+                    $('#cnae_secondary').val(json.cnaes_secundario);
                     $('#phone').val(json.telefone);
                     $('#email').val(json.email);
 

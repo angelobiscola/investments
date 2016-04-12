@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Banks <a href="{!! route('investment.client.bank.create',[$id]) !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a></div>
+                    <div class="panel-heading"><a href="{!! route('investment.client.edit', [$id]) !!}"> Edit </a> | Bancos <a href="{!! route('investment.client.bank.create',[$id]) !!}"><i class="pull-right glyphicon glyphicon-plus"></i></a></div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
-                            <th>Code</th>
+                            <th>Id</th>
                             <th>Nome</th>
                             <th>Numero</th>
                             <th>Conta</th>

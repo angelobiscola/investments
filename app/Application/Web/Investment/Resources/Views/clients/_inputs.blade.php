@@ -1,7 +1,7 @@
 <input type="hidden" name="client[type]" value="{!! $type !!}">
 
 <div class="form-group{{ $errors->has('client.name') ? ' has-error' : '' }}">
-    {!! Form::label('Name', 'Name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('Name', 'Nome *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('client[name]', null  , ['class' => 'form-control', 'id'=>'name']) !!}
@@ -13,7 +13,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('client.phone') ? ' has-error' : '' }}">
-    {!! Form::label('phone', 'Phone', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('phone', 'Telefone *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('client[phone]', null , ['class' => 'form-control phone']) !!}
@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('client.email') ? ' has-error' : '' }}">
-    {!! Form::label('email', 'E-mail', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('email', 'E-mail *', ['class' => 'col-md-4 control-label']) !!}
 
     <div class="col-md-6">
         {!! Form::text ('client[email]',null , ['class' => 'form-control', 'id' => 'email']) !!}
@@ -37,10 +37,10 @@
 </div>
 
 @if(isset($client))
-    <a href="{!! route('investment.client.bank.show',$client->id)!!}">Add Bank</a>
+    <a href="{!! route('investment.client.bank.show',$client->id)!!}">Adicionar Banco</a>
 @endif
 
 
-<h4>Data Type <b>[{!! $type !!}]</b></h4>
+<h4>Tipo de Dados <b>[{!! $type !!}]</b></h4>
 @include('investment::clients._inputs_p'.$type)
 

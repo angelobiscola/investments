@@ -6,15 +6,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IvesT: Representatives <i class="pull-right glyphicon glyphicon-plus"></i></a> </div>
+                    <div class="panel-heading"><a href="{!! route('investment.client.edit', [$id]) !!}"> Cliente </a> | Representante</a> </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
-                            <th>Code</th>
-                            <th>Name</th>
+                            <th>Id</th>
+                            <th>Nome</th>
                             <th>Cpf</th>
-                            <th>Created</th>
-                            <th>Updated</th>
+                            <th>Criado</th>
+                            <th>Modificado</th>
                             <th>#</th>
                             </thead>
                             <tbody>
