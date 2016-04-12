@@ -110,7 +110,7 @@
 
 	<body>
 		<div id="bodyp">
-			<div id="logop"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="80px"></div>
+			<div id="logop"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 200px" /></div>
 			<div id="topp">
 				<div id="topp-title"> Prospecto de Emissão </div>
 				<div class="underline"><strong><em>{!! $investment->Bond->name !!} {!! $investment->Bond->Prospect->name !!} - Nota Promissória Comercial </em></strong></div>
@@ -164,7 +164,7 @@
 		<div class="page-break"></div>
 
 		<div id="bodyp">
-			<div id="logop"> <img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="80px">  </div>
+			<div id="logop"> <img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 200px" />  </div>
 			<div id="paragrafop">
 				<p>
 					As atividades desenvolvidas pela {!! $investment->Company->name !!} Investimentos são vinculadas à aquisição e desenvolvimento de participações societárias. Uma vez
@@ -219,7 +219,7 @@
 		<div class="page-break"></div>
 
 		<div id="bodyp">
-			<div id="logop"> <img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="80px">  </div>
+			<div id="logop"> <img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 200px" />  </div>
 			<div id="paragrafop">
 				<p>
 					A mediação será estabelecida a partir da Solicitação de Mediação/Arbitragem apresentada perante a Secretaria da ARBITAC. No prazo de 7 (sete dias) dias,

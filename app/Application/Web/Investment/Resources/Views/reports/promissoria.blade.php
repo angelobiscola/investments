@@ -44,7 +44,7 @@
 			}
 
 			#logo{
-				width: 14%;
+				width: 14% !important;
 				height: 80px;
 				float: left;
 				text-align: center;
@@ -165,7 +165,7 @@
 				<div id="body-border">
 					<div id="promissoria">
 						<div id="top">
-							<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="70px"> </div>
+							<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 100px" /> </div>
 							<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 							<div id="top-tree-collun">
 								<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>
@@ -232,7 +232,7 @@
 
 				<div id="promissoria">
 					<div id="top">
-						<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="70px"> </div>
+						<div id="logo"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 100px" /> </div>
 						<div id="top-two-collun"><strong> Nota Promissória </strong></div>
 						<div id="top-tree-collun">
 							<div class="title-top"><strong> Proposta : </strong>  {!! $investment->id !!} </div>

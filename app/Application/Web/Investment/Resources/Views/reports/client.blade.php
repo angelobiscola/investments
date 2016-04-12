@@ -129,7 +129,7 @@
 <body>
 <div id="body">
     <div id="top">
-        <div id="top-logo"> Logo </div>
+        <div id="top-logo"><img src="{!!  asset('logos/'. Session('company')->Logo->file_name)  !!}" height="100px" style="max-width: 200px" /></div>
         <div id="top-title"> Ficha de Cadastro do Investidor </div>
     </div>
 

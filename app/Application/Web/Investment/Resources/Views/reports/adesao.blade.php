@@ -121,7 +121,7 @@
 						<div class="linea"> CNPJ N. {!! $investment->company->present()->cnpjCompany !!} </div>
 					</div>
 				</div>
-				<div id="logo-topa"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" width="" height="80px">
+				<div id="logo-topa"><img src="{!! asset('logos/'.$investment->company->Logo->file_name) !!}" height="80px" style="max-width: 200px" />
 				</div>
 			</div>
 
