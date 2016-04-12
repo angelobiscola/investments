@@ -8,42 +8,40 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li><a href="{!! route('investment.cpr.filter')!!}?t=r&s=a">Receivable</a></li>
-        <li><a href="{!! route('investment.cpr.filter')!!}?t=p&s=a">Payable</a></li>
+        <li><a href="{!! route('investment.cpr.filter')!!}?t=r&s=a">Receber</a></li>
+        <li><a href="{!! route('investment.cpr.filter')!!}?t=p&s=a">Pagar</a></li>
     </ol>
 
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                IvesT: Cprs
+                Contas pagar/receber
             </div>
             <div class="panel-body">
                 <table class="table table-hover dataTable"  cellspacing="0" width="100%" data-order="3">
                     <thead>
                     <tr>
                         <th style="width: 30px;">Id</th>
-                        <th>Value</th>
-
-                        <th>Date Maturity</th>
-                        <th>Date Payment</th>
-                        <th>Type</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Pagamento</th>
+                        <th>Tipo</th>
                         <th>Status</th>
-                        <th>Client</th>
-                        <th>Investment</th>
-                        <th>invoice</th>
+                        <th>Cliente</th>
+                        <th>Investimento</th>
+                        <th>Fatura</th>
                         <th>#</th>
                     </tr>
                     <tfoot>
                     <tr>
                         <th></th>
-                        <th class="search">Value</th>
-
-                        <th class="search">Date Maturity</th>
-                        <th class="search">Date Payment</th>
-                        <th class="search">Type</th>
+                        <th class="search">Valor</th>
+                        <th class="search">Vencimento</th>
+                        <th class="search">Pagamento</th>
+                        <th class="search">Tipo</th>
                         <th class="search">Status</th>
-                        <th class="search">Client</th>
-                        <th class="search">Investment</th>
+                        <th class="search">Cliente</th>
+                        <th class="search">Investimento</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -80,9 +78,9 @@
 
     @if(isset($_GET['t']))
         <ol class="breadcrumb">
-            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=v">Overdue</a></li>
-            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=a">Open</a></li>
-            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=c">Consolidate</a></li>
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=v">Atrasado</a></li>
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=a">Aberto</a></li>
+            <li><a href="{!! route('investment.cpr.filter')!!}?t={!!$_GET['t']!!}&s=c">Consolidado</a></li>
         </ol>
     @endif
 
@@ -109,7 +107,7 @@
 
                     if($(this).hasClass('search'))
                     {
-                        $(this).html( '<input type="text" placeholder="Search '+title+'" size="12"/>' );
+                        $(this).html( '<input type="text" placeholder="'+title+'" size="12"/>' );
                     }
                 } );
                 // DataTable

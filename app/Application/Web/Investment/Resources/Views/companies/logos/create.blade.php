@@ -1,9 +1,11 @@
 @extends('investment::layouts.app')
 
-<link href="{!! asset('bower_components/jquery.filer/css/jquery.filer.css') !!}" type="text/css" rel="stylesheet" />
-<link href="{!! asset('bower_components/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')!!}" type="text/css" rel="stylesheet" />
+@section('css')
+    @parent
+    <link href="{!! asset('bower_components/jquery.filer/css/jquery.filer.css') !!}" type="text/css" rel="stylesheet" />
+    <link href="{!! asset('bower_components/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')!!}" type="text/css" rel="stylesheet" />
+@stop
 
-<!-- Main Content -->
 @section('content')
     <div class="container">
         <div class="row">
@@ -11,12 +13,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"> Adicionar Logo </div>
                     <div class="panel-body">
+
                        @if(is_null($logo))
                        {!! Form::open(['route' => ['investment.company.logo.upload',$id], 'class' => 'form-horizontal', 'role' => 'form','id'=> 'jquery-filer', 'files' =>true ] ) !!}
-
                             <input type="file" name="file" id="filer_input">
-
-                        {!! Form::close() !!}
+                       {!! Form::close() !!}
 
                         @else
                         <div class="jFiler-items jFiler-row">
@@ -52,7 +53,6 @@
                         </div>
                         @endif
 
-
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             $form = $('#jquery-filer');
 
             $('#filer_input').filer({
-                changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>',
+                changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Arrastar e soltar arquivos aqui</h3> <span style="display:inline-block; margin: 15px 0">ou</span></div><a class="jFiler-input-choose-btn blue">Procurar Arquivo</a></div></div>',
                 maxSize: 1,
                 extensions: ['png'],
                 disableImageResize: false,

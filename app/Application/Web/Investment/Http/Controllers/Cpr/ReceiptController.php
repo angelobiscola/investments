@@ -33,7 +33,8 @@ class ReceiptController extends BaseController
 
     public function create($id)
     {
-        return view('investment::cprs.receipts.create',compact('id'));
+        $receipt = $this->receipt->whereCprId($id)->first();
+        return view('investment::cprs.receipts.create',compact('id','receipt'));
     }
 
     public function upload($id,Request $request)
@@ -75,18 +76,25 @@ class ReceiptController extends BaseController
 
     public function edit($id)
     {
-        dd('edit');
     }
 
     public function update($id)
     {
-        dd('update');
     }
-
 
     public function destroy($id)
     {
-       $this->receipt->find($id)->forceDelete();
+       try
+       {
+           $file  = $this->receipt->find($id);
+           \File::delete(public_path($file->src.'/'.$file->file_name));
+           $file->forceDelete();
+           return back()->with('status','Excluido');
+       }
+       catch (\Exception $e)
+       {
+           return back()->with('error','Error');
+       }
     }
 }
 

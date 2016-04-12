@@ -76,8 +76,17 @@ class LogoController extends BaseController
 
     public function destroy($id)
     {
-       $this->logo->find($id)->forceDelete();
-       return back()->with('status','Excluido');
+        try
+        {
+            $file  = $this->logo->find($id);
+            \File::delete(public_path($file->src.'/'.$file->file_name));
+            $file->forceDelete();
+            return back()->with('status','Excluido');
+        }
+        catch (\Exception $e)
+        {
+            return back()->with('error','Error');
+        }
     }
 }
 
