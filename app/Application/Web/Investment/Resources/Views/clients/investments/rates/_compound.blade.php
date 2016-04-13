@@ -1,9 +1,9 @@
 <div class="jumbotron">
-    Compound
+    Composto
     <table class="table table-hover">
         <thead>
-        <th>Value</th>
-        <th>Total Rate</th>
+        <th>Valor</th>
+        <th>Total Taxa</th>
         </thead>
         <tbody>
         <tr>

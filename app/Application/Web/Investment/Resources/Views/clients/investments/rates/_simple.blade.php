@@ -1,13 +1,13 @@
-<a href="#" id="show">Simulation</a>
+<a href="#" id="show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simulação</a>
 
 <div class="jumbotron" id="simple">
 
-    Simple
+    Simples
     <table class="table table-hover">
         <thead>
-        <th>Value</th>
-        <th>Date</th>
-        <th>Number Parcel</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Numero da Parcela</th>
         <th>Dias</th>
         <th>Base de Calculo</th>
         </thead>
@@ -25,20 +25,20 @@
         <th>Total {!! number_format($simple['total'],2 ,'.',',') !!}</th>
         <th></th>
         <th></th>
-        <th>Rate {!! $simple['rate'] !!}</th>
-        <th>Interest {!! number_format($simple['interest'],2 ,'.',',')  !!}  {!! $simple['percent']  !!}</th>
+        <th>Taxa {!! $simple['rate'] !!}</th>
+        <th>Rendimento {!! number_format($simple['interest'],2 ,'.',',')  !!}  {!! $simple['percent']  !!}</th>
     </table>
 
 
     @if(isset($compound))
 
-    Compound
+    Composto
 
     <table class="table table-hover">
         <thead>
         <th>Valor</th>
         <th>Data</th>
-        <th>Number Parcel</th>
+        <th>Numero da Parcela</th>
         <th>Dias</th>
         <th>Base de Calculo</th>
         <th>Rendimento</th>
@@ -59,8 +59,8 @@
         <th>Total {!! number_format($compound['total'],2 ,'.',',')  !!}</th>
         <th></th>
         <th></th>
-        <th>Rate {!! $compound['rate'] !!}</th>
-        <th>Interest {!! number_format($compound['interest'],2 ,'.',',') !!}</th>
+        <th>Taxa {!! $compound['rate'] !!}</th>
+        <th> Rendimento {!! number_format($compound['interest'],2 ,'.',',') !!}</th>
     </table>
 
     @endif

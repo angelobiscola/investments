@@ -33,7 +33,7 @@
                                     <td>{!! $investment->present()->updatedAt !!}</td>
                                     <td>
                                         <a href="{!! route('investment.client.investment.show',$investment) !!}" ><i class="glyphicon glyphicon-eye-open"></i></a>
-                                        <a href="" ><i class="glyphicon glyphicon-trash"></i></a>
+                                        <!-- a href="" ><i class="glyphicon glyphicon-trash"></i></a -->
                                     </td>
                                 </tr>
                             @endforeach

@@ -5,18 +5,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{!! route('investment.client.investments', [$investment->client_id]) !!}"> Investmentos </a> | Detalhes do Investimento {!! $investment->Bond->name !!} </div>
+                    <div class="panel-heading"><a href="{!! \URL::previous() !!}">  Investimentos </a> | Detalhes do Investimento {!! $investment->Bond->name !!} </div>
                         <div class="panel-body">
 
                             <table class="table table-hover">
                                 <thead>
-                                <th>Company|Person</th>
-                                <th>Value</th>
-                                <th>Date Payment</th>
-                                <th>Mode</th>
+                                <th>Compania|Pessoa</th>
+                                <th>Valor</th>
+                                <th>Data Pagamento</th>
+                                <th>Modalidade</th>
                                 <th>Status</th>
-                                <th>Created</th>
-                                <th>Updated</th>
+                                <th>Criado</th>
+                                <th>Modificado</th>
                                 <th>#</th>
                                 </thead>
                                 <tbody>
@@ -43,14 +43,15 @@
 
                     <form class="form-horizontal" role="form" method="POST" action="{!! route('investment.client.investment.confirm',$investment) !!}">
 
-                            Data Invoice
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dados da Fatura
+
                             <div class="form-group{{ $errors->has('mode') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Payment mode</label>
+                                <label class="col-md-4 control-label">Modo de Pagamento</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" name="investment[mode]">
-                                        <option value="0">Simple</option>
-                                        <option value="1">Compound</option>
+                                        <option value="0">Simples </option>
+                                        <option value="1">Composto</option>
                                     </select>
                                     @if ($errors->has('mode'))
                                         <span class="help-block"><strong>{{ $errors->first('mode') }}</strong></span>
@@ -60,7 +61,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('bank') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Bank</label>
+                                <label class="col-md-4 control-label">Banco</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" name="bank">
@@ -78,7 +79,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('date_payment') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Dead line</label>
+                                <label class="col-md-4 control-label">Vencimento</label>
 
                                 <div class="col-md-6">
                                     {!! Form::date('investment[date_payment]', $investment->date_payment, ['class' => 'form-control']) !!}
@@ -91,7 +92,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-check"></i>Confirmed
+                                        <i class="fa fa-btn fa-check"></i>Comfirmar
                                     </button>
                                 </div>
                             </div>
