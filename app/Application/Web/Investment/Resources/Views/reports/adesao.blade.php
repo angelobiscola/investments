@@ -59,7 +59,7 @@
 				width: 30%;
 				height: 120px;
 				float: right;
-				text-align: center;
+				text-align: right;
 				line-height: 120px;
 				color: gray;
 			}
