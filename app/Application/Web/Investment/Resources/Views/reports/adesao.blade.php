@@ -67,12 +67,12 @@
 			#contenta{
 				width: 80%;
 				margin-left: 10%;
-				margin-top: 20px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 				height: auto;
 			}
 
 			#text-contenta{
+
 				font-family: calibri;
 				text-align: justify;
 			}
@@ -132,13 +132,13 @@
 					pretendendo assumir a condição de Cotista da 1a. Emissão de Nota Promissória da investida acima indicada, vem, pelo presente instrumento, manifestar
 					expressamente a adesão ao Prospecto da citada emissão, declarando nesta oportunidade que:
 					<ol>
-						{{--
-						<li>
-							Está ciente de que a emissão é gerida através de mandato por {!! $investment->Company->Representative->Client->name !!} administrador de empresas,
-							inscrito perante o CRA/PR sob o n. 1356, portador do CPF/MF sob n.º {!! $investment->Company->Representative->Client->Physical->present()->cpfPhysical !!},
-							e juridicamente estruturada pela A. AUGUSTO GRELLERT ADVOGADOS ASSOCIADOS, inscrita no CNPJ sob n.º 06.912.751/0001-60;
-						</li>
-						--}}
+						@foreach($investment->Company->Representatives as  $r)
+							<li>
+								Está ciente de que a emissão é gerida através de mandato por {!! $r->Client->name !!} administrador de empresas,
+								inscrito perante o CRA/PR sob o n. 1356, portador do CPF/MF sob n.º {!! $r->Client->Physical->cpf !!} ,
+								e juridicamente estruturada pela A. AUGUSTO GRELLERT ADVOGADOS ASSOCIADOS, inscrita no CNPJ sob n.º 06.912.751/0001-60;
+							</li>
+						@endforeach
 						<li>
 							Recebeu, antes de assinado o presente Termo de Adesão, uma cópia do Prospecto e da Ficha Cadastral, bem como da Nota Promissória, nos termos da legislação
 							vigente. Conhece e reconhece como válidas e obrigatórias as suas normas, aderindo formalmente, nesse ato, as suas disposições, que assumem a condição jurídica
@@ -171,7 +171,7 @@
 				<div id="dataa"> Curitiba {!! dateLocate() !!} </div>
 				<div id="assinaturaa">
 					<div class="assinaturaa">
-
+						@foreach($investment->Company->Representatives as  $r)
 							<div class="line-footera">---------------------------------------</div>
 							<div class="id-footera">
 								{!! $investment->Company->name  !!}
@@ -179,7 +179,7 @@
 							<div class="id-footera">
 								CNPJ: {!! $investment->Company->present()->cnpjCompany !!}
 							</div>
-
+						@endforeach
 					</div>
 
 					<div class="assinaturaa">
