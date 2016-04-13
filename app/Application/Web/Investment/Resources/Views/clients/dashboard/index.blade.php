@@ -7,11 +7,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
 
-                        IvesT: Dashboard : <b>{!! $client->present()->legalOrPhysical(true)  !!}</b>
+                        Dashboard : <b>{!! $client->present()->legalOrPhysical(true)  !!}</b>
 
                         <div class="pull-right">
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Action
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Ação
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu  dropdown-menu-right">
 
@@ -27,9 +27,9 @@
 
                         <table class="table table-hover">
                             <thead>
-                            <th>Value</th>
-                            <th>Date Payment</th>
-                            <th>Mode</th>
+                            <th>Valor</th>
+                            <th>Data Pagamento</th>
+                            <th>Modalidade</th>
                             <th>Status</th>
                             <th>#</th>
                             </thead>
@@ -58,12 +58,12 @@
                         <table class="table table-hover dataTable"  cellspacing="0" width="100%" data-order="3">
                             <thead>
                             <tr>
-                                <th>Value</th>
-                                <th>Description</th>
-                                <th>Date Maturity</th>
+                                <th>Valor</th>
+                                <th>Descrição</th>
+                                <th>Vencimento</th>
                                 <th>Status</th>
-                                <th>Investment</th>
-                                <th>invoice</th>
+                                <th>Investimento</th>
+                                <th>Fatura</th>
                             </tr>
                             </thead>
                             <tbody>
