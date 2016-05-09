@@ -56,6 +56,13 @@ class InvestmentServiceProvider extends ServiceProvider
 
             });
 
+
+            $router->group(['namespace'=> 'Chat', 'prefix' => 'chat', 'as' => 'chat.','middleware' => ['auth:collaborator']], function($router)
+            {
+                require app_path($this->path.'chat.php');
+
+            });
+
         });
     }
 }

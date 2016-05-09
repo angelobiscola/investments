@@ -182,6 +182,8 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
 
 
 
@@ -237,8 +239,12 @@ return [
         'PDF'       => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'Image'     => Barryvdh\Snappy\Facades\SnappyImage::class,
 
+
         'Utils'     => JansenFelipe\Utils\Utils::class,
-        'Mask'      => App\Support\Helper\Masks::class
+        'Mask'      => App\Support\Helper\Masks::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'Redis'     => Illuminate\Support\Facades\Redis::class,
+        'LRedis'    => Illuminate\Support\Facades\Redis::class
     ],
 
 ];

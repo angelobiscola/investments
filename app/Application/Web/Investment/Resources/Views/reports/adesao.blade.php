@@ -17,7 +17,7 @@
 				width: 792px;
 				height: 1122px !important;
 				margin-top: 3%;
-				border: 1px solid black;
+				#border: 1px solid black;
 			}
 
 			#topa{

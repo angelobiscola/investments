@@ -40,13 +40,13 @@ class CprController extends BaseController
 
             if($cpr->status == 'c')
             {
-                throw new \Exception('is Consolidate');
+                throw new \Exception('Já foi consolidado ['.$cpr->updated_at .']');
             }
 
             $job = (new CreateOperation($cpr))->delay(5);
             $this->dispatch($job);
 
-            return back()->with('status', 'Consolidate OK, Processing....');
+            return back()->with('status', 'Consolidado OK, Processando....');
         }
         catch(\Exception $e)
         {

@@ -43,7 +43,6 @@ class Client extends Model
         return $this->hasOne(Physical::class);
     }
 
-
     public function Investments()
     {
         return $this->hasMany(Investment::class);

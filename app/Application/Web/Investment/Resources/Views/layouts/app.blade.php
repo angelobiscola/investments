@@ -51,6 +51,7 @@
                 @if (!Auth::guard('collaborator')->guest())
                     <li><a href="{{ url('/investment/client') }}">Clientes</a></li>
                     <li><a href="{{ url('/investment/cpr') }}">CPR</a></li>
+                    <li><a href="{{ url('/investment/chat') }}">Chat {beta}</a></li>
                 @endif
             </ul>
 

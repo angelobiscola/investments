@@ -17,7 +17,7 @@
 				width: 792px;
 				height: 1122px;
 				margin-top: 3%;
-				border: 1px solid black;
+				#border: 1px solid black;
 			}
 
 			#logop{
@@ -97,7 +97,7 @@
 				height: 100px;
 				line-height: 100px;
 				margin-left: 10%;
-				border: 1px solid black;
+				#border: 1px solid black;
 				margin-top: 10px;
 			}
 

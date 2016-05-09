@@ -4,11 +4,13 @@ namespace App\Application\Web\Investment\Http\Controllers\Company;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Company\Logo;
 use Illuminate\Http\Request;
+use Image;
 
 class LogoController extends BaseController
 {
     protected $logo;
     protected $path = 'logos';
+    protected $size = [150,150];
 
     public function __construct(Logo $logo)
     {
@@ -50,7 +52,13 @@ class LogoController extends BaseController
             if ($file->isValid())
             {
                 $fileName = $file->getFilename().'.'.$file->getClientOriginalExtension();
-                $file->move($this->path,$fileName);
+
+                $img = Image::make($file->getRealPath());
+
+                $img->resize($this->size[0], $this->size[1], function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($this->path.'/'.$fileName);
+
                 $this->store(['file_name' => $fileName,'src' =>$this->path, 'company_id' => $id]);
             }
             else

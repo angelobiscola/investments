@@ -4,6 +4,7 @@ namespace App\Application\Web\Investment\Http\Controllers\Cpr;
 use App\Application\Web\Investment\Http\Controllers\BaseController;
 use App\Domains\Cpr\Invoice;
 use Miqueiasdesouza\Boleto\Boleto;
+use \Eduardokum\LaravelBoleto\Boleto\Pessoa as Pessoa;
 use Illuminate\Http\Request;
 
 class InvoiceController extends BaseController
@@ -15,7 +16,7 @@ class InvoiceController extends BaseController
     {
         parent::__construct();
         $this->invoice = $invoice;
-        $this->boleto = $boleto;
+        $this->boleto =  $boleto;
     }
 
     public function getPrint($id)
@@ -25,33 +26,42 @@ class InvoiceController extends BaseController
 
     private function generate($invoice)
     {
-        $this->setSacado($invoice->Client);
-        $this->setCedente($invoice->Company,$invoice->Billet);
 
-        $this->boleto->banco($invoice->Billet->Template->name, array(
+        $boletoArray = [
+            'logo' => asset('logos/'.$invoice->Investment->company->Logo->file_name) , // Logo da empresa
+            'dataVencimento' => \Carbon\Carbon::parse($invoice->date_maturity), //Data de emissão do Boleto
+            'valor' => $invoice->value,
+            'multa' => 0, // porcento
+            'juros' => 0, // porcento ao mes
+            'juros_apos' =>  0, // juros e multa após
+            'diasProtesto' => false, // protestar após, se for necessário
+            'numero' => $invoice->id,
+            'numeroDocumento' => $invoice->id,
+            'pagador' => $this->setSacado($invoice->Client), // Objeto PessoaContract
+            'beneficiario' => $this->setCedente($invoice->Company), // Objeto PessoaContract
+            'agencia' => $invoice->Billet->agency, // BB, Bradesco, CEF, HSBC, Itáu
+            'agenciaDv' => $invoice->Billet->agency_dv, // se possuir
+            'conta' => $invoice->Billet->account, // BB, Bradesco, CEF, HSBC, Itáu, Santander
+            'contaDv' => $invoice->Billet->account_dv, // Bradesco, HSBC, Itáu
+            'carteira' => $invoice->Billet->wallet, // BB, Bradesco, CEF, HSBC, Itáu, Santander
+            'convenio' => 9999999, // BB
+            'variacaoCarteira' => $invoice->Billet->wallet, // BB
+            'range' => 99999, // HSBC
+            'codigoCliente' => $invoice->Client->id, // Bradesco, CEF, Santander
+            'ios' => 0, // Santander
 
-            'valor_boleto'          => $invoice->present()->maskValue, // Nosso numero sem o DV - REGRA: Máximo de 11 caracteres!
-            'nosso_numero'          => $invoice->id, //Num do pedido ou do documento = Nosso numero
-            'numero_documento'      => $invoice->investment_id, //// Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-            'data_vencimento'       => \Carbon\Carbon::parse($invoice->date_maturity)->format('d/m/Y'), //Data de emissão do Boleto
-            'data_documento'        =>  date('d/m/Y'), //Data de processamento do boleto (opcional)
-            'data_processamento'    =>  date('d/m/Y'), //Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
-            'quantidade'            =>  "001",
-            'valor_unitario'        =>  $invoice->present()->maskValue,
-            'aceite'                =>  "",
-            'especie'               =>  "R$",
-            'especie_doc'           =>  "DS",
+            'descricaoDemonstrativo' => ["Ref. ao Investimento: ".$invoice->Investment->Bond->name.", Codigo:".$invoice->investment_id,
+                                          $invoice->Investment->Company->company_name ." - http://www.alavancabrasil.com.br",
+                                         "Em caso de dúvidas entre em contato conosco: ".$invoice->Investment->Company->email,
+                                        ], // máximo de 5
+            
+            'instrucoes' =>  ['"Não receber após o vencimento"', ''], // máximo de 5
+            'aceite' => 1,
+            'especieDoc' => 'DM',
+        ];
 
-            'demonstrativo1'        =>  "Referente ao Investimento: ".$invoice->Investment->Bond->name,", Codigo :".$invoice->investment_id,
-            'demonstrativo3'        =>  $invoice->Investment->Company->company_name ." - http://www.seusite.com.br",
-            'instrucoes1'           =>  "",
-            'instrucoes2'           =>  "Não receber após o vencimento",
-            'instrucoes3'           =>  "Em caso de dúvidas entre em contato conosco: ".$invoice->Investment->Company->email,
-
-
-
-        ));
-        return $this->boleto->pdf();
+        $boleto = new \Eduardokum\LaravelBoleto\Boleto\Banco\Bradesco($boletoArray);
+        return $boleto->renderHTML();
     }
 
     private function setSacado($client){
@@ -61,36 +71,34 @@ class InvoiceController extends BaseController
             throw new \Exception;
         }
 
-        $this->boleto->sacado(array(
-                            'sacado'    => $client->name,
-                            'endereco1' => $client->Location->address.' '.$client->Location->number,
-                            'endereco2' => $client->Location->city.' - '.$client->Location->state_abbr.' - '.$client->Location->zip_code
-        ));
+        $sacado = new Pessoa([
+                'nome' => $client->name,
+                'endereco' => $client->Location->address.' '.$client->Location->number,
+                'cep' => $client->Location->zip_code,
+                'uf' => $client->Location->state_abbr,
+                'cidade' => $client->Location->city,
+                'documento' => $client->present()->legalOrPhysical(),
+        ]);
+        return $sacado;
     }
 
-    private function setCedente($cedente,$billet)
+    private function setCedente($cedente)
     {
         if(!$cedente)
         {
             throw new \Exception;
         }
 
-        $this->boleto->cedente([
+        $cedente = new Pessoa([
+            'nome' => $cedente->company_name,
+            'endereco' => $cedente->Location->address.' '.$cedente->Location->number,
+            'cep' => $cedente->Location->zip_code,
+            'uf' => $cedente->Location->state_abbr,
+            'cidade' => $cedente->Location->city,
+            'documento' => $cedente->cnpj,
+        ]);
 
-            'agencia'           => $billet->agency,     //Num da agencia, sem digito
-            'agencia_dv'        => $billet->agency_dv,  //Digito do Num da agencia
-            'conta'             => $billet->account,    //Num da conta, sem digito
-            'conta_dv'          => $billet->account_dv,
-            'conta_cedente'     => $billet->account,    //ContaCedente do Cliente, sem digito (Somente Números)
-            'conta_cedente_dv'  => $billet->account_dv, // Digito da ContaCedente do Cliente
-            'carteira'          => $billet->wallet,     // Código da Carteira: pode ser 06 ou 03
-
-
-            'cpf_cnpj'          => $cedente->cnpj,
-            'endereco'          => $cedente->Location->address.' '.$cedente->Location->number,
-            'cidade_uf'         => $cedente->Location->city.' - '.$cedente->Location->state_abbr.' - '.$cedente->Location->zip_code,
-            'cedente'           => $cedente->company_name
-            ]);
+        return $cedente;
     }
 }
 
