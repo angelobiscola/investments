@@ -11,7 +11,7 @@ class Bond extends Model
 {
     use SoftDeletes,PresentableTrait;
 
-    protected $fillable  = ['name','description','rate','rate_mode', 'total', 'quota','opportunity','active','prospect_id','company_id', 'user_id'];
+    protected $fillable  = ['name','description','rate','rate_mode', 'total', 'quota','opportunity','active','prospect_id','company_id', 'user_id','ir'];
     protected $dates     = ['deleted_at'];
     protected $presenter = BondPresenter::class;
 

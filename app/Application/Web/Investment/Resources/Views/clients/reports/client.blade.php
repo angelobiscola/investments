@@ -137,8 +137,8 @@
 
     @if($client->type == 'f')
 
-        @include('investment::reports._representative_date', ['client' => $client, 'investment' => 'Investidor'])
-        @include('investment::reports._bank', ['client' => $client])
+        @include('investment::clients.reports._representative_date', ['client' => $client, 'investment' => 'Investidor'])
+        @include('investment::clients.reports._bank', ['client' => $client])
 
     @else
 

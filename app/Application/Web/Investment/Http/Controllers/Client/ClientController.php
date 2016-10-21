@@ -51,7 +51,7 @@ class ClientController extends BaseController
     public function show($id)
     {
         $client = $this->client->find($id);
-        return view('investment::reports.client',compact('client'));
+        return view('investment::clients.reports.client',compact('client'));
     }
 
     public function edit($id)

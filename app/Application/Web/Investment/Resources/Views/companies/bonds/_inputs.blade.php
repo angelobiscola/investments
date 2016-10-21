@@ -97,14 +97,26 @@
                     <option value="2" selected> Ano </option>
                 @endif
             @else
-                <option value="1">Month</option>
-                <option value="2">Years</option>
+                <option value="1">Mês</option>
+                <option value="2">Ano</option>
             @endif
 
         </select>
 
         @if ($errors->has('bond.mode_rate'))
             <span class="help-block"><strong>{{ $errors->first('bond.mode_rate') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('bond.ir') ? ' has-error' : '' }}">
+    {!! Form::label('IR', 'Imposto de Renda *', ['class' => 'col-md-4 control-label']) !!}
+
+    <div class="col-md-6">
+        {!! Form::text ('bond[ir]', null , ['class' => 'form-control']) !!}
+
+        @if ($errors->has('bond.ir'))
+            <span class="help-block"><strong>{{ $errors->first('bond.ir') }}</strong></span>
         @endif
     </div>
 </div>

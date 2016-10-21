@@ -183,9 +183,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
-
-
+        JasperPHP\JasperPHPServiceProvider::class,
 
     ],
 
@@ -244,7 +242,8 @@ return [
         'Mask'      => App\Support\Helper\Masks::class,
         'Image'     => Intervention\Image\Facades\Image::class,
         'Redis'     => Illuminate\Support\Facades\Redis::class,
-        'LRedis'    => Illuminate\Support\Facades\Redis::class
+        'LRedis'    => Illuminate\Support\Facades\Redis::class,
+
     ],
 
 ];

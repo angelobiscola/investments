@@ -41,8 +41,8 @@ class InvestmentController extends BaseController
         $investment = $this->investment->find($id);
         $billets    =$this->getCompany()->Billets;
 
-        $s = jurosSimples($investment->value,$investment->Bond->rate,360,$investment->date_payment);
-        $c = jurosComposto($investment->value,$investment->Bond->rate,360,$investment->date_payment);
+        $s = jurosSimples($investment->value,$investment->Bond->rate,360,$investment->date_payment,$investment->Bond->ir);
+        $c = jurosComposto($investment->value,$investment->Bond->rate,360,$investment->date_payment,$investment->Bond->ir);
 
         return view('investment::clients.investments.show',compact('investment','billets','s', 'c'));
     }

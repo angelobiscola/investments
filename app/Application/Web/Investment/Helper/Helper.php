@@ -2,7 +2,7 @@
 
 if (! function_exists('jurosSimples')) {
 
-    function jurosSimples($value, $rate, $days, $date)
+    function jurosSimples($value, $rate, $days, $date,$ir)
     {
         $carbon = new \Carbon\Carbon();
 
@@ -43,7 +43,10 @@ if (! function_exists('jurosSimples')) {
         $total    = ($total - ($valueParcels*2)) + ($firstParcel+$lastParcel);
         $interest = $total - $value;
 
-        return ['total' => $total, 'value_parcels' => $valueParcels, 'interest' =>$interest,'rate'=> $rate*100, 'parcels' =>$parcels, 'details' => $details, 'percent' => ''];
+        $ir = $interest * ($ir/100);
+        $interest -= $ir;
+
+        return ['total' => $total, 'value_parcels' => $valueParcels, 'interest' =>$interest,'rate'=> $rate*100, 'parcels' =>$parcels, 'details' => $details, 'percent' => '','ir' => $ir];
     }
 }
 
@@ -51,7 +54,7 @@ if (! function_exists('jurosSimples')) {
 
 if (! function_exists('jurosComposto')) {
 
-    function jurosComposto($value,$rate,$days,$date)
+    function jurosComposto($value,$rate,$days,$date,$ir)
     {
         $carbon  = new \Carbon\Carbon();
         $date    = $carbon->parse($date)->addDay(1);
@@ -78,7 +81,10 @@ if (! function_exists('jurosComposto')) {
         $lastParcel    = ($total * $daily_rate) * $diffLastDate;
         //$details[] = ['date' => $lastDate->toDateString(), 'value' =>$lastParcel, 'diff' => $lastDate->diffInDays($oldDate),'juros' => 123, 'calc' => $diffLastDate];
 
-        return ['total' => $total,'value'=> $value, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>$carbon->parse($oldDate)->addDay($days)->toDateString(),'details' => $details];
+        $ir = $interest * ($ir/100);
+        $interest -= $ir;
+
+        return ['total' => $total,'value'=> $value, 'interest' =>$interest,'rate'=> $rate*100, 'date' =>$carbon->parse($oldDate)->addDay($days)->toDateString(),'details' => $details, 'ir' => $ir];
     }
 }
 

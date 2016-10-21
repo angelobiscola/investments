@@ -21,7 +21,7 @@ class BaseController extends Controller
 
      public function getCompany()
      {
-        return $this->company;
+         return $this->company;
      }
 }
 

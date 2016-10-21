@@ -19,8 +19,8 @@ class StartTableSeeder extends Seeder
      */
     public function run()
     {
-        Admin::truncate();
-        Collaborator::truncate();
+        //Admin::truncate();
+        //Collaborator::truncate();
         //Company::truncate();
         //Template::truncate();
         //Prospect::truncate();
@@ -33,9 +33,13 @@ class StartTableSeeder extends Seeder
 
         Template::create(['name' => 'santander'])->create(['name' => 'bradesco']);
 
+
+
         $c1 = Company::create([ 'name' => 'Company 1','company_name' => 'Company 1', 'email' => 'Company1@', 'cnpj' => 01]);
 
         $c1->Location()->save(factory(\App\Domains\Location\Location::class)->make());
+
+        /*
         $c1->Billets()->create(['name' => 'Santander','agency' => 8080,'agency_dv' => 1,'account' => 1010,'account_dv' => 1, 'wallet' => 03, 'contract' => 1234,'identification' => 0,'user_id' => 1,'template_id' =>1]);
         $c1->Prospects()->create(['name' => 'Commercial Paper', 'user_id' => 1]);
         $c1->Bonds()->create(
@@ -64,6 +68,7 @@ class StartTableSeeder extends Seeder
 
             });
 
+        */
 
 
 

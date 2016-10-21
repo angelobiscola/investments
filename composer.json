@@ -22,7 +22,10 @@
         "pda/pheanstalk": "^3.1",
         "eduardokum/laravel-boleto": "^0.3.0",
         "intervention/image": "^2.3",
-        "predis/predis": "^1.0"
+        "predis/predis": "^1.0",
+        "cossou/jasperphp": "dev-master",
+        "bielsystems/boletophp": "dev-master",
+        "jotjunior/boletophp-zf2": "dev-master"
 
     },
     "require-dev": {

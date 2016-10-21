@@ -29,6 +29,7 @@ class BondRequest extends Request
             'bond.rate'             =>  'required'         ,
             'bond.rate_mode'        =>  'required'         ,
             'bond.total'            =>  'required'         ,
+            'bond.ir'               =>  'required'         ,
             'bond.quota'            =>  'required|integer' ,
             'bond.opportunity'      =>  'required|date'    ,
         ];

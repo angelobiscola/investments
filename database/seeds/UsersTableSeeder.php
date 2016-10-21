@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        //User::truncate();
         User::create(['first_name' => 'User', 'last_name' =>'Test', 'email' => 'user@user.com', 'password' => '$2y$10$aed.8U8IDT89uztJw2abLuVOKYfGff06jKOAcvIjwJEky/a8wlV.W','player' => true]);
 
 

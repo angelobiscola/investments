@@ -52,7 +52,19 @@ class BondController extends BaseController
 
     public function available($id)
     {
-        $bonds = $this->bond->whereCompanyId($this->getCompany()->id)->get();
+        $date = date("Y/m/d");
+        $bonds = $this->bond->whereCompanyId($this->getCompany()->id)->where('opportunity','>=',$date)->get();
+
+
+        $bonds = $bonds->filter(function($bond)
+        {
+
+           dd($bond);
+
+        });
+
+
+
         return view('investment::companies.bonds.available',compact('bonds', 'id'));
     }
 
